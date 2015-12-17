@@ -3849,7 +3849,7 @@ class Formulario {
 	    			}
 	    			$tab ++;
 	    			 
-	    			// Aplica atributos globales al control
+	    			// Aplica atributos globales al control select
 	    			$atributos = array_merge ( $atributos, $atributosGlobales );
 	    			echo $this->miFormulario->campoCuadroLista ( $atributos );
 	    			// --------------- FIN CONTROL : Select --------------------------------------------------
