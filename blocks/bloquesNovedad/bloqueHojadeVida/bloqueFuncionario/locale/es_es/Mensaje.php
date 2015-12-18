@@ -1,8 +1,28 @@
 <?php
 $this->idioma["bloqueContenidoBusqueda"]="Busqueda Aprobación";
 
-$this->idioma["novedadesBusqueda"]='FUNCIONARIOS APROBADOS';
+$this->idioma["novedadesBusqueda"]='REGISTROS PERSONAS NATURALES';
 $this->idioma["nombresBusqueda"]="Búsqueda para Registro";
+
+$this->idioma["novedadesOpcionesRegistro"]='OPCIONES DE REGISTRO DEL FUNCIONARIO';
+
+$this->idioma["funcionarioDocumentoBusqueda"]="Identificación";
+$this->idioma["funcionarioDocumentoBusquedaTitulo"]="Identificación del Funcionario Seleccionado";
+$this->idioma["funcionarioNombre"]="Nombre";
+$this->idioma["funcionarioNombreTitulo"]="Nombre del Funcionario Seleccionado";
+$this->idioma["funcionarioApellido"]="Apellido";
+$this->idioma["funcionarioApellidoTitulo"]="Apellido del Funcionario Seleccionado";
+
+$this->idioma["funcionarioCantidadRegistroSuperior"]="N° Registros Educación Superior";
+$this->idioma["funcionarioCantidadRegistroSuperiorTitulo"]="Digite la cantidad de Registros de Educación Superior";
+$this->idioma["funcionarioCantidadRegistroInformal"]="N° Registros Cursos No Formales";
+$this->idioma["funcionarioCantidadRegistroInformalTitulo"]="Digite la cantidad de Registros de Cursos No Formales";
+$this->idioma["funcionarioCantidadRegistroIdioma"]="N° Registros Idiomas";
+$this->idioma["funcionarioCantidadRegistroIdiomaTitulo"]="Digite la cantidad de Registros de Idiomas";
+$this->idioma["funcionarioCantidadRegistroExperiencia"]="N° Registros Experiencia Laboral";
+$this->idioma["funcionarioCantidadRegistroExperienciaTitulo"]="Digite la cantidad de Registros de Experiencia Laboral";
+$this->idioma["funcionarioCantidadRegistroReferencia"]="N° Registros de Referencias";
+$this->idioma["funcionarioCantidadRegistroReferenciaTitulo"]="Digite la cantidad de Registros de Referencias Personales y Profesionales";
 
 
 
@@ -274,6 +294,8 @@ $this->idioma["funcionarioSoporteReferenciaTitulo"]="Adjunte Soporte de la Refer
 
 $this->idioma["botonGuardar"]="Guardar Cambios";
 
+$this->idioma["botonActivarRegistro"]="Seleccionar";
+
 $this->idioma["personaCarrera"]="Carrera";
 $this->idioma["botonEnviar"]="Enviar";
 
@@ -283,6 +305,6 @@ $this->idioma["fechaRegistroConsulta"]="Fecha de Creación";
 $this->idioma["fechaCreacionConsulta"]="Fecha de Creación";
 $this->idioma["usuarioNombre"]="Nombre";
 $this->idioma["usuarioApellido"]="Apellido";
-$this->idioma["botonRegistrar"]="Registrar";
+$this->idioma["botonRegistrar"]="Acceso Registro";
 
 ?>
