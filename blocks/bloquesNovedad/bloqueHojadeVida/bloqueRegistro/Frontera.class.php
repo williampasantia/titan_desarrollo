@@ -43,15 +43,41 @@ class Frontera {
 		//echo "prueba2";
 
 
-		//var_dump($_REQUEST);
+		//var_dump($_REQUEST['opcion']);
 
 		
 		// Como se tiene un solo formulario no es necesario un switch para cargarlo:
 		$this->ruta = $this->miConfigurador->getVariableConfiguracion ( "rutaBloque" );
+	    /*
         if(isset($_REQUEST['opcion'])){
-			include_once ($this->ruta . "/formulario/muestra.php");
+			include_once ($this->ruta . "/formulario/registroFuncionario.php");
 		}else{
-			include_once ($this->ruta . "/formulario/form.php");
+			include_once ($this->ruta . "/formulario/registroBusqueda.php");
+		}*/
+		
+		if (isset($_REQUEST['opcion'])) {
+		
+			switch ($_REQUEST['opcion']) {
+		
+				case "mensaje":
+					include_once($this->ruta . "/formulario/mensaje.php");
+					break;
+		
+				case "consultar":
+					include_once($this->ruta . "/formulario/consultarFuncionario.php");
+					break;
+		
+				case "registrar":
+					include_once($this->ruta . "/formulario/registroFuncionario.php");
+					break;
+		
+				case "modificar":
+					include_once($this->ruta . "/formulario/modificarFuncionario.php");
+					break;
+			}
+		} else {
+			$_REQUEST['opcion'] = "buscarAprobado";
+			include_once($this->ruta . "/formulario/registroBusqueda.php");
 		}
 	}
 }
