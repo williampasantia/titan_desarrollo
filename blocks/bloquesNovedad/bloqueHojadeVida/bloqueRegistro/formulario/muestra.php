@@ -55,7 +55,7 @@ class Formulario {
 
 		//var_dump($primerRecursoDB);
 		//exit;
-
+		
 		// -------------------------------------------------------------------------------------------------
 
 		// ---------------- SECCION: Parámetros Generales del Formulario ----------------------------------
@@ -187,7 +187,7 @@ class Formulario {
 		}
 		$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
 		$atributos ['deshabilitado'] = false;
-		$atributos ['tamanno'] = 50;
+		$atributos ['tamanno'] = 40;
 		$atributos ['maximoTamanno'] = '';
 		$tab ++;
 		
