@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesNovedad\bloqueHojadeVida\bloqueRegistro\formulario;
+namespace bloquesNovedad\bloqueHojadeVida\bloqueFuncionario\formulario;
 
 
 

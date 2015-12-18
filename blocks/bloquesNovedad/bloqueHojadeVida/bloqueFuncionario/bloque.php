@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesNovedad\bloqueHojadeVida\bloqueRegistro;
+namespace bloquesNovedad\bloqueHojadeVida\bloqueFuncionario;
 
 // Evitar un acceso directo a este archivo
 if (! isset ( $GLOBALS ["autorizado"] )) {
