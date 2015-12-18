@@ -132,6 +132,7 @@ class Formulario {
 			$longitud = count($matrizItems);
 			
 			$i=0;
+			//echo '<div class="click">Click me to Disable/Enable a html button</div>';
 			
 			echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
 					. '<thead style="display: table-row-group">
@@ -169,7 +170,21 @@ class Formulario {
 						//echo "<td>".$matrizItems[$i][6]."</td>";
 						echo "<td>".$matrizItems[$i][7]."</td>";
 						echo "<td>".$matrizItems[$i][8]."</td>";
+						$estadoBusqueda = $matrizItems[$i][8];
+						if($estadoBusqueda != "Aprobado"){
+							echo "<td><input id=\"Button_".$i."\" class=\"btn btn-primary\" type=\"button\"
+								value=\"Seleccionar\" disabled='disabled'/></td></tr>";
+							
+							//var_dump("ENTRA 1.... ".$matrizItems[$i][8]);
+							
+						}else{
+							echo "<td><input id=\"Button_".$i."\" class=\"btn btn-primary\" type=\"button\"
+								value=\"Seleccionar\" enabled='enabled'/></td></tr>";
+							
+							//var_dump("ENTRA 2.... ".$matrizItems[$i][8]);
+						}
 						
+						/*
 						//var_dump("Estado".$matrizItems[$i][8]);
 						$esteCampo = 'botonActivarRegistro';
 						$atributos ["id"] = $esteCampo;
@@ -188,7 +203,8 @@ class Formulario {
 						//$tab ++;
 						// Aplica atributos globales al control
 						$atributos = array_merge ( $atributos, $atributosGlobales );
-						echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td></tr>";
+						echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td></tr>";*/
+						
 						/*
 						$esteCampo = 'botonModificar';
 						$atributos ["id"] = $esteCampo;
@@ -292,7 +308,7 @@ class Formulario {
 				$atributos ['valor'] = '';
 			}
 			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-			$atributos ['deshabilitado'] = true;
+			$atributos ['deshabilitado'] = false;
 			$atributos ['tamanno'] = 15;
 			$atributos ['maximoTamanno'] = '';
 			$tab ++;
@@ -324,7 +340,7 @@ class Formulario {
 				$atributos ['valor'] = '';
 			}
 			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-			$atributos ['deshabilitado'] = true;
+			$atributos ['deshabilitado'] = false;
 			$atributos ['tamanno'] = 30;
 			$atributos ['maximoTamanno'] = '';
 			$tab ++;
@@ -356,7 +372,7 @@ class Formulario {
 				$atributos ['valor'] = '';
 			}
 			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-			$atributos ['deshabilitado'] = true;
+			$atributos ['deshabilitado'] = false;
 			$atributos ['tamanno'] = 30;
 			$atributos ['maximoTamanno'] = '';
 			$tab ++;
@@ -381,7 +397,7 @@ class Formulario {
 			 
 			$atributos ['obligatorio'] = true;
 			$atributos ['etiquetaObligatorio'] = true;
-			$atributos ['validar'] = 'required, maxSize[2], custom[onlyNumberSp]';
+			$atributos ['validar'] = 'required, custom[onlyNumberSp]';
 			 
 			if (isset ( $_REQUEST [$esteCampo] )) {
 				$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -414,7 +430,7 @@ class Formulario {
 			
 			$atributos ['obligatorio'] = true;
 			$atributos ['etiquetaObligatorio'] = true;
-			$atributos ['validar'] = 'required, maxSize[2], custom[onlyNumberSp]';
+			$atributos ['validar'] = 'required, custom[onlyNumberSp]';
 			
 			if (isset ( $_REQUEST [$esteCampo] )) {
 				$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -447,7 +463,7 @@ class Formulario {
 			
 			$atributos ['obligatorio'] = true;
 			$atributos ['etiquetaObligatorio'] = true;
-			$atributos ['validar'] = 'required, maxSize[2], custom[onlyNumberSp]';
+			$atributos ['validar'] = 'required, custom[onlyNumberSp]';
 			
 			if (isset ( $_REQUEST [$esteCampo] )) {
 				$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -480,7 +496,7 @@ class Formulario {
 			
 			$atributos ['obligatorio'] = true;
 			$atributos ['etiquetaObligatorio'] = true;
-			$atributos ['validar'] = 'required, maxSize[2], custom[onlyNumberSp]';
+			$atributos ['validar'] = 'required, custom[onlyNumberSp]';
 			
 			if (isset ( $_REQUEST [$esteCampo] )) {
 				$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -543,7 +559,7 @@ class Formulario {
 		echo $this->miFormulario->division ( "inicio", $atributos );
 		
 		// -----------------CONTROL: Botón ----------------------------------------------------------------
-		$esteCampo = 'botonRegistrar';
+		$esteCampo = 'botonRegistrarBusqueda';
 		$atributos ["id"] = $esteCampo;
 		$atributos ["tabIndex"] = $tab;
 		$atributos ["tipo"] = 'boton';

@@ -80,7 +80,19 @@ class Formulario {
         $atributos ['marco'] = true;
         $tab = 1;
         // ---------------- FIN SECCION: de Parámetros Generales del Formulario ----------------------------
+		
+        
+        // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
+        
+        $cantidad_referencias = $_REQUEST['funcionarioCantidadRegistroSuperior']; 
+        $cantidad_referencias_info = $_REQUEST['funcionarioCantidadRegistroInformal'];
+        $cantidad_idiomas = $_REQUEST['funcionarioCantidadRegistroIdioma'];
+        $cantidad_experiencia = $_REQUEST['funcionarioCantidadRegistroExperiencia'];
+        $cantidad_referencias_per = $_REQUEST['funcionarioCantidadRegistroReferencia'];
+        
+        // ---------------- FIN: Lista Variables Control--------------------------------------------------------
 
+        
         // ----------------INICIAR EL FORMULARIO ------------------------------------------------------------
         $atributos ['tipoEtiqueta'] = 'inicio';
         echo $this->miFormulario->formulario ( $atributos );
@@ -171,13 +183,9 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required, minSize[5], custom[onlyNumberSp]';
 	        
-	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	        } else {
-	        	$atributos ['valor'] = '';
-	        }
+	        $atributos ['valor'] = $_REQUEST['funcionarioDocumentoBusqueda'];
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
+	        $atributos ['deshabilitado'] = true;
 	        $atributos ['tamanno'] = 15;
 	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;
@@ -2454,7 +2462,7 @@ class Formulario {
 	        
 	        
 	        
-	        $cantidad_referencias = 3;//---------------------------------------------
+	        //$cantidad_referencias = 3;//---------------------------------------------
 	        
 	        for($i = 0; $i < $cantidad_referencias; $i++){
 	        	
@@ -3020,7 +3028,7 @@ class Formulario {
 	         
 	         
 	         
-	        $cantidad_referencias_info = 4;//---------------------------------------------
+	        //$cantidad_referencias_info = 4;//---------------------------------------------
 	         
 	        for($i = 0; $i < $cantidad_referencias_info; $i++){
 	        
@@ -3223,7 +3231,7 @@ class Formulario {
 	        
 	        
 	        
-	        $cantidad_idiomas = 3;//---------------------------------------------
+	        //$cantidad_idiomas = 3;//---------------------------------------------
 	        
 	        for($i = 0; $i < $cantidad_idiomas; $i++){
 	        	 
@@ -3737,7 +3745,7 @@ class Formulario {
 	    	 
 	    	// --------------------------------------------------------------------------------------------------
 	    	 
-	    	$cantidad_experiencia = 3;//---------------------------------------------
+	    	//$cantidad_experiencia = 3;//---------------------------------------------
 	    	 
 	    	for($i = 0; $i < $cantidad_experiencia; $i++){
 	    		 
@@ -4258,9 +4266,9 @@ class Formulario {
 	    	 
 	    	// --------------------------------------------------------------------------------------------------
 	    	 
-	    	$cantidad_referencias = 4;//---------------------------------------------
+	    	//$cantidad_referencias_per = 4;//---------------------------------------------
 	    	 
-	    	for($i = 0; $i < $cantidad_referencias; $i++){
+	    	for($i = 0; $i < $cantidad_referencias_per; $i++){
 	    	
 	    	
 	    		$esteCampo = "novedadesDatosCantidadReferencia";

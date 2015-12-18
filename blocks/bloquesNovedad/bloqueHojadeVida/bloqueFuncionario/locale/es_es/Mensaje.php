@@ -305,6 +305,6 @@ $this->idioma["fechaRegistroConsulta"]="Fecha de Creación";
 $this->idioma["fechaCreacionConsulta"]="Fecha de Creación";
 $this->idioma["usuarioNombre"]="Nombre";
 $this->idioma["usuarioApellido"]="Apellido";
-$this->idioma["botonRegistrar"]="Acceso Registro";
+$this->idioma["botonRegistrarBusqueda"]="Acceso Registro";
 
 ?>

@@ -16,6 +16,7 @@ $('#tablaReporte').dataTable( {
 $('#datepicker').datepicker({
 	autoHidePrompt: true
 });
+
 $('#<?php echo $this->campoSeguro('funcionarioIdentificacion')?>').width(250); 
 $("#<?php echo $this->campoSeguro('funcionarioIdentificacion')?>").select2();
 

@@ -93,7 +93,7 @@ class Sql extends \Sql {
              case 'buscarRegistroUsuario' :
                 
                 	$cadenaSql = 'SELECT ';
-                	$cadenaSql .= 'id_usuario as USUARIO, ';
+                	$cadenaSql .= 'cedula as USUARIO, ';
                 	$cadenaSql .= 'nombre as NOMBRE, ';
                 	$cadenaSql .= 'apellido as APELLIDO, ';
                 	$cadenaSql .= 'fecha_reg as FECHA_REG, ';
