@@ -1,4 +1,13 @@
 <?php
+$this->idioma["bloqueContenidoBusqueda"]="Busqueda Aprobación";
+
+$this->idioma["novedadesBusqueda"]='FUNCIONARIOS APROBADOS';
+$this->idioma["nombresBusqueda"]="Búsqueda para Registro";
+
+
+
+
+
 $this->idioma["bloqueContenidoDF"]="Registro del Funcionario";
 
 $this->idioma["novedadesIdentificacion"]="DATOS DE IDENTIFICACIÓN";
