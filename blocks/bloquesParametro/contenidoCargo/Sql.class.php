@@ -37,13 +37,13 @@ class Sql extends \Sql {
              */
             case 'insertarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= $prefijo . 'cargo ';
+                $cadenaSql .= 'parametro.cargo ';
                 $cadenaSql .= '( ';
                 $cadenaSql .= 'nivel,';
                 $cadenaSql .= 'codigo_alternativo,';
                 $cadenaSql .= 'grado,';
                 $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'cod_tipocargo,';
+                $cadenaSql .= 'cod_tipo_cargo,';
                 $cadenaSql .= 'sueldo,';
                 $cadenaSql .= 'tipo_sueldo,';
                 $cadenaSql .= 'estado';
@@ -104,13 +104,14 @@ class Sql extends \Sql {
                         $cadenaSql .= 'codigo_alternativo as COD_ALTERNATIVO,';
                         $cadenaSql .= 'grado as GRADO,';
                         $cadenaSql .= 'nombre as NOMBRE,';
-                        $cadenaSql .= 'cod_tipocargo as COD_TIPO, ';
+                        $cadenaSql .= 'cod_tipo_cargo as COD_TIPO, ';
                         $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
-                        $cadenaSql .= $prefijo . 'cargo ';
+                        $cadenaSql .= 'parametro.cargo';
 //                        $cadenaSql .= 'WHERE ';
 //                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
 //                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
+                        
                 break;
                 	
                 case 'buscarRegistroUsuarioWhere' :

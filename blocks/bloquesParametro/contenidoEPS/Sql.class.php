@@ -37,16 +37,16 @@ class Sql extends \Sql {
              */
             case 'insertarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= $prefijo . 'eps ';
+                $cadenaSql .= 'parametro.eps ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= 'nit,';
+                $cadenaSql .= 'nit,';                
+                $cadenaSql .= 'id_ubicacion,';
                 $cadenaSql .= 'nombre,';
                 $cadenaSql .= 'direccion,';
                 $cadenaSql .= 'telefono,';
                 $cadenaSql .= 'ext_telefono,';
                 $cadenaSql .= 'fax,';
                 $cadenaSql .= 'ext_fax,';
-                $cadenaSql .= 'lugar,';
                 $cadenaSql .= 'nom_representante,';
                 $cadenaSql .= 'email,';
                 $cadenaSql .= 'estado';
@@ -54,13 +54,13 @@ class Sql extends \Sql {
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
                 $cadenaSql .= $_REQUEST ['nitRegistro'] . ', ';
+                $cadenaSql .= $_REQUEST ['lugarRegistro'] . ', ';
                 $cadenaSql .= '\'' . $_REQUEST ['nombreRegistro']  . '\', ';
                 $cadenaSql .= '\'' . $_REQUEST ['direccionRegistro']  . '\', ';
                 $cadenaSql .= $_REQUEST ['telefonoRegistro'] . ', ';
                 $cadenaSql .= $_REQUEST ['extTelefonoRegistro'] . ', ';
                 $cadenaSql .= $_REQUEST ['faxRegistro'] . ', ';
                 $cadenaSql .= $_REQUEST ['extFaxRegistro'] . ', ';
-                $cadenaSql .= '\'' . $_REQUEST ['lugarRegistro'] . '\', ';
                 $cadenaSql .= '\'' . $_REQUEST ['nomRepreRegistro'] . '\', ';
                 $cadenaSql .= '\'' . $_REQUEST ['emailRegistro'] . '\', ';
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
@@ -109,7 +109,7 @@ class Sql extends \Sql {
                         $cadenaSql .= 'nombre as NOMBRE, ';
                         $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
-                        $cadenaSql .= $prefijo . 'eps ';
+                        $cadenaSql .= 'parametro.eps ';
 //                        $cadenaSql .= 'WHERE ';
 //                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
 //                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';

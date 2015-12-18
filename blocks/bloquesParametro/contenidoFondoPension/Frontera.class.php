@@ -49,9 +49,9 @@ class Frontera {
                 $_REQUEST ['opcion']="registrar";
                
             }
-            if($_REQUEST['botonModificar'] == 'true' ){
-                $_REQUEST ['opcion']="modificar";
-            }
+//            if($_REQUEST['botonModificar'] == 'true' ){
+//                $_REQUEST ['opcion']="modificar";
+//            }
 //            if($_REQUEST['botonVerDetalle'] == 'true'){
 //                $_REQUEST ['opcion']="detalle";
 //            }

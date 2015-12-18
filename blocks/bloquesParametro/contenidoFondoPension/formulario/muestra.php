@@ -96,107 +96,107 @@ class Formulario {
 		
 		
 		// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-                 if(isset($_REQUEST['lugarRegistro'])){
-                    switch($_REQUEST ['lugarRegistro']){
-                           case 1 :
-					$_REQUEST ['lugarRegistro']='AMAZONAS';
-			   break;
-                           case 2 :
-					$_REQUEST ['lugarRegistro']='ANTIOQUIA';
-			   break;
-                           case 3 :
-					$_REQUEST ['lugarRegistro']='ARAUCA';
-			   break;
-                           case 4 :
-					$_REQUEST ['lugarRegistro']='ATLANTICO';
-			   break;
-			   case 5 :
-					$_REQUEST ['lugarRegistro']='BOLIVAR';
-			   break;
-                           case 6 :
-					$_REQUEST ['lugarRegistro']='BOYACA';
-			   break;
-		           case 7 :
-					$_REQUEST ['lugarRegistro']='CALDAS';
-			   break;
-                           case 8 :
-					$_REQUEST ['lugarRegistro']='CAQUETA';
-			   break;
-                           case 9 :
-					$_REQUEST ['lugarRegistro']='CASANARE';
-			   break;
-                           case 10 :
-					$_REQUEST ['lugarRegistro']='CAUCA';
-			   break;
-                           case 11 :
-					$_REQUEST ['lugarRegistro']='CESAR';
-			   break;
-                           case 12 :
-					$_REQUEST ['lugarRegistro']='CHOCO';
-			   break;
-                           case 13 :
-					$_REQUEST ['lugarRegistro']='CORDOBA';
-			   break;
-                           case 14 :
-					$_REQUEST ['lugarRegistro']='CUNDINAMARCA';
-			   break;
-			   case 15 :
-					$_REQUEST ['lugarRegistro']='GUAINIA';
-			   break;
-                           case 16 :
-					$_REQUEST ['lugarRegistro']='GUAJIRA';
-			   break;
-		           case 17 :
-					$_REQUEST ['lugarRegistro']='GUAVIARE';
-			   break;
-                           case 18 :
-					$_REQUEST ['lugarRegistro']='HUILA';
-			   break;
-                           case 19 :
-					$_REQUEST ['lugarRegistro']='MAGDALENA';
-			   break;
-                           case 20 :
-					$_REQUEST ['lugarRegistro']='META';
-			   break;
-                           case 21 :
-					$_REQUEST ['lugarRegistro']='N SANTANDER';
-			   break;
-                           case 22 :
-					$_REQUEST ['lugarRegistro']='NARINO';
-			   break;
-                           case 23 :
-					$_REQUEST ['lugarRegistro']='PUTUMAYO';
-			   break;
-                           case 24 :
-					$_REQUEST ['lugarRegistro']='QUINDIO';
-			   break;
-			   case 25 :
-					$_REQUEST ['lugarRegistro']='RISARALDA';
-			   break;
-                           case 26 :
-					$_REQUEST ['lugarRegistro']='SAN ANDRES';
-			   break;
-		           case 27 :
-					$_REQUEST ['lugarRegistro']='SANTANDER';
-			   break;
-                           case 28 :
-					$_REQUEST ['lugarRegistro']='SUCRE';
-			   break;
-                           case 29 :
-					$_REQUEST ['lugarRegistro']='TOLIMA';
-			   break;
-                           case 30 :
-					$_REQUEST ['lugarRegistro']='VALLE DEL CAUCA';
-			   break;
-                           case 31 :
-					$_REQUEST ['lugarRegistro']='VAUPES';
-			   break;
-                           case 32 :
-					$_REQUEST ['lugarRegistro']='VICHADA';
-			   break;
-                       
-                    }
-                }
+//                 if(isset($_REQUEST['lugarRegistro'])){
+//                    switch($_REQUEST ['lugarRegistro']){
+//                           case 1 :
+//					$_REQUEST ['lugarRegistro']='AMAZONAS';
+//			   break;
+//                           case 2 :
+//					$_REQUEST ['lugarRegistro']='ANTIOQUIA';
+//			   break;
+//                           case 3 :
+//					$_REQUEST ['lugarRegistro']='ARAUCA';
+//			   break;
+//                           case 4 :
+//					$_REQUEST ['lugarRegistro']='ATLANTICO';
+//			   break;
+//			   case 5 :
+//					$_REQUEST ['lugarRegistro']='BOLIVAR';
+//			   break;
+//                           case 6 :
+//					$_REQUEST ['lugarRegistro']='BOYACA';
+//			   break;
+//		           case 7 :
+//					$_REQUEST ['lugarRegistro']='CALDAS';
+//			   break;
+//                           case 8 :
+//					$_REQUEST ['lugarRegistro']='CAQUETA';
+//			   break;
+//                           case 9 :
+//					$_REQUEST ['lugarRegistro']='CASANARE';
+//			   break;
+//                           case 10 :
+//					$_REQUEST ['lugarRegistro']='CAUCA';
+//			   break;
+//                           case 11 :
+//					$_REQUEST ['lugarRegistro']='CESAR';
+//			   break;
+//                           case 12 :
+//					$_REQUEST ['lugarRegistro']='CHOCO';
+//			   break;
+//                           case 13 :
+//					$_REQUEST ['lugarRegistro']='CORDOBA';
+//			   break;
+//                           case 14 :
+//					$_REQUEST ['lugarRegistro']='CUNDINAMARCA';
+//			   break;
+//			   case 15 :
+//					$_REQUEST ['lugarRegistro']='GUAINIA';
+//			   break;
+//                           case 16 :
+//					$_REQUEST ['lugarRegistro']='GUAJIRA';
+//			   break;
+//		           case 17 :
+//					$_REQUEST ['lugarRegistro']='GUAVIARE';
+//			   break;
+//                           case 18 :
+//					$_REQUEST ['lugarRegistro']='HUILA';
+//			   break;
+//                           case 19 :
+//					$_REQUEST ['lugarRegistro']='MAGDALENA';
+//			   break;
+//                           case 20 :
+//					$_REQUEST ['lugarRegistro']='META';
+//			   break;
+//                           case 21 :
+//					$_REQUEST ['lugarRegistro']='N SANTANDER';
+//			   break;
+//                           case 22 :
+//					$_REQUEST ['lugarRegistro']='NARINO';
+//			   break;
+//                           case 23 :
+//					$_REQUEST ['lugarRegistro']='PUTUMAYO';
+//			   break;
+//                           case 24 :
+//					$_REQUEST ['lugarRegistro']='QUINDIO';
+//			   break;
+//			   case 25 :
+//					$_REQUEST ['lugarRegistro']='RISARALDA';
+//			   break;
+//                           case 26 :
+//					$_REQUEST ['lugarRegistro']='SAN ANDRES';
+//			   break;
+//		           case 27 :
+//					$_REQUEST ['lugarRegistro']='SANTANDER';
+//			   break;
+//                           case 28 :
+//					$_REQUEST ['lugarRegistro']='SUCRE';
+//			   break;
+//                           case 29 :
+//					$_REQUEST ['lugarRegistro']='TOLIMA';
+//			   break;
+//                           case 30 :
+//					$_REQUEST ['lugarRegistro']='VALLE DEL CAUCA';
+//			   break;
+//                           case 31 :
+//					$_REQUEST ['lugarRegistro']='VAUPES';
+//			   break;
+//                           case 32 :
+//					$_REQUEST ['lugarRegistro']='VICHADA';
+//			   break;
+//                       
+//                    }
+//                }
                 
                 
                 
