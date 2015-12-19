@@ -57,8 +57,8 @@ class Frontera {
 					break;
 				
 				case "modificar":
-                                    var_dump($_REQUEST);
-//                                        include_once ($this->ruta . "/formulario/modificar.php");
+                                   
+                                        include_once ($this->ruta . "/formulario/modificar.php");
 					break;	
                                 case "mostrar":
 //					include_once ($this->ruta . "/formulario/muestra.php");

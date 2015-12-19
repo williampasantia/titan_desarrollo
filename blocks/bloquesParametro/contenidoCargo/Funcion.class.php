@@ -70,8 +70,8 @@ class Funcion {
                          case "registrar":
         		      include_once ($this->ruta."funcion/opciones.php");
         	         break; 
-                         case "verdetalle":
-        		
+                         case "modificarRegistro":
+        		      include_once ($this->ruta."funcion/modificar.php");
         	         break; 
                          case "inactivar":
         		

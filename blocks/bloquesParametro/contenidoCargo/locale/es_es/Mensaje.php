@@ -8,9 +8,12 @@ $this->idioma["botonModificar"]="Modificar";
 $this->idioma["botonInactivar"]="Inactivar";
 $this->idioma["botonVerDetalle"]="Ver detalle";
 $this->idioma["enviarInactivar"]="Aceptar";
-
+$this->idioma["enviarRegistro"]="Guardar";
+$this->idioma["modificarRegistro"]="Guardar Cambios";
 
 //REGISTRO
+$this->idioma["codigoRegistro"]="Codigo  :";
+$this->idioma["codigoRegistroTitulo"]="Código";
 $this->idioma["nivelRegistro"]="Nivel  :";
 $this->idioma["nivelRegistroTitulo"]="Nivel";
 $this->idioma["codAlternativoRegistro"]="Código alternativo:";
@@ -25,6 +28,6 @@ $this->idioma["sueldoRegistro"]="Sueldo  :";
 $this->idioma["sueldoRegistroTitulo"]="Sueldo";
 $this->idioma["tipoSueldoRegistro"]="Tipo sueldo  :";
 $this->idioma["estadoRegistro"]="Estado  :";
-$this->idioma["enviarRegistro"]="Guardar";
+
 
 ?>
