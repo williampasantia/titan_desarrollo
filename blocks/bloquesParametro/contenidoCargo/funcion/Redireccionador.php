@@ -23,7 +23,13 @@ class Redireccionador {
 				echo 'ingresa';
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=form";
-				break;	
+				break;
+                        case "modificar" :
+				echo 'ingresa';
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=modificar";
+                                $variable .= '&variable=' . $valor;
+				break;    
 			default:
 			    $variable='';
 			

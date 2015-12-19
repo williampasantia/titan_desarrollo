@@ -39,6 +39,12 @@ class Formulario {
 
         // Rescatar los datos de este bloque
         $esteBloque = $this->miConfigurador->getVariableConfiguracion ( "esteBloque" );
+        
+        $rutaBloque = $this->miConfigurador->getVariableConfiguracion("host");
+        $rutaBloque.=$this->miConfigurador->getVariableConfiguracion("site") . "/blocks/";
+        $rutaBloque.= $esteBloque['grupo'] . "/" . $esteBloque['nombre'];
+		
+       
 
         // ---------------- SECCION: Parámetros Globales del Formulario ----------------------------------
         /**
@@ -124,6 +130,8 @@ class Formulario {
                         echo $this->miFormulario->campoBoton ( $atributos );
                         
                         
+                      
+                        
                         
                         // -----------------FIN CONTROL: Botón -----------------------------------------------------------
 
@@ -131,6 +139,9 @@ class Formulario {
                    
                         
                         echo $this->miFormulario->division("fin"); 
+                        
+                        
+                        
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxCargo");
@@ -163,7 +174,8 @@ class Formulario {
                     echo "<td>".$matrizItems[$i][4]."</td>";
                     echo "<td>".$matrizItems[$i][5]."</td>";
                     echo "<td>".$matrizItems[$i][6]."</td>";
-                    $esteCampo = 'botonVerDetalle';
+                        $esteCampo = 'botonVerDetalle'.$i;
+                        $baseCampo = 'botonVerDetalle';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -174,14 +186,18 @@ class Formulario {
                         // verificar: true para verificar el formulario antes de pasarlo al servidor.
                         $atributos ["verificar"] = '';
                         $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
+                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
                         $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
                         $tab ++;
-
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
+                       
+                               
+                        
                      echo "<td>".$this->miFormulario->campoBoton ( $atributos );
-                    $esteCampo = 'botonModificar';
+                       
+                        $esteCampo = 'botonModificar'.$i;
+                        $baseCampo = 'botonModificar';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -192,14 +208,15 @@ class Formulario {
                         // verificar: true para verificar el formulario antes de pasarlo al servidor.
                         $atributos ["verificar"] = '';
                         $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
+                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
                         $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
                         $tab ++;
-
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
                      echo $this->miFormulario->campoBoton ( $atributos );
-                         $esteCampo = 'botonInactivar';
+                       
+                         $esteCampo = 'botonInactivar'.$i;
+                        $baseCampo = 'botonInactivar';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -210,7 +227,7 @@ class Formulario {
                         // verificar: true para verificar el formulario antes de pasarlo al servidor.
                         $atributos ["verificar"] = '';
                         $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
+                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
                         $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
                         $tab ++;
 
@@ -221,11 +238,16 @@ class Formulario {
                     
                      $i+=1;
         }  
+          
            echo '</tbody></table>';
                        
-                        
+             
+           
                 
         
+        
+       
+        /**
                         
                         
         // ---------------- CONTROL: Tabla Cargos -----------------------------------------------                
@@ -254,9 +276,10 @@ class Formulario {
 
         // Paso 1: crear el listado de variables
 
-        //$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
-        $valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
+        $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
+        $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
+         $valorCodificado .= "&tamaño=".$longitud;
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&opcion=registrar";
         /**

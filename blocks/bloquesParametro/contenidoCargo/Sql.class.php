@@ -116,25 +116,23 @@ class Sql extends \Sql {
                         
                 break;
                 	
-                case 'buscarRegistroUsuarioWhere' :
-                		$cadenaSql = 'SELECT ';
-                		$cadenaSql .= 'id_usuario as USUARIO, ';
-                		$cadenaSql .= 'nombre as NOMBRE, ';
-                		$cadenaSql .= 'apellido as APELLIDO, ';
-                		$cadenaSql .= 'fecha_reg as FECHA_REG, ';
-                		$cadenaSql .= 'edad as EDAD, ';
-                		$cadenaSql .= 'telefono as TELEFONO, ';
-                		$cadenaSql .= 'direccion as DIRECCION, ';
-                		$cadenaSql .= 'ciudad as CIUDAD, ';
-                		$cadenaSql .= 'estado as ESTADO ';
-                		//$cadenaSql .= 'descripcion as DESCRIPCION,';
-                		//$cadenaSql .= 'modulo as MODULO,';
-                		//$cadenaSql .= 'nivel as NIVEL,';
-                		//$cadenaSql .= 'parametro as PARAMETRO ';
-                		$cadenaSql .= 'FROM ';
-                		$cadenaSql .= "nomina." .$prefijo . 'usuarios ';
-//                		$cadenaSql .= 'WHERE ';
-//                		$cadenaSql .= 'fecha_reg <=\'' . $_REQUEST ['fechaRegistroConsulta'] . '\' ';
+                case 'buscarModificarxCargo' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'codigo_cargo as COD_CARGO, ';
+                        $cadenaSql .= 'nivel as NIVEL, ';
+                        $cadenaSql .= 'codigo_alternativo as COD_ALTERNATIVO,';
+                        $cadenaSql .= 'grado as GRADO,';
+                        $cadenaSql .= 'nombre as NOMBRE,';
+                        $cadenaSql .= 'cod_tipo_cargo as COD_TIPO, ';
+                        $cadenaSql .= 'sueldo as SUELDO, ';
+                        $cadenaSql .= 'tipo_sueldo as TIPO_SUELDO ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'parametro.cargo';
+//                        $cadenaSql .= 'WHERE ';
+//                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
+//                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
+                        
                 break;
 
             case 'borrarRegistro' :

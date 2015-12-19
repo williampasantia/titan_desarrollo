@@ -56,7 +56,10 @@ class Funcion {
         if (isset ( $_REQUEST ['procesarAjax'] )) {
             $this->procesarAjax ();
         } else{
-        
+            
+           
+
+            
             
         	
         	switch ($_REQUEST['opcion']){
@@ -64,6 +67,15 @@ class Funcion {
                             include_once ($this->ruta."funcion/registrar.php");
         		
         			break;
+                         case "registrar":
+        		      include_once ($this->ruta."funcion/opciones.php");
+        	         break; 
+                         case "verdetalle":
+        		
+        	         break; 
+                         case "inactivar":
+        		
+        	         break; 
         	}
             
 //            $resultado = $this->procesarFormulario ();
