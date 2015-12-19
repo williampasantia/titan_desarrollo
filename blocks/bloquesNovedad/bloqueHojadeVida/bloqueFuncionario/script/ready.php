@@ -64,33 +64,3 @@ $("#<?php echo $this->campoSeguro('funcionarioFormacionMediaCiudad')?>").select2
 $('#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad')?>').width(250); 
 $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad')?>").select2();
 
-jQuery.fn.generaNuevosCampos = function(etiqueta, nombreCampo, indice){
-   $(this).each(function(){
-      elem = $(this);
-      elem.data("etiqueta",etiqueta);
-      elem.data("nombreCampo",nombreCampo);
-      elem.data("indice",indice);
-      
-      
-      elem.click(function(e){
-      
-      	e.preventDefault();
-         elem = $(this);
-         etiqueta = elem.data("etiqueta");
-         nombreCampo = elem.data("nombreCampo");
-         indice = elem.data("indice");
-         texto_insertar = '<p>' + etiqueta + ' ' + indice + ':<input type="text" name="' + nombreCampo + indice + '" /></p>';
-         indice ++;
-         elem.data("indice",indice);
-         nuevo_campo = $(texto_insertar);
-         elem.before(nuevo_campo);
-         alert("texto..."+indice);
-      });
-   });
-   return this;
-}
-
-
-$(document).ready(function(){
-   $("#mascampos").generaNuevosCampos("Registro", "compra", 2);
-}); 

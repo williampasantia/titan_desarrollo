@@ -110,6 +110,9 @@ class Formulario {
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoTexto( $atributos );
+        
+        echo "<input type=\"button\" id=\"mostrarb1\" name=\"boton1\" value=\"Click para mostrar elementos\">";
+        echo "<input type=\"button\" id=\"ocultarb1\" name=\"boton2\" value=\"Click pora ocultar elementos\">";
          
         // --------------------------------------------------------------------------------------------------
         	    
@@ -649,7 +652,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -688,7 +691,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;

@@ -130,7 +130,6 @@ class Formulario {
 			//$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxCargo");
 			$matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
 			$longitud = count($matrizItems);
-			
 			$i=0;
 			//echo '<div class="click">Click me to Disable/Enable a html button</div>';
 			
@@ -162,8 +161,11 @@ class Formulario {
 			
 					while($i<$longitud){
 						echo "<tr><td>".$matrizItems[$i][0]."</td>";
+						$usuario = $matrizItems[$i][0];
 						echo "<td>".$matrizItems[$i][1]."</td>";
+						$nombre = $matrizItems[$i][1];
 						echo "<td>".$matrizItems[$i][2]."</td>";
+						$apellido = $matrizItems[$i][2];
 						echo "<td>".$matrizItems[$i][3]."</td>";
 						//echo "<td>".$matrizItems[$i][4]."</td>";
 						//echo "<td>".$matrizItems[$i][5]."</td>";
@@ -179,7 +181,7 @@ class Formulario {
 							
 						}else{
 							echo "<td><input id=\"Button_".$i."\" class=\"btn btn-primary\" type=\"button\"
-								value=\"Seleccionar\" enabled='enabled'/></td></tr>";
+								value=\"Seleccionar\" enabled='enabled' onclick=\"seleccionDoc('$usuario'); seleccionNom('$nombre'); seleccionApe('$apellido')\"/></td></tr>";
 							
 							//var_dump("ENTRA 2.... ".$matrizItems[$i][8]);
 						}
@@ -245,7 +247,7 @@ class Formulario {
 						$i+=1;
 					}
 					echo '</tbody></table>';
-					 
+					//var_dump($matrizItems[8]['usuario']);
 			
 			
 			
@@ -308,7 +310,7 @@ class Formulario {
 				$atributos ['valor'] = '';
 			}
 			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-			$atributos ['deshabilitado'] = false;
+			$atributos ['deshabilitado'] = true;
 			$atributos ['tamanno'] = 15;
 			$atributos ['maximoTamanno'] = '';
 			$tab ++;
@@ -340,7 +342,7 @@ class Formulario {
 				$atributos ['valor'] = '';
 			}
 			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-			$atributos ['deshabilitado'] = false;
+			$atributos ['deshabilitado'] = true;
 			$atributos ['tamanno'] = 30;
 			$atributos ['maximoTamanno'] = '';
 			$tab ++;
@@ -372,7 +374,7 @@ class Formulario {
 				$atributos ['valor'] = '';
 			}
 			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-			$atributos ['deshabilitado'] = false;
+			$atributos ['deshabilitado'] = true;
 			$atributos ['tamanno'] = 30;
 			$atributos ['maximoTamanno'] = '';
 			$tab ++;
