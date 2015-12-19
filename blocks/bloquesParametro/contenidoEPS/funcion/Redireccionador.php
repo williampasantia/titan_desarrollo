@@ -10,15 +10,20 @@ class Redireccionador {
 	public static function redireccionar($opcion, $valor = "") {
 		
 	    $miConfigurador = \Configurador::singleton ();
+            $miPaginaActual = $miConfigurador->getVariableConfiguracion ( "pagina" );
 		
 		switch ($opcion) {
 			
 			case "opcion1" :
 				
-				$variable = 'pagina=segundaPagina';
-				$variable .= '&variable' . $valor;				
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=form";
 				break;
-				
+			case "form" :
+				echo 'ingresa';
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=form";
+				break;	
 			default:
 			    $variable='';
 			

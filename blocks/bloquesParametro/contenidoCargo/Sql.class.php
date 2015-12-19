@@ -23,6 +23,8 @@ class Sql extends \Sql {
     
     function getCadenaSql($tipo, $variable = '') {
         
+        
+        
         /**
          * 1.
          * Revisar las variables para evitar SQL Injection
@@ -50,14 +52,14 @@ class Sql extends \Sql {
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= $_REQUEST ['nivelRegistro'] . ', ';
-                $cadenaSql .= $_REQUEST ['codAlternativoRegistro'] . ', ';
-                $cadenaSql .= $_REQUEST ['gradoRegistro'] . ', ';
-                $cadenaSql .= '\'' . $_REQUEST ['nombreRegistro']  . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['codTipoCargoRegistro'] . '\', ';
-                $cadenaSql .= $_REQUEST ['sueldoRegistro'] . ', ';
-                $cadenaSql .= '\'' . $_REQUEST ['tipoSueldoRegistro'] . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['estadoRegistro'] . '\' ';
+                $cadenaSql .= $variable ['nivelRegistro'] . ', ';
+                $cadenaSql .= $variable ['codAlternativoRegistro'] . ', ';
+                $cadenaSql .= $variable ['gradoRegistro'] . ', ';
+                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
+                $cadenaSql .= '\'' . $variable ['codTipoCargoRegistro'] . '\', ';
+                $cadenaSql .= $variable ['sueldoRegistro'] . ', ';
+                $cadenaSql .= '\'' . $variable['tipoSueldoRegistro'] . '\', ';
+                $cadenaSql .= '\'' . $variable['estadoRegistro'] . '\' ';
                 $cadenaSql .= ') ';
                 break;
             

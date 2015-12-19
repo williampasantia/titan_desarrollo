@@ -57,12 +57,12 @@ class Funcion {
             $this->procesarAjax ();
         } else{
         
+            
         	
         	switch ($_REQUEST['opcion']){
         		case "mostrar":
-        			include ("funcion/registrar.php");
-        			
-        			exit;
+                            include_once ($this->ruta."funcion/registrar.php");
+        		
         			break;
         	}
             
