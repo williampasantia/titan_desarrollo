@@ -110,12 +110,10 @@ class Formulario {
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoTexto( $atributos );
-        
-        echo "<input type=\"button\" id=\"mostrarb1\" name=\"boton1\" value=\"Click para mostrar elementos\">";
-        echo "<input type=\"button\" id=\"ocultarb1\" name=\"boton2\" value=\"Click pora ocultar elementos\">";
          
         // --------------------------------------------------------------------------------------------------
-        	    
+       
+        
         $esteCampo = "novedadesIdentificacion";
         $atributos ['id'] = $esteCampo;
         $atributos ["estilo"] = "jqueryui";
@@ -123,7 +121,24 @@ class Formulario {
         $atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo );
         echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         unset ( $atributos );
-        {
+        {	
+        	$atributos ["id"] = "botonDatos";
+        	$atributos ["estilo"] = "botonDatos";
+        	echo $this->miFormulario->division ( "inicio", $atributos );
+        	{
+				echo "<button id=\"mostrarb1\" name=\"mas1\" ALIGN=RIGHT class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+	        	echo "<button id=\"ocultarb1\" ALIGN=RIGHT name=\"menos1\" class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+        	}
+        	echo $this->miFormulario->division ( "fin" );
+        	
+        	$atributos ["id"] = "contentDatos1";
+        	$atributos ["estilo"] = "marcoBotones";
+        	echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+        	{
 	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioIdentificacion';
 	        $atributos['nombre'] = $esteCampo;
@@ -549,6 +564,8 @@ class Formulario {
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroTexto ( $atributos );
 	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+        	}
+	        echo $this->miFormulario->agrupacion ( "fin" );
         }
         echo $this->miFormulario->marcoAgrupacion ( 'fin' );
         
@@ -558,7 +575,26 @@ class Formulario {
         $atributos ['tipoEtiqueta'] = 'inicio';
         $atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo );
         echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
+        unset ( $atributos );
         {
+        	
+        	$atributos ["id"] = "botonDatos";
+        	$atributos ["estilo"] = "botonDatos";
+        	echo $this->miFormulario->division ( "inicio", $atributos );
+        	{
+        		echo "<button id=\"mostrarb2\" name=\"mas1\" ALIGN=RIGHT class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+        		echo "<button id=\"ocultarb2\" ALIGN=RIGHT name=\"menos1\" class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+        	}
+        	echo $this->miFormulario->division ( "fin" );
+        	 
+        	$atributos ["id"] = "contentDatos2";
+        	$atributos ["estilo"] = "marcoBotones";
+        	echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+        	{
 	        // ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 	        
 	        $esteCampo = 'novedadesDatosNacimiento';
@@ -1238,6 +1274,8 @@ class Formulario {
 	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	        
 	        // ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
+        	}
+	        echo $this->miFormulario->agrupacion ( "fin" );
         }
         echo $this->miFormulario->marcoAgrupacion ( 'fin' );
         
@@ -1247,7 +1285,26 @@ class Formulario {
         $atributos ['tipoEtiqueta'] = 'inicio';
         $atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo );
         echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
+        unset ( $atributos );
         {
+        	
+        	$atributos ["id"] = "botonDatos";
+        	$atributos ["estilo"] = "botonDatos";
+        	echo $this->miFormulario->division ( "inicio", $atributos );
+        	{
+        		echo "<button id=\"mostrarb3\" name=\"mas1\" ALIGN=RIGHT class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+        		echo "<button id=\"ocultarb3\" ALIGN=RIGHT name=\"menos1\" class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+        	}
+        	echo $this->miFormulario->division ( "fin" );
+        	 
+        	$atributos ["id"] = "contentDatos3";
+        	$atributos ["estilo"] = "marcoBotones";
+        	echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+        	{
 	        // ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 	        
 	        $esteCampo = 'novedadesDatosResidencia';
@@ -1855,17 +1912,41 @@ class Formulario {
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroTexto ( $atributos );
 	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+	        
+	        }
+	        echo $this->miFormulario->agrupacion ( "fin" );
 	    
 	    }
 	    echo $this->miFormulario->marcoAgrupacion ( 'fin' );
-	    
+//*************************************************************************************************************
+//*************************************************************************************************************	    
 	    $esteCampo = "novedadesDatosFormacionAcademica";
 	    $atributos ['id'] = $esteCampo;
 	    $atributos ["estilo"] = "jqueryui";
 	    $atributos ['tipoEtiqueta'] = 'inicio';
 	    $atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo );
 	    echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
-	    {
+	    unset ( $atributos );
+        {
+        	
+        	$atributos ["id"] = "botonDatos";
+        	$atributos ["estilo"] = "botonDatos";
+        	echo $this->miFormulario->division ( "inicio", $atributos );
+        	{
+        		echo "<button id=\"mostrarb4\" name=\"mas1\" ALIGN=RIGHT class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+        		echo "<button id=\"ocultarb4\" ALIGN=RIGHT name=\"menos1\" class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+        	}
+        	echo $this->miFormulario->division ( "fin" );
+        	 
+        	$atributos ["id"] = "contentDatos4";
+        	$atributos ["estilo"] = "marcoBotones";
+        	echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+        	{
+        		
 	        // ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 	        
 	        $esteCampo = 'novedadesDatosFormacionBasica';
@@ -3720,12 +3801,15 @@ class Formulario {
 	        
 	        
 	        //echo "<a href=\"#\" id=\"mascampos\">Más campos</a>"; ----Mirar para Campos dinamicos
+	        }
+	        echo $this->miFormulario->agrupacion ( "fin" );
 	        
 	        
 	    }
 	    echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 	    
-	    
+//***************************************************************************************************************
+//***************************************************************************************************************
         
 	    $esteCampo = "novedadesDatosExperiencia";
 	    $atributos ['id'] = $esteCampo;
@@ -3733,7 +3817,27 @@ class Formulario {
 	    $atributos ['tipoEtiqueta'] = 'inicio';
 	    $atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo );
 	    echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
-	    {
+	    unset ( $atributos );
+        {
+        	
+        	$atributos ["id"] = "botonDatos";
+        	$atributos ["estilo"] = "botonDatos";
+        	echo $this->miFormulario->division ( "inicio", $atributos );
+        	{
+        		echo "<button id=\"mostrarb5\" name=\"mas1\" ALIGN=RIGHT class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+        		echo "<button id=\"ocultarb5\" ALIGN=RIGHT name=\"menos1\" class=\"\">
+	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
+	        		  </button>";
+        	}
+        	echo $this->miFormulario->division ( "fin" );
+        	 
+        	$atributos ["id"] = "contentDatos5";
+        	$atributos ["estilo"] = "marcoBotones";
+        	echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+        	{
+        		
 	    	// ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 	    	 
 	    	$esteCampo = 'novedadesDatosExperienciaLaboral';
@@ -4488,6 +4592,9 @@ class Formulario {
 	    		}
 	    		echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 	    	}
+	    	
+	    	}
+	    	echo $this->miFormulario->agrupacion ( "fin" );
 	    	
 	    
 	    }

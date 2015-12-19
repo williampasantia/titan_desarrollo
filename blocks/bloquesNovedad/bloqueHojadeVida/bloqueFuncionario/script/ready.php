@@ -4,7 +4,9 @@ $("#bloqueFuncionario").validationEngine({
 	promptPosition : "centerRight",
 	scroll: false,
 	autoHidePrompt: true,
-	autoHideDelay: 2000
+	autoHideDelay: 2000,
+	validateNonVisibleFields: true,
+    updatePromptsPosition:true
 });
 
 /*

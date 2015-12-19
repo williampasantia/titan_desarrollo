@@ -62,4 +62,52 @@ $( "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>" ).datepicker
 $( "#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>" ).change(function() {
 	$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento') ?>").attr("enabled", enabled);
 });
+
+$(document).ready(function(){
+
+	$("#contentDatos2").hide("fast");
+	$("#contentDatos3").hide("fast");
+	$("#contentDatos4").hide("fast");
+	$("#contentDatos5").hide("fast");
+	
+	$("#mostrarb1").click(function(){
+		$("#contentDatos1").show("slow");
+	});
+
+	$("#ocultarb1").click(function(){
+		$("#contentDatos1").hide("slow");
+	});
+
+	$("#mostrarb2").click(function(){
+		$("#contentDatos2").show("slow");
+	});
+
+	$("#ocultarb2").click(function(){
+		$("#contentDatos2").hide("slow");
+	});
+
+	$("#mostrarb3").click(function(){
+		$("#contentDatos3").show("slow");
+	});
+
+	$("#ocultarb3").click(function(){
+		$("#contentDatos3").hide("slow");
+	});
+
+	$("#mostrarb4").click(function(){
+		$("#contentDatos4").show("slow");
+	});
+
+	$("#ocultarb4").click(function(){
+		$("#contentDatos4").hide("slow");
+	});
+
+	$("#mostrarb5").click(function(){
+		$("#contentDatos5").show("slow");
+	});
+
+	$("#ocultarb5").click(function(){
+		$("#contentDatos5").hide("slow");
+	});
+});
 </script>

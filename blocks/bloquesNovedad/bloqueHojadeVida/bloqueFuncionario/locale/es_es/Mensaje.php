@@ -31,6 +31,7 @@ $this->idioma["funcionarioCantidadRegistroReferenciaTitulo"]="Digite la cantidad
 $this->idioma["bloqueContenidoDF"]="Registro del Funcionario";
 
 $this->idioma["novedadesIdentificacion"]="DATOS DE IDENTIFICACIÓN";
+$this->idioma["novedadesIdentificacion2"]="DATOS DE IDENTIFICACIÓN";
 
 $this->idioma["usuario"]="Identificación:";
 $this->idioma["clave"]="Clave:";
