@@ -30,6 +30,9 @@ class Sql extends \Sql {
         $prefijo = $this->miConfigurador->getVariableConfiguracion ( "prefijo" );
         $idSesion = $this->miConfigurador->getVariableConfiguracion ( "id_sesion" );
         
+        //var_dump($variable);
+        //exit;
+        
         switch ($tipo) {
             
             /**

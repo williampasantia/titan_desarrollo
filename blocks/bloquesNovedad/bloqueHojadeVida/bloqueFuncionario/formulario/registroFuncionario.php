@@ -688,7 +688,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = true;
+	        $atributos['deshabilitado'] = false;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -727,7 +727,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = true;
+	        $atributos['deshabilitado'] = false;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -1341,7 +1341,7 @@ class Formulario {
 	        	$atributos ['valor'] = '';
 	        }
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = true;
+	        $atributos ['deshabilitado'] = false;
 	        $atributos ['tamanno'] = 20;
 	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;
@@ -4599,6 +4599,39 @@ class Formulario {
 	    
 	    }
 	    echo $this->miFormulario->marcoAgrupacion ( 'fin' );
+	    
+//*************************************************************************************************************	    
+	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	    $esteCampo = 'funcionarioRegistrosSuperior';
+	    $atributos ['id'] = $esteCampo;
+	    $atributos ['nombre'] = $esteCampo;
+	    $atributos ['tipo'] = 'hidden';
+	    $atributos ['estilo'] = 'jqueryui';
+	    $atributos ['marco'] = true;
+	    $atributos ['columnas'] = 1;
+	    $atributos ['dobleLinea'] = false;
+	    $atributos ['tabIndex'] = $tab;
+	    $atributos ['etiqueta'] = '';
+	     
+	    $atributos ['obligatorio'] = false;
+	    $atributos ['etiquetaObligatorio'] = false;
+	    $atributos ['validar'] = 'custom[onlyLetterSp]';
+	     
+	    if (isset ( $_REQUEST [$esteCampo] )) {
+	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
+	    } else {
+	    	$atributos ['valor'] = $cantidad_referencias;
+	    }
+	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+	    $atributos ['deshabilitado'] = false;
+	    $atributos ['tamanno'] = 30;
+	    $atributos ['maximoTamanno'] = '';
+	    $tab ++;
+	     
+	    // Aplica atributos globales al control
+	    $atributos = array_merge ( $atributos, $atributosGlobales );
+	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
+	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
         // ------------------Division para los botones-------------------------
         $atributos ["id"] = "botones";
@@ -4647,11 +4680,11 @@ class Formulario {
 
         // Paso 1: crear el listado de variables
 
-        //$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
-        $valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
+        $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
+        //$valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
-        $valorCodificado .= "&opcion=mostrar";
+        $valorCodificado .= "&opcion=registrar";
         /**
          * SARA permite que los nombres de los campos sean dinámicos.
          * Para ello utiliza la hora en que es creado el formulario para

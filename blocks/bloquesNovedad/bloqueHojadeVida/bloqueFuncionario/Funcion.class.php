@@ -41,6 +41,10 @@ class Funcion {
         include_once ($this->ruta . "funcion/procesarAjax.php");
     }
     
+    function registrar() {
+    	include_once ($this->ruta . "funcion/registrar.php");
+    }
+    
     function action() {
         
         $resultado = true;
@@ -59,10 +63,8 @@ class Funcion {
         
         	
         	switch ($_REQUEST['opcion']){
-        		case "mostrar":
-        			include ("/opt/lampp/htdocs/sara/blocks/bloquesModelo/bloqueModelo1/funcion/funcionDatos.php");
-        			
-        			exit;
+        		case "registrar":		
+        			$this->registrar ();
         			break;
         		default:
         	}
