@@ -5,8 +5,13 @@ $this->idioma["noDefinido"]="No definido";
 $this->idioma["botonRegistrarFDP"]="Registrar Fondo de Pensión";
 $this->idioma["botonGuardar"]="Aceptar";
 $this->idioma["botonInactivar"]="Inactivar";
+$this->idioma["botonActivar"]="Activar";
 $this->idioma["botonModificar"]="Modificar";
 $this->idioma["botonVerDetalle"]="Ver detalle";
+$this->idioma["verdetalleRegistro"]="Aceptar";
+$this->idioma["modificarRegistro"]="Guardar Cambios";
+$this->idioma["enviarInactivar"]="Aceptar";
+$this->idioma["cancelarInactivar"]="Cancelar";
 
 //REGISTRO
 $this->idioma["nitRegistro"]="Nit  :";

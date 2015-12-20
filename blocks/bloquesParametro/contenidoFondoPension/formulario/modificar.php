@@ -103,7 +103,7 @@ class Formulario {
         
         
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarModificarxEPS");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarModificarxFP");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------

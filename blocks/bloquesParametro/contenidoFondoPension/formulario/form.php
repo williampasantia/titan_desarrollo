@@ -136,7 +136,7 @@ class Formulario {
                         
          // ---------------- CONTROL: Tabla EPS sin Sara -----------------------------------------------                
                         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxFDP");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxFP");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         $longitud = count($matrizItems);
         
@@ -158,8 +158,9 @@ class Formulario {
                     echo "<tr><td>".$matrizItems[$i][0]."</td>";
                     echo "<td>".$matrizItems[$i][1]."</td>";
                     echo "<td>".$matrizItems[$i][2]."</td>";
-                    $esteCampo = 'botonVerDetalle';
+                    $esteCampo = 'botonVerDetalle'.$i;
                         $atributos ["id"] = $esteCampo;
+                        $baseCampo = 'botonVerDetalle';
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
                         // submit: no se coloca si se desea un tipo button genérico
@@ -169,15 +170,16 @@ class Formulario {
                         // verificar: true para verificar el formulario antes de pasarlo al servidor.
                         $atributos ["verificar"] = '';
                         $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
+                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
                         $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
                         $tab ++;
 
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
                      echo "<td>".$this->miFormulario->campoBoton ( $atributos );
-                    $esteCampo = 'botonModificar';
+                    $esteCampo = 'botonModificar'.$i;
                         $atributos ["id"] = $esteCampo;
+                        $baseCampo = 'botonModificar';
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
                         // submit: no se coloca si se desea un tipo button genérico
@@ -187,14 +189,20 @@ class Formulario {
                         // verificar: true para verificar el formulario antes de pasarlo al servidor.
                         $atributos ["verificar"] = '';
                         $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
+                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
                         $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
                         $tab ++;
 
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
                      echo $this->miFormulario->campoBoton ( $atributos );
-                         $esteCampo = 'botonInactivar';
+                         $esteCampo = 'botonInactivar'.$i;
+                         if($matrizItems[$i][2]=='Activo'){
+                            $baseCampo = 'botonInactivar';
+                        }
+                        else{
+                            $baseCampo = 'botonActivar';
+                        }
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -205,7 +213,7 @@ class Formulario {
                         // verificar: true para verificar el formulario antes de pasarlo al servidor.
                         $atributos ["verificar"] = '';
                         $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
+                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
                         $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
                         $tab ++;
 
@@ -244,10 +252,11 @@ class Formulario {
 
         // Paso 1: crear el listado de variables
 
-        //$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
-        $valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
+        $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
+        $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+        $valorCodificado .= "&tamaño=".$longitud;
         $valorCodificado .= "&opcion=registrar";
         /**
          * SARA permite que los nombres de los campos sean dinámicos.
