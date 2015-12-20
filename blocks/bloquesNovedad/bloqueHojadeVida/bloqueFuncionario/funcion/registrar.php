@@ -552,16 +552,135 @@ class FormProcessor {
         
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
-        $cantidadFormacionSuperior = $_REQUEST['funcionarioCantidadRegistroSuperior'];
-        $cantidadFormacionInformal = $_REQUEST['funcionarioCantidadRegistroInformal'];
-        $cantidadIdiomas = $_REQUEST['funcionarioCantidadRegistroIdioma'];
-        $cantidadExperiencia = $_REQUEST['funcionarioCantidadRegistroExperiencia'];
-        $cantidadReferenciasPer = $_REQUEST['funcionarioCantidadRegistroReferencia'];
+        $cantidadFormacionSuperior = $_REQUEST['funcionarioRegistrosSuperior'];
+        //$cantidadFormacionInformal = $_REQUEST['funcionarioCantidadRegistroInformal'];
+        //$cantidadIdiomas = $_REQUEST['funcionarioCantidadRegistroIdioma'];
+        //$cantidadExperiencia = $_REQUEST['funcionarioCantidadRegistroExperiencia'];
+        //$cantidadReferenciasPer = $_REQUEST['funcionarioCantidadRegistroReferencia'];
         
         // ---------------- FIN: Lista Variables Control--------------------------------------------------------
         // -------------------------------------------------- Campos Dinamicos ----------------------------------
+        $count = 0;
         
+        while($count < $cantidadFormacionSuperior){
+        	
+        	if(isset($_REQUEST['funcionarioFormacionSuperiorModalidad_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Técnica';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Tecnológica';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Tecnológica Especializada';
+        				break;
+        			case 4 :
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Universitaria';
+        				break;
+        			case 5 :
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Especialización';
+        				break;
+        			case 6 :
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Maestría';
+        				break;
+        			case 7 :
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Doctorado';
+        		}
+        	}
+        	
+        	if(isset($_REQUEST['funcionarioFormacionSuperiorGraduado_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count]='Si';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count]='No';
+        				break;
+        		}
+        	}
+        	
+        	//Manejo de Ubicacion Preliminar --------------------------------------------------------
+        	
+        	if(isset($_REQUEST['funcionarioFormacionSuperiorPais_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]='Argentina';
+        				break;
+        			case 2:
+        				$_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]='Peru';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]='Chile';
+        				break;
+        			case 4 :
+        				$_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]='Colombia';
+        				break;
+        		}
+        	}
+        	
+        	if(isset($_REQUEST['funcionarioFormacionSuperiorDepartamento_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Cundinamarca';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Antioquia';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Santander';
+        				break;
+        			case 4 :
+        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Bolivar';
+        				break;
+        			case 5 :
+        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Bogotá D.C.';
+        				break;
+        		}
+        	}
+        	
+        	if(isset($_REQUEST['funcionarioFormacionSuperiorCiudad_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Bogota D.C.';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Medellin';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Barranquilla';
+        				break;
+        			case 4 :
+        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Cali';
+        				break;
+        			case 5 :
+        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Cucuta';
+        				break;
+        			case 6 :
+        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Bucaramanga';
+        				break;
+        		}
+        	}
+        	//------------------------------- Preliminar Ubicación ----------------------------------
+        	
+        	
+        	$datosFormacionAcademicaSuperior[$count] = array(
+        			'semestresCursados' => $_REQUEST['funcionarioFormacionSuperiorSemestres_'.$count],
+        			'resolucionConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorResolucionConvali_'.$count],
+        			'fechaConvalidacion' => $_REQUEST['funcionarioFechaConvalidaSuperior_'.$count],
+        			'entidadConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorEntidadConvali_'.$count],
+        			'universidadSuperior' => $_REQUEST['funcionarioFormacionSuperiorUniversidad_'.$count],
+        			'tituloSuperior' => $_REQUEST['funcionarioFormacionSuperiorTituloObtenido_'.$count],
+        			'fechaGraduacionSuperior' => $_REQUEST['funcionarioFechaTituloSuperior_'.$count],
+        			'numeroTarjetaProfesional' => $_REQUEST['funcionarioFormacionSuperiorNumeroTarjeta_'.$count],
+        			'fechaExpedicionTarjeta' => $_REQUEST['funcionarioFechaTarjetaSuperior_'.$count],
+        			'soporteSuperior' => $_REQUEST['funcionarioSoporteFormacionSuperior_'.$count]
+        	);
+        	$count++;
+        }
         
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionSuperior",$datosFormacionAcademicaSuperior);
+        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
         
         
         //Al final se ejecuta la redirección la cual pasará el control a otra página
