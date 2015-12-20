@@ -2452,7 +2452,7 @@ class Formulario {
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	        } else {
-	        	$atributos ['valor'] = 'CARGAR LA CONSULTA SQL';
+	        	$atributos ['valor'] = '';
 	        }
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
 	        $atributos ['deshabilitado'] = false;
@@ -2543,8 +2543,8 @@ class Formulario {
 	         
 	        // --------------------------------------------------------------------------------------------------
 	        
-	        
-	        
+//***************************************************************************************************************
+//***************************************************************************************************************
 	        
 	        //$cantidad_referencias = 3;//---------------------------------------------
 	        
