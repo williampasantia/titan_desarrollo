@@ -214,9 +214,15 @@ class Formulario {
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
                      echo $this->miFormulario->campoBoton ( $atributos );
-                       
-                         $esteCampo = 'botonInactivar'.$i;
-                        $baseCampo = 'botonInactivar';
+                     
+                        $esteCampo = 'botonInactivar'.$i;
+                        if($matrizItems[$i][6]=='Activo'){
+                            $baseCampo = 'botonInactivar';
+                        }
+                        else{
+                            $baseCampo = 'botonActivar';
+                        }
+                        
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -234,6 +240,9 @@ class Formulario {
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales ); 
                        echo $this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
+                     
+                     
+                        
                             
                     
                      $i+=1;

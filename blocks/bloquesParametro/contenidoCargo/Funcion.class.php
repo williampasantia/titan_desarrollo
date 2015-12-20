@@ -73,8 +73,8 @@ class Funcion {
                          case "modificarRegistro":
         		      include_once ($this->ruta."funcion/modificar.php");
         	         break; 
-                         case "inactivar":
-        		
+                         case "inactivarRegistro":
+        		      include_once ($this->ruta."funcion/inactivar.php");
         	         break; 
         	}
             

@@ -52,23 +52,24 @@ class Frontera {
                            switch ($_REQUEST ['opcion']) {
 				
 				case "registrar" :
-                                    
-					include_once ($this->ruta . "/formulario/registrar.php");
+                                        include_once ($this->ruta . "/formulario/registrar.php");
 					break;
-				
 				case "modificar":
-                                   
                                         include_once ($this->ruta . "/formulario/modificar.php");
-					break;	
+					break;
+                                case "verdetalle":
+                                        include_once ($this->ruta . "/formulario/verdetalle.php");
+					break;
+                                case "inactivar":
+                                        include_once ($this->ruta . "/formulario/inactivar.php");
+					break;    
                                 case "mostrar":
 //					include_once ($this->ruta . "/formulario/muestra.php");
 //					break;	 
                                 case "form":
 					include_once ($this->ruta . "/formulario/form.php");
 					break;
-                                 case "inactivar":
-//					include_once ($this->ruta . "/formulario/inactivar.php");
-					break;	 
+                                 
                                 case "detalle":
 					include_once ($this->ruta . "/formulario/detalle.php");
 					break;	

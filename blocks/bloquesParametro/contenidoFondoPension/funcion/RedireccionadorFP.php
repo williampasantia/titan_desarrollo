@@ -6,7 +6,7 @@ if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("index.php");
 	exit ();
 }
-class Redireccionador {
+class RedireccionadorFP {
 	public static function redireccionar($opcion, $valor = "") {
 		
 	    $miConfigurador = \Configurador::singleton ();

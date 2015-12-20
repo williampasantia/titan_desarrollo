@@ -98,9 +98,24 @@ class Sql extends \Sql {
                         $cadenaSql .= 'tipo_sueldo as TIPO_SUELDO ';
                         $cadenaSql .= 'FROM ';
                         $cadenaSql .= 'parametro.cargo';
-//                        $cadenaSql .= 'WHERE ';
-//                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
-//                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
+                        
+                break;
+            
+            
+            case 'buscarVerdetallexCargo' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'codigo_cargo as COD_CARGO, ';
+                        $cadenaSql .= 'nivel as NIVEL, ';
+                        $cadenaSql .= 'codigo_alternativo as COD_ALTERNATIVO,';
+                        $cadenaSql .= 'grado as GRADO,';
+                        $cadenaSql .= 'nombre as NOMBRE,';
+                        $cadenaSql .= 'cod_tipo_cargo as COD_TIPO, ';
+                        $cadenaSql .= 'sueldo as SUELDO, ';
+                        $cadenaSql .= 'tipo_sueldo as TIPO_SUELDO, ';
+                        $cadenaSql .= 'estado as ESTADO ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'parametro.cargo';
                         
                 break;
 
@@ -122,9 +137,22 @@ class Sql extends \Sql {
                 $cadenaSql .= 'codigo_cargo = ';
                 $cadenaSql .= '\'' . $variable ['codigoRegistro']  . '\'';
                 break;
+                
+             case 'inactivarRegistro' :
+                $cadenaSql = 'UPDATE ';
+                $cadenaSql .= 'parametro.cargo ';
+                $cadenaSql .= 'SET ';
+                $cadenaSql .= 'estado = ';
+                $cadenaSql .= '\'' . $variable ['estadoRegistro']  . '\' ';
+                $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'codigo_cargo = ';
+                $cadenaSql .= '\'' . $variable ['codigoRegistro']  . '\'';
+                break;
         
         }
+        
        
+        
         return $cadenaSql;
     
     }
