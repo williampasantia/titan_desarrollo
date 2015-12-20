@@ -65,8 +65,7 @@ class Funcion {
         	switch ($_REQUEST['opcion']){
         		case "mostrar":
                             include_once ($this->ruta."funcion/registrar.php");
-        		
-        			break;
+        		 break;
                          case "registrar":
         		      include_once ($this->ruta."funcion/opciones.php");
         	         break; 
@@ -78,7 +77,7 @@ class Funcion {
         	         break; 
         	}
             
-//            $resultado = $this->procesarFormulario ();
+
         }
         
         return $resultado;

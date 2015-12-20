@@ -60,14 +60,19 @@ class Funcion {
         	
         	switch ($_REQUEST['opcion']){
         		case "mostrar":
-        			include ("/opt/lampp/htdocs/sara/blocks/bloquesModelo/bloqueModelo1/funcion/funcionDatos.php");
-        			
-        			exit;
+                            include_once ($this->ruta."funcion/registrar.php");
+        		
         			break;
-        		default:
+                         case "registrar":
+        		      include_once ($this->ruta."funcion/opciones.php");
+        	         break; 
+                         case "modificarRegistro":
+        		      include_once ($this->ruta."funcion/modificar.php");
+        	         break; 
+                         case "inactivarRegistro":
+        		      include_once ($this->ruta."funcion/inactivar.php");
+        	         break; 
         	}
-            
-            $resultado = $this->procesarFormulario ();
         }
         
         return $resultado;

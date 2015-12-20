@@ -1584,75 +1584,7 @@ $tsCiudades = array(
         echo $this->miFormulario->campoCuadroLista ( $atributos );
         // --------------- FIN CONTROL : Select --------------------------------------------------
    
-        
-//        // ---------------- CONTROL: Select --------------------------------------------------------
-//        $esteCampo = 'lugarRegistro';
-//        $atributos['nombre'] = $esteCampo;
-//        $atributos['id'] = $esteCampo;
-//        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-//        $atributos['tab'] = $tab;
-//        $atributos['seleccion'] = -1;
-//        $atributos['evento'] = ' ';
-//        $atributos['deshabilitado'] = false;
-//        $atributos['limitar']= 50;
-//        $atributos['tamanno']= 1;
-//        $atributos['columnas']= 1;
-//        
-//        $atributos ['ajax_function'] = "";
-//        $atributos ['ajax_control'] = $esteCampo;
-//        
-//        $atributos ['obligatorio'] = true;
-//        $atributos ['etiquetaObligatorio'] = true;
-//        $atributos ['validar'] = 'required';
-//                   
-//                  $tsDepartamentos = array( 
-//    array(1,'AMAZONAS'), 
-//    array(2,'ANTIOQUIA'), 
-//    array(3,'ARAUCA'), 
-//    array(4,'ATLANTICO'), 
-//    array(5,'BOLIVAR'), 
-//    array(6,'BOYACA'), 
-//    array(7,'CALDAS'), 
-//    array(8,'CAQUETA'), 
-//    array(9,'CASANARE'), 
-//    array(10,'CAUCA'), 
-//    array(11,'CESAR'), 
-//    array(12,'CHOCO'), 
-//    array(13,'CORDOBA'), 
-//    array(14,'CUNDINAMARCA'), 
-//    array(15,'GUAINIA'), 
-//    array(16,'GUAJIRA'), 
-//    array(17,'GUAVIARE'), 
-//    array(18,'HUILA'), 
-//    array(19,'MAGDALENA'), 
-//    array(20,'META'), 
-//    array(21,'N SANTANDER'), 
-//    array(22,'NARINO'), 
-//    array(23,'PUTUMAYO'), 
-//    array(24,'QUINDIO'), 
-//    array(25,'RISARALDA'), 
-//    array(26,'SAN ANDRES'), 
-//    array(27,'SANTANDER'), 
-//    array(28,'SUCRE'), 
-//    array(29,'TOLIMA'), 
-//    array(30,'VALLE DEL CAUCA'), 
-//    array(31,'VAUPES'), 
-//    array(32,'VICHADA'), 
-//); 
-//        
-//        $atributos['matrizItems'] = $tsDepartamentos;
-//        
-//        if (isset ( $_REQUEST [$esteCampo] )) {
-//        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-//        } else {
-//        	$atributos ['valor'] = '';
-//        }
-//        $tab ++;
-//        
-//        // Aplica atributos globales al control
-//        $atributos = array_merge ( $atributos, $atributosGlobales );
-//        echo $this->miFormulario->campoCuadroLista ( $atributos );
-//        // --------------- FIN CONTROL : Select --------------------------------------------------
+
         
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         $esteCampo = 'nomRepreRegistro';
@@ -1766,8 +1698,8 @@ $tsCiudades = array(
 
         // Paso 1: crear el listado de variables
 
-        //$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
-        $valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
+        $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
+        $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&opcion=mostrar";

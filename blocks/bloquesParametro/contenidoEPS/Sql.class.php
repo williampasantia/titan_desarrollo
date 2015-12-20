@@ -53,54 +53,20 @@ class Sql extends \Sql {
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= $_REQUEST ['nitRegistro'] . ', ';
-                $cadenaSql .= $_REQUEST ['lugarRegistro'] . ', ';
-                $cadenaSql .= '\'' . $_REQUEST ['nombreRegistro']  . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['direccionRegistro']  . '\', ';
-                $cadenaSql .= $_REQUEST ['telefonoRegistro'] . ', ';
-                $cadenaSql .= $_REQUEST ['extTelefonoRegistro'] . ', ';
-                $cadenaSql .= $_REQUEST ['faxRegistro'] . ', ';
-                $cadenaSql .= $_REQUEST ['extFaxRegistro'] . ', ';
-                $cadenaSql .= '\'' . $_REQUEST ['nomRepreRegistro'] . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['emailRegistro'] . '\', ';
+                $cadenaSql .= $variable ['nitRegistro'] . ', ';
+                $cadenaSql .= $variable ['lugarRegistro'] . ', ';
+                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
+                $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
+                $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
+                $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';
+                $cadenaSql .= $variable ['faxRegistro'] . ', ';
+                $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
+                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
+                $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';
                 break;
             
-            case 'actualizarRegistro' :
-                $cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= $prefijo . 'pagina ';
-                $cadenaSql .= '( ';
-                $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'descripcion,';
-                $cadenaSql .= 'modulo,';
-                $cadenaSql .= 'nivel,';
-                $cadenaSql .= 'parametro';
-                $cadenaSql .= ') ';
-                $cadenaSql .= 'VALUES ';
-                $cadenaSql .= '( ';
-                $cadenaSql .= '\'' . $_REQUEST ['nombrePagina'] . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['descripcionPagina'] . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['moduloPagina'] . '\', ';
-                $cadenaSql .= $_REQUEST ['nivelPagina'] . ', ';
-                $cadenaSql .= '\'' . $_REQUEST ['parametroPagina'] . '\'';
-                $cadenaSql .= ') ';
-                break;
-            
-            case 'buscarRegistro' :
-                
-                $cadenaSql = 'SELECT ';
-                $cadenaSql .= 'id_pagina as PAGINA, ';
-                $cadenaSql .= 'nombre as NOMBRE ';
-                //$cadenaSql .= 'descripcion as DESCRIPCION,';
-                //$cadenaSql .= 'modulo as MODULO,';
-                //$cadenaSql .= 'nivel as NIVEL,';
-                //$cadenaSql .= 'parametro as PARAMETRO ';
-                $cadenaSql .= 'FROM ';
-                $cadenaSql .= $prefijo . 'pagina ';
-                //$cadenaSql .= 'WHERE ';
-                //$cadenaSql .= 'nombre=\'' . $_REQUEST ['nombrePagina'] . '\' ';
-                break;
                 
              case 'buscarRegistroxEPS' :
                 
@@ -114,49 +80,82 @@ class Sql extends \Sql {
 //                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
 //                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
                 break;
-                	
+             
+                case 'buscarModificarxEPS' :
                 
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'nit as NIT, ';
+                        $cadenaSql .= 'id_ubicacion as ID_UBICACION, ';
+                        $cadenaSql .= 'nombre as NOMBRE,';
+                        $cadenaSql .= 'direccion as DIRECCION,';
+                        $cadenaSql .= 'telefono as TELEFONO,';
+                        $cadenaSql .= 'ext_telefono as EXT_TELEFONO, ';
+                        $cadenaSql .= 'fax as FAX, ';
+                        $cadenaSql .= 'ext_fax as EXT_FAX, ';
+                        $cadenaSql .= 'nom_representante as NOM_REPRESENTANTE, ';
+                        $cadenaSql .= 'email as EMAIL ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'parametro.eps';
+                        
+                break;       
             
-                case 'buscarRegistroUsuarioWhere' :
-                		$cadenaSql = 'SELECT ';
-                		$cadenaSql .= 'id_usuario as USUARIO, ';
-                		$cadenaSql .= 'nombre as NOMBRE, ';
-                		$cadenaSql .= 'apellido as APELLIDO, ';
-                		$cadenaSql .= 'fecha_reg as FECHA_REG, ';
-                		$cadenaSql .= 'edad as EDAD, ';
-                		$cadenaSql .= 'telefono as TELEFONO, ';
-                		$cadenaSql .= 'direccion as DIRECCION, ';
-                		$cadenaSql .= 'ciudad as CIUDAD, ';
-                		$cadenaSql .= 'estado as ESTADO ';
-                		//$cadenaSql .= 'descripcion as DESCRIPCION,';
-                		//$cadenaSql .= 'modulo as MODULO,';
-                		//$cadenaSql .= 'nivel as NIVEL,';
-                		//$cadenaSql .= 'parametro as PARAMETRO ';
-                		$cadenaSql .= 'FROM ';
-                		$cadenaSql .= "nomina." .$prefijo . 'usuarios ';
-                		$cadenaSql .= 'WHERE ';
-                		$cadenaSql .= 'fecha_reg <=\'' . $_REQUEST ['fechaRegistroConsulta'] . '\' ';
+             case 'buscarVerdetallexEPS' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'nit as NIT, ';
+                        $cadenaSql .= 'id_ubicacion as ID_UBICACION, ';
+                        $cadenaSql .= 'nombre as NOMBRE,';
+                        $cadenaSql .= 'direccion as DIRECCION,';
+                        $cadenaSql .= 'telefono as TELEFONO,';
+                        $cadenaSql .= 'ext_telefono as EXT_TELEFONO, ';
+                        $cadenaSql .= 'fax as FAX, ';
+                        $cadenaSql .= 'ext_fax as EXT_FAX, ';
+                        $cadenaSql .= 'nom_representante as NOM_REPRESENTANTE, ';
+                        $cadenaSql .= 'email as EMAIL, ';
+                        $cadenaSql .= 'estado as ESTADO ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'parametro.eps';
+                        
                 break;
-
-            case 'borrarRegistro' :
-                $cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= $prefijo . 'pagina ';
-                $cadenaSql .= '( ';
-                $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'descripcion,';
-                $cadenaSql .= 'modulo,';
-                $cadenaSql .= 'nivel,';
-                $cadenaSql .= 'parametro';
-                $cadenaSql .= ') ';
-                $cadenaSql .= 'VALUES ';
-                $cadenaSql .= '( ';
-                $cadenaSql .= '\'' . $_REQUEST ['nombrePagina'] . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['descripcionPagina'] . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['moduloPagina'] . '\', ';
-                $cadenaSql .= $_REQUEST ['nivelPagina'] . ', ';
-                $cadenaSql .= '\'' . $_REQUEST ['parametroPagina'] . '\'';
-                $cadenaSql .= ') ';
+                
+            case 'modificarRegistro' :
+                $cadenaSql = 'UPDATE ';
+                $cadenaSql .= 'parametro.eps ';
+                $cadenaSql .= 'SET ';
+                $cadenaSql .= 'id_ubicacion = ';
+                $cadenaSql .= $variable ['lugarRegistro'] . ', ';
+                $cadenaSql .= 'nombre = ';
+                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
+                $cadenaSql .= 'direccion = ';
+                $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
+                $cadenaSql .= 'telefono = ';
+                $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
+                $cadenaSql .= 'ext_telefono = ';
+                $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';
+                $cadenaSql .= 'fax = ';
+                $cadenaSql .= $variable ['faxRegistro'] . ', ';
+                $cadenaSql .= 'ext_fax = ';
+                $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
+                $cadenaSql .= 'nom_representante = ';
+                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
+                $cadenaSql .= 'email = ';
+                $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\' ';
+                $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'nit = ';
+                $cadenaSql .= $variable ['nitRegistro'] . ' ';
                 break;
+               
+              case 'inactivarRegistro' :
+                $cadenaSql = 'UPDATE ';
+                $cadenaSql .= 'parametro.eps ';
+                $cadenaSql .= 'SET ';
+                $cadenaSql .= 'estado = ';
+                $cadenaSql .= '\'' . $variable ['estadoRegistro']  . '\' ';
+                $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'nit = ';
+                $cadenaSql .= '\'' . $variable ['nitRegistro']  . '\'';
+              break;
+            
         
         }
         
