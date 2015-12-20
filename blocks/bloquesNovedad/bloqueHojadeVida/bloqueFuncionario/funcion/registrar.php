@@ -553,10 +553,10 @@ class FormProcessor {
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
         $cantidadFormacionSuperior = $_REQUEST['funcionarioRegistrosSuperior'];
-        //$cantidadFormacionInformal = $_REQUEST['funcionarioCantidadRegistroInformal'];
-        //$cantidadIdiomas = $_REQUEST['funcionarioCantidadRegistroIdioma'];
-        //$cantidadExperiencia = $_REQUEST['funcionarioCantidadRegistroExperiencia'];
-        //$cantidadReferenciasPer = $_REQUEST['funcionarioCantidadRegistroReferencia'];
+        $cantidadFormacionInformal = 1;//$_REQUEST['funcionarioRegistrosInformal'];
+        $cantidadIdiomas = 1;//$_REQUEST['funcionarioRegistrosIdioma'];
+        $cantidadExperiencia = 1;//$_REQUEST['funcionarioRegistrosExperiencia'];
+        $cantidadReferenciasPer = 1;//$_REQUEST['funcionarioRegistrosReferencia'];
         
         // ---------------- FIN: Lista Variables Control--------------------------------------------------------
         // -------------------------------------------------- Campos Dinamicos ----------------------------------
@@ -681,6 +681,301 @@ class FormProcessor {
         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionSuperior",$datosFormacionAcademicaSuperior);
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+        
+        
+        $count = 0;
+        
+        while($count < $cantidadFormacionInformal){
+        	
+        	$datosFormacionAcademicaInformal[$count] = array(
+        			'cursoInformal' => $_REQUEST['funcionarioFormacionInformalCurso_'.$count],
+        			'entidadCurso' => $_REQUEST['funcionarioFormacionInformalCursoLugar_'.$count],
+        			'intensidadHoraria' => $_REQUEST['funcionarioFormacionInformalCursoIntensidad_'.$count],
+        			'fechaTerminacion' => $_REQUEST['funcionarioFechaInformal_'.$count],
+        			'soporteInformal' => $_REQUEST['funcionarioSoporteFormacionInformal_'.$count]
+        	);
+        	$count++;
+        
+        }
+        
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionInformal",$datosFormacionAcademicaInformal);
+        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+        
+        
+        $count = 0;
+        
+        while($count < $cantidadIdiomas){
+        	
+        	if(isset($_REQUEST['funcionarioFormacionIdioma_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionIdioma_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Inglés';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Francés';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Alemán';
+        				break;
+        			case 4 :
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Portugués';
+        				break;
+        			case 5 :
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Italiano';
+        				break;
+        			case 6 :
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Mandarín';
+        				break;
+        			case 7 :
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Otro';
+        				break;
+        		}
+        	}
+        	
+        	if(isset($_REQUEST['funcionarioFormacionIdiomaNivel_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]='(A1) Básico';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]='(A2) Elemental';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]='(B1) Pre-Intermedio';
+        				break;
+        			case 4 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]='(B2) Intermedio Alto';
+        				break;
+        			case 5 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]='(C1) Avanzado';
+        				break;
+        			case 6 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]='(C2) Superior';
+        				break;
+        		}
+        	}
+        	
+        	if(isset($_REQUEST['funcionarioFormacionIdiomaNivelHabla_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count]='Aceptable';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count]='Bueno';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count]='Excelente';
+        				break;
+        			default :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count]=' ';
+        				break;
+        		}
+        	}
+        	
+        	if(isset($_REQUEST['funcionarioFormacionIdiomaNivelLee_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count]='Aceptable';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count]='Bueno';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count]='Excelente';
+        				break;
+        			default :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count]=' ';
+        				break;
+        		}
+        	}
+        	
+        	if(isset($_REQUEST['funcionarioFormacionIdiomaNivelEscribe_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count]='Aceptable';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count]='Bueno';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count]='Excelente';
+        				break;
+        			default :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count]=' ';
+        				break;
+        		}
+        	}
+        	
+        	if(isset($_REQUEST['funcionarioFormacionIdiomaNivelEscucha_'.$count])){
+        		switch($_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count]='Aceptable';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count]='Bueno';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count]='Excelente';
+        				break;
+        			default :
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count]=' ';
+        				break;
+        		}
+        	}
+        	
+        	$datosFormacionAcademicaIdiomas[$count] = array(
+        			'universidadIdioma' => $_REQUEST['funcionarioFormacionIdiomaUniversidad_'.$count],
+        			'soporteIdioma' => $_REQUEST['funcionarioSoporteIdioma_'.$count],
+        			'observacionIdioma' => $_REQUEST['funcionarioIdiomaObservacion_'.$count]
+        	);
+        	$count++;
+        }
+        
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
+        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+        
+        
+        $datosInvestigacion = array(
+        		'tematicaInvestigacion' => $_REQUEST['funcionarioPublicacionesTematica'],
+        		'tipoInvestigacion' => $_REQUEST['funcionarioPublicacionesTipo'],
+        		'logrosInvestigacion' => $_REQUEST['funcionarioPublicacionesLogros'],
+        		'referenciasInvestigacion' => $_REQUEST['funcionarioPublicacionesReferencias']
+        );
+        
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionInvestigacion",$datosInvestigacion);
+        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+        
+        
+        $count = 0;
+        
+        while($count < $cantidadExperiencia){
+        	
+        	if(isset($_REQUEST['funcionarioExperienciaTipo_'.$count])){
+        		switch($_REQUEST ['funcionarioExperienciaTipo_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioExperienciaTipo_'.$count]='Pública';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioExperienciaTipo_'.$count]='Privada';
+        				break;
+        		}
+        	}
+        	
+        	//Manejo de Ubicacion Preliminar --------------------------------------------------------
+        	 
+        	if(isset($_REQUEST['funcionarioExperienciaPais_'.$count])){
+        		switch($_REQUEST ['funcionarioExperienciaPais_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioExperienciaPais_'.$count]='Argentina';
+        				break;
+        			case 2:
+        				$_REQUEST ['funcionarioExperienciaPais_'.$count]='Peru';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioExperienciaPais_'.$count]='Chile';
+        				break;
+        			case 4 :
+        				$_REQUEST ['funcionarioExperienciaPais_'.$count]='Colombia';
+        				break;
+        		}
+        	}
+        	 
+        	if(isset($_REQUEST['funcionarioExperienciaDepartamento_'.$count])){
+        		switch($_REQUEST ['funcionarioExperienciaDepartamento_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Cundinamarca';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Antioquia';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Santander';
+        				break;
+        			case 4 :
+        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Bolivar';
+        				break;
+        			case 5 :
+        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Bogotá D.C.';
+        				break;
+        		}
+        	}
+        	 
+        	if(isset($_REQUEST['funcionarioExperienciaCiudad_'.$count])){
+        		switch($_REQUEST ['funcionarioExperienciaCiudad_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Bogota D.C.';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Medellin';
+        				break;
+        			case 3 :
+        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Barranquilla';
+        				break;
+        			case 4 :
+        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Cali';
+        				break;
+        			case 5 :
+        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Cucuta';
+        				break;
+        			case 6 :
+        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Bucaramanga';
+        				break;
+        		}
+        	}
+        	//------------------------------- Preliminar Ubicación ----------------------------------
+        	     
+        	
+        	$datosExperiencia[$count] = array(
+        			'nombreEmpresa' => $_REQUEST['funcionarioExperienciaEmpresa_'.$count],
+        			'nitEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaNIT_'.$count],
+        			'emailEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCorreo_'.$count],
+        			'telefonoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaTelefono_'.$count],
+        			'fechaIngreso' => $_REQUEST['funcionarioFechaEntradaExperiencia_'.$count],
+        			'fechaRetiro' => $_REQUEST['funcionarioFechaSalidaExperiencia_'.$count],
+        			'dependenciaEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaDependencia_'.$count],
+        			'cargoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCargo_'.$count],
+        			'horasTrabjo' => $_REQUEST['funcionarioExperienciaEmpresaHoras_'.$count],
+        			'soporteExperiencia' => $_REQUEST['funcionarioSoporteExperiencia_'.$count]
+        	);
+        	$count++;
+        }
+        
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarExperienciaLaboral",$datosExperiencia);
+        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+        
+        
+        $count = 0;
+        
+        while($count < $cantidadReferenciasPer){
+        	
+        	if(isset($_REQUEST['funcionarioReferenciaTipo_'.$count])){
+        		switch($_REQUEST ['funcionarioReferenciaTipo_'.$count]){
+        			case 1 :
+        				$_REQUEST ['funcionarioReferenciaTipo_'.$count]='Personal';
+        				break;
+        			case 2 :
+        				$_REQUEST ['funcionarioReferenciaTipo_'.$count]='Profesional';
+        				break;
+        			default:
+        				$_REQUEST ['funcionarioReferenciaTipo_'.$count]=' ';
+        		}
+        	}
+        	
+        	$datosReferencias[$count] = array(
+        			'nombresReferencia' => $_REQUEST['funcionarioReferenciaNombres_'.$count],
+        			'apellidosReferencia' => $_REQUEST['funcionarioReferenciaApellidos_'.$count],
+        			'telefonoReferencia' => $_REQUEST['funcionarioReferenciaTelefono_'.$count],
+        			'relacionReferencia' => $_REQUEST['funcionarioReferenciaRelacion_'.$count],
+        			'soporteReferencia' => $_REQUEST['funcionarioSoporteReferencia_'.$count]
+        	);
+        	$count++;
+        	 
+        }
+        
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarReferenciasPersonales",$datosReferencias);
+        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+        
+        
         
         
         //Al final se ejecuta la redirección la cual pasará el control a otra página

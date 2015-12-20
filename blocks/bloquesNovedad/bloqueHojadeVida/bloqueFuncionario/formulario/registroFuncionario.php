@@ -3428,7 +3428,7 @@ class Formulario {
 			        			array(2,'(A2) Elemental'),
 			        			array(3,'(B1) Pre-Intermedio'),
 			        			array(4,'(B2) Intermedio Alto'),
-			        			array(5,'(C1) Avanzazo'),
+			        			array(5,'(C1) Avanzado'),
 			        			array(6,'(C2) Superior')
 			        			 
 			        	);
@@ -4633,8 +4633,138 @@ class Formulario {
 	    $atributos = array_merge ( $atributos, $atributosGlobales );
 	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
 	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+	    
+	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	    $esteCampo = 'funcionarioRegistrosInformal';
+	    $atributos ['id'] = $esteCampo;
+	    $atributos ['nombre'] = $esteCampo;
+	    $atributos ['tipo'] = 'hidden';
+	    $atributos ['estilo'] = 'jqueryui';
+	    $atributos ['marco'] = true;
+	    $atributos ['columnas'] = 1;
+	    $atributos ['dobleLinea'] = false;
+	    $atributos ['tabIndex'] = $tab;
+	    $atributos ['etiqueta'] = '';
+	    
+	    $atributos ['obligatorio'] = false;
+	    $atributos ['etiquetaObligatorio'] = false;
+	    $atributos ['validar'] = 'custom[onlyLetterSp]';
+	    
+	    if (isset ( $_REQUEST [$esteCampo] )) {
+	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
+	    } else {
+	    	$atributos ['valor'] = $cantidad_referencias_info;
+	    }
+	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+	    $atributos ['deshabilitado'] = false;
+	    $atributos ['tamanno'] = 30;
+	    $atributos ['maximoTamanno'] = '';
+	    $tab ++;
+	    
+	    // Aplica atributos globales al control
+	    $atributos = array_merge ( $atributos, $atributosGlobales );
+	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
+	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+	    
+	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	    $esteCampo = 'funcionarioRegistrosIdioma';
+	    $atributos ['id'] = $esteCampo;
+	    $atributos ['nombre'] = $esteCampo;
+	    $atributos ['tipo'] = 'hidden';
+	    $atributos ['estilo'] = 'jqueryui';
+	    $atributos ['marco'] = true;
+	    $atributos ['columnas'] = 1;
+	    $atributos ['dobleLinea'] = false;
+	    $atributos ['tabIndex'] = $tab;
+	    $atributos ['etiqueta'] = '';
+	    
+	    $atributos ['obligatorio'] = false;
+	    $atributos ['etiquetaObligatorio'] = false;
+	    $atributos ['validar'] = 'custom[onlyLetterSp]';
+	    
+	    if (isset ( $_REQUEST [$esteCampo] )) {
+	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
+	    } else {
+	    	$atributos ['valor'] = $cantidad_idiomas;
+	    }
+	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+	    $atributos ['deshabilitado'] = false;
+	    $atributos ['tamanno'] = 30;
+	    $atributos ['maximoTamanno'] = '';
+	    $tab ++;
+	    
+	    // Aplica atributos globales al control
+	    $atributos = array_merge ( $atributos, $atributosGlobales );
+	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
+	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+	    
+	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	    $esteCampo = 'funcionarioRegistrosExperiencia';
+	    $atributos ['id'] = $esteCampo;
+	    $atributos ['nombre'] = $esteCampo;
+	    $atributos ['tipo'] = 'hidden';
+	    $atributos ['estilo'] = 'jqueryui';
+	    $atributos ['marco'] = true;
+	    $atributos ['columnas'] = 1;
+	    $atributos ['dobleLinea'] = false;
+	    $atributos ['tabIndex'] = $tab;
+	    $atributos ['etiqueta'] = '';
+	    
+	    $atributos ['obligatorio'] = false;
+	    $atributos ['etiquetaObligatorio'] = false;
+	    $atributos ['validar'] = 'custom[onlyLetterSp]';
+	    
+	    if (isset ( $_REQUEST [$esteCampo] )) {
+	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
+	    } else {
+	    	$atributos ['valor'] = $cantidad_experiencia;
+	    }
+	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+	    $atributos ['deshabilitado'] = false;
+	    $atributos ['tamanno'] = 30;
+	    $atributos ['maximoTamanno'] = '';
+	    $tab ++;
+	    
+	    // Aplica atributos globales al control
+	    $atributos = array_merge ( $atributos, $atributosGlobales );
+	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
+	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+	    
+	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	    $esteCampo = 'funcionarioRegistrosReferencias';
+	    $atributos ['id'] = $esteCampo;
+	    $atributos ['nombre'] = $esteCampo;
+	    $atributos ['tipo'] = 'hidden';
+	    $atributos ['estilo'] = 'jqueryui';
+	    $atributos ['marco'] = true;
+	    $atributos ['columnas'] = 1;
+	    $atributos ['dobleLinea'] = false;
+	    $atributos ['tabIndex'] = $tab;
+	    $atributos ['etiqueta'] = '';
+	    
+	    $atributos ['obligatorio'] = false;
+	    $atributos ['etiquetaObligatorio'] = false;
+	    $atributos ['validar'] = 'custom[onlyLetterSp]';
+	    
+	    if (isset ( $_REQUEST [$esteCampo] )) {
+	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
+	    } else {
+	    	$atributos ['valor'] = $cantidad_referencias_per;
+	    }
+	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+	    $atributos ['deshabilitado'] = false;
+	    $atributos ['tamanno'] = 30;
+	    $atributos ['maximoTamanno'] = '';
+	    $tab ++;
+	    
+	    // Aplica atributos globales al control
+	    $atributos = array_merge ( $atributos, $atributosGlobales );
+	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
+	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+//*********************************************************************************************************	    
+	    
         
-        // ------------------Division para los botones-------------------------
+        // ------------------Division para los botones-----------------------------------------------------
         $atributos ["id"] = "botones";
         $atributos ["estilo"] = "marcoBotones";
         $atributos ["titulo"] = "Enviar Información";
