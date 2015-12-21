@@ -134,17 +134,35 @@ $(document).ready(function(){
 	$("#ocultarb5").click(function(){
 		$("#contentDatos5").hide("slow");
 	});
+
+	$("#<?php echo $this->campoSeguro('botonGuardar')?>").click(function(){
+		alert("entor");
+		$("#contentDatos1").validationEngine({validateNonVisibleFields: true});
+		$("#contentDatos2").validationEngine({validateNonVisibleFields: true});
+		$("#contentDatos3").validationEngine({validateNonVisibleFields: true});
+		$("#contentDatos4").validationEngine({validateNonVisibleFields: true});
+		$("#contentDatos5").validationEngine({validateNonVisibleFields: true});
+		$form.find("#bloqueFuncionario").validationEngine('updatePromptsPosition');
+	});
+	
 });
 
 
+//-------------------------------------Control Select UBICACIÓN Anidada Dependiente----------------------------
 $( "#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>" ).change(function() {
 	//alert ('aaa');
     
     var valor = $("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").val();
+    if (valor >= 1){
+    	$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").removeAttr('disabled');
+    	$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").select2();
+    }else{
+		$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").attr('disabled', true);
+		$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").select2();
 
-    $("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").removeAttr('disabled');
-	$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").select2();
-    
+		$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").attr('disabled', true);
+		$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").select2();
+    }
     //alert(valor);
     //var codigo = valor; 
 });
@@ -153,13 +171,17 @@ $( "#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>" ).cha
 	//alert ('aaa');
     
     var valor = $("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").val();
-
-    $("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").removeAttr('disabled');
-	$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").select2();
-    
+    if(valor >= 1){
+		$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").removeAttr('disabled');
+		$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").select2();
+	}else{
+		$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").attr('disabled', true);
+		$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").select2();
+	}
     //alert(valor);
     //var codigo = valor; 
 });
+//---------------------------------------------------------------------------------------------------------
 
 $( "#<?php echo $this->campoSeguro('funcionarioGenero')?>" ).change(function() {
 	//alert ('aaa');
@@ -184,9 +206,10 @@ $( "#<?php echo $this->campoSeguro('funcionarioGenero')?>" ).change(function() {
 		$("#<?php echo $this->campoSeguro('funcionarioSoporteLibreta')?>").prop('disabled', true);
 		$("#<?php echo $this->campoSeguro('funcionarioSoporteLibreta')?>").val(' ');
 	}
-    
-    
     //alert(valor);
     //var codigo = valor; 
 });
+
+
+//---------------------------------------------------------------------------------------------------------
 </script>

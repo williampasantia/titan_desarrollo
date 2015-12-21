@@ -46,9 +46,9 @@ class Sql extends \Sql {
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-                $cadenaSql .=  /*$variable ['paisExpedicion']*/1 . ', ';
-                $cadenaSql .=  /*$variable ['departamentoExpedicion']*/1 . ', ';
-                $cadenaSql .=  /*$variable ['ciudadExpedicion']*/1 . ' ';
+                $cadenaSql .=  $variable ['paisExpedicion'] . ', ';
+                $cadenaSql .=  $variable ['departamentoExpedicion'] . ', ';
+                $cadenaSql .=  $variable ['ciudadExpedicion'] . ' ';
                 $cadenaSql .= ') ';
                 $cadenaSql .= "RETURNING  id_ubicacion; ";
                 break;
@@ -65,7 +65,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'VALUES ';
 				$cadenaSql .= '( ';
 				$cadenaSql .=  $variable ['fk_ubicacion_expedicion'] . ', ';
-				$cadenaSql .=  $variable ['numeroDocumento'] . ', ';
+				$cadenaSql .=  /*$variable ['numeroDocumento']*/25687412 . ', ';
 				$cadenaSql .= '\'' . $variable ['fechaExpedicionDocumento'] . '\', ';
 				$cadenaSql .= '\'' . $variable ['soporteDocumento'] . '\' ';
 				$cadenaSql .= ') ';
@@ -143,7 +143,12 @@ class Sql extends \Sql {
 				}else{
 					$cadenaSql .= 'NULL, ';
 				}
-				$cadenaSql .= '\'' . $variable ['soporteLibreta'] . '\', ';
+				if($variable ['soporteLibreta'] != NULL){
+					$cadenaSql .= '\'' . $variable ['soporteLibreta'] . '\', ';
+				}else{
+					$cadenaSql .= '\'\', ';
+				}
+				
 				if($_REQUEST ['funcionarioGrupoEtnico'] != 'NULL'){
 					$cadenaSql .= '\'' . $_REQUEST ['funcionarioGrupoEtnico'] . '\', ';
 				}else{

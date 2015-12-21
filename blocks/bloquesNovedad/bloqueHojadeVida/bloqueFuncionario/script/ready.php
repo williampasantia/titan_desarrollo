@@ -22,6 +22,13 @@ $('#datepicker').datepicker({
 $('#<?php echo $this->campoSeguro('funcionarioIdentificacion')?>').width(); 
 $("#<?php echo $this->campoSeguro('funcionarioIdentificacion')?>").select2();
 
+$('#<?php echo $this->campoSeguro('funcionarioPais')?>').width(250); 
+$("#<?php echo $this->campoSeguro('funcionarioPais')?>").select2();
+$('#<?php echo $this->campoSeguro('funcionarioDepartamento')?>').width(250); 
+$("#<?php echo $this->campoSeguro('funcionarioDepartamento')?>").select2();
+$('#<?php echo $this->campoSeguro('funcionarioCiudad')?>').width(250); 
+$("#<?php echo $this->campoSeguro('funcionarioCiudad')?>").select2();
+
 $('#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>').width(250); 
 $("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").select2();
 $('#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>').width(250); 
@@ -65,4 +72,14 @@ $("#<?php echo $this->campoSeguro('funcionarioFormacionMediaCiudad')?>").select2
 
 $('#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad')?>').width(250); 
 $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad')?>").select2();
+
+
+
+$('#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_0')?>').width(250); 
+$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_0')?>").select2();
+$('#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>').width(250); 
+$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").select2();
+$('#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>').width(250); 
+$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").select2();
+		
 

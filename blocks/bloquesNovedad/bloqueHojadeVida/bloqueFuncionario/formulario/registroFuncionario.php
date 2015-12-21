@@ -292,102 +292,108 @@ class Formulario {
 	        
 	        // --------------------------------------------------------------------------------------------------
 	       
-	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioPais';
-	        $atributos ['id'] = $esteCampo;
-	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'text';
-	        $atributos ['estilo'] = 'jqueryui';
-	        $atributos ['marco'] = true;
-	        $atributos ['columnas'] = 1;
-	        $atributos ['dobleLinea'] = false;
-	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-	        
+	        $atributos['nombre'] = $esteCampo;
+	        $atributos['id'] = $esteCampo;
+	        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos['tab'] = $tab;
+	        $atributos['seleccion'] = -1;
+	        $atributos['evento'] = ' ';
+	        $atributos['deshabilitado'] = false;
+	        $atributos['limitar']= 50;
+	        $atributos['tamanno']= 1;
+	        $atributos['columnas']= 1;
+	         
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
-	        $atributos ['validar'] = 'required, minSize[1]';
+	        $atributos ['validar'] = 'required';
 	        
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	         
+	        $atributos['matrizItems'] = $matrizItems;
+	         
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	        } else {
 	        	$atributos ['valor'] = '';
 	        }
-	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
-	        $atributos ['tamanno'] = 20;
-	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;
-	        
+	         
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
-	        echo $this->miFormulario->campoCuadroTexto ( $atributos );
-	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+	        echo $this->miFormulario->campoCuadroLista ( $atributos );
+	        // --------------- FIN CONTROL : Select ----------------------------------------------------
 	        
-	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioDepartamento';
-	        $atributos ['id'] = $esteCampo;
-	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'text';
-	        $atributos ['estilo'] = 'jqueryui';
-	        $atributos ['marco'] = true;
-	        $atributos ['columnas'] = 1;
-	        $atributos ['dobleLinea'] = false;
-	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos['nombre'] = $esteCampo;
+	        $atributos['id'] = $esteCampo;
+	        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos['tab'] = $tab;
+	        $atributos['seleccion'] = -1;
+	        $atributos['evento'] = ' ';
+	        $atributos['deshabilitado'] = false;
+	        $atributos['limitar']= 50;
+	        $atributos['tamanno']= 1;
+	        $atributos['columnas']= 1;
 	        
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
-	        $atributos ['validar'] = 'required, minSize[1]';
+	        $atributos ['validar'] = 'required';
+	        
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	        
+	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	        } else {
 	        	$atributos ['valor'] = '';
 	        }
-	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
-	        $atributos ['tamanno'] = 20;
-	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;
 	        
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
-	        echo $this->miFormulario->campoCuadroTexto ( $atributos );
-	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+	        echo $this->miFormulario->campoCuadroLista ( $atributos );
+	        // --------------- FIN CONTROL : Select --------------------------------------------------
 	        
 	        
-	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioCiudad';
-	        $atributos ['id'] = $esteCampo;
-	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'text';
-	        $atributos ['estilo'] = 'jqueryui';
-	        $atributos ['marco'] = true;
-	        $atributos ['columnas'] = 1;
-	        $atributos ['dobleLinea'] = false;
-	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos['nombre'] = $esteCampo;
+	        $atributos['id'] = $esteCampo;
+	        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos['tab'] = $tab;
+	        $atributos['seleccion'] = -1;
+	        $atributos['evento'] = ' ';
+	        $atributos['deshabilitado'] = false;
+	        $atributos['limitar']= 50;
+	        $atributos['tamanno']= 1;
+	        $atributos['columnas']= 1;
 	        
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
-	        $atributos ['validar'] = 'required, minSize[1]';
+	        $atributos ['validar'] = 'required';
+	        
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	        
+	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	        } else {
 	        	$atributos ['valor'] = '';
 	        }
-	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
-	        $atributos ['tamanno'] = 20;
-	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;
 	        
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
-	        echo $this->miFormulario->campoCuadroTexto ( $atributos );
-	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+	        echo $this->miFormulario->campoCuadroLista ( $atributos );
+	        // --------------- FIN CONTROL : Select --------------------------------------------------
 	        
 	                
 	        // ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
@@ -1234,9 +1240,9 @@ class Formulario {
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
 	        
-	        $atributos ['obligatorio'] = false;
-	        $atributos ['etiquetaObligatorio'] = false;
-	        $atributos ['validar'] = ' ';
+	        $atributos ['obligatorio'] = true;
+	        $atributos ['etiquetaObligatorio'] = true;
+	        $atributos ['validar'] = 'required';
 	        
 	        $matrizItems=array(
 	        		array(1,'Si'),
@@ -1379,31 +1385,27 @@ class Formulario {
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
-	        
+	         
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
-	        
-	        $matrizItems=array(
-	        		array(1,'Argentina'),
-	        		array(2,'Peru'),
-	        		array(3,'Chile'),
-	        		array(4,'Colombia')
-	        
-	        );
+	         
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	         
 	        $atributos['matrizItems'] = $matrizItems;
-	        
+	         
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	        } else {
 	        	$atributos ['valor'] = '';
 	        }
 	        $tab ++;
-	        
+	         
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
-	        // --------------- FIN CONTROL : Select --------------------------------------------------
+	        // --------------- FIN CONTROL : Select ----------------------------------------------------
 	        
 	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioContactoDepartamento';
@@ -1422,14 +1424,9 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $matrizItems=array(
-	        		array(1,'Cundinamarca'),
-	        		array(2,'Antioquia'),
-	        		array(3,'Santander'),
-	        		array(4,'Bolivar'),
-	        		array(5,'Bogotá D.C.')
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
-	        );
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -1443,6 +1440,7 @@ class Formulario {
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
+	        
 	        
 	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioContactoCiudad';
@@ -1461,15 +1459,9 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $matrizItems=array(
-	        		array(1,'Bogota D.C.'),
-	        		array(2,'Medellin'),
-	        		array(3,'Barranquilla'),
-	        		array(4,'Cali'),
-	        		array(5,'Cucuta'),
-	        		array(6,'Bucaramanga')
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
-	        );
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -2008,6 +2000,7 @@ class Formulario {
 	        echo $this->miFormulario->campoCuadroTexto ( $atributos );
 	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	        
+	        
 	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioFormacionBasicaPais';
 	        $atributos['nombre'] = $esteCampo;
@@ -2020,31 +2013,27 @@ class Formulario {
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
-	        
+	         
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
-	        
-	        $matrizItems=array(
-	        		array(1,'Argentina'),
-	        		array(2,'Peru'),
-	        		array(3,'Chile'),
-	        		array(4,'Colombia')
-	        
-	        );
+	         
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	         
 	        $atributos['matrizItems'] = $matrizItems;
-	        
+	         
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	        } else {
 	        	$atributos ['valor'] = '';
 	        }
 	        $tab ++;
-	        
+	         
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
-	        // --------------- FIN CONTROL : Select --------------------------------------------------
+	        // --------------- FIN CONTROL : Select ----------------------------------------------------
 	        
 	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioFormacionBasicaDepartamento';
@@ -2063,14 +2052,9 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $matrizItems=array(
-	        		array(1,'Cundinamarca'),
-	        		array(2,'Antioquia'),
-	        		array(3,'Santander'),
-	        		array(4,'Bolivar'),
-	        		array(5,'Bogotá D.C.')
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
-	        );
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -2084,6 +2068,7 @@ class Formulario {
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
+	        
 	        
 	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioFormacionBasicaCiudad';
@@ -2102,15 +2087,9 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $matrizItems=array(
-	        		array(1,'Bogota D.C.'),
-	        		array(2,'Medellin'),
-	        		array(3,'Barranquilla'),
-	        		array(4,'Cali'),
-	        		array(5,'Cucuta'),
-	        		array(6,'Bucaramanga')
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
-	        );
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -2124,6 +2103,7 @@ class Formulario {
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
+	        
 	        
 	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 	        $esteCampo = 'funcionarioFormacionBasicaColegio';
@@ -2311,31 +2291,27 @@ class Formulario {
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
-	        
+	         
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
-	        
-	        $matrizItems=array(
-	        		array(1,'Argentina'),
-	        		array(2,'Peru'),
-	        		array(3,'Chile'),
-	        		array(4,'Colombia')
-	        
-	        );
+	         
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	         
 	        $atributos['matrizItems'] = $matrizItems;
-	        
+	         
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	        } else {
 	        	$atributos ['valor'] = '';
 	        }
 	        $tab ++;
-	        
+	         
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
-	        // --------------- FIN CONTROL : Select --------------------------------------------------
+	        // --------------- FIN CONTROL : Select ----------------------------------------------------
 	        
 	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioFormacionMediaDepartamento';
@@ -2354,14 +2330,9 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $matrizItems=array(
-	        		array(1,'Cundinamarca'),
-	        		array(2,'Antioquia'),
-	        		array(3,'Santander'),
-	        		array(4,'Bolivar'),
-	        		array(5,'Bogotá D.C.')
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
-	        );
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -2375,6 +2346,7 @@ class Formulario {
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
+	        
 	        
 	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioFormacionMediaCiudad';
@@ -2393,15 +2365,9 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $matrizItems=array(
-	        		array(1,'Bogota D.C.'),
-	        		array(2,'Medellin'),
-	        		array(3,'Barranquilla'),
-	        		array(4,'Cali'),
-	        		array(5,'Cucuta'),
-	        		array(6,'Bucaramanga')
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
-	        );
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -2615,6 +2581,7 @@ class Formulario {
 	        	 
 	        	// Aplica atributos globales al control
 	        	$atributos = array_merge ( $atributos, $atributosGlobales );
+	        	$caracteSelect = $atributos;
 	        	echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        	// --------------- FIN CONTROL : Select --------------------------------------------------
 	        	
@@ -2706,13 +2673,9 @@ class Formulario {
 	        	$atributos ['etiquetaObligatorio'] = true;
 	        	$atributos ['validar'] = 'required';
 	        	 
-	        	$matrizItems=array(
-	        			array(1,'Argentina'),
-	        			array(2,'Peru'),
-	        			array(3,'Chile'),
-	        			array(4,'Colombia')
-	        			 
-	        	);
+	        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
+	        	$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	        	
 	        	$atributos['matrizItems'] = $matrizItems;
 	        	 
 	        	if (isset ( $_REQUEST [$esteCampo] )) {
@@ -2745,14 +2708,9 @@ class Formulario {
 	        	$atributos ['etiquetaObligatorio'] = true;
 	        	$atributos ['validar'] = 'required';
 	        	 
-	        	$matrizItems=array(
-	        			array(1,'Cundinamarca'),
-	        			array(2,'Antioquia'),
-	        			array(3,'Santander'),
-	        			array(4,'Bolivar'),
-	        			array(5,'Bogotá D.C.')
-	        			 
-	        	);
+	        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
+	        	$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	        	
 	        	$atributos['matrizItems'] = $matrizItems;
 	        	 
 	        	if (isset ( $_REQUEST [$esteCampo] )) {
@@ -2785,15 +2743,9 @@ class Formulario {
 	        	$atributos ['etiquetaObligatorio'] = true;
 	        	$atributos ['validar'] = 'required';
 	        	 
-	        	$matrizItems=array(
-	        			array(1,'Bogota D.C.'),
-	        			array(2,'Medellin'),
-	        			array(3,'Barranquilla'),
-	        			array(4,'Cali'),
-	        			array(5,'Cucuta'),
-	        			array(6,'Bucaramanga')
-	        			 
-	        	);
+	        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+	        	$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	        	
 	        	$atributos['matrizItems'] = $matrizItems;
 	        	 
 	        	if (isset ( $_REQUEST [$esteCampo] )) {
@@ -4003,13 +3955,9 @@ class Formulario {
 	    			$atributos ['etiquetaObligatorio'] = true;
 	    			$atributos ['validar'] = 'required';
 	    			 
-	    			$matrizItems=array(
-	    					array(1,'Argentina'),
-	    					array(2,'Peru'),
-	    					array(3,'Chile'),
-	    					array(4,'Colombia')
-	    						
-	    			);
+	    			$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
+	    			$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	    			
 	    			$atributos['matrizItems'] = $matrizItems;
 	    			 
 	    			if (isset ( $_REQUEST [$esteCampo] )) {
@@ -4042,14 +3990,9 @@ class Formulario {
 	    			$atributos ['etiquetaObligatorio'] = true;
 	    			$atributos ['validar'] = 'required';
 	    			 
-	    			$matrizItems=array(
-	    					array(1,'Cundinamarca'),
-	    					array(2,'Antioquia'),
-	    					array(3,'Santander'),
-	    					array(4,'Bolivar'),
-	    					array(5,'Bogotá D.C.')
-	    						
-	    			);
+	    			$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
+	    			$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	    			
 	    			$atributos['matrizItems'] = $matrizItems;
 	    			 
 	    			if (isset ( $_REQUEST [$esteCampo] )) {
@@ -4082,15 +4025,9 @@ class Formulario {
 	    			$atributos ['etiquetaObligatorio'] = true;
 	    			$atributos ['validar'] = 'required';
 	    			 
-	    			$matrizItems=array(
-	    					array(1,'Bogota D.C.'),
-	    					array(2,'Medellin'),
-	    					array(3,'Barranquilla'),
-	    					array(4,'Cali'),
-	    					array(5,'Cucuta'),
-	    					array(6,'Bucaramanga')
-	    						
-	    			);
+	    			$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+	    			$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	    			
 	    			$atributos['matrizItems'] = $matrizItems;
 	    			 
 	    			if (isset ( $_REQUEST [$esteCampo] )) {

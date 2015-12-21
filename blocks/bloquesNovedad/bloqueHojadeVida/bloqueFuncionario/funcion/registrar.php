@@ -65,6 +65,7 @@ class FormProcessor {
         $id_ubicacion_expe = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionExpedicion, "insertarUbicacionExpedicion");
         
         
+        
         $datosInformacionPersonalExpedicion = array (
         		'numeroDocumento' => $_REQUEST ['funcionarioDocumento'], //Llave Foranea fk Persona Natural
         		'soporteDocumento' => $_REQUEST ['funcionarioSoporteIden'],
@@ -73,7 +74,7 @@ class FormProcessor {
         );
         
         $cadenaSql = $this->miSql->getCadenaSql("insertarIdentificacionDocumento",$datosInformacionPersonalExpedicion);
-		$id_datos_identificacion = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosInformacionPersonalExpedicion, "insertarIdentificacionDocumento");
+        $id_datos_identificacion = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosInformacionPersonalExpedicion, "insertarIdentificacionDocumento");
         
 //*************************************************************************************************//
         
@@ -155,6 +156,13 @@ class FormProcessor {
         	$_REQUEST ['funcionarioTipoLibreta']='NULL';
         }
         
+        $valorSoporteLib;
+        if(isset($_REQUEST['funcionarioSoporteLibreta'])){
+        	$valorSoporteLib = $_REQUEST['funcionarioSoporteLibreta'];
+        }else{
+        	$valorSoporteLib = NULL;
+        }
+        
         if(isset($_REQUEST['funcionarioGrupoEtnico'])){
         	switch($_REQUEST ['funcionarioGrupoEtnico']){
         		case 1 :
@@ -232,7 +240,7 @@ class FormProcessor {
         		'edadNacimiento' => $_REQUEST['funcionarioEdad'],
         		'numeroLibreta' => $_REQUEST['funcionarioNumeroLibreta'],
         		'numeroDistritoLibreta' => $_REQUEST['funcionarioDistritoLibreta'],
-        		'soporteLibreta' => $_REQUEST['funcionarioSoporteLibreta'],
+        		'soporteLibreta' => $valorSoporteLib,
         		'soporteCaracterizacion' => $_REQUEST['funcionarioSoporteCaracterizacion'],
         		'fk_ubicacion' => $id_ubicacion_nacimiento[0][0]
         );
@@ -247,8 +255,11 @@ class FormProcessor {
         //var_dump("El ID es..... ".$id_salida[0][0]);
         //exit;
         
-        //var_dump($_REQUEST);
-        //exit;
+        var_dump("Regsitro Parcial Satisfactorio
+        			Las Tablas
+        					Identificacion Basica
+        					Datos de Nacimiento fueron almacenados");
+        exit;
         
         
         //Manejo de Ubicacion Preliminar --------------------------------------------------------
