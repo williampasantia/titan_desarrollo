@@ -659,13 +659,18 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	        
+	        /*
 	        $matrizItems=array(
 	        		array(1,'Argentina'),
 	        		array(2,'Peru'),
 	        		array(3,'Chile'),
 	        		array(4,'Colombia')
 	        
-	        );
+	        );*/
+	        
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -678,7 +683,7 @@ class Formulario {
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
-	        // --------------- FIN CONTROL : Select --------------------------------------------------
+	        // --------------- FIN CONTROL : Select ----------------------------------------------------
 	        
 	        // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'funcionarioDepartamentoNacimiento';
@@ -688,7 +693,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -697,6 +702,7 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
+	        /*
 	        $matrizItems=array(
 	        		array(1,'Cundinamarca'),
 	        		array(2,'Antioquia'),
@@ -704,7 +710,11 @@ class Formulario {
 	        		array(4,'Bolivar'),
 	        		array(5,'Bogotá D.C.')
 	        
-	        );
+	        );*/
+	        
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	        
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -727,7 +737,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -736,6 +746,10 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	        
+	        /*
 	        $matrizItems=array(
 	        		array(1,'Bogota D.C.'),
 	        		array(2,'Medellin'),
@@ -744,7 +758,8 @@ class Formulario {
 	        		array(5,'Cucuta'),
 	        		array(6,'Bucaramanga')
 	        
-	        );
+	        );*/
+	        
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -1074,7 +1089,7 @@ class Formulario {
 	        	$atributos ['valor'] = '';
 	        }
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
+	        $atributos ['deshabilitado'] = true;
 	        $atributos ['tamanno'] = 30;
 	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;

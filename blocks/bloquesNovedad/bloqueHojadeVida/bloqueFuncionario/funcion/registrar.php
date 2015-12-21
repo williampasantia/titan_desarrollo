@@ -23,14 +23,12 @@ class FormProcessor {
     
     function procesarFormulario() {
     	
-    	//var_dump($_REQUEST);
-    	//exit;
-    	
         //Aquí va la lógica de procesamiento
         
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
+        /*Datos de PERSONA NATURAL ------------------------------------------------------------------------*/
         if(isset($_REQUEST['funcionarioIdentificacion'])){
         	switch($_REQUEST ['funcionarioIdentificacion']){
         		case 1 :
@@ -48,89 +46,36 @@ class FormProcessor {
         	}
         }
         
-        
-        
-        $datosIdentificacionBasicos = array(
-        		'numeroDocumento' => $_REQUEST ['funcionarioDocumento'],
-        		'soporteDocumento' => $_REQUEST ['funcionarioSoporteIden'],
-        		'fechaExpedicionDocumento' => $_REQUEST ['funcionarioFechaExpDoc'],
-        		'paisExpedicion' => $_REQUEST['funcionarioPais'],
-        		'departamentoExpedicion' => $_REQUEST['funcionarioDepartamento'],
-        		'ciudadExpedicion' => $_REQUEST['funcionarioCiudad'],
+        $datosPersonaNatural = array (
         		'primerNombre' => $_REQUEST['funcionarioPrimerNombre'],
         		'segundoNombre' => $_REQUEST['funcionarioSegundoNombre'],
         		'primerApellido' => $_REQUEST['funcionarioPrimerApellido'],
         		'segundoApellido' => $_REQUEST['funcionarioSegundoApellido'],
-        		'otrosNombres' => $_REQUEST['funcionarioOtrosNombres']
+        		'otrosNombres' => $_REQUEST['funcionarioOtrosNombres'],
         );
-      
+        /*-------------------------------------------------------------------------------------------------*/
         
-                
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarIdentificacion",$datosIdentificacionBasicos);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+        $datosUbicacionExpedicion = array(
+        		'paisExpedicion' => $_REQUEST['funcionarioPais'],
+        		'departamentoExpedicion' => $_REQUEST['funcionarioDepartamento'],
+        		'ciudadExpedicion' => $_REQUEST['funcionarioCiudad']
+        );
         
-        //Manejo de Ubicacion Preliminar --------------------------------------------------------
+        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionExpedicion",$datosUbicacionExpedicion);
+        $id_ubicacion_expe = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionExpedicion, "insertarUbicacionExpedicion");
         
-        if(isset($_REQUEST['funcionarioPaisNacimiento'])){
-        	switch($_REQUEST ['funcionarioPaisNacimiento']){
-        		case 1 :
-        			$_REQUEST ['funcionarioPaisNacimiento']='Argentina';
-        			break;
-        		case 2:
-        			$_REQUEST ['funcionarioPaisNacimiento']='Peru';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioPaisNacimiento']='Chile';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioPaisNacimiento']='Colombia';
-        			break;
-        	}
-        }
         
-        if(isset($_REQUEST['funcionarioDepartamentoNacimiento'])){
-        	switch($_REQUEST ['funcionarioDepartamentoNacimiento']){
-        		case 1 :
-        			$_REQUEST ['funcionarioDepartamentoNacimiento']='Cundinamarca';
-        			break;
-        		case 2 :
-        			$_REQUEST ['funcionarioDepartamentoNacimiento']='Antioquia';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioDepartamentoNacimiento']='Santander';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioDepartamentoNacimiento']='Bolivar';
-        			break;
-        		case 5 :
-        			$_REQUEST ['funcionarioDepartamentoNacimiento']='Bogotá D.C.';
-        			break;
-        	}
-        }
+        $datosInformacionPersonalExpedicion = array (
+        		'numeroDocumento' => $_REQUEST ['funcionarioDocumento'], //Llave Foranea fk Persona Natural
+        		'soporteDocumento' => $_REQUEST ['funcionarioSoporteIden'],
+        		'fechaExpedicionDocumento' => $_REQUEST ['funcionarioFechaExpDoc'],
+        		'fk_ubicacion_expedicion' => $id_ubicacion_expe[0][0]
+        );
         
-        if(isset($_REQUEST['funcionarioCiudadNacimiento'])){
-        	switch($_REQUEST ['funcionarioCiudadNacimiento']){
-        		case 1 :
-        			$_REQUEST ['funcionarioCiudadNacimiento']='Bogota D.C.';
-        			break;
-        		case 2 :
-        			$_REQUEST ['funcionarioCiudadNacimiento']='Medellin';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioCiudadNacimiento']='Barranquilla';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioCiudadNacimiento']='Cali';
-        			break;
-        		case 5 :
-        			$_REQUEST ['funcionarioCiudadNacimiento']='Cucuta';
-        			break;
-        		case 6 :
-        			$_REQUEST ['funcionarioCiudadNacimiento']='Bucaramanga';
-        			break;
-        	}
-        }
-        //------------------------------- Preliminar Ubicación ----------------------------------
+        $cadenaSql = $this->miSql->getCadenaSql("insertarIdentificacionDocumento",$datosInformacionPersonalExpedicion);
+		$id_datos_identificacion = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosInformacionPersonalExpedicion, "insertarIdentificacionDocumento");
+        
+//*************************************************************************************************//
         
         if(isset($_REQUEST['funcionarioGenero'])){
         	switch($_REQUEST ['funcionarioGenero']){
@@ -178,7 +123,7 @@ class FormProcessor {
         			$_REQUEST ['funcionarioTipoSangre']='AB';
         			break;
         		default:
-        			$_REQUEST ['funcionarioTipoSangre']=' ';
+        			$_REQUEST ['funcionarioTipoSangre']='NULL';
         			break;
         	}
         }
@@ -192,7 +137,7 @@ class FormProcessor {
         			$_REQUEST ['funcionarioSangreRH']='Negativo';
         			break;
         		default:
-        			$_REQUEST ['funcionarioSangreRH']=' ';
+        			$_REQUEST ['funcionarioSangreRH']='NULL';
         			break;
         	}
         }
@@ -205,19 +150,18 @@ class FormProcessor {
         		case 2 :
         			$_REQUEST ['funcionarioTipoLibreta']='Segunda';
         			break;
-        		default:
-        			$_REQUEST ['funcionarioTipoLibreta']=' ';
-        			break;
         	}
+        }else{
+        	$_REQUEST ['funcionarioTipoLibreta']='NULL';
         }
         
         if(isset($_REQUEST['funcionarioGrupoEtnico'])){
         	switch($_REQUEST ['funcionarioGrupoEtnico']){
         		case 1 :
-        			$_REQUEST ['funcionarioGrupoEtnico']='Afrodescendientes';
+        			$_REQUEST ['funcionarioGrupoEtnico']='Afrodescendiente';
         			break;
         		case 2:
-        			$_REQUEST ['funcionarioGrupoEtnico']='Indígenas';
+        			$_REQUEST ['funcionarioGrupoEtnico']='Indigenas';
         			break;
         		case 3 :
         			$_REQUEST ['funcionarioGrupoEtnico']='Raizales';
@@ -226,7 +170,7 @@ class FormProcessor {
         			$_REQUEST ['funcionarioGrupoEtnico']='Rom';
         			break;
         		default:
-        			$_REQUEST ['funcionarioGrupoEtnico']=' ';
+        			$_REQUEST ['funcionarioGrupoEtnico']='NULL';
         			break;
         	}
         }
@@ -234,13 +178,13 @@ class FormProcessor {
         if(isset($_REQUEST['funcionarioGrupoLGBT'])){
         	switch($_REQUEST ['funcionarioGrupoLGBT']){
         		case 1 :
-        			$_REQUEST ['funcionarioGrupoLGBT']='Si';
+        			$_REQUEST ['funcionarioGrupoLGBT']='TRUE';
         			break;
         		case 2 :
-        			$_REQUEST ['funcionarioGrupoLGBT']='No';
+        			$_REQUEST ['funcionarioGrupoLGBT']='FALSE';
         			break;
         		default:
-        			$_REQUEST ['funcionarioGrupoLGBT']=' ';
+        			$_REQUEST ['funcionarioGrupoLGBT']='NULL';
         			break;
         	}
         }
@@ -248,13 +192,13 @@ class FormProcessor {
         if(isset($_REQUEST['funcionarioCabezaFamilia'])){
         	switch($_REQUEST ['funcionarioCabezaFamilia']){
         		case 1 :
-        			$_REQUEST ['funcionarioCabezaFamilia']='Si';
+        			$_REQUEST ['funcionarioCabezaFamilia']='TRUE';
         			break;
         		case 2 :
-        			$_REQUEST ['funcionarioCabezaFamilia']='No';
+        			$_REQUEST ['funcionarioCabezaFamilia']='FALSE';
         			break;
         		default:
-        			$_REQUEST ['funcionarioCabezaFamilia']=' ';
+        			$_REQUEST ['funcionarioCabezaFamilia']='NULL';
         			break;
         	}
         }
@@ -262,16 +206,26 @@ class FormProcessor {
         if(isset($_REQUEST['funcionarioPersonasCargo'])){
         	switch($_REQUEST ['funcionarioPersonasCargo']){
         		case 1 :
-        			$_REQUEST ['funcionarioPersonasCargo']='Si';
+        			$_REQUEST ['funcionarioPersonasCargo']='TRUE';
         			break;
         		case 2 :
-        			$_REQUEST ['funcionarioPersonasCargo']='No';
+        			$_REQUEST ['funcionarioPersonasCargo']='FALSE';
         			break;
         		default:
-        			$_REQUEST ['funcionarioPersonasCargo']=' ';
+        			$_REQUEST ['funcionarioPersonasCargo']='NULL';
         			break;
         	}
         }
+        
+        $datosUbicacionNacimiento = array(
+        		'paisNacimiento' => $_REQUEST['funcionarioPaisNacimiento'],
+        		'departamentoNacimiento' => $_REQUEST['funcionarioDepartamentoNacimiento'],
+        		'ciudadNacimiento' => $_REQUEST['funcionarioCiudadNacimiento']
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionNacimiento",$datosUbicacionNacimiento);
+        $id_ubicacion_nacimiento = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionNacimiento, "insertarUbicacionNacimiento");
+        
         
         $datosPersonalesBasicos = array(
         		'fechaNacimiento' => $_REQUEST['funcionarioFechaNacimiento'],
@@ -279,11 +233,22 @@ class FormProcessor {
         		'numeroLibreta' => $_REQUEST['funcionarioNumeroLibreta'],
         		'numeroDistritoLibreta' => $_REQUEST['funcionarioDistritoLibreta'],
         		'soporteLibreta' => $_REQUEST['funcionarioSoporteLibreta'],
-        		'soporteCaracterizacion' => $_REQUEST['funcionarioSoporteCaracterizacion']
+        		'soporteCaracterizacion' => $_REQUEST['funcionarioSoporteCaracterizacion'],
+        		'fk_ubicacion' => $id_ubicacion_nacimiento[0][0]
         );
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarDatosPersonales",$datosPersonalesBasicos);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarInformacionPersonalBasica",$datosPersonalesBasicos);
+        $id_informacion_personal_basica = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionNacimiento, "insertarInformacionPersonalBasica");
+
+//******************************************************************************************************************************************************       
+        
+        //var_dump($cadenaSql);
+        //var_dump("El ID es..... ".$id_salida[0][0]);
+        //exit;
+        
+        //var_dump($_REQUEST);
+        //exit;
         
         
         //Manejo de Ubicacion Preliminar --------------------------------------------------------

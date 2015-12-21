@@ -27,6 +27,16 @@ class Redireccionador {
 			unset ( $_REQUEST [$clave] );
 		}
 		
+		/*
+		$url = $miConfigurador->configuracion ["host"] . $miConfigurador->configuracion ["site"] . "/index.php?";
+		$enlace = $miConfigurador->configuracion ['enlace'];
+		$variable = $miConfigurador->fabricaConexiones->crypto->codificar ( $variable );
+		$_REQUEST [$enlace] = $enlace . '=' . $variable;
+		$redireccion = $url . $_REQUEST [$enlace];
+		
+		echo "<script>location.replace('" . $redireccion . "')</script>";*/
+		
+		
 		$enlace = $miConfigurador->getVariableConfiguracion ( "enlace" );
 		$variable = $miConfigurador->fabricaConexiones->crypto->codificar ( $variable );
 		

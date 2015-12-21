@@ -30,34 +30,134 @@ class Sql extends \Sql {
         $prefijo = $this->miConfigurador->getVariableConfiguracion ( "prefijo" );
         $idSesion = $this->miConfigurador->getVariableConfiguracion ( "id_sesion" );
         
-        var_dump($_REQUEST);
-        exit;
-        
         switch ($tipo) {
-            
+        	
+
             /**
              * Clausulas específicas
              */
-            case 'insertarRegistro' :
+            case 'insertarUbicacionExpedicion' :
                 $cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= $prefijo . 'pagina ';
+                $cadenaSql .= 'otro.ubicacion ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'descripcion,';
-                $cadenaSql .= 'modulo,';
-                $cadenaSql .= 'nivel,';
-                $cadenaSql .= 'parametro';
+                $cadenaSql .= 'id_pais,';
+                $cadenaSql .= 'id_departamento,';
+                $cadenaSql .= 'id_ciudad';
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= '\'' . $_REQUEST ['nombrePagina'] . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['descripcionPagina'] . '\', ';
-                $cadenaSql .= '\'' . $_REQUEST ['moduloPagina'] . '\', ';
-                $cadenaSql .= $_REQUEST ['nivelPagina'] . ', ';
-                $cadenaSql .= '\'' . $_REQUEST ['parametroPagina'] . '\'';
+                $cadenaSql .=  /*$variable ['paisExpedicion']*/1 . ', ';
+                $cadenaSql .=  /*$variable ['departamentoExpedicion']*/1 . ', ';
+                $cadenaSql .=  /*$variable ['ciudadExpedicion']*/1 . ' ';
                 $cadenaSql .= ') ';
+                $cadenaSql .= "RETURNING  id_ubicacion; ";
                 break;
-            
+                
+            case 'insertarIdentificacionDocumento' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.identificacion_expedicion ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'documento,';
+				$cadenaSql .= 'fecha_expe_documento,';
+				$cadenaSql .= 'soporte_identificacion';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .=  $variable ['fk_ubicacion_expedicion'] . ', ';
+				$cadenaSql .=  $variable ['numeroDocumento'] . ', ';
+				$cadenaSql .= '\'' . $variable ['fechaExpedicionDocumento'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['soporteDocumento'] . '\' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_datos_identificacion; ";
+				break;
+                
+                
+            case 'insertarUbicacionNacimiento' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_pais,';
+				$cadenaSql .= 'id_departamento,';
+				$cadenaSql .= 'id_ciudad';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .=  $variable ['paisNacimiento'] . ', ';
+				$cadenaSql .=  $variable ['departamentoNacimiento'] . ', ';
+				$cadenaSql .=  $variable ['ciudadNacimiento'] . ' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_ubicacion; ";
+				break;
+                
+			case 'insertarInformacionPersonalBasica' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.informacion_personal_basica ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'fecha_nacimiento,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'genero,';
+				$cadenaSql .= 'estado_civil,';
+				$cadenaSql .= 'edad,';
+				$cadenaSql .= 'tipo_sangre,';
+				$cadenaSql .= 'rh_sangre,';
+				$cadenaSql .= 'tipo_libreta_militar,';
+				$cadenaSql .= 'numero_libreta,';
+				$cadenaSql .= 'numero_distrito_militar,';
+				$cadenaSql .= 'soporte_libreta,';
+				$cadenaSql .= 'grupo_etnico,';
+				$cadenaSql .= 'comunidad_lgbt,';
+				$cadenaSql .= 'cabeza_familia,';
+				$cadenaSql .= 'personas_a_cargo,';
+				$cadenaSql .= 'soporte_caracterizacion';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= '\'' . $variable ['fechaNacimiento'] . '\', ';
+				$cadenaSql .=  $variable ['fk_ubicacion'] . ', ';
+				$cadenaSql .= '\'' . $_REQUEST ['funcionarioGenero'] . '\', ';
+				$cadenaSql .= '\'' . $_REQUEST ['funcionarioEstadoCivil'] . '\', ';
+				$cadenaSql .=  $variable ['edadNacimiento'] . ', ';
+				if($_REQUEST ['funcionarioTipoSangre'] != 'NULL'){
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioTipoSangre'] . '\', ';
+				}else{
+					$cadenaSql .= $_REQUEST ['funcionarioTipoSangre'] . ', ';
+				}
+				if($_REQUEST ['funcionarioSangreRH'] != 'NULL'){
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioSangreRH'] . '\', ';
+				}else{
+					$cadenaSql .= $_REQUEST ['funcionarioSangreRH'] . ', ';
+				}
+				if($_REQUEST ['funcionarioTipoLibreta'] != 'NULL'){
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioTipoLibreta'] . '\', ';
+				}else{
+					$cadenaSql .= $_REQUEST ['funcionarioTipoLibreta'] . ', ';
+				}
+				if($variable ['numeroLibreta'] > 0){
+					$cadenaSql .=  $variable ['numeroLibreta'] . ', ';
+				}else{
+					$cadenaSql .= 'NULL, ';
+				}
+				if($variable ['numeroDistritoLibreta'] > 0){
+					$cadenaSql .=  $variable ['numeroDistritoLibreta'] . ', ';
+				}else{
+					$cadenaSql .= 'NULL, ';
+				}
+				$cadenaSql .= '\'' . $variable ['soporteLibreta'] . '\', ';
+				if($_REQUEST ['funcionarioGrupoEtnico'] != 'NULL'){
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioGrupoEtnico'] . '\', ';
+				}else{
+					$cadenaSql .= $_REQUEST ['funcionarioGrupoEtnico'] . ', ';
+				}
+				$cadenaSql .=  $_REQUEST ['funcionarioGrupoLGBT'] . ', ';
+				$cadenaSql .=  $_REQUEST ['funcionarioCabezaFamilia'] . ', ';
+				$cadenaSql .=  $_REQUEST ['funcionarioPersonasCargo'] . ', ';
+				$cadenaSql .= '\'' . $variable ['soporteCaracterizacion'] . '\' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_informacion_personal_basica; ";
+				break;
+                
+                
             case 'actualizarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
                 $cadenaSql .= $prefijo . 'pagina ';
@@ -93,6 +193,49 @@ class Sql extends \Sql {
                 //$cadenaSql .= 'nombre=\'' . $_REQUEST ['nombrePagina'] . '\' ';
                 break;
                 
+             case 'buscarPais' :
+                
+               	$cadenaSql = 'SELECT ';
+                	$cadenaSql .= 'id_pais as ID_PAIS, ';
+                	$cadenaSql .= 'nombre_pais as NOMBRE ';
+                	$cadenaSql .= 'FROM ';
+                	$cadenaSql .= 'otro.pais';
+                	break;
+             
+              case 'buscarDepartamento' :
+                	
+                	$cadenaSql = 'SELECT ';
+                	$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+                	$cadenaSql .= 'nombre as NOMBRE ';
+               		$cadenaSql .= 'FROM ';
+               		$cadenaSql .= 'otro.departamento ';
+               		$cadenaSql .= 'WHERE ';
+               		$cadenaSql .= 'id_pais = 112;';
+               		break;
+             
+               case 'buscarDepartamentoAjax' :
+               			 
+               		$cadenaSql = 'SELECT ';
+               		$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+               		$cadenaSql .= 'nombre as NOMBRE ';
+               		$cadenaSql .= 'FROM ';
+               		$cadenaSql .= 'otro.departamento ';
+               		$cadenaSql .= 'WHERE ';
+               		$cadenaSql .= 'id_pais = '.$variable.';';
+               		break;
+             
+               	case 'buscarCiudad' :
+               		 
+            		$cadenaSql = 'SELECT ';
+               		$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+               		$cadenaSql .= 'nombre as NOMBRE ';
+               		$cadenaSql .= 'FROM ';
+               		$cadenaSql .= 'otro.ciudad ';
+               		$cadenaSql .= 'WHERE ';
+               		$cadenaSql .= 'ab_pais = \'CO\';';
+               		break;
+               			 
+                	
              case 'buscarRegistroUsuario' :
                 
                 	$cadenaSql = 'SELECT ';
@@ -157,7 +300,6 @@ class Sql extends \Sql {
                 break;
         
         }
-        
         return $cadenaSql;
     
     }

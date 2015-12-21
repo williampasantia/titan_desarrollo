@@ -1,8 +1,37 @@
 <?php
 
+/**
+ *
+ * Los datos del bloque se encuentran en el arreglo $esteBloque.
+ */
+/*
+// URL base
+$url = $this->miConfigurador->getVariableConfiguracion ( "host" );
+$url .= $this->miConfigurador->getVariableConfiguracion ( "site" );
+$url .= "/index.php?";
+
+//Variables
+$cadenaACodificar16 = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( "pagina" );
+$cadenaACodificar16 .= "&procesarAjax=true";
+$cadenaACodificar16 .= "&action=index.php";
+$cadenaACodificar16 .= "&bloqueNombre=" . $esteBloque ["nombre"];
+$cadenaACodificar16 .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+$cadenaACodificar16 .= $cadenaACodificar16 . "&funcion=consultarDepartamento";
+$cadenaACodificar16 .= "&tiempo=" . $_REQUEST ['tiempo'];
+
+// Codificar las variables
+$enlace = $this->miConfigurador->getVariableConfiguracion ( "enlace" );
+
+echo "$enlace";
+$cadena16 = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $cadenaACodificar16, $enlace );
+
+// URL definitiva
+$urlFinal16 = $url . $cadena16;
+//echo $urlFinal16; exit;*/
 ?>
 
 <script>
+
 function seleccionDoc(usuario){
 	$("#<?php echo $this->campoSeguro('funcionarioDocumentoBusqueda') ?>").val(usuario);
 	//alert("cLICK EN EL bOTON "+"<?php echo ' Hola ' ?> ->"+posicion);
@@ -59,10 +88,6 @@ $( "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>" ).datepicker
 	} 
 });
 
-$( "#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>" ).change(function() {
-	$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento') ?>").attr("enabled", enabled);
-});
-
 $(document).ready(function(){
 
 	$("#contentDatos2").hide("fast");
@@ -109,5 +134,59 @@ $(document).ready(function(){
 	$("#ocultarb5").click(function(){
 		$("#contentDatos5").hide("slow");
 	});
+});
+
+
+$( "#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>" ).change(function() {
+	//alert ('aaa');
+    
+    var valor = $("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").val();
+
+    $("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").removeAttr('disabled');
+	$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").select2();
+    
+    //alert(valor);
+    //var codigo = valor; 
+});
+
+$( "#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>" ).change(function() {
+	//alert ('aaa');
+    
+    var valor = $("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").val();
+
+    $("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").removeAttr('disabled');
+	$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").select2();
+    
+    //alert(valor);
+    //var codigo = valor; 
+});
+
+$( "#<?php echo $this->campoSeguro('funcionarioGenero')?>" ).change(function() {
+	//alert ('aaa');
+    
+    var valor = $("#<?php echo $this->campoSeguro('funcionarioGenero')?>").val();
+	if(valor == 1){
+		$("#<?php echo $this->campoSeguro('funcionarioTipoLibreta')?>").removeAttr('disabled');
+		$("#<?php echo $this->campoSeguro('funcionarioTipoLibreta')?>").select2();
+
+		$("#<?php echo $this->campoSeguro('funcionarioNumeroLibreta')?>").attr("readonly", false);
+		$("#<?php echo $this->campoSeguro('funcionarioDistritoLibreta')?>").attr("readonly", false);
+		$("#<?php echo $this->campoSeguro('funcionarioSoporteLibreta')?>").prop('disabled', false);
+	}else{
+		$("#<?php echo $this->campoSeguro('funcionarioTipoLibreta')?>").val(-1);
+		$("#<?php echo $this->campoSeguro('funcionarioTipoLibreta')?>").attr('disabled', true);
+		$("#<?php echo $this->campoSeguro('funcionarioTipoLibreta')?>").select2();
+
+		$("#<?php echo $this->campoSeguro('funcionarioNumeroLibreta')?>").attr("readonly", true);
+		$("#<?php echo $this->campoSeguro('funcionarioNumeroLibreta')?>").val(' ');
+		$("#<?php echo $this->campoSeguro('funcionarioDistritoLibreta')?>").attr("readonly", true);
+		$("#<?php echo $this->campoSeguro('funcionarioDistritoLibreta')?>").val(' ');
+		$("#<?php echo $this->campoSeguro('funcionarioSoporteLibreta')?>").prop('disabled', true);
+		$("#<?php echo $this->campoSeguro('funcionarioSoporteLibreta')?>").val(' ');
+	}
+    
+    
+    //alert(valor);
+    //var codigo = valor; 
 });
 </script>
