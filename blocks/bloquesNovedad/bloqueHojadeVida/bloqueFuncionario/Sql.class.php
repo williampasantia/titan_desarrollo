@@ -379,6 +379,48 @@ class Sql extends \Sql {
 				$cadenaSql .= "RETURNING  id_datos_formacion_funcionario; ";
 				break;
 				
+			case 'insertarFormacionInvestigacion' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.publicacion_investigacion ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'tematica,';
+				$cadenaSql .= 'tipo_investigacion,';
+				$cadenaSql .= 'logros_obtenidos,';
+				$cadenaSql .= 'referencias_bibliograficas';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= '\'' . $variable ['tematicaInvestigacion'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['tipoInvestigacion'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['logrosInvestigacion'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['referenciasInvestigacion'] . '\' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_publicacion; ";
+				break;
+				
+			case 'insertarFuncionario' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.funcionario ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_datos_identificacion,';
+				$cadenaSql .= 'id_informacion_personal_basica,';
+				$cadenaSql .= 'id_datos_residencia,';
+				$cadenaSql .= 'id_datos_formacion_funcionario,';
+				$cadenaSql .= 'id_publicacion,';
+				$cadenaSql .= 'estado_funcionario';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['fk_id_datos_identificacion'] . ', ';
+				$cadenaSql .= $variable ['fk_id_informacion_personal_basica'] . ', ';
+				$cadenaSql .= $variable ['fk_id_datos_residencia'] . ', ';
+				$cadenaSql .= $variable ['fk_id_datos_formacion_funcionario'] . ', ';
+				$cadenaSql .= $variable ['fk_id_publicacion'] . ', ';
+				$cadenaSql .= '\'Activo\' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_funcionario; ";
+				break;
+
             case 'actualizarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
                 $cadenaSql .= $prefijo . 'pagina ';

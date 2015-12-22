@@ -371,11 +371,35 @@ class FormProcessor {
         
  //***************************************************************************************************************       
         
+        
+        $datosInvestigacion = array(
+        		'tematicaInvestigacion' => $_REQUEST['funcionarioPublicacionesTematica'],
+        		'tipoInvestigacion' => $_REQUEST['funcionarioPublicacionesTipo'],
+        		'logrosInvestigacion' => $_REQUEST['funcionarioPublicacionesLogros'],
+        		'referenciasInvestigacion' => $_REQUEST['funcionarioPublicacionesReferencias']
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionInvestigacion",$datosInvestigacion);
+        $id_publicacion = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosInvestigacion, "insertarFormacionInvestigacion");//********************************
+        
+//*******************************************************************************************************************        
+        
+        $datosFuncionario = array(
+        		'fk_id_datos_identificacion' => $id_datos_identificacion[0][0],
+        		'fk_id_informacion_personal_basica' => $id_informacion_personal_basica[0][0],
+        		'fk_id_datos_residencia' => $id_datos_residencia[0][0],
+        		'fk_id_datos_formacion_funcionario' => $id_datos_formacion_funcionario[0][0],
+        		'fk_id_publicacion' => $id_publicacion[0][0]
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarFuncionario",$datosFuncionario);
+        $id_funcionario = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosFuncionario, "insertarFuncionario");//********************************
+        
+
+//****************************************************************************************************************
         //var_dump($cadenaSql);
         //var_dump("El ID es..... ".$id_salida[0][0]);
         //exit;
-        
-        echo "El ID es ".$id_datos_formacion_funcionario[0][0];
         
         var_dump("
         		*******************************************************
@@ -387,18 +411,23 @@ class FormProcessor {
         					Información Formación Basica
         					Información Formación Media
         					Relacion Formacion Funcionario
+        					Informacion Investigacion
+        					Creación del Funcionario
         			Con sus
         					id_ubicacion (5)
         			Retorno de
-        					id_datos_identificacion
-        					id_informacion_personal_basica
-        					id_datos_residencia
-        		
-        						(id_formacion_basica)
-        						(id_formacion_media)
-        					id_datos_formacion_funcionario
+	        					(id_datos_identificacion)
+	        					(id_informacion_personal_basica)
+	        					(id_datos_residencia)
+	        
+	        						(id_formacion_basica)
+	        						(id_formacion_media)
+	        					(id_datos_formacion_funcionario)
+	        					(id_publicacion)
+        					id_funcionario
         		*******************************************************");
         exit;
+        
         
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
@@ -683,18 +712,6 @@ class FormProcessor {
         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
-        
-        
-        $datosInvestigacion = array(
-        		'tematicaInvestigacion' => $_REQUEST['funcionarioPublicacionesTematica'],
-        		'tipoInvestigacion' => $_REQUEST['funcionarioPublicacionesTipo'],
-        		'logrosInvestigacion' => $_REQUEST['funcionarioPublicacionesLogros'],
-        		'referenciasInvestigacion' => $_REQUEST['funcionarioPublicacionesReferencias']
-        );
-        
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionInvestigacion",$datosInvestigacion);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
-        
         
         $count = 0;
         
