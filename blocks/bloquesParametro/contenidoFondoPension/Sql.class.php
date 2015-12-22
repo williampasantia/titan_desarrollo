@@ -54,7 +54,7 @@ class Sql extends \Sql {
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
                 $cadenaSql .= $variable ['nitRegistro'] . ', ';
-                $cadenaSql .= $variable ['lugarRegistro'] . ', ';
+                $cadenaSql .= 1 . ', ';
                 $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
                 $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
                 $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
