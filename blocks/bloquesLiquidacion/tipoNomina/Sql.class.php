@@ -56,7 +56,10 @@ class Sql extends \Sql {
                 $cadenaSql .= 'estado as ESTADO, ';
                 $cadenaSql .= 'periodo as PERIODO ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'liquidacion.nomina';
+                $cadenaSql .= 'liquidacion.nomina ';
+                $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'id = ';
+                $cadenaSql .= $variable ['id'] . '';
            break;
        
        case 'buscarTipoVinculacionDetalle':

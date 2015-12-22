@@ -76,7 +76,7 @@ class Funcion {
         		      include_once ($this->ruta."funcion/inactivar.php");
         	         break; 
                          case "form":
-        		      include_once ($this->ruta."funcion/opciones.php");
+                         include_once ($this->ruta."funcion/opciones.php");
         	         break;     
 
                      }

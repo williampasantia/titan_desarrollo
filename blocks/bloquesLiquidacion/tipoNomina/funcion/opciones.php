@@ -32,15 +32,15 @@ class FormProcessor {
         
          $i=0;
             while($i<$_REQUEST['tamaño']){
-                if($_REQUEST['botonModificarNomina'.$i] == 'true'){
+                if(isset($_REQUEST['botonModificarNomina'.$i]) && $_REQUEST['botonModificarNomina'.$i] == 'true'){
                  Redireccionador::redireccionar('modificar',$i); 
                   break; 
                 }
-                if($_REQUEST['botonVerDetalleNomina'.$i] == 'true'){
+                if(isset($_REQUEST['botonVerDetalleNomina'.$i]) && $_REQUEST['botonVerDetalleNomina'.$i] == 'true'){
                   Redireccionador::redireccionar('verdetalleNomina',$i);
                   break;
                 }
-                if($_REQUEST['botonInactivarNomina'.$i] == 'true'){
+                if(isset($_REQUEST['botonInactivarNomina'.$i]) && $_REQUEST['botonInactivarNomina'.$i] == 'true'){
                   Redireccionador::redireccionar('inactivar',$i);
                   break;
                 }
@@ -48,9 +48,9 @@ class FormProcessor {
                 
                 $i+=1;
             }
-       
+            
     	
-	if($_REQUEST['botonRegistrarNomina'] == 'true'){
+	if(isset($_REQUEST['botonRegistrarNomina']) && $_REQUEST['botonRegistrarNomina'] == 'true'){
                   Redireccionador::redireccionar('registrar',$_REQUEST['variable']);
                 
        }				
