@@ -759,23 +759,18 @@ class Sql extends \Sql {
 			case 'buscarRegistroFuncionario' :
 				
 				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'documento as USUARIO, ';
+				$cadenaSql .= 'pNatural.documento as USUARIO, ';
 				$cadenaSql .= 'primer_nombre as NOMBRE_1, ';
 				$cadenaSql .= 'segundo_nombre as NOMBRE_2, ';
 				$cadenaSql .= 'primer_apellido as APELLIDO_1, ';
 				$cadenaSql .= 'segundo_apellido as APELLIDO_2, ';
-				// $cadenaSql .= 'telefono as TELEFONO, ';
-				// $cadenaSql .= 'direccion as DIRECCION, ';
-				// $cadenaSql .= 'ciudad as CIUDAD, ';
 				$cadenaSql .= 'estado_solicitud as ESTADO ';
-				// $cadenaSql .= 'descripcion as DESCRIPCION,';
-				// $cadenaSql .= 'modulo as MODULO,';
-				// $cadenaSql .= 'nivel as NIVEL,';
-				// $cadenaSql .= 'parametro as PARAMETRO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'nomina.persona.persona_natural';
-				// $cadenaSql .= 'WHERE ';
-				// $cadenaSql .= 'nombre=\'' . $_REQUEST ['nombrePagina'] . '\' ';
+				$cadenaSql .= 'nomina.persona.persona_natural pNatural ';
+				$cadenaSql .= 'INNER JOIN ';
+				$cadenaSql .= 'nomina.novedad.identificacion_expedicion pFuncionario ';
+				$cadenaSql .= 'ON ';
+				$cadenaSql .= 'pNatural.documento = pFuncionario.documento; ';
 				break;
                 	
 			case 'buscarRegistroUsuarioWhere' :
