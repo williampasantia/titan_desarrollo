@@ -9,6 +9,8 @@ $this->idioma["novedadesBusquedaFuncionario"]='FUNCIONARIOS REGISTRADOS';
 $this->idioma["nombresBusqueda"]="Búsqueda para Registro";
 
 $this->idioma["novedadesOpcionesRegistro"]='OPCIONES DE REGISTRO DEL FUNCIONARIO';
+$this->idioma["novedadesOpcionesConsulta"]='FUNCIONARIO A CONSULTAR';
+$this->idioma["novedadesOpcionesConsultaFuncionario"]='OPCIONES DE CONSULTA Y MODIFICACION';
 
 $this->idioma["funcionarioDocumentoBusqueda"]="Identificación";
 $this->idioma["funcionarioDocumentoBusquedaTitulo"]="Identificación del Funcionario Seleccionado";
@@ -45,10 +47,12 @@ $this->idioma["botonAceptar"]="Aceptar";
 $this->idioma["botonCancelar"]="Cancelar";
 $this->idioma["noDefinido"]="No definido";
 $this->idioma["botonIngresar"]="Ingresar";
+$this->idioma["botonVerDetalle"]="Ver Detalle";
 
 $this->idioma["botonRegresarConsulta"]="Regresar a Registro Funcionarios";
 $this->idioma["botonConsultarFun"]="Consultar Funcionarios";
 $this->idioma["botonModificarFun"]="Modificar Funcionarios";
+$this->idioma["botonModificarFuncionario"]="Modificar";
 
 $this->idioma["funcionarioIdentificacion"]="Tipo Identificación";
 $this->idioma["funcionarioDocumento"]="Identificación";
@@ -58,6 +62,8 @@ $this->idioma["funcionarioSoporteIdenTitulo"]="Adjunte Soporte de Identificació
 $this->idioma["funcionarioFechaExpDoc"]="Fecha Expedición";
 $this->idioma["funcionarioFechaExpDocTitulo"]="Digite Fecha de Expedición del Documento";
 
+$this->idioma["funcionarioFechaExpDocFun"]="Fecha Expedición";
+$this->idioma["funcionarioFechaExpDocFunTitulo"]="Fecha Expedición Registrada";
 
 $this->idioma["funcionarioPrimerNombre"]="Primer Nombre";
 $this->idioma["funcionarioPrimerNombreTitulo"]="Digite correctamente su Primer Nombre";

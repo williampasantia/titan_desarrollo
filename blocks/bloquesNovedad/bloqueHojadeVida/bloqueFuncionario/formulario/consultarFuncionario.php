@@ -281,7 +281,7 @@ class Formulario {
 	echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 
 	
-	$esteCampo = "novedadesOpcionesRegistro";
+	$esteCampo = "novedadesOpcionesConsulta";
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
@@ -399,7 +399,7 @@ class Formulario {
 	echo $this->miFormulario->division ( "inicio", $atributos );
 
 	// -----------------CONTROL: Botón ----------------------------------------------------------------
-	$esteCampo = 'botonRegistrarBusqueda';
+	$esteCampo = 'botonVerDetalle';
 	$atributos ["id"] = $esteCampo;
 	$atributos ["tabIndex"] = $tab;
 	$atributos ["tipo"] = 'boton';
@@ -441,7 +441,7 @@ class Formulario {
 	$valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
 	$valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
 	$valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
-	$valorCodificado .= "&opcion=registrar"; //Opcion para Switch Case ------
+	$valorCodificado .= "&opcion=verDetalle"; //Opcion para Switch Case ------
 	/**
 	* SARA permite que los nombres de los campos sean dinámicos.
 	* Para ello utiliza la hora en que es creado el formulario para
