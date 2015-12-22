@@ -34,7 +34,7 @@ class FormProcessor {
             while($i<$_REQUEST['tamaño']){
                 
                 if($_REQUEST['botonVerDetalle'.$i] == 'true'){
-                    Redireccionador::redireccionar('verdetalle',$i);
+                    Redireccionador::redireccionar('verDetalle',$i);
                   break;
                 }
                 

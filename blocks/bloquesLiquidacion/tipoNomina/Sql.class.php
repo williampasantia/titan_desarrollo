@@ -48,7 +48,17 @@ class Sql extends \Sql {
                 $cadenaSql .= 'parametro.tipo_vinculacion';
            break;
             
-           
+            case 'buscarNomina':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'codigo_nomina as CODIGO_NOMINA, ';
+                $cadenaSql .= 'nombre as NOMBRE, ';
+                $cadenaSql .= 'descripcion as DESCRIPCION, ';
+                $cadenaSql .= 'estado as ESTADO, ';
+                $cadenaSql .= 'periodo as PERIODO ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'liquidacion.nomina';
+           break;
+       
        case 'buscarTipoVinculacionDetalle':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'id as ID, ';
@@ -87,7 +97,27 @@ class Sql extends \Sql {
                 $cadenaSql .= ') ';
                 break;
             
-            
+            case 'insertarRegistroNomina' :
+                $cadenaSql = 'INSERT INTO ';
+                $cadenaSql .= 'liquidacion.nomina ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= 'nombre,';
+                $cadenaSql .= 'descripcion,';
+                $cadenaSql .= 'tipo_nomina,';
+                $cadenaSql .= 'reglamentacion,';
+                $cadenaSql .= 'estado,';
+                $cadenaSql .= 'id';
+                $cadenaSql .= ') ';
+                $cadenaSql .= 'VALUES ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= '\'' . $variable ['nombreNomina']  . '\', ';
+                $cadenaSql .= '\'' . $variable ['descripcionNomina'] . '\', ';
+                $cadenaSql .= '\'' . $variable['tipoNomina'] . '\', ';
+                $cadenaSql .= '\'' . $variable ['reglamentacion']  . '\', ';
+                $cadenaSql .= '\'' . $variable['estadoRegistroNomina'] . '\', ';
+                $cadenaSql .= $variable ['id'] . '';
+                $cadenaSql .= ') ';
+                break;
             
           
                 

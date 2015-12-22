@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesLiquidacion\tipoNomina\funcion;
 
 
 include_once('Redireccionador.php');
@@ -32,9 +32,16 @@ class FormProcessor {
         
          $i=0;
             while($i<$_REQUEST['tamaño']){
-                
-                if($_REQUEST['botonVerDetalle'.$i] == 'true'){
-                  Redireccionador::redireccionar('verdetalle',$i);
+                if($_REQUEST['botonModificarNomina'.$i] == 'true'){
+                 Redireccionador::redireccionar('modificar',$i); 
+                  break; 
+                }
+                if($_REQUEST['botonVerDetalleNomina'.$i] == 'true'){
+                  Redireccionador::redireccionar('verdetalleNomina',$i);
+                  break;
+                }
+                if($_REQUEST['botonInactivarNomina'.$i] == 'true'){
+                  Redireccionador::redireccionar('inactivar',$i);
                   break;
                 }
                 
@@ -43,7 +50,10 @@ class FormProcessor {
             }
        
     	
-					
+	if($_REQUEST['botonRegistrarNomina'] == 'true'){
+                  Redireccionador::redireccionar('registrar',$_REQUEST['variable']);
+                
+       }				
 						    
     }
     

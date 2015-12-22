@@ -1,6 +1,6 @@
 
 
-$("#contenidoCargo").validationEngine({
+$("#tipoNomina").validationEngine({
 	promptPosition : "centerRight",
 	scroll: false,
 	autoHidePrompt: true,

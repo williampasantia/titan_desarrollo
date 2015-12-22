@@ -3,6 +3,7 @@ $this->idioma["bloqueContenido"]="Cargo";
 $this->idioma["noDefinido"]="No definido";
 
 $this->idioma["botonRegistrarCargo"]="Registrar Cargo";
+$this->idioma["botonRegistrarNomina"]="Registrar Nomina";
 $this->idioma["botonGuardar"]="Aceptar";
 $this->idioma["botonModificar"]="Modificar";
 $this->idioma["botonInactivar"]="Inactivar";
@@ -24,6 +25,7 @@ $this->idioma["naturaleza"]="Naturaleza: ";
 $this->idioma["naturalezaTitulo"]="Naturaleza";
 
 $this->idioma["enviarRegistro"]="Guardar";
+$this->idioma["enviarRegistroNomina"]="Guardar";
 $this->idioma["modificarRegistro"]="Guardar Cambios";
 $this->idioma["verdetalleRegistro"]="Aceptar";
 $this->idioma["estadoRegistro"]="Estado  :";
@@ -46,6 +48,19 @@ $this->idioma["sueldoRegistro"]="Sueldo  :";
 $this->idioma["sueldoRegistroTitulo"]="Sueldo";
 $this->idioma["tipoSueldoRegistro"]="Tipo sueldo  :";
 $this->idioma["estadoRegistro"]="Estado  :";
+
+$this->idioma["nombreNomina"]="Nombre nomina:";
+$this->idioma["nombreNominaTitulo"]="Nombre nomina";
+$this->idioma["descripcionNomina"]="Descripción:";
+$this->idioma["descripcionNominaTitulo"]="Decripción";
+$this->idioma["tipoNomina"]="Tipo nomina :";
+$this->idioma["tipoNominaTitulo"]="Tipo nomina";
+$this->idioma["reglamentacion"]="Reglamentación:";
+$this->idioma["estadoRegistroNomina"]="Estado :";
+$this->idioma["estadoRegistroNominaTitulo"]="Estado";
+
+
+
 
 
 ?>
