@@ -81,6 +81,49 @@ class Sql extends \Sql {
 //                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
                 break;
              
+            case 'buscarRegistroxDepto' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+                        $cadenaSql .= 'nombre as NOMBRE ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'otro.departamento ';
+                        $cadenaSql .= 'WHERE ';
+                        $cadenaSql .= 'ab_pais = ';
+                        $cadenaSql .= '\'' . 'CO' . '\' ';
+//                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
+//                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
+                break;
+           
+             case 'buscarRegistroxCiudad' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+                        $cadenaSql .= 'nombre as NOMBRE ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'otro.ciudad ';
+                        $cadenaSql .= 'WHERE ';
+                        $cadenaSql .= 'ab_pais = ';
+                        $cadenaSql .= '\'' . 'CO' . '\' ';
+//                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
+//                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
+                break;
+            
+            case 'consultarCiudad' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+                        $cadenaSql .= 'nombre as NOMBRE ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'otro.ciudad ';
+                        $cadenaSql .= 'WHERE ';
+                        $cadenaSql .= 'id_departamento = ';
+                        $cadenaSql .=  $variable . ', ';
+                       
+                        $cadenaSql .= '\'' . 'CO' . '\' ';
+//                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
+//                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
+                break;
                 case 'buscarModificarxFP' :
                 
                 	$cadenaSql = 'SELECT ';

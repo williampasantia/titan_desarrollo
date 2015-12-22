@@ -324,11 +324,12 @@ class Formulario {
         echo $this->miFormulario->campoCuadroTexto ( $atributos );
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
-       
+               $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxDepto");
+        $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         
-     
-    // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'lugarRegistro';
+        
+        // ---------------- CONTROL: Select --------------------------------------------------------
+        $esteCampo = 'lugarRegistroDepto';
         $atributos['nombre'] = $esteCampo;
         $atributos['id'] = $esteCampo;
         $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
@@ -346,43 +347,8 @@ class Formulario {
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required';
-                   
-                  $tsDepartamentos = array( 
-    array(1,'AMAZONAS'), 
-    array(2,'ANTIOQUIA'), 
-    array(3,'ARAUCA'), 
-    array(4,'ATLANTICO'), 
-    array(5,'BOLIVAR'), 
-    array(6,'BOYACA'), 
-    array(7,'CALDAS'), 
-    array(8,'CAQUETA'), 
-    array(9,'CASANARE'), 
-    array(10,'CAUCA'), 
-    array(11,'CESAR'), 
-    array(12,'CHOCO'), 
-    array(13,'CORDOBA'), 
-    array(14,'CUNDINAMARCA'), 
-    array(15,'GUAINIA'), 
-    array(16,'GUAJIRA'), 
-    array(17,'GUAVIARE'), 
-    array(18,'HUILA'), 
-    array(19,'MAGDALENA'), 
-    array(20,'META'), 
-    array(21,'N SANTANDER'), 
-    array(22,'NARINO'), 
-    array(23,'PUTUMAYO'), 
-    array(24,'QUINDIO'), 
-    array(25,'RISARALDA'), 
-    array(26,'SAN ANDRES'), 
-    array(27,'SANTANDER'), 
-    array(28,'SUCRE'), 
-    array(29,'TOLIMA'), 
-    array(30,'VALLE DEL CAUCA'), 
-    array(31,'VAUPES'), 
-    array(32,'VICHADA'), 
-); 
         
-        $atributos['matrizItems'] = $tsDepartamentos;
+        $atributos['matrizItems'] = $matrizItems;
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -394,6 +360,61 @@ class Formulario {
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoCuadroLista ( $atributos );
+        unset ( $atributos );
+        unset ( $matrizItems );
+        // --------------- FIN CONTROL : Select --------------------------------------------------
+        
+        
+        
+        
+     
+    // ---------------- CONTROL: Select --------------------------------------------------------
+        $esteCampo = 'lugarRegistro';
+        $atributos['nombre'] = $esteCampo;
+        $atributos['id'] = $esteCampo;
+        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+        $atributos['tab'] = $tab;    
+        $atributos['evento'] = '';
+        $atributos['deshabilitado'] = false;
+        $atributos['limitar']= 50;
+        $atributos['tamanno']= 1;
+        $atributos['columnas']= 1;
+        
+        $atributos ['ajax_function'] = "";
+        $atributos ['ajax_control'] = $esteCampo;
+        
+        $atributos ['obligatorio'] = true;
+        $atributos ['etiquetaObligatorio'] = true;
+        if (isset ( $_REQUEST [$esteCampo] )) {
+			$atributos ['seleccion'] = $_REQUEST [$esteCampo];
+		} else {
+			$atributos ['seleccion'] = - 1;
+		}
+        
+        
+        
+        $matrizItems = array (
+				
+				array (
+						'',
+						'Seleccione ...' 
+				) 
+		);
+    
+        
+       
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxCiudad");
+        $atributos['matrizItems'] = $matrizItems;
+        
+        
+        
+        
+        $tab ++;
+        
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroLista ( $atributos );
+        unset ( $atributos );
         // --------------- FIN CONTROL : Select --------------------------------------------------
    
 

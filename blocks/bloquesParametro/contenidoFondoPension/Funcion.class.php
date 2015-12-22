@@ -54,10 +54,14 @@ class Funcion {
         
         
         if (isset ( $_REQUEST ['procesarAjax'] )) {
+            var_dump($_REQUEST);
+            exit;
+
             $this->procesarAjax ();
         } else{
         
-        	
+            var_dump($_REQUEST);
+            exit;
         	
         	switch ($_REQUEST['opcion']){
         		case "mostrar":
