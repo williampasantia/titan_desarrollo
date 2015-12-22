@@ -48,16 +48,16 @@ class Sql extends \Sql {
         		$cadenaSql .= 'documento = '.$variable.';';
         		break;
         		
-        		case 'buscarSegundoApellido' :
-        			 
-        			$cadenaSql = 'SELECT ';
-        			$cadenaSql .= 'segundo_apellido as APELLIDO2 ';
-        			//$cadenaSql .= 'nombre as NOMBRE ';
-        			$cadenaSql .= 'FROM ';
-        			$cadenaSql .= 'nomina.persona.persona_natural ';
-        			$cadenaSql .= 'WHERE ';
-        			$cadenaSql .= 'documento = '.$variable.';';
-        			break;
+			case 'buscarSegundoApellido' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'segundo_apellido as APELLIDO2 ';
+				// $cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'nomina.persona.persona_natural ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'documento = ' . $variable . ';';
+				break;
         			
 			case 'buscarPrimerNombre' :
 				
@@ -737,48 +737,67 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_departamento = ' . $variable . ';';
 				break;
              
-             case 'buscarRegistroUsuario' :
-                
-                	$cadenaSql = 'SELECT ';
-                	$cadenaSql .= 'documento as USUARIO, ';
-                	$cadenaSql .= 'primer_nombre as NOMBRE_1, ';
-                	$cadenaSql .= 'segundo_nombre as NOMBRE_2, ';
-                	$cadenaSql .= 'primer_apellido as APELLIDO_1, ';
-                	$cadenaSql .= 'segundo_apellido as APELLIDO_2, ';
-                	//$cadenaSql .= 'telefono as TELEFONO, ';
-                	//$cadenaSql .= 'direccion as DIRECCION, ';
-                	//$cadenaSql .= 'ciudad as CIUDAD, ';
-                	$cadenaSql .= 'estado_solicitud as ESTADO ';
-                	//$cadenaSql .= 'descripcion as DESCRIPCION,';
-                	//$cadenaSql .= 'modulo as MODULO,';
-                	//$cadenaSql .= 'nivel as NIVEL,';
-                	//$cadenaSql .= 'parametro as PARAMETRO ';
-                	$cadenaSql .= 'FROM ';
-                	$cadenaSql .= 'nomina.persona.persona_natural';
-                	//$cadenaSql .= 'WHERE ';
-                	//$cadenaSql .= 'nombre=\'' . $_REQUEST ['nombrePagina'] . '\' ';
-                	break;
+             case 'buscarRegistroPersonaNatural' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'pNatural.documento as USUARIO, ';
+				$cadenaSql .= 'primer_nombre as NOMBRE_1, ';
+				$cadenaSql .= 'segundo_nombre as NOMBRE_2, ';
+				$cadenaSql .= 'primer_apellido as APELLIDO_1, ';
+				$cadenaSql .= 'segundo_apellido as APELLIDO_2, ';
+				$cadenaSql .= 'estado_solicitud as ESTADO ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'nomina.persona.persona_natural pNatural ';
+				$cadenaSql .= 'LEFT JOIN ';
+				$cadenaSql .= 'nomina.novedad.identificacion_expedicion pFuncionario ';
+				$cadenaSql .= 'ON ';
+				$cadenaSql .= 'pNatural.documento = pFuncionario.documento ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'pFuncionario.documento IS NULL; ';
+				break;
+				
+			case 'buscarRegistroFuncionario' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'documento as USUARIO, ';
+				$cadenaSql .= 'primer_nombre as NOMBRE_1, ';
+				$cadenaSql .= 'segundo_nombre as NOMBRE_2, ';
+				$cadenaSql .= 'primer_apellido as APELLIDO_1, ';
+				$cadenaSql .= 'segundo_apellido as APELLIDO_2, ';
+				// $cadenaSql .= 'telefono as TELEFONO, ';
+				// $cadenaSql .= 'direccion as DIRECCION, ';
+				// $cadenaSql .= 'ciudad as CIUDAD, ';
+				$cadenaSql .= 'estado_solicitud as ESTADO ';
+				// $cadenaSql .= 'descripcion as DESCRIPCION,';
+				// $cadenaSql .= 'modulo as MODULO,';
+				// $cadenaSql .= 'nivel as NIVEL,';
+				// $cadenaSql .= 'parametro as PARAMETRO ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'nomina.persona.persona_natural';
+				// $cadenaSql .= 'WHERE ';
+				// $cadenaSql .= 'nombre=\'' . $_REQUEST ['nombrePagina'] . '\' ';
+				break;
                 	
-                case 'buscarRegistroUsuarioWhere' :
-                		$cadenaSql = 'SELECT ';
-                		$cadenaSql .= 'id_usuario as USUARIO, ';
-                		$cadenaSql .= 'nombre as NOMBRE, ';
-                		$cadenaSql .= 'apellido as APELLIDO, ';
-                		$cadenaSql .= 'fecha_reg as FECHA_REG, ';
-                		$cadenaSql .= 'edad as EDAD, ';
-                		$cadenaSql .= 'telefono as TELEFONO, ';
-                		$cadenaSql .= 'direccion as DIRECCION, ';
-                		$cadenaSql .= 'ciudad as CIUDAD, ';
-                		$cadenaSql .= 'estado as ESTADO ';
-                		//$cadenaSql .= 'descripcion as DESCRIPCION,';
-                		//$cadenaSql .= 'modulo as MODULO,';
-                		//$cadenaSql .= 'nivel as NIVEL,';
-                		//$cadenaSql .= 'parametro as PARAMETRO ';
-                		$cadenaSql .= 'FROM ';
-                		$cadenaSql .= "nomina." .$prefijo . 'usuarios ';
-                		$cadenaSql .= 'WHERE ';
-                		$cadenaSql .= 'fecha_reg <=\'' . $_REQUEST ['funcionarioFechaExpDoc'] . '\' ';
-                break;
+			case 'buscarRegistroUsuarioWhere' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_usuario as USUARIO, ';
+				$cadenaSql .= 'nombre as NOMBRE, ';
+				$cadenaSql .= 'apellido as APELLIDO, ';
+				$cadenaSql .= 'fecha_reg as FECHA_REG, ';
+				$cadenaSql .= 'edad as EDAD, ';
+				$cadenaSql .= 'telefono as TELEFONO, ';
+				$cadenaSql .= 'direccion as DIRECCION, ';
+				$cadenaSql .= 'ciudad as CIUDAD, ';
+				$cadenaSql .= 'estado as ESTADO ';
+				// $cadenaSql .= 'descripcion as DESCRIPCION,';
+				// $cadenaSql .= 'modulo as MODULO,';
+				// $cadenaSql .= 'nivel as NIVEL,';
+				// $cadenaSql .= 'parametro as PARAMETRO ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= "nomina." . $prefijo . 'usuarios ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'fecha_reg <=\'' . $_REQUEST ['funcionarioFechaExpDoc'] . '\' ';
+				break;
 
             case 'borrarRegistro' :
                 $cadenaSql = 'INSERT INTO ';

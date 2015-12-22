@@ -126,12 +126,13 @@ class Formulario {
 
 			// ---------------- CONTROL: Tabla --------------------------------------------------------
 				
-			// ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------
+			// ---------------- CONTROL: Tabla Funcionarios sin Sara -----------------------------------------------
 				
-			//$atributos['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroUsuario");
-				//var_dump($atributos['cadena_sql']);exit;
+			$cadenaSql= $this->miSql->getCadenaSql("buscarRegistroPersonaNatural");
+			
+			//var_dump($cadenaSql);exit;
 				//$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxCargo");
-			//$matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+			$matrizItems=$primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda");
 			$longitud = count($matrizItems);
 			$i=0;
 			//echo '<div class="click">Click me to Disable/Enable a html button</div>';
