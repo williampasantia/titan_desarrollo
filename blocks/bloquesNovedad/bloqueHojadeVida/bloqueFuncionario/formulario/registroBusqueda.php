@@ -127,6 +127,7 @@ class Formulario {
 			// ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------
 			
 			$atributos['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroUsuario");
+			//var_dump($atributos['cadena_sql']);exit;
 			//$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxCargo");
 			$matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
 			$longitud = count($matrizItems);
@@ -137,10 +138,10 @@ class Formulario {
 					. '<thead style="display: table-row-group">
 						<tr>
 							<th>'."CEDULA".'</th>
-							<th>'."NOMBRE".'</th> 
-							<th>'."APELLIDO".'</th> 
-                            <th>'."FECHA REG".'</th> 
-                            <th>'."CIUDAD".'</th>
+							<th>'."PRIMER NOMBRE".'</th> 
+							<th>'."SEGUNDO NOMBRE".'</th> 
+                            <th>'."PRIMER APELLIDO".'</th> 
+                            <th>'."SEGUNDO APELLIDO".'</th>
                             <th>'."ESTADO".'</th>		
                             <th>'."GESTION".'</th>
                          </tr>
@@ -148,10 +149,10 @@ class Formulario {
                        <tfoot  style="display: table-header-group">
             <tr>
                 <th>cedula</th>
-                <th>nombre</th>
-                <th>apellido</th>
-                <th>fecha reg</th>
-                <th>ciudad</th>
+                <th>primer nombre</th>
+                <th>segundo nombre</th>
+                <th>primer apellido</th>
+                <th>segundo apellido</th>
                 <th>estado</th>
                 <td>Acceso</td>
             </tr>
@@ -163,16 +164,16 @@ class Formulario {
 						echo "<tr><td>".$matrizItems[$i][0]."</td>";
 						$usuario = $matrizItems[$i][0];
 						echo "<td>".$matrizItems[$i][1]."</td>";
-						$nombre = $matrizItems[$i][1];
+						$nombre = $matrizItems[$i][1]." ".$matrizItems[$i][2];
 						echo "<td>".$matrizItems[$i][2]."</td>";
-						$apellido = $matrizItems[$i][2];
+						$apellido = $matrizItems[$i][3]." ".$matrizItems[$i][4];
 						echo "<td>".$matrizItems[$i][3]."</td>";
-						//echo "<td>".$matrizItems[$i][4]."</td>";
-						//echo "<td>".$matrizItems[$i][5]."</td>";
+						echo "<td>".$matrizItems[$i][4]."</td>";
+						echo "<td>".$matrizItems[$i][5]."</td>";
 						//echo "<td>".$matrizItems[$i][6]."</td>";
-						echo "<td>".$matrizItems[$i][7]."</td>";
-						echo "<td>".$matrizItems[$i][8]."</td>";
-						$estadoBusqueda = $matrizItems[$i][8];
+						//echo "<td>".$matrizItems[$i][7]."</td>";
+						//echo "<td>".$matrizItems[$i][8]."</td>";
+						$estadoBusqueda = $matrizItems[$i][5];
 						if($estadoBusqueda != "Aprobado"){
 							echo "<td><input id=\"Button_".$i."\" class=\"btn btn-primary\" type=\"button\"
 								value=\"Seleccionar\" disabled='disabled'/></td></tr>";

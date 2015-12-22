@@ -145,9 +145,13 @@ class Formulario {
 	        $atributos['id'] = $esteCampo;
 	        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 	        $atributos['tab'] = $tab;
-	        $atributos['seleccion'] = -1;
+	        
+	        $cadenaSql = $this->miSql->getCadenaSql("buscarTipoDoc", $_REQUEST['funcionarioDocumentoBusqueda']);
+	        $matrizDoc = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda");
+	        
+	        $atributos['seleccion'] = $matrizDoc[0][0];
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -159,9 +163,6 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        //$atributos['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistro");
-	        //$matrizItems = $primerRecursoDB->ejecutarAcceso($atributos ['cadena_sql'], "busqueda");
-	        
 	        //var_dump($this->miSql->getCadenaSql("buscarRegistro"));
 	        
 	                 $matrizItems=array(
@@ -170,8 +171,8 @@ class Formulario {
 	                 		array(3,'Cédula de extranjería'),
 	                 		array(4,'Pasaporte')
 	                 );
+	                 
 	        $atributos['matrizItems'] = $matrizItems;
-	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	        } else {
@@ -427,13 +428,13 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required, minSize[1], custom[onlyLetterSp]';
 	        
-	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	        } else {
-	        	$atributos ['valor'] = '';
-	        }
+	        $cadenaSql = $this->miSql->getCadenaSql("buscarPrimerApellido", $_REQUEST['funcionarioDocumentoBusqueda']);
+	        $matrizDoc = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda");
+	        
+	        $atributos ['valor'] = $matrizDoc[0][0];
+	        
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
+	        $atributos ['deshabilitado'] = true;
 	        $atributos ['tamanno'] = 30;
 	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;
@@ -459,13 +460,13 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required, minSize[1], custom[onlyLetterSp]';
 	        
-	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	        } else {
-	        	$atributos ['valor'] = '';
-	        }
+	        $cadenaSql = $this->miSql->getCadenaSql("buscarSegundoApellido", $_REQUEST['funcionarioDocumentoBusqueda']);
+	        $matrizDoc = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda");
+	         
+	        $atributos ['valor'] = $matrizDoc[0][0];
+	        
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
+	        $atributos ['deshabilitado'] = true;
 	        $atributos ['tamanno'] = 30;
 	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;
@@ -491,13 +492,13 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required, minSize[1], custom[onlyLetterSp]';
 	        
-	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	        } else {
-	        	$atributos ['valor'] = '';
-	        }
+	        $cadenaSql = $this->miSql->getCadenaSql("buscarPrimerNombre", $_REQUEST['funcionarioDocumentoBusqueda']);
+	        $matrizDoc = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda");
+	         
+	        $atributos ['valor'] = $matrizDoc[0][0];
+	        
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
+	        $atributos ['deshabilitado'] =true;
 	        $atributos ['tamanno'] = 30;
 	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;
@@ -523,13 +524,13 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = false;
 	        $atributos ['validar'] = 'custom[onlyLetterSp]';
 	        
-	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	        } else {
-	        	$atributos ['valor'] = '';
-	        }
+	        $cadenaSql = $this->miSql->getCadenaSql("buscarSegundoNombre", $_REQUEST['funcionarioDocumentoBusqueda']);
+	        $matrizDoc = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda");
+	         
+	        $atributos ['valor'] = $matrizDoc[0][0];
+	        
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
+	        $atributos ['deshabilitado'] = true;
 	        $atributos ['tamanno'] = 30;
 	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;
@@ -561,7 +562,7 @@ class Formulario {
 	        	$atributos ['valor'] = '';
 	        }
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	        $atributos ['deshabilitado'] = false;
+	        $atributos ['deshabilitado'] = true;
 	        $atributos ['tamanno'] = 30;
 	        $atributos ['maximoTamanno'] = '';
 	        $tab ++;

@@ -29,6 +29,7 @@ class FormProcessor {
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
         /*Datos de PERSONA NATURAL ------------------------------------------------------------------------*/
+        /*
         if(isset($_REQUEST['funcionarioIdentificacion'])){
         	switch($_REQUEST ['funcionarioIdentificacion']){
         		case 1 :
@@ -44,15 +45,15 @@ class FormProcessor {
         			$_REQUEST ['codTipoCargoRegistro']='Pasaporte';
         			break;
         	}
-        }
-        
+        }*/
+        /*
         $datosPersonaNatural = array (
         		'primerNombre' => $_REQUEST['funcionarioPrimerNombre'],
         		'segundoNombre' => $_REQUEST['funcionarioSegundoNombre'],
         		'primerApellido' => $_REQUEST['funcionarioPrimerApellido'],
         		'segundoApellido' => $_REQUEST['funcionarioSegundoApellido'],
         		'otrosNombres' => $_REQUEST['funcionarioOtrosNombres'],
-        );
+        );*/
         /*-------------------------------------------------------------------------------------------------*/
         
         $datosUbicacionExpedicion = array(
@@ -74,7 +75,7 @@ class FormProcessor {
         );
         
         $cadenaSql = $this->miSql->getCadenaSql("insertarIdentificacionDocumento",$datosInformacionPersonalExpedicion);
-        $id_datos_identificacion = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosInformacionPersonalExpedicion, "insertarIdentificacionDocumento");
+		$id_datos_identificacion = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosInformacionPersonalExpedicion, "insertarIdentificacionDocumento");
         
 //*************************************************************************************************//
         
@@ -98,7 +99,7 @@ class FormProcessor {
         			$_REQUEST ['funcionarioEstadoCivil']='Casado';
         			break;
         		case 3 :
-        			$_REQUEST ['funcionarioEstadoCivil']='Unión Libre';
+        			$_REQUEST ['funcionarioEstadoCivil']='Uni\F3n Libre';
         			break;
         		case 4 :
         			$_REQUEST ['funcionarioEstadoCivil']='Viudo';
@@ -250,81 +251,7 @@ class FormProcessor {
         $id_informacion_personal_basica = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionNacimiento, "insertarInformacionPersonalBasica");
 
 //******************************************************************************************************************************************************       
-        
-        //var_dump($cadenaSql);
-        //var_dump("El ID es..... ".$id_salida[0][0]);
-        //exit;
-        
-        var_dump("Regsitro Parcial Satisfactorio
-        			Las Tablas
-        					Identificacion Basica
-        					Datos de Nacimiento fueron almacenados");
-        exit;
-        
-        
-        //Manejo de Ubicacion Preliminar --------------------------------------------------------
-        
-        if(isset($_REQUEST['funcionarioContactoPais'])){
-        	switch($_REQUEST ['funcionarioContactoPais']){
-        		case 1 :
-        			$_REQUEST ['funcionarioContactoPais']='Argentina';
-        			break;
-        		case 2:
-        			$_REQUEST ['funcionarioContactoPais']='Peru';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioContactoPais']='Chile';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioContactoPais']='Colombia';
-        			break;
-        	}
-        }
-        
-        if(isset($_REQUEST['funcionarioContactoDepartamento'])){
-        	switch($_REQUEST ['funcionarioContactoDepartamento']){
-        		case 1 :
-        			$_REQUEST ['funcionarioContactoDepartamento']='Cundinamarca';
-        			break;
-        		case 2 :
-        			$_REQUEST ['funcionarioContactoDepartamento']='Antioquia';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioContactoDepartamento']='Santander';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioContactoDepartamento']='Bolivar';
-        			break;
-        		case 5 :
-        			$_REQUEST ['funcionarioContactoDepartamento']='Bogotá D.C.';
-        			break;
-        	}
-        }
-        
-        if(isset($_REQUEST['funcionarioContactoCiudad'])){
-        	switch($_REQUEST ['funcionarioContactoCiudad']){
-        		case 1 :
-        			$_REQUEST ['funcionarioContactoCiudad']='Bogota D.C.';
-        			break;
-        		case 2 :
-        			$_REQUEST ['funcionarioContactoCiudad']='Medellin';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioContactoCiudad']='Barranquilla';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioContactoCiudad']='Cali';
-        			break;
-        		case 5 :
-        			$_REQUEST ['funcionarioContactoCiudad']='Cucuta';
-        			break;
-        		case 6 :
-        			$_REQUEST ['funcionarioContactoCiudad']='Bucaramanga';
-        			break;
-        	}
-        }
-        //------------------------------- Preliminar Ubicación ----------------------------------
-        
+     
         if(isset($_REQUEST['funcionarioContactoEstrato'])){
         	switch($_REQUEST ['funcionarioContactoEstrato']){
         		case 1 :
@@ -346,10 +273,20 @@ class FormProcessor {
         			$_REQUEST ['funcionarioContactoEstrato']='Seis';
         			break;
         		default:
-             		$_REQUEST ['funcionarioContactoEstrato']=' ';
+             		$_REQUEST ['funcionarioContactoEstrato']='NULL';
        				break;
         	}
         }
+        
+        $datosUbicacionContacto = array(
+        		'paisContacto' => $_REQUEST['funcionarioContactoPais'],
+        		'departamentoContacto' => $_REQUEST['funcionarioContactoDepartamento'],
+        		'ciudadContacto' => $_REQUEST['funcionarioContactoCiudad']
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionContacto",$datosUbicacionContacto);
+        $id_ubicacion_contacto = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionContacto, "insertarUbicacionContacto");
+        
         
         $datosResidenciaContactos = array(
         		'nacionalidad' => $_REQUEST['funcionarioContactoNacionalidad'],
@@ -364,15 +301,35 @@ class FormProcessor {
         		'telefonoFijoOficina' => $_REQUEST['funcionarioContactoOrganiTelOficina'],
         		'emailOficina' => $_REQUEST['funcionarioContactoOrganiEmail'],
         		'direccionOficina' => $_REQUEST['funcionarioContactoOrganiDireccion'],
-        		'cargoOficina' => $_REQUEST['funcionarioContactoOrganiCargo']
-        		
+        		'cargoOficina' => $_REQUEST['funcionarioContactoOrganiCargo'],
+        		'fk_ubicacion' => $id_ubicacion_contacto[0][0]
         		
         );
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarDatosResidenciaCont",$datosResidenciaContactos);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+        $cadenaSql = $this->miSql->getCadenaSql("insertarDatosResidenciaCont",$datosResidenciaContactos);
+        $id_datos_residencia = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosResidenciaContactos);//********************************
         
+//*****************************************************************************************************************
         
+        //var_dump($cadenaSql);
+        //var_dump("El ID es..... ".$id_salida[0][0]);
+        //exit;
+        
+        var_dump("
+        		*******************************************************
+        		Registro Parcial Satisfactorio
+        			Las Tablas
+        					Identificacion Basica
+        					Datos de Nacimiento fueron almacenados
+        					Información Residencia Contacto
+        			Con sus
+        					id_ubicacion (3)
+        			Retorno de
+        					id_datos_identificacion
+        					id_informacion_personal_basica
+        					id_datos_residencia
+        		*******************************************************");
+        exit;
         
         //Manejo de Ubicacion Preliminar --------------------------------------------------------
         
