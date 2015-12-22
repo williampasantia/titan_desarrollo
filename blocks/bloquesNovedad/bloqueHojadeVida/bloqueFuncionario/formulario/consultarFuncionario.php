@@ -88,7 +88,7 @@ class Formulario {
 
 		// ---------------- CONTROL: Cuadro Mensaje Titulo --------------------------------------------------
 			
-		$esteCampo = 'bloqueContenidoBusqueda';
+		$esteCampo = 'bloqueContenidoBusquedaFuncionario';
 		$atributos['texto'] = ' ';
 		$atributos['estilo'] = 'jqueryui';
 		$atributos['etiqueta'] = "<h2>".$this->lenguaje->getCadena ( $esteCampo )."</h2>";
@@ -100,10 +100,10 @@ class Formulario {
 			
 		// --------------------------------------------------------------------------------------------------
 		
-		var_dump($_REQUEST);
-		var_dump("Redireccionado CONSULTAR");exit;
+		//var_dump($_REQUEST);
+		//var_dump("Redireccionado CONSULTAR");exit;
 		
-		$esteCampo = "novedadesBusqueda";
+		$esteCampo = "novedadesBusquedaFuncionario";
 		$atributos ['id'] = $esteCampo;
 		$atributos ["estilo"] = "jqueryui";
 		$atributos ['tipoEtiqueta'] = 'inicio';
@@ -281,7 +281,7 @@ class Formulario {
 	}
 	echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 
-
+	/*
 	$esteCampo = "novedadesOpcionesRegistro";
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
@@ -554,7 +554,8 @@ class Formulario {
 			
 	}
 	echo $this->miFormulario->marcoAgrupacion ( 'fin' );
-
+	
+	*/
 
 
 	// ------------------Division para los botones-------------------------
