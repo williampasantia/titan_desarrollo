@@ -420,7 +420,235 @@ class Sql extends \Sql {
 				$cadenaSql .= ') ';
 				$cadenaSql .= "RETURNING  id_funcionario; ";
 				break;
-
+				
+			case 'insertarUbicacionFormacionSuperior' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_pais,';
+				$cadenaSql .= 'id_departamento,';
+				$cadenaSql .= 'id_ciudad';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['paisFormacionSuperior'] . ', ';
+				$cadenaSql .= $variable ['departamentoFormacionSuperior'] . ', ';
+				$cadenaSql .= $variable ['ciudadFormacionSuperior'] . ' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_ubicacion; ";
+				break;
+				
+			case 'insertarFormacionSuperior' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.formacion_superior ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_datos_formacion_funcionario,';
+				$cadenaSql .= 'modalidad_academica,';
+				$cadenaSql .= 'cantidad_semestres_aprobados,';
+				$cadenaSql .= 'graduado,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'convalidacion_resolucion,';
+				if($variable ['fechaConvalidacion'] != NULL){
+					$cadenaSql .= 'convalidacion_fecha,';
+				}
+				$cadenaSql .= 'convalidacion_entidad,';
+				$cadenaSql .= 'nombre_universidad,';
+				$cadenaSql .= 'titulo_obtenido,';
+				if($variable ['fechaGraduacionSuperior'] != NULL){
+					$cadenaSql .= 'fecha_graduacion,';
+				}
+				$cadenaSql .= 'numero_tarjeta_profesional,';
+				if($variable ['fechaExpedicionTarjeta'] != NULL){
+					$cadenaSql .= 'fecha_expe_tarjeta,';
+				}
+				$cadenaSql .= 'soporte_educacion_superior';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['fk_formacion_academica_funcionario'] . ', ';
+				$cadenaSql .= '\'' . $variable ['modalidadAcademica'] . '\', ';
+				$cadenaSql .= $variable ['semestresCursados'] . ', ';
+				$cadenaSql .= $variable ['esGraduado'] . ', ';
+				$cadenaSql .= $variable ['fk_ubicacion'] . ', ';
+				$cadenaSql .= '\'' . $variable ['resolucionConvalidacion'] . '\', ';
+				if($variable ['fechaConvalidacion'] != NULL){
+					$cadenaSql .= '\'' . $variable ['fechaConvalidacion'] . '\', ';
+				}
+				$cadenaSql .= '\'' . $variable ['entidadConvalidacion'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['universidadSuperior'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['tituloSuperior'] . '\', ';
+        		if($variable ['fechaGraduacionSuperior'] != NULL){
+					$cadenaSql .= '\'' . $variable ['fechaGraduacionSuperior'] . '\', ';
+				}
+				$cadenaSql .= '\'' . $variable ['numeroTarjetaProfesional'] . '\', ';
+				if($variable ['fechaExpedicionTarjeta'] != NULL){
+					$cadenaSql .= '\'' . $variable ['fechaExpedicionTarjeta'] . '\', ';
+				}
+				$cadenaSql .= '\'' . $variable ['soporteSuperior'] . '\' ';
+				$cadenaSql .= '); ';
+				break;
+				
+			case 'insertarFormacionInformal' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.formacion_informal ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_datos_formacion_funcionario,';
+				$cadenaSql .= 'nombre_curso,';
+				$cadenaSql .= 'nombre_institucion,';
+				$cadenaSql .= 'intesidad_horaria,';
+				if($variable ['fechaTerminacion'] != NULL){
+					$cadenaSql .= 'fecha_terminacion,';
+				}
+				$cadenaSql .= 'soporte_certificado';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['fk_formacion_academica_funcionario'] . ', ';
+				$cadenaSql .= '\'' . $variable ['cursoInformal'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['entidadCurso'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['intensidadHoraria'] . '\', ';
+				if($variable ['fechaTerminacion'] != NULL){
+					$cadenaSql .= '\'' . $variable ['fechaTerminacion'] . '\', ';
+				}
+				$cadenaSql .= '\'' . $variable ['soporteInformal'] . '\' ';
+				$cadenaSql .= '); ';
+				break;
+				
+			case 'insertarFormacionIdiomas' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.formacion_idioma ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_funcionario,';
+				$cadenaSql .= 'idioma,';
+				$cadenaSql .= 'nombre_institucion,';
+				$cadenaSql .= 'nivel,';
+				if($variable ['habla'] != NULL){
+					$cadenaSql .= 'habla,';
+				}
+				if($variable ['lee'] != NULL){
+					$cadenaSql .= 'lee,';
+				}
+				if($variable ['escribe'] != NULL){
+					$cadenaSql .= 'escribe,';
+				}
+				if($variable ['escucha'] != NULL){
+					$cadenaSql .= 'escucha,';
+				}
+				$cadenaSql .= 'soporte_idioma,';
+				$cadenaSql .= 'observaciones';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['fk_funcionario'] . ', ';
+				$cadenaSql .= '\'' . $variable ['idioma'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['universidadIdioma'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['nivel'] . '\', ';
+				if($variable ['habla'] != NULL){
+					$cadenaSql .= '\'' . $variable ['habla'] . '\', ';
+				}
+				if($variable ['lee'] != NULL){
+					$cadenaSql .= '\'' . $variable ['lee'] . '\', ';
+				}
+				if($variable ['escribe'] != NULL){
+					$cadenaSql .= '\'' . $variable ['escribe'] . '\', ';
+				}
+				if($variable ['escucha'] != NULL){
+					$cadenaSql .= '\'' . $variable ['escucha'] . '\', ';
+				}
+				$cadenaSql .= '\'' . $variable ['soporteIdioma'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['observacionIdioma'] . '\' ';
+				$cadenaSql .= '); ';
+				break;
+				
+			case 'insertarUbicacionExperiencia' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_pais,';
+				$cadenaSql .= 'id_departamento,';
+				$cadenaSql .= 'id_ciudad';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['paisExperiencia'] . ', ';
+				$cadenaSql .= $variable ['departamentoExperiencia'] . ', ';
+				$cadenaSql .= $variable ['ciudadExperiencia'] . ' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_ubicacion; ";
+				break;
+				
+			case 'insertarExperienciaLaboral' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.experiencia_laboral ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_funcionario,';
+				$cadenaSql .= 'nombre_empresa,';
+				if($variable ['nitEmpresa'] > 0){
+					$cadenaSql .= 'nit_empresa,';
+				}
+				$cadenaSql .= 'tipo_entidad,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'correo_empresa,';
+				$cadenaSql .= 'telefono_empresa,';
+				$cadenaSql .= 'fecha_ingreso,';
+				$cadenaSql .= 'fecha_retiro,';
+				$cadenaSql .= 'dependencia,';
+				$cadenaSql .= 'cargo,';
+				$cadenaSql .= 'horas_semanales_trabajo,';
+				$cadenaSql .= 'soporte_experiencia';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['fk_funcionario'] . ', ';
+				$cadenaSql .= '\'' . $variable ['nombreEmpresa'] . '\', ';
+				if($variable ['nitEmpresa'] > 0){
+					$cadenaSql .= $variable ['nitEmpresa'] . ' ';
+				}
+				$cadenaSql .= '\'' . $variable ['tipoEntidad'] . '\', ';
+				$cadenaSql .= $variable ['fk_ubicacion'] . ', ';
+				$cadenaSql .= '\'' . $variable ['emailEmpresa'] . '\', ';
+				$cadenaSql .= $variable ['telefonoEmpresa'] . ', ';
+				$cadenaSql .= '\'' . $variable ['fechaIngreso'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['fechaRetiro'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['dependenciaEmpresa'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['cargoEmpresa'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['horasTrabajo'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['soporteExperiencia'] . '\' ';
+				$cadenaSql .= '); ';
+				break;
+				
+			case 'insertarReferenciasPersonales' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.referencia_laboral ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_funcionario,';
+				if($variable ['tipoReferencia'] != NULL){
+					$cadenaSql .= 'tipo_referencia,';
+				}
+				$cadenaSql .= 'nombres_referencia,';
+				$cadenaSql .= 'apellidos_referencia,';
+				if($variable ['telefonoReferencia'] > 0){
+					$cadenaSql .= 'telefono_contacto,';
+				}
+				$cadenaSql .= 'parentesco_relacion,';
+				$cadenaSql .= 'soporte_referencia';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['fk_funcionario'] . ', ';
+				if($variable ['tipoReferencia'] != NULL){
+					$cadenaSql .= '\'' . $variable ['tipoReferencia'] . '\', ';
+				}
+				$cadenaSql .= '\'' . $variable ['nombresReferencia'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['apellidosReferencia'] . '\', ';
+				if($variable ['telefonoReferencia'] > 0){
+					$cadenaSql .= $variable ['telefonoReferencia'] . ', ';
+				}
+				$cadenaSql .= '\'' . $variable ['relacionReferencia'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['soporteReferencia'] . '\' ';
+				$cadenaSql .= '); ';
+				break;
+				
             case 'actualizarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
                 $cadenaSql .= $prefijo . 'pagina ';

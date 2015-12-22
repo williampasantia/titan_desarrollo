@@ -42,6 +42,10 @@ $this->idioma["botonCancelar"]="Cancelar";
 $this->idioma["noDefinido"]="No definido";
 $this->idioma["botonIngresar"]="Ingresar";
 
+$this->idioma["botonRegresarConsulta"]="Regresar a Registro Funcionarios";
+$this->idioma["botonConsultarFun"]="Consultar Funcionarios";
+$this->idioma["botonModificarFun"]="Modificar Funcionarios";
+
 $this->idioma["funcionarioIdentificacion"]="Tipo Identificación";
 $this->idioma["funcionarioDocumento"]="Identificación";
 $this->idioma["funcionarioDocumentoTitulo"]="Digite el número de dentificación";

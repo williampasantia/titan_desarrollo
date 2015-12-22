@@ -60,11 +60,16 @@ class Frontera {
 			switch ($_REQUEST['opcion']) {
 		
 				case "mensaje":
+					//var_dump("Paso de Redireccionador");exit;
 					include_once($this->ruta . "/formulario/mensaje.php");
 					break;
 		
 				case "consultar":
 					include_once($this->ruta . "/formulario/consultarFuncionario.php");
+					break;
+					
+				case "registroConsulta":
+					include_once($this->ruta . "/formulario/registroBusqueda.php");
 					break;
 		
 				case "registrar":

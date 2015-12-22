@@ -46,14 +46,14 @@ class FormProcessor {
         			break;
         	}
         }*/
-        /*
+        
         $datosPersonaNatural = array (
         		'primerNombre' => $_REQUEST['funcionarioPrimerNombre'],
         		'segundoNombre' => $_REQUEST['funcionarioSegundoNombre'],
         		'primerApellido' => $_REQUEST['funcionarioPrimerApellido'],
         		'segundoApellido' => $_REQUEST['funcionarioSegundoApellido'],
         		'otrosNombres' => $_REQUEST['funcionarioOtrosNombres'],
-        );*/
+        );
         /*-------------------------------------------------------------------------------------------------*/
         
         $datosUbicacionExpedicion = array(
@@ -99,7 +99,7 @@ class FormProcessor {
         			$_REQUEST ['funcionarioEstadoCivil']='Casado';
         			break;
         		case 3 :
-        			$_REQUEST ['funcionarioEstadoCivil']='Uni\F3n Libre';
+        			$_REQUEST ['funcionarioEstadoCivil']='Union Libre';
         			break;
         		case 4 :
         			$_REQUEST ['funcionarioEstadoCivil']='Viudo';
@@ -397,45 +397,14 @@ class FormProcessor {
         
 
 //****************************************************************************************************************
-        //var_dump($cadenaSql);
-        //var_dump("El ID es..... ".$id_salida[0][0]);
-        //exit;
-        
-        var_dump("
-        		*******************************************************
-        		Registro Parcial Satisfactorio
-        			Las Tablas
-        					Identificacion Basica
-        					Datos de Nacimiento fueron almacenados
-        					Información Residencia Contacto
-        					Información Formación Basica
-        					Información Formación Media
-        					Relacion Formacion Funcionario
-        					Informacion Investigacion
-        					Creación del Funcionario
-        			Con sus
-        					id_ubicacion (5)
-        			Retorno de
-	        					(id_datos_identificacion)
-	        					(id_informacion_personal_basica)
-	        					(id_datos_residencia)
-	        
-	        						(id_formacion_basica)
-	        						(id_formacion_media)
-	        					(id_datos_formacion_funcionario)
-	        					(id_publicacion)
-        					id_funcionario
-        		*******************************************************");
-        exit;
-        
         
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
         $cantidadFormacionSuperior = $_REQUEST['funcionarioRegistrosSuperior'];
-        $cantidadFormacionInformal = 1;//$_REQUEST['funcionarioRegistrosInformal'];
-        $cantidadIdiomas = 1;//$_REQUEST['funcionarioRegistrosIdioma'];
-        $cantidadExperiencia = 1;//$_REQUEST['funcionarioRegistrosExperiencia'];
-        $cantidadReferenciasPer = 1;//$_REQUEST['funcionarioRegistrosReferencia'];
+        $cantidadFormacionInformal = $_REQUEST['funcionarioRegistrosInformal'];
+        $cantidadIdiomas = $_REQUEST['funcionarioRegistrosIdioma'];
+        $cantidadExperiencia = $_REQUEST['funcionarioRegistrosExperiencia'];
+        $cantidadReferenciasPer = $_REQUEST['funcionarioRegistrosReferencia'];
         
         // ---------------- FIN: Lista Variables Control--------------------------------------------------------
         // -------------------------------------------------- Campos Dinamicos ----------------------------------
@@ -446,22 +415,22 @@ class FormProcessor {
         	if(isset($_REQUEST['funcionarioFormacionSuperiorModalidad_'.$count])){
         		switch($_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]){
         			case 1 :
-        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Técnica';
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Tecnica';
         				break;
         			case 2 :
-        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Tecnológica';
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Tecnologica';
         				break;
         			case 3 :
-        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Tecnológica Especializada';
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Tecnologica Especializada';
         				break;
         			case 4 :
         				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Universitaria';
         				break;
         			case 5 :
-        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Especialización';
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Especializacion';
         				break;
         			case 6 :
-        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Maestría';
+        				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Maestria';
         				break;
         			case 7 :
         				$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count]='Doctorado';
@@ -471,80 +440,29 @@ class FormProcessor {
         	if(isset($_REQUEST['funcionarioFormacionSuperiorGraduado_'.$count])){
         		switch($_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count]){
         			case 1 :
-        				$_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count]='Si';
+        				$_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count]='TRUE';
         				break;
         			case 2 :
-        				$_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count]='No';
+        				$_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count]='FALSE';
         				break;
         		}
         	}
         	
-        	//Manejo de Ubicacion Preliminar --------------------------------------------------------
         	
-        	if(isset($_REQUEST['funcionarioFormacionSuperiorPais_'.$count])){
-        		switch($_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]){
-        			case 1 :
-        				$_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]='Argentina';
-        				break;
-        			case 2:
-        				$_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]='Peru';
-        				break;
-        			case 3 :
-        				$_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]='Chile';
-        				break;
-        			case 4 :
-        				$_REQUEST ['funcionarioFormacionSuperiorPais_'.$count]='Colombia';
-        				break;
-        		}
-        	}
+        	$datosUbicacionFormacionSuperior = array(
+        			'paisFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorPais_'.$count],
+        			'departamentoFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorDepartamento_'.$count],
+        			'ciudadFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorCiudad_'.$count]
+        	);
         	
-        	if(isset($_REQUEST['funcionarioFormacionSuperiorDepartamento_'.$count])){
-        		switch($_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]){
-        			case 1 :
-        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Cundinamarca';
-        				break;
-        			case 2 :
-        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Antioquia';
-        				break;
-        			case 3 :
-        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Santander';
-        				break;
-        			case 4 :
-        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Bolivar';
-        				break;
-        			case 5 :
-        				$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$count]='Bogotá D.C.';
-        				break;
-        		}
-        	}
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionFormacionSuperior",$datosUbicacionFormacionSuperior);
+        	$id_ubicacion_formacion_superior = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionFormacionSuperior, "insertarUbicacionFormacionSuperior");
         	
-        	if(isset($_REQUEST['funcionarioFormacionSuperiorCiudad_'.$count])){
-        		switch($_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]){
-        			case 1 :
-        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Bogota D.C.';
-        				break;
-        			case 2 :
-        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Medellin';
-        				break;
-        			case 3 :
-        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Barranquilla';
-        				break;
-        			case 4 :
-        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Cali';
-        				break;
-        			case 5 :
-        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Cucuta';
-        				break;
-        			case 6 :
-        				$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$count]='Bucaramanga';
-        				break;
-        		}
-        	}
-        	//------------------------------- Preliminar Ubicación ----------------------------------
-        	
-        	
-        	$datosFormacionAcademicaSuperior[$count] = array(
+
+        	$datosFormacionAcademicaSuperior = array(
+        			'modalidadAcademica' => $_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count],
         			'semestresCursados' => $_REQUEST['funcionarioFormacionSuperiorSemestres_'.$count],
+        			'esGraduado' => $_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count],
         			'resolucionConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorResolucionConvali_'.$count],
         			'fechaConvalidacion' => $_REQUEST['funcionarioFechaConvalidaSuperior_'.$count],
         			'entidadConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorEntidadConvali_'.$count],
@@ -553,33 +471,40 @@ class FormProcessor {
         			'fechaGraduacionSuperior' => $_REQUEST['funcionarioFechaTituloSuperior_'.$count],
         			'numeroTarjetaProfesional' => $_REQUEST['funcionarioFormacionSuperiorNumeroTarjeta_'.$count],
         			'fechaExpedicionTarjeta' => $_REQUEST['funcionarioFechaTarjetaSuperior_'.$count],
-        			'soporteSuperior' => $_REQUEST['funcionarioSoporteFormacionSuperior_'.$count]
+        			'soporteSuperior' => $_REQUEST['funcionarioSoporteFormacionSuperior_'.$count],
+        			'fk_ubicacion' => $id_ubicacion_formacion_superior[0][0],
+        			'fk_formacion_academica_funcionario' => $id_datos_formacion_funcionario[0][0]
         	);
+        	
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarFormacionSuperior",$datosFormacionAcademicaSuperior);
+        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	
         	$count++;
         }
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionSuperior",$datosFormacionAcademicaSuperior);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
-        
+//****************************************************************************************************************        
         
         $count = 0;
         
         while($count < $cantidadFormacionInformal){
         	
-        	$datosFormacionAcademicaInformal[$count] = array(
+        	$datosFormacionAcademicaInformal = array(
         			'cursoInformal' => $_REQUEST['funcionarioFormacionInformalCurso_'.$count],
         			'entidadCurso' => $_REQUEST['funcionarioFormacionInformalCursoLugar_'.$count],
         			'intensidadHoraria' => $_REQUEST['funcionarioFormacionInformalCursoIntensidad_'.$count],
         			'fechaTerminacion' => $_REQUEST['funcionarioFechaInformal_'.$count],
-        			'soporteInformal' => $_REQUEST['funcionarioSoporteFormacionInformal_'.$count]
+        			'soporteInformal' => $_REQUEST['funcionarioSoporteFormacionInformal_'.$count],
+        			'fk_formacion_academica_funcionario' => $id_datos_formacion_funcionario[0][0]
         	);
+        	
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarFormacionInformal",$datosFormacionAcademicaInformal);
+        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	
         	$count++;
+        } 
         
-        }
-        
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionInformal",$datosFormacionAcademicaInformal);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
-        
+//****************************************************************************************************************
+
         
         $count = 0;
         
@@ -588,22 +513,22 @@ class FormProcessor {
         	if(isset($_REQUEST['funcionarioFormacionIdioma_'.$count])){
         		switch($_REQUEST ['funcionarioFormacionIdioma_'.$count]){
         			case 1 :
-        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Inglés';
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Ingles';
         				break;
         			case 2 :
-        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Francés';
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Frances';
         				break;
         			case 3 :
-        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Alemán';
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Aleman';
         				break;
         			case 4 :
-        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Portugués';
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Portugues';
         				break;
         			case 5 :
         				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Italiano';
         				break;
         			case 6 :
-        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Mandarín';
+        				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Mandarin';
         				break;
         			case 7 :
         				$_REQUEST ['funcionarioFormacionIdioma_'.$count]='Otro';
@@ -614,7 +539,7 @@ class FormProcessor {
         	if(isset($_REQUEST['funcionarioFormacionIdiomaNivel_'.$count])){
         		switch($_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]){
         			case 1 :
-        				$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]='(A1) Básico';
+        				$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]='(A1) B\E1sico';
         				break;
         			case 2 :
         				$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count]='(A2) Elemental';
@@ -646,7 +571,7 @@ class FormProcessor {
         				$_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count]='Excelente';
         				break;
         			default :
-        				$_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count]=' ';
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count]=NULL;
         				break;
         		}
         	}
@@ -663,7 +588,7 @@ class FormProcessor {
         				$_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count]='Excelente';
         				break;
         			default :
-        				$_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count]=' ';
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count]=NULL;
         				break;
         		}
         	}
@@ -680,7 +605,7 @@ class FormProcessor {
         				$_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count]='Excelente';
         				break;
         			default :
-        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count]=' ';
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count]=NULL;
         				break;
         		}
         	}
@@ -697,21 +622,31 @@ class FormProcessor {
         				$_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count]='Excelente';
         				break;
         			default :
-        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count]=' ';
+        				$_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count]=NULL;
         				break;
         		}
         	}
         	
-        	$datosFormacionAcademicaIdiomas[$count] = array(
+        	$datosFormacionAcademicaIdiomas = array(
+        			'fk_funcionario' => $id_funcionario[0][0],
+        			'idioma' => $_REQUEST ['funcionarioFormacionIdioma_'.$count],
         			'universidadIdioma' => $_REQUEST['funcionarioFormacionIdiomaUniversidad_'.$count],
+        			'nivel' => $_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count],
+        			'habla' => $_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count],
+        			'lee' => $_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count],
+        			'escribe' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count],
+        			'escucha' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count],
         			'soporteIdioma' => $_REQUEST['funcionarioSoporteIdioma_'.$count],
         			'observacionIdioma' => $_REQUEST['funcionarioIdiomaObservacion_'.$count]
         	);
+        	
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
+        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	
         	$count++;
         }
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
+//**********************************************************************************************************************        
         
         $count = 0;
         
@@ -720,96 +655,48 @@ class FormProcessor {
         	if(isset($_REQUEST['funcionarioExperienciaTipo_'.$count])){
         		switch($_REQUEST ['funcionarioExperienciaTipo_'.$count]){
         			case 1 :
-        				$_REQUEST ['funcionarioExperienciaTipo_'.$count]='Pública';
+        				$_REQUEST ['funcionarioExperienciaTipo_'.$count]='Publica';
         				break;
         			case 2 :
         				$_REQUEST ['funcionarioExperienciaTipo_'.$count]='Privada';
         				break;
         		}
         	}
-        	
-        	//Manejo de Ubicacion Preliminar --------------------------------------------------------
-        	 
-        	if(isset($_REQUEST['funcionarioExperienciaPais_'.$count])){
-        		switch($_REQUEST ['funcionarioExperienciaPais_'.$count]){
-        			case 1 :
-        				$_REQUEST ['funcionarioExperienciaPais_'.$count]='Argentina';
-        				break;
-        			case 2:
-        				$_REQUEST ['funcionarioExperienciaPais_'.$count]='Peru';
-        				break;
-        			case 3 :
-        				$_REQUEST ['funcionarioExperienciaPais_'.$count]='Chile';
-        				break;
-        			case 4 :
-        				$_REQUEST ['funcionarioExperienciaPais_'.$count]='Colombia';
-        				break;
-        		}
-        	}
-        	 
-        	if(isset($_REQUEST['funcionarioExperienciaDepartamento_'.$count])){
-        		switch($_REQUEST ['funcionarioExperienciaDepartamento_'.$count]){
-        			case 1 :
-        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Cundinamarca';
-        				break;
-        			case 2 :
-        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Antioquia';
-        				break;
-        			case 3 :
-        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Santander';
-        				break;
-        			case 4 :
-        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Bolivar';
-        				break;
-        			case 5 :
-        				$_REQUEST ['funcionarioExperienciaDepartamento_'.$count]='Bogotá D.C.';
-        				break;
-        		}
-        	}
-        	 
-        	if(isset($_REQUEST['funcionarioExperienciaCiudad_'.$count])){
-        		switch($_REQUEST ['funcionarioExperienciaCiudad_'.$count]){
-        			case 1 :
-        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Bogota D.C.';
-        				break;
-        			case 2 :
-        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Medellin';
-        				break;
-        			case 3 :
-        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Barranquilla';
-        				break;
-        			case 4 :
-        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Cali';
-        				break;
-        			case 5 :
-        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Cucuta';
-        				break;
-        			case 6 :
-        				$_REQUEST ['funcionarioExperienciaCiudad_'.$count]='Bucaramanga';
-        				break;
-        		}
-        	}
-        	//------------------------------- Preliminar Ubicación ----------------------------------
         	     
+        	$datosUbicacionExperiencia = array(
+        			'paisExperiencia' => $_REQUEST ['funcionarioExperienciaPais_'.$count],
+        			'departamentoExperiencia' => $_REQUEST ['funcionarioExperienciaDepartamento_'.$count],
+        			'ciudadExperiencia' => $_REQUEST ['funcionarioExperienciaCiudad_'.$count]
+        	);
+        	 
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionExperiencia",$datosUbicacionExperiencia);
+        	$id_ubicacion_experiencia = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionExperiencia, "insertarUbicacionExperiencia");
+        	 
         	
-        	$datosExperiencia[$count] = array(
+        	$datosExperiencia = array(
+        			'fk_funcionario' => $id_funcionario[0][0],
         			'nombreEmpresa' => $_REQUEST['funcionarioExperienciaEmpresa_'.$count],
         			'nitEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaNIT_'.$count],
+        			'tipoEntidad' => $_REQUEST ['funcionarioExperienciaTipo_'.$count],
+        			'fk_ubicacion' => $id_ubicacion_experiencia[0][0],
         			'emailEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCorreo_'.$count],
         			'telefonoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaTelefono_'.$count],
         			'fechaIngreso' => $_REQUEST['funcionarioFechaEntradaExperiencia_'.$count],
         			'fechaRetiro' => $_REQUEST['funcionarioFechaSalidaExperiencia_'.$count],
         			'dependenciaEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaDependencia_'.$count],
         			'cargoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCargo_'.$count],
-        			'horasTrabjo' => $_REQUEST['funcionarioExperienciaEmpresaHoras_'.$count],
+        			'horasTrabajo' => $_REQUEST['funcionarioExperienciaEmpresaHoras_'.$count],
         			'soporteExperiencia' => $_REQUEST['funcionarioSoporteExperiencia_'.$count]
         	);
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarExperienciaLaboral",$datosExperiencia);
+        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	
         	$count++;
         }
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarExperienciaLaboral",$datosExperiencia);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
         
+//****************************************************************************************************************
+
         
         $count = 0;
         
@@ -824,30 +711,92 @@ class FormProcessor {
         				$_REQUEST ['funcionarioReferenciaTipo_'.$count]='Profesional';
         				break;
         			default:
-        				$_REQUEST ['funcionarioReferenciaTipo_'.$count]=' ';
+        				$_REQUEST ['funcionarioReferenciaTipo_'.$count]=NULL;
         		}
         	}
         	
-        	$datosReferencias[$count] = array(
+        	$datosReferencias = array(
+        			'fk_funcionario' => $id_funcionario[0][0],
         			'nombresReferencia' => $_REQUEST['funcionarioReferenciaNombres_'.$count],
+        			'tipoReferencia' => $_REQUEST ['funcionarioReferenciaTipo_'.$count],
         			'apellidosReferencia' => $_REQUEST['funcionarioReferenciaApellidos_'.$count],
         			'telefonoReferencia' => $_REQUEST['funcionarioReferenciaTelefono_'.$count],
         			'relacionReferencia' => $_REQUEST['funcionarioReferenciaRelacion_'.$count],
         			'soporteReferencia' => $_REQUEST['funcionarioSoporteReferencia_'.$count]
         	);
+        	
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarReferenciasPersonales",$datosReferencias);
+        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	
         	$count++;
         	 
         }
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarReferenciasPersonales",$datosReferencias);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
         
+//*****************************************************************************************************************
+
+        /*var_dump($cadenaSql);
+        //var_dump("El ID es..... ".$id_salida[0][0]);
+        //exit;
         
+        var_dump("
+        		*******************************************************
+        		Registro Completo Satisfactorio
+        			Las Tablas
+        					Identificacion Basica
+        					Datos de Nacimiento fueron almacenados
+        					Información Residencia Contacto
+        					Información Formación Basica
+        					Información Formación Media
+        					Relacion Formacion Funcionario
+        					Informacion Investigacion
+        					Creación del Funcionario
+        					n Registros Formacion Superior
+        					n Registros Formacion Informal
+        					n Registros Formacion Idiomas
+        					n Registros Experiencia Laboral
+        					n Registros Referencias Personales
+        			Con sus
+        					id_ubicacion (5)
+        					id_ubicacion (n Formacion Superior)
+        					id_ubicacion (n Experiencia Laboral)
+        			Retorno de
+	        					(id_datos_identificacion)
+	        					(id_informacion_personal_basica)
+	        					(id_datos_residencia)
+        
+	        						(id_formacion_basica)
+	        						(id_formacion_media)
+	        					(id_datos_formacion_funcionario)
+	        					(id_publicacion)
+        					id_funcionario
+        
+        			Insercion de id_datos_formacion_funcionario (n -> Formacion - Superior, Informal)
+        			Insercion de id_funcionario 				(n -> Idioma, Experiencia Laboral, Referencias)
+        		*******************************************************");
+        exit;*/
+        
+        if($id_funcionario[0][0] > 0 && $id_datos_formacion_funcionario[0][0] > 0){
+        	$insertar = true;
+        }else{
+        	$insertar = false;
+        }
+        
+        if ($insertar = true) {
+        	//var_dump("ENTRO INSERTAR");exit;
+        	$this->miConfigurador->setVariableConfiguracion("cache", true);
+        	Redireccionador::redireccionar('inserto', $datosPersonaNatural);
+        	exit();
+        } else {
+        	//var_dump("ENTRO NO INSERTAR");exit;
+        	Redireccionador::redireccionar('noInserto');
+        	exit();
+        }
         
         
         //Al final se ejecuta la redirección la cual pasará el control a otra página
         
-        Redireccionador::redireccionar('form');
+        //Redireccionador::redireccionar('form');
     	        
     }
     

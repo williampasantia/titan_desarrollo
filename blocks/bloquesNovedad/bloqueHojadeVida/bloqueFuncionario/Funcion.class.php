@@ -45,6 +45,10 @@ class Funcion {
     	include_once ($this->ruta . "funcion/registrar.php");
     }
     
+    function opciones() {
+    	include_once ($this->ruta . "funcion/opciones.php");
+    }
+    
     function action() {
         
         $resultado = true;
@@ -65,6 +69,9 @@ class Funcion {
         	switch ($_REQUEST['opcion']){
         		case "registrar":		
         			$this->registrar ();
+        			break;
+        		case "opciones":
+        			$this->opciones ();
         			break;
         		default:
         	}
