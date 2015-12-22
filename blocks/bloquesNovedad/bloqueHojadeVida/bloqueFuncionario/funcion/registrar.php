@@ -311,9 +311,71 @@ class FormProcessor {
         
 //*****************************************************************************************************************
         
+        
+        
+        $datosUbicacionFormacionBasica = array(
+        		'paisFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaPais'],
+        		'departamentoFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaDepartamento'],
+        		'ciudadFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaCiudad']
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionFormacionBasica",$datosUbicacionFormacionBasica);
+        $id_ubicacion_formacion_basica = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionFormacionBasica, "insertarUbicacionFormacionBasica");
+        
+        $datosFormacionAcademicaBasica = array(
+        		'modalidadBasica' => $_REQUEST['funcionarioFormacionBasicaModalidad'],
+        		'colegioBasica' => $_REQUEST['funcionarioFormacionBasicaColegio'],
+        		'tituloBasica' => $_REQUEST['funcionarioFormacionBasicaTitul'],
+        		'fechaGradoBasica' => $_REQUEST['funcionarioFechaFormacionBasica'],
+        		'soporteBasica' => $_REQUEST['funcionarioSoporteFormacionBasica'],
+        		'fk_ubicacion' => $id_ubicacion_formacion_basica[0][0]
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionBasica",$datosFormacionAcademicaBasica);
+        $id_formacion_basica = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosFormacionAcademicaBasica);//********************************
+        
+ //**************************************************************************************************************
+ 
+        
+        $datosUbicacionFormacionMedia = array(
+        		'paisFormacionMedia' => $_REQUEST['funcionarioFormacionMediaPais'],
+        		'departamentoFormacionMedia' => $_REQUEST['funcionarioFormacionMediaDepartamento'],
+        		'ciudadFormacionMedia' => $_REQUEST['funcionarioFormacionMediaCiudad']
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionFormacionMedia",$datosUbicacionFormacionMedia);
+        $id_ubicacion_formacion_media = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionFormacionMedia, "insertarUbicacionFormacionMedia");
+        
+        
+        $datosFormacionAcademicaMedia = array(
+        		'modalidadMedia' => $_REQUEST['funcionarioFormacionMediaModalidad'],
+        		'colegioMedia' => $_REQUEST['funcionarioFormacionMediaColegio'],
+        		'tituloMedia' => $_REQUEST['funcionarioFormacionMediaTitul'],
+        		'fechaGradoMedia' => $_REQUEST['funcionarioFechaFormacionMedia'],
+        		'soporteMedia' => $_REQUEST['funcionarioSoporteFormacionMedia'],
+        		'fk_ubicacion' => $id_ubicacion_formacion_media[0][0]
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionMedia",$datosFormacionAcademicaMedia);
+        $id_formacion_media = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda",$datosFormacionAcademicaMedia);//********************************
+        
+ //***************************************************************************************************************
+        
+        $datosFormacionAcademicaFuncionario = array(
+        		'fk_id_formacion_basica' => $id_formacion_basica[0][0],
+        		'fk_id_formacion_media' => $id_formacion_media[0][0]
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionFuncionario",$datosFormacionAcademicaFuncionario);
+        $id_datos_formacion_funcionario = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosFormacionAcademicaFuncionario, "insertarFormacionFuncionario");
+        
+ //***************************************************************************************************************       
+        
         //var_dump($cadenaSql);
         //var_dump("El ID es..... ".$id_salida[0][0]);
         //exit;
+        
+        echo "El ID es ".$id_datos_formacion_funcionario[0][0];
         
         var_dump("
         		*******************************************************
@@ -322,166 +384,21 @@ class FormProcessor {
         					Identificacion Basica
         					Datos de Nacimiento fueron almacenados
         					Información Residencia Contacto
+        					Información Formación Basica
+        					Información Formación Media
+        					Relacion Formacion Funcionario
         			Con sus
-        					id_ubicacion (3)
+        					id_ubicacion (5)
         			Retorno de
         					id_datos_identificacion
         					id_informacion_personal_basica
         					id_datos_residencia
+        		
+        						(id_formacion_basica)
+        						(id_formacion_media)
+        					id_datos_formacion_funcionario
         		*******************************************************");
         exit;
-        
-        //Manejo de Ubicacion Preliminar --------------------------------------------------------
-        
-        if(isset($_REQUEST['funcionarioFormacionBasicaPais'])){
-        	switch($_REQUEST ['funcionarioFormacionBasicaPais']){
-        		case 1 :
-        			$_REQUEST ['funcionarioFormacionBasicaPais']='Argentina';
-        			break;
-        		case 2:
-        			$_REQUEST ['funcionarioFormacionBasicaPais']='Peru';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioFormacionBasicaPais']='Chile';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioFormacionBasicaPais']='Colombia';
-        			break;
-        	}
-        }
-        
-        if(isset($_REQUEST['funcionarioFormacionBasicaDepartamento'])){
-        	switch($_REQUEST ['funcionarioFormacionBasicaDepartamento']){
-        		case 1 :
-        			$_REQUEST ['funcionarioFormacionBasicaDepartamento']='Cundinamarca';
-        			break;
-        		case 2 :
-        			$_REQUEST ['funcionarioFormacionBasicaDepartamento']='Antioquia';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioFormacionBasicaDepartamento']='Santander';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioFormacionBasicaDepartamento']='Bolivar';
-        			break;
-        		case 5 :
-        			$_REQUEST ['funcionarioFormacionBasicaDepartamento']='Bogotá D.C.';
-        			break;
-        	}
-        }
-        
-        if(isset($_REQUEST['funcionarioFormacionBasicaCiudad'])){
-        	switch($_REQUEST ['funcionarioFormacionBasicaCiudad']){
-        		case 1 :
-        			$_REQUEST ['funcionarioFormacionBasicaCiudad']='Bogota D.C.';
-        			break;
-        		case 2 :
-        			$_REQUEST ['funcionarioFormacionBasicaCiudad']='Medellin';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioFormacionBasicaCiudad']='Barranquilla';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioFormacionBasicaCiudad']='Cali';
-        			break;
-        		case 5 :
-        			$_REQUEST ['funcionarioFormacionBasicaCiudad']='Cucuta';
-        			break;
-        		case 6 :
-        			$_REQUEST ['funcionarioFormacionBasicaCiudad']='Bucaramanga';
-        			break;
-        	}
-        }
-        //------------------------------- Preliminar Ubicación ----------------------------------
-        
-        
-        $datosFormacionAcademicaBasica = array(
-        		'modalidadBasica' => $_REQUEST['funcionarioFormacionBasicaModalidad'],
-        		'colegioBasica' => $_REQUEST['funcionarioFormacionBasicaColegio'],
-        		'tituloBasica' => $_REQUEST['funcionarioFormacionBasicaTitul'],
-        		'fechaGradoBasica' => $_REQUEST['funcionarioFechaFormacionBasica'],
-        		'soporteBasica' => $_REQUEST['funcionarioSoporteFormacionBasica']
-        );
-        
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionBasica",$datosFormacionAcademicaBasica);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
-        
-        
-        //Manejo de Ubicacion Preliminar --------------------------------------------------------
-        
-        if(isset($_REQUEST['funcionarioFormacionMediaPais'])){
-        	switch($_REQUEST ['funcionarioFormacionMediaPais']){
-        		case 1 :
-        			$_REQUEST ['funcionarioFormacionMediaPais']='Argentina';
-        			break;
-        		case 2:
-        			$_REQUEST ['funcionarioFormacionMediaPais']='Peru';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioFormacionMediaPais']='Chile';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioFormacionMediaPais']='Colombia';
-        			break;
-        	}
-        }
-        
-        if(isset($_REQUEST['funcionarioFormacionMediaDepartamento'])){
-        	switch($_REQUEST ['funcionarioFormacionMediaDepartamento']){
-        		case 1 :
-        			$_REQUEST ['funcionarioFormacionMediaDepartamento']='Cundinamarca';
-        			break;
-        		case 2 :
-        			$_REQUEST ['funcionarioFormacionMediaDepartamento']='Antioquia';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioFormacionMediaDepartamento']='Santander';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioFormacionMediaDepartamento']='Bolivar';
-        			break;
-        		case 5 :
-        			$_REQUEST ['funcionarioFormacionMediaDepartamento']='Bogotá D.C.';
-        			break;
-        	}
-        }
-        
-        if(isset($_REQUEST['funcionarioFormacionMediaCiudad'])){
-        	switch($_REQUEST ['funcionarioFormacionMediaCiudad']){
-        		case 1 :
-        			$_REQUEST ['funcionarioFormacionMediaCiudad']='Bogota D.C.';
-        			break;
-        		case 2 :
-        			$_REQUEST ['funcionarioFormacionMediaCiudad']='Medellin';
-        			break;
-        		case 3 :
-        			$_REQUEST ['funcionarioFormacionMediaCiudad']='Barranquilla';
-        			break;
-        		case 4 :
-        			$_REQUEST ['funcionarioFormacionMediaCiudad']='Cali';
-        			break;
-        		case 5 :
-        			$_REQUEST ['funcionarioFormacionMediaCiudad']='Cucuta';
-        			break;
-        		case 6 :
-        			$_REQUEST ['funcionarioFormacionMediaCiudad']='Bucaramanga';
-        			break;
-        	}
-        }
-        //------------------------------- Preliminar Ubicación ----------------------------------
-        
-        
-        $datosFormacionAcademicaMedia = array(
-        		'modalidadMedia' => $_REQUEST['funcionarioFormacionMediaModalidad'],
-        		'colegioMedia' => $_REQUEST['funcionarioFormacionMediaColegio'],
-        		'tituloMedia' => $_REQUEST['funcionarioFormacionMediaTitul'],
-        		'fechaGradoMedia' => $_REQUEST['funcionarioFechaFormacionMedia'],
-        		'soporteMedia' => $_REQUEST['funcionarioSoporteFormacionMedia']
-        );
-        
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarFormacionMedia",$datosFormacionAcademicaMedia);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");//********************************
-        
         
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         

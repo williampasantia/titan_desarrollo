@@ -284,6 +284,101 @@ class Sql extends \Sql {
 				$cadenaSql .= "RETURNING  id_datos_residencia; ";
 				break;
 				
+			case 'insertarUbicacionFormacionBasica' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_pais,';
+				$cadenaSql .= 'id_departamento,';
+				$cadenaSql .= 'id_ciudad';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['paisFormacionBasica'] . ', ';
+				$cadenaSql .= $variable ['departamentoFormacionBasica'] . ', ';
+				$cadenaSql .= $variable ['ciudadFormacionBasica'] . ' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_ubicacion; ";
+				break;
+				
+			case 'insertarFormacionBasica' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.formacion_basica ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'modalidad,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'nombre_colegio,';
+				$cadenaSql .= 'titulo_obtenido,';
+				$cadenaSql .= 'fecha_graduacion,';
+				$cadenaSql .= 'soporte_graduacion';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= '\'' . $variable ['modalidadBasica'] . '\', ';
+				$cadenaSql .= $variable ['fk_ubicacion'] . ', ';
+				$cadenaSql .= '\'' . $variable ['colegioBasica'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['tituloBasica'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['fechaGradoBasica'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['soporteBasica'] . '\' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_formacion_basica; ";
+				break;
+				
+			case 'insertarUbicacionFormacionMedia' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_pais,';
+				$cadenaSql .= 'id_departamento,';
+				$cadenaSql .= 'id_ciudad';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['paisFormacionMedia'] . ', ';
+				$cadenaSql .= $variable ['departamentoFormacionMedia'] . ', ';
+				$cadenaSql .= $variable ['ciudadFormacionMedia'] . ' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_ubicacion; ";
+				break;
+			
+			case 'insertarFormacionMedia' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.formacion_media ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'modalidad,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'nombre_colegio,';
+				$cadenaSql .= 'titulo_obtenido,';
+				$cadenaSql .= 'fecha_graduacion,';
+				$cadenaSql .= 'soporte_graduacion';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= '\'' . $variable ['modalidadMedia'] . '\', ';
+				$cadenaSql .= $variable ['fk_ubicacion'] . ', ';
+				$cadenaSql .= '\'' . $variable ['colegioMedia'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['tituloMedia'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['fechaGradoMedia'] . '\', ';
+				$cadenaSql .= '\'' . $variable ['soporteMedia'] . '\' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_formacion_media; ";
+				break;
+				
+			case 'insertarFormacionFuncionario' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'novedad.formacion_academica_funcionario ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_formacion_basica,';
+				$cadenaSql .= 'id_formacion_media';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['fk_id_formacion_basica'] . ', ';
+				$cadenaSql .= $variable ['fk_id_formacion_media'] . ' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_datos_formacion_funcionario; ";
+				break;
+				
             case 'actualizarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
                 $cadenaSql .= $prefijo . 'pagina ';
@@ -319,49 +414,59 @@ class Sql extends \Sql {
                 //$cadenaSql .= 'nombre=\'' . $_REQUEST ['nombrePagina'] . '\' ';
                 break;
                 
-             case 'buscarPais' :
-                
-               	$cadenaSql = 'SELECT ';
-                	$cadenaSql .= 'id_pais as ID_PAIS, ';
-                	$cadenaSql .= 'nombre_pais as NOMBRE ';
-                	$cadenaSql .= 'FROM ';
-                	$cadenaSql .= 'otro.pais';
-                	break;
+			case 'buscarPais' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_pais as ID_PAIS, ';
+				$cadenaSql .= 'nombre_pais as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.pais';
+				break;
+			
+			case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.departamento ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_pais = 112;';
+				break;
+               		
+			case 'buscarDepartamentoAjax' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.departamento ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_pais = ' . $variable . ';';
+				break;
+               		
+			case 'buscarCiudad' : //Provisionalmente Solo Ciudades de Colombia sin Agrupar
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'ab_pais = \'CO\';';
+				break;
+				
+			case 'buscarCiudadAjax' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_departamento = ' . $variable . ';';
+				break;
              
-              case 'buscarDepartamento' :
-                	
-                	$cadenaSql = 'SELECT ';
-                	$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
-                	$cadenaSql .= 'nombre as NOMBRE ';
-               		$cadenaSql .= 'FROM ';
-               		$cadenaSql .= 'otro.departamento ';
-               		$cadenaSql .= 'WHERE ';
-               		$cadenaSql .= 'id_pais = 112;';
-               		break;
-             
-               case 'buscarDepartamentoAjax' :
-               			 
-               		$cadenaSql = 'SELECT ';
-               		$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
-               		$cadenaSql .= 'nombre as NOMBRE ';
-               		$cadenaSql .= 'FROM ';
-               		$cadenaSql .= 'otro.departamento ';
-               		$cadenaSql .= 'WHERE ';
-               		$cadenaSql .= 'id_pais = '.$variable.';';
-               		break;
-             
-               	case 'buscarCiudad' :
-               		 
-            		$cadenaSql = 'SELECT ';
-               		$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
-               		$cadenaSql .= 'nombre as NOMBRE ';
-               		$cadenaSql .= 'FROM ';
-               		$cadenaSql .= 'otro.ciudad ';
-               		$cadenaSql .= 'WHERE ';
-               		$cadenaSql .= 'ab_pais = \'CO\';';
-               		break;
-               			 
-                	
              case 'buscarRegistroUsuario' :
                 
                 	$cadenaSql = 'SELECT ';
