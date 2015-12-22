@@ -3,7 +3,7 @@
 namespace bloquesLiquidacion\tipoNomina\funcion;
 
 
-include_once('RedireccionadorNomina.php');
+include_once('Redireccionador.php');
 
 class FormProcessor {
     
@@ -34,7 +34,7 @@ class FormProcessor {
             while($i<$_REQUEST['tamaño']){
                 
                 if($_REQUEST['botonVerDetalle'.$i] == 'true'){
-                  RedireccionadorNomina::redireccionar('verdetalle',$i);
+                    Redireccionador::redireccionar('verdetalle',$i);
                   break;
                 }
                 

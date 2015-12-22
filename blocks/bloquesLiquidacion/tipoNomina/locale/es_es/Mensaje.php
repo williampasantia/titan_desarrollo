@@ -12,10 +12,22 @@ $this->idioma["enviarInactivar"]="Aceptar";
 $this->idioma["cancelarInactivar"]="Cancelar";
 
 
+$this->idioma["id"]="Id:  " ;
+$this->idioma["idTitulo"]="Id" ;
+$this->idioma["nombre"]="Nombre: ";
+$this->idioma["nombreTitulo"]="Nombre" ;
+$this->idioma["descripcion"]="Descripcion: ";
+$this->idioma["descripcionTitulo"]="Descripcion" ;
+$this->idioma["reglamentacion"]="Reglamentacion: ";
+$this->idioma["reglamentacionTitulo"]="Reglamentacion";
+$this->idioma["naturaleza"]="Naturaleza: ";
+$this->idioma["naturalezaTitulo"]="Naturaleza";
 
 $this->idioma["enviarRegistro"]="Guardar";
 $this->idioma["modificarRegistro"]="Guardar Cambios";
 $this->idioma["verdetalleRegistro"]="Aceptar";
+$this->idioma["estadoRegistro"]="Estado  :";
+$this->idioma["estadoRegistroTitulo"]="Estado";
 
 //REGISTRO
 $this->idioma["codigoRegistro"]="Codigo  :";
