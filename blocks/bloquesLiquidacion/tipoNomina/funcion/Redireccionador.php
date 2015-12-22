@@ -27,6 +27,7 @@ class Redireccionador {
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=modificar";
                                 $variable .= '&variable=' . $valor;
+                                $variable .= '&vinculacion='.$_REQUEST['vinculacion'];
 				break; 
                         case "verDetalle" :
 				$variable = 'pagina='.$miPaginaActual;                                

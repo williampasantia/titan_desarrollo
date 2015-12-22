@@ -83,4 +83,27 @@ $(document).ready(function() {
             }
         } );
     } );
+    
+    
+    
+    $("#tipoNomina").change(function() {
+        
+       var tiponomina = document.getElementById('tipoNomina');
+	        
+    if(tiponomina == 2)
+    {
+       $("#perido").removeAttr('disabled');
+    }
+    else{
+        $("#perido").removeAttr('enabled');
+        
+    }
+   
+
+
+
+		
 } );
+    
+} );
+

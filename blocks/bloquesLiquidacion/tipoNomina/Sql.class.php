@@ -61,6 +61,22 @@ class Sql extends \Sql {
                 $cadenaSql .= 'id = ';
                 $cadenaSql .= $variable ['id'] . '';
            break;
+
+       
+       case 'buscarNominaxregistro':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'nombre as NOMBRE, ';
+                $cadenaSql .= 'tipo_nomina as TIPO_NOMINA, ';
+                $cadenaSql .= 'reglamentacion as REGLAMENTACION, ';
+                $cadenaSql .= 'periodo as PERIODO, ';
+                $cadenaSql .= 'estado as ESTADO, ';
+                $cadenaSql .= 'descripcion as DESCRIPCION, ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'liquidacion.nomina ';
+                $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'id = ';
+                $cadenaSql .= $variable ['id'] . '';
+           break;
        
        case 'buscarTipoVinculacionDetalle':
                 $cadenaSql = 'SELECT ';

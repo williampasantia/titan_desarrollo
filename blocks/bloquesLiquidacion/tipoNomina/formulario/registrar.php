@@ -171,6 +171,56 @@ class Formulario {
         echo $this->miFormulario->campoCuadroLista ( $atributos );
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
+        // ---------------- CONTROL: Select --------------------------------------------------------
+        $esteCampo = 'periodo';
+        $atributos['nombre'] = $esteCampo;
+        $atributos['id'] = $esteCampo;
+        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+        $atributos['tab'] = $tab;
+        $atributos['seleccion'] = -1;
+        $atributos['evento'] = ' ';
+        $atributos['deshabilitado'] = false;
+        $atributos['limitar']= 50;
+        $atributos['tamanno']= 1;
+        $atributos['columnas']= 1;
+        
+        $atributos ['ajax_function'] = "";
+        $atributos ['ajax_control'] = $esteCampo;
+        
+        $atributos ['obligatorio'] = true;
+        $atributos ['etiquetaObligatorio'] = true;
+        $atributos ['validar'] = 'required';
+        
+                 $matrizMes=array(
+                 		array(1,'Enero'),
+                 		array(2,'Febrero'),
+                 		array(3,'Marzo'),
+                                array(4,'Abril'),
+                                array(5,'Mayo'),
+                                array(6,'Junio'),
+                                array(7,'Julio'),
+                                array(8,'Agosto'),
+                                array(9,'Septiembre'),
+                                array(10,'Octubre'),
+                                array(11,'Noviembre'),
+                                array(12,'Diciembre')
+                     
+        
+                 );
+        $atributos['matrizItems'] = $matrizMes;
+        
+        if (isset ( $_REQUEST [$esteCampo] )) {
+        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+        } else {
+        	$atributos ['valor'] = '';
+        }
+        $tab ++;
+        
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroLista ( $atributos );
+        // --------------- FIN CONTROL : Select --------------------------------------------------
+        
          // ---------------- CONTROL: Select --------------------------------------------------------
         $esteCampo = 'reglamentacion';
         $atributos['nombre'] = $esteCampo;

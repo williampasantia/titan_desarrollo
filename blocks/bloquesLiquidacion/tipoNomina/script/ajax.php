@@ -7,4 +7,15 @@ $( "#<?php echo $this->campoSeguro('personaNaturalPrimerNombre')?>" ).change(fun
 	$("#<?php echo $this->campoSeguro('personaNaturalPrimerApellido') ?>").val('Nada');
 	$("#<?php echo $this->campoSeguro('personaCarrera') ?>").val(-6);
 });
+
+
+
+		            
+		          
+		       
+    
+    
+   
+
+
 </script>
