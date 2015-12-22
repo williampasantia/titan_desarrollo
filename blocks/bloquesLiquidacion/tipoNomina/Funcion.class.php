@@ -1,5 +1,5 @@
 <?php
-namespace bloquesModelo\bloqueContenido;
+namespace bloquesLiquidacion\tipoNomina;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -66,8 +66,8 @@ class Funcion {
         		case "mostrar":
                             include_once ($this->ruta."funcion/registrar.php");
         		 break;
-                         case "registrar":
-        		      include_once ($this->ruta."funcion/opciones.php");
+                         case "opcion":
+        		      include_once ($this->ruta."funcion/opcion.php");
         	         break; 
                          case "modificarRegistro":
         		      include_once ($this->ruta."funcion/modificar.php");
