@@ -5,7 +5,7 @@ $url = $this->miConfigurador->getVariableConfiguracion ( "host" );
 $url .= $this->miConfigurador->getVariableConfiguracion ( "site" );
 $url .= "/index.php?";
 
-var_dump($_REQUEST);
+
 
 // Variables
 $cadenaACodificar4 = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( "pagina" );
