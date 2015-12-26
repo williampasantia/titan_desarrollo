@@ -54,7 +54,7 @@ class Sql extends \Sql {
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
                 $cadenaSql .= $variable ['nitRegistro'] . ', ';
-                $cadenaSql .= $variable ['lugarRegistro'] . ', ';
+                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
                 $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
                 $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
                 $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
@@ -80,6 +80,103 @@ class Sql extends \Sql {
 //                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
 //                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
                 break;
+            
+             case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.departamento ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_pais = 112;';
+				break;
+               		
+			case 'buscarDepartamentoAjax' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.departamento ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_pais = ' . $variable . ';';
+				break;
+               		
+			case 'buscarCiudad' : //Provisionalmente Solo Ciudades de Colombia sin Agrupar
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'ab_pais = \'CO\';';
+				break;
+				
+			case 'buscarCiudadAjax' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+				$cadenaSql .= 'nombre as NOMBRECIUDAD ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_departamento = ' . $variable . ';';
+				break;
+                            
+                        case 'buscarIdUbicacion' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ubicacion as ID_UBICACION ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'WHERE ';
+                                $cadenaSql .= 'id_pais = ';
+                                $cadenaSql .=  112 . ' AND ';
+                                $cadenaSql .= 'id_departamento = '; 
+                                $cadenaSql .= $variable ['fdpDepartamento'] . ' AND ';
+                                $cadenaSql .= 'id_ciudad = ';
+                                $cadenaSql .= $variable ['fdpCiudad'] . ';';
+				break;  
+                       case 'buscarUbicacion' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+                                $cadenaSql .= 'id_departamento as ID_DEPARTAMENTO ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'WHERE ';
+                                $cadenaSql .= 'id_ubicacion = ';
+                                $cadenaSql .= $variable .'';
+		       break;   
+                       case 'buscarCiudadUbicacion' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'nombre as NOMBRE, ';
+                                $cadenaSql .= 'departamento as DEPARTAMENTO ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'WHERE ';
+                                $cadenaSql .= 'id_ciudad = ';
+                                $cadenaSql .= $variable .'';
+		       break; 
+               case 'insertarUbicacion' :
+				
+        	$cadenaSql = 'INSERT INTO ';
+                $cadenaSql .= 'otro.ubicacion ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= 'id_pais,';                
+                $cadenaSql .= 'id_departamento,';
+                $cadenaSql .= 'id_ciudad';
+                $cadenaSql .= ') ';
+                $cadenaSql .= 'VALUES ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= 112 . ', ';
+                $cadenaSql .= $variable ['fdpDepartamento'] . ', ';
+                $cadenaSql .= $variable ['fdpCiudad'] . '';
+                $cadenaSql .= ') ';
+				break;  
              
                 case 'buscarModificarxEPS' :
                 
@@ -123,7 +220,7 @@ class Sql extends \Sql {
                 $cadenaSql .= 'parametro.eps ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'id_ubicacion = ';
-                $cadenaSql .= $variable ['lugarRegistro'] . ', ';
+                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
                 $cadenaSql .= 'nombre = ';
                 $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
                 $cadenaSql .= 'direccion = ';

@@ -139,7 +139,6 @@ class Formulario {
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxFP");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         $longitud = count($matrizItems);
-        
         $i=0;
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '

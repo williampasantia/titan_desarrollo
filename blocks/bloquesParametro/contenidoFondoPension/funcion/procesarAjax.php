@@ -6,12 +6,12 @@ $esteRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexio
 
 
 
-if ($_REQUEST ['funcion'] == 'consultarCiudad') {
+if ($_REQUEST ['funcion'] == 'consultarCiudadAjax') {
 
 
 
 
-	$cadenaSql = $this->sql->getCadenaSql ( 'consultarCiudad', $_REQUEST['valor'] );
+	$cadenaSql = $this->sql->getCadenaSql ( 'buscarCiudadAjax', $_REQUEST['valor'] );
 	$resultado = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda" );
 
         

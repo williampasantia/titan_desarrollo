@@ -23,12 +23,30 @@ class RedireccionadorFP {
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=form";
 				break;
+                        case "inserto" :
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&mensaje=inserto";
+                                $variable .= "&nitRegistro=" . $valor ['nitRegistro'];
+                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
+                                $variable .= "&direccionRegistro=" . $valor ['direccionRegistro'];
+                                $variable .= "&telefonoRegistro=" . $valor ['telefonoRegistro'];
+				break;    
                         case "modificar" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=modificar";
                                 $variable .= '&variable=' . $valor;
 				break; 
-                        case "verdetalle" :
+                        case "modifico" :
+				$variable = 'pagina='.$miPaginaActual;
+                                $variable .= "&mensaje=modifico";
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&nitRegistro=" . $valor ['nitRegistro'];
+                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
+                                $variable .= "&direccionRegistro=" . $valor ['direccionRegistro'];
+                                $variable .= "&telefonoRegistro=" . $valor ['telefonoRegistro'];
+				break; 
+                       case "verdetalle" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=verdetalle";
                                 $variable .= '&variable=' . $valor;
