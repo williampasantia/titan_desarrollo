@@ -730,7 +730,7 @@ class Sql extends \Sql {
 				
 				$cadenaSql = 'SELECT ';
 				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
-				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'nombre as NOMBRECIUDAD ';
 				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'otro.ciudad ';
 				$cadenaSql .= 'WHERE ';

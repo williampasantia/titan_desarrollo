@@ -335,7 +335,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -370,7 +370,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
