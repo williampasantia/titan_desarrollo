@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesNovedad\bloqueHojadeVida\bloqueFuncionario;
+namespace bloquesNovedad\bloqueHojadeVida\bloqueConsultar;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -36,6 +36,19 @@ class Sql extends \Sql {
             /**
              * Clausulas específicas
              */
+        	
+        	case 'buscarInfoIdent' :
+        		 
+        		$cadenaSql = 'SELECT ';
+        		$cadenaSql .= 'id_datos_identificacion as ID_IDENTIFICACION, ';
+        		$cadenaSql .= 'id_ubicacion as ID_UBICACION,';
+        		$cadenaSql .= 'fecha_expe_documento as FECHA_EXPE,';
+        		$cadenaSql .= 'soporte_identificacion as SOPORTE ';
+        		$cadenaSql .= 'FROM ';
+        		$cadenaSql .= 'nomina.novedad.identificacion_expedicion ';
+        		$cadenaSql .= 'WHERE ';
+        		$cadenaSql .= 'documento = '.$variable.';';
+        		break;
         	
         	case 'buscarTipoDoc' :
         		 
@@ -686,6 +699,82 @@ class Sql extends \Sql {
                 //$cadenaSql .= 'nombre=\'' . $_REQUEST ['nombrePagina'] . '\' ';
                 break;
                 
+			case 'consultarFuncionario' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_funcionario as ID_FUNCIONARIO, ';
+				$cadenaSql .= 'id_datos_identificacion as ID_DATOS_IDENTI, ';
+				$cadenaSql .= 'id_informacion_personal_basica as ID_INFO_PERSONAL_BASICA, ';
+				$cadenaSql .= 'id_datos_residencia as ID_DATOS_RESIDENCIA, ';
+				$cadenaSql .= 'id_datos_formacion_funcionario as ID_DATOS_FORMACION_FUNCIONARIO, ';
+				$cadenaSql .= 'id_publicacion as ID_PUBLICACION ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'nomina.novedad.funcionario ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'documento =  ' . $variable . ' ';
+				$cadenaSql .= 'AND ';
+				$cadenaSql .= 'estado_funcionario = \'Activo\';';
+				break;
+				
+			case 'consultarInformacionPersonalBasica' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'fecha_nacimiento,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'genero,';
+				$cadenaSql .= 'estado_civil,';
+				$cadenaSql .= 'edad,';
+				$cadenaSql .= 'tipo_sangre,';
+				$cadenaSql .= 'rh_sangre,';
+				$cadenaSql .= 'tipo_libreta_militar,';
+				$cadenaSql .= 'numero_libreta,';
+				$cadenaSql .= 'numero_distrito_militar,';
+				$cadenaSql .= 'soporte_libreta,';
+				$cadenaSql .= 'grupo_etnico,';
+				$cadenaSql .= 'comunidad_lgbt,';
+				$cadenaSql .= 'cabeza_familia,';
+				$cadenaSql .= 'personas_a_cargo,';
+				$cadenaSql .= 'soporte_caracterizacion ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.informacion_personal_basica ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_informacion_personal_basica =  ' . $variable . ';';
+				break;
+				
+			case 'consultarDatosResidenciaCont' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'nacionalidad,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'localidad,';
+				$cadenaSql .= 'barrio,';
+				$cadenaSql .= 'direccion_residencia,';
+				$cadenaSql .= 'estrato,';
+				$cadenaSql .= 'soporte_estrato,';
+				$cadenaSql .= 'soporte_residencia,';
+				$cadenaSql .= 'telefono_fijo,';
+				$cadenaSql .= 'telefono_movil,';
+				$cadenaSql .= 'correo_personal,';
+				$cadenaSql .= 'telefono_oficina,';
+				$cadenaSql .= 'correo_oficina,';
+				$cadenaSql .= 'direccion_oficina,';
+				$cadenaSql .= 'cargo ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.informacion_residencia_contacto ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_datos_residencia =  ' . $variable . ';';
+				break;
+                
+			case 'consultarUbicacion' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_pais as ID_PAIS, ';
+				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'nomina.otro.ubicacion ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion =  ' . $variable . ';';
+				break;
+                
 			case 'buscarPais' :
 				
 				$cadenaSql = 'SELECT ';
@@ -693,6 +782,39 @@ class Sql extends \Sql {
 				$cadenaSql .= 'nombre_pais as NOMBRE ';
 				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'otro.pais';
+				break;
+				
+			case 'consultarPais' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_pais as ID_PAIS, ';
+				$cadenaSql .= 'nombre_pais as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.pais ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_pais =  ' . $variable . ';';
+				break;
+				
+			case 'consultarDepartamento' ://Provisionalmente solo Departamentos de Colombia
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.departamento ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_departamento =  ' . $variable . ';';
+				break;
+				
+			case 'consultarCiudad' : // Provisionalmente Solo Ciudades de Colombia sin Agrupar
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ciudad =  ' . $variable . ';';
 				break;
 			
 			case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia

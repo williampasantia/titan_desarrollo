@@ -315,50 +315,49 @@ $(document).ready(function(){
 	    updatePromptsPosition:true
 	});
 
-	$("#novedadesDatosPersonales").hide("fast");
-	$("#novedadesDatosCiudadania").hide("fast");
-	$("#novedadesDatosFormacionAcademica").hide("fast");
-	$("#novedadesDatosExperiencia").hide("fast");
+	$("#contentDatos2").hide("fast");
+	$("#contentDatos3").hide("fast");
+	$("#contentDatos4").hide("fast");
+	$("#contentDatos5").hide("fast");
 	
+	$("#mostrarb1").click(function(){
+		$("#contentDatos1").show("slow");
+	});
+
 	$("#ocultarb1").click(function(){
-		$("#novedadesIdentificacion").hide("fast");
-		$("#novedadesDatosPersonales").show("fast");
-		
+		$("#contentDatos1").hide("slow");
 	});
 
 	$("#mostrarb2").click(function(){
-		$("#novedadesIdentificacion").show("fast");
-		$("#novedadesDatosPersonales").hide("fast");
+		$("#contentDatos2").show("slow");
 	});
 
 	$("#ocultarb2").click(function(){
-		$("#novedadesDatosCiudadania").show("fast");
-		$("#novedadesDatosPersonales").hide("fast");
+		$("#contentDatos2").hide("slow");
 	});
 
 	$("#mostrarb3").click(function(){
-		$("#novedadesDatosCiudadania").hide("fast");
-		$("#novedadesDatosPersonales").show("fast");
+		$("#contentDatos3").show("slow");
 	});
 
 	$("#ocultarb3").click(function(){
-		$("#novedadesDatosCiudadania").hide("fast");
-		$("#novedadesDatosFormacionAcademica").show("fast");
+		$("#contentDatos3").hide("slow");
 	});
 
 	$("#mostrarb4").click(function(){
-		$("#novedadesDatosCiudadania").show("fast");
-		$("#novedadesDatosFormacionAcademica").hide("fast");
+		$("#contentDatos4").show("slow");
 	});
 
 	$("#ocultarb4").click(function(){
-		$("#novedadesDatosFormacionAcademica").hide("fast");
-		$("#novedadesDatosExperiencia").show("fast");
+		$("#contentDatos4").hide("slow");
 	});
 
 	$("#mostrarb5").click(function(){
-		$("#novedadesDatosFormacionAcademica").show("fast");
-		$("#novedadesDatosExperiencia").hide("fast");
+		$("#contentDatos5").show("slow");
+	});
+
+	$("#ocultarb5").click(function(){
+		$("#contentDatos5").hide("slow");
 	});
 
 
@@ -415,23 +414,34 @@ $(document).ready(function(){
 		});
 	});
 
+	$("#<?php echo $this->campoSeguro('funcionarioIdentificacion')?>").width(250); 
+	$("#<?php echo $this->campoSeguro('funcionarioIdentificacion')?>").select2();
+
 	$("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").width(250); 
 	$("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").select2();
 	$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").width(250); 
 	$("#<?php echo $this->campoSeguro('funcionarioDepartamentoNacimiento')?>").select2();
 	$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").width(250); 
 	$("#<?php echo $this->campoSeguro('funcionarioCiudadNacimiento')?>").select2();
-	
+
+	$("#<?php echo $this->campoSeguro('funcionarioGenero')?>").width(150);
 	$("#<?php echo $this->campoSeguro('funcionarioGenero')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioEstadoCivil')?>").width(150);
 	$("#<?php echo $this->campoSeguro('funcionarioEstadoCivil')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioTipoSangre')?>").width(150);
 	$("#<?php echo $this->campoSeguro('funcionarioTipoSangre')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioSangreRH')?>").width(150);
 	$("#<?php echo $this->campoSeguro('funcionarioSangreRH')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioTipoLibreta')?>").width(150);
 	$("#<?php echo $this->campoSeguro('funcionarioTipoLibreta')?>").select2();
 
 	$("#<?php echo $this->campoSeguro('funcionarioGrupoEtnico')?>").width(200); 
 	$("#<?php echo $this->campoSeguro('funcionarioGrupoEtnico')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioGrupoLGBT')?>").width(150);
 	$("#<?php echo $this->campoSeguro('funcionarioGrupoLGBT')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioCabezaFamilia')?>").width(150);
 	$("#<?php echo $this->campoSeguro('funcionarioCabezaFamilia')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioPersonasCargo')?>").width(150);
 	$("#<?php echo $this->campoSeguro('funcionarioPersonasCargo')?>").select2();
 
 

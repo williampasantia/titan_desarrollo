@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesNovedad\bloqueHojadeVida\bloqueFuncionario\funcion;
+namespace bloquesNovedad\bloqueHojadeVida\bloqueConsultar\funcion;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("index.php");

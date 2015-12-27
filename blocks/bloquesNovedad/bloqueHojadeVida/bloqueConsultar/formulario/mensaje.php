@@ -1,5 +1,5 @@
 <?php
-namespace bloquesNovedad\bloqueHojadeVida\bloqueFuncionario\formulario;
+namespace bloquesNovedad\bloqueHojadeVida\bloqueConsultar\formulario;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("../index.php");

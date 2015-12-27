@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesNovedad\bloqueHojadeVida\bloqueFuncionario\funcion;
+namespace bloquesNovedad\bloqueHojadeVida\bloqueConsultar\funcion;
 
 include_once('Redireccionador.php');
 

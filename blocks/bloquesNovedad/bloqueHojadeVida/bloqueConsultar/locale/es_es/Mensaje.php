@@ -10,7 +10,7 @@ $this->idioma["nombresBusqueda"]="Búsqueda para Registro";
 
 $this->idioma["novedadesOpcionesRegistro"]='OPCIONES DE REGISTRO DEL FUNCIONARIO';
 $this->idioma["novedadesOpcionesConsulta"]='FUNCIONARIO A CONSULTAR';
-$this->idioma["novedadesOpcionesConsultaFuncionario"]='OPCIONES DE CONSULTA Y MODIFICACION';
+$this->idioma["novedadesOpcionesConsultaHoja"]='CONSULTA HOJA DE VIDA';
 
 $this->idioma["funcionarioDocumentoBusqueda"]="Identificación";
 $this->idioma["funcionarioDocumentoBusquedaTitulo"]="Identificación del Funcionario Seleccionado";
@@ -48,6 +48,7 @@ $this->idioma["botonCancelar"]="Cancelar";
 $this->idioma["noDefinido"]="No definido";
 $this->idioma["botonIngresar"]="Ingresar";
 $this->idioma["botonVerDetalle"]="Ver Detalle";
+$this->idioma["botonModificar"]="Modificar";
 
 $this->idioma["botonRegresarConsulta"]="Regresar a Registro Funcionarios";
 $this->idioma["botonConsultarFun"]="Consultar Funcionarios";
@@ -92,6 +93,7 @@ $this->idioma["funcionarioPaisNacimiento"]="País";
 $this->idioma["funcionarioDepartamentoNacimiento"]="Departamento";
 $this->idioma["funcionarioCiudadNacimiento"]="Ciudad/Municipio";
 $this->idioma["funcionarioFechaNacimiento"]="Fecha Nacimiento";
+$this->idioma["funcionarioFechaNacimientoConsulta"]="Fecha Nacimiento";
 $this->idioma["funcionarioFechaNacimientoTitulo"]="Digite Fecha de Nacimiento";
 
 $this->idioma["novedadesDatosGeneroEtc"]="Datos de Género, Estado Civil, Tipo de Sangre y Libreta Militar";
