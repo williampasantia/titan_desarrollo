@@ -33,7 +33,21 @@ class Redireccionador {
 				$variable .= "&opcion=verdetalle";
                                 $variable .= '&variable=' . $valor;
                                 break;
-                       
+                        case "inserto" :
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&mensaje=inserto";
+                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
+                                $variable .= "&estadoRegistro=" . $valor ['estadoRegistro'];
+				break;  
+                        case "modifico" :
+				$variable = 'pagina='.$miPaginaActual;
+                                $variable .= "&mensaje=modifico";
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
+                                $variable .= "&codigoRegistro=" . $valor ['codigoRegistro'];
+                                 
+				break;     
                         case "inactivar" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=inactivar";
