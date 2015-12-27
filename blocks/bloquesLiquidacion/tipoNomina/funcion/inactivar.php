@@ -57,8 +57,11 @@ class FormProcessor {
        }
                 
       if($_REQUEST['cancelarInactivar'] =='true'){
-                    
-                     Redireccionador::redireccionar('form'); 
+                    $datos = array(
+            'codigoNomina'=> $_REQUEST['codigoNomina'],
+            'variable' => $_REQUEST['variable']
+        );
+                     Redireccionador::redireccionar('verDetalle2',$datos); 
                 }
         
        

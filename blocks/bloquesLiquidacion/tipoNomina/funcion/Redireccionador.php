@@ -61,7 +61,9 @@ class Redireccionador {
                          case "verdetalleNomina" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=verdetallenomina";
-                                $variable .= '&variable=' . $valor;
+                                $variable .= '&variable=' . $valor['variable'];
+                                $variable .= '&variablei=' . $valor['variablei'];
+                                $variable .= '&vinculacion='. $valor['vinculacion'];
                                 break;
                         case "inactivar" :
 				$variable = 'pagina='.$miPaginaActual;                                

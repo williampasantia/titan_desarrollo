@@ -11,9 +11,9 @@ $this->idioma["modificarRegistro"]="Guardar";
 $this->idioma["botonModificar"]="Modificar";
 $this->idioma["botonInactivar"]="Inactivar";
 $this->idioma["botonActivar"]="Activar";
-$this->idioma["botonVerDetalle"]="Ver detalle"
-        ;
+$this->idioma["botonVerDetalle"]="Ver detalle";
 $this->idioma["enviarInactivar"]="Aceptar";
+$this->idioma["verdetalleRegistro"]="Aceptar";
 $this->idioma["cancelarInactivar"]="Cancelar";
 $this->idioma["mensajeRegistro"]="Mensaje";
 $this->idioma["botonAceptarRegistro"]="Aceptar";

@@ -45,7 +45,14 @@ class FormProcessor {
                   break; 
                 }
                 if(isset($_REQUEST['botonVerDetalleNomina'.$i]) && $_REQUEST['botonVerDetalleNomina'.$i] == 'true'){
-                  Redireccionador::redireccionar('verdetalleNomina',$i);
+                    $datos = array(
+            
+            'variablei' => $i,
+            'variable' => $_REQUEST['variable'],            
+            'vinculacion' => $_REQUEST['vinculacion']
+            
+                       );
+                    Redireccionador::redireccionar('verdetalleNomina',$datos);
                   break;
                 }
                 if(isset($_REQUEST['botonInactivarNomina'.$i]) && $_REQUEST['botonInactivarNomina'.$i] == 'true'){
