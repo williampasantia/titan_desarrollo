@@ -133,10 +133,10 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Modificacion Fondo de Pension Satisfactorio <br> Nit: <h4>" . $_REQUEST ['nitRegistro'] . "</h4>".
-					"<br>Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
+					$mensaje = "Modificacion Nomina satisfactoria! <br> Estado: <h4>" . $_REQUEST ['estadoRegistroNomina'] . "</h4>".
+					"<br>Nombre: <h4>" . $_REQUEST ['nombreNomina'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> fondo de pension modificado!";
+					$mensaje .= "<br> modificacion realizada!";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;

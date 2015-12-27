@@ -26,8 +26,9 @@ class Redireccionador {
                         case "modificar" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=modificar";
-                                $variable .= '&variable=' . $valor;
-                                $variable .= '&vinculacion='.$_REQUEST['vinculacion'];
+                                $variable .= '&variable=' . $valor['variable'];
+                                $variable .= '&variablei=' . $valor['variablei'];
+                                $variable .= '&vinculacion='. $valor['vinculacion'];
 				break; 
                             
                         case "verDetalle" :
@@ -44,6 +45,14 @@ class Redireccionador {
                                 $variable .= "&estadoRegistroNomina=" . $valor ['estadoRegistroNomina'];
                                 $variable .= "&variable=" . $valor ['variable'];
 				break;  
+                        case "modifico" :
+				$variable = 'pagina='.$miPaginaActual;
+                                $variable .= "&mensaje=modifico";
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&nombreNomina=" . $valor ['nombreNomina'];
+                                $variable .= "&estadoRegistroNomina=" . $valor ['estadoRegistroNomina'];
+                                $variable .= "&variable=" . $valor ['variable'];
+				break;        
                         case "verDetalle2" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=verdetalle";

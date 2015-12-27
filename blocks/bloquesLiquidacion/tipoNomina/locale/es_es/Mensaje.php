@@ -6,6 +6,8 @@ $this->idioma["botonRegistrarCargo"]="Registrar Cargo";
 $this->idioma["botonRegistrarNomina"]="Registrar Nomina";
 $this->idioma["botonGuardar"]="Aceptar";
 $this->idioma["modificarRegistro"]="Guardar";
+
+
 $this->idioma["botonModificar"]="Modificar";
 $this->idioma["botonInactivar"]="Inactivar";
 $this->idioma["botonActivar"]="Activar";
@@ -17,7 +19,8 @@ $this->idioma["botonAceptarRegistro"]="Aceptar";
 
 
 
-
+$this->idioma["codigoNomina"]="Código Nómina:" ;
+$this->idioma["codigoNominaTitulo"]="Codigo Nomina" ;
 $this->idioma["id"]="Id: " ;
 $this->idioma["idTitulo"]="Id" ;
 $this->idioma["periodo"]="Periodo : ";
