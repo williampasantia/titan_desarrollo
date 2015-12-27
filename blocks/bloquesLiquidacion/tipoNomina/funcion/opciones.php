@@ -49,7 +49,15 @@ class FormProcessor {
                   break;
                 }
                 if(isset($_REQUEST['botonInactivarNomina'.$i]) && $_REQUEST['botonInactivarNomina'.$i] == 'true'){
-                  Redireccionador::redireccionar('inactivar',$i);
+                  $datos = array(
+            
+            'variablei' => $i,
+            'variable' => $_REQUEST['variable'],            
+            'vinculacion' => $_REQUEST['vinculacion']
+            
+                       );
+                    
+                    Redireccionador::redireccionar('inactivar',$datos);
                   break;
                 }
                 

@@ -34,7 +34,6 @@ class Redireccionador {
                         case "verDetalle" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=verdetalle";
-                                $variable .= "&opcion=verdetalle";
                                 $variable .= '&variable=' . $valor;
                                 break;
                         case "inserto" :
@@ -56,7 +55,7 @@ class Redireccionador {
                         case "verDetalle2" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=verdetalle";
-                                $variable .= '&variable=' . $valor;
+                                $variable .= '&variable=' . $valor['variable'];
                                 break;     
                             
                          case "verdetalleNomina" :
@@ -67,7 +66,9 @@ class Redireccionador {
                         case "inactivar" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=inactivar";
-                                $variable .= '&variable=' . $valor;
+                                $variable .= '&variable=' . $valor['variable'];
+                                $variable .= '&variablei=' . $valor['variablei'];
+                                $variable .= '&vinculacion='. $valor['vinculacion'];
                             break;  
                         case "registrar" :
 				$variable = 'pagina='.$miPaginaActual;                                
