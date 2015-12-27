@@ -86,8 +86,8 @@ class Frontera {
 					
 			}
 		} else {
-			$_REQUEST['opcion'] = "buscarAprobado";
-			include_once($this->ruta . "/formulario/registroBusqueda.php");
+			$_REQUEST['opcion'] = "buscarFuncionario";
+			include_once($this->ruta . "/formulario/consultarFuncionario.php");
 		}
 	}
 }

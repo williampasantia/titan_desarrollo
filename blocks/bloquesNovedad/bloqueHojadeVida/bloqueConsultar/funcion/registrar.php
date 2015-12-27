@@ -777,7 +777,7 @@ class FormProcessor {
         		*******************************************************");
         exit;*/
         
-        //var_dump("TEXTO");exit;
+        //var_dump($id_funcionario[0][0] . " y " .$id_datos_formacion_funcionario[0][0]);exit;
         
         /*if(isset($id_funcionario[0][0]) && isset($id_datos_formacion_funcionario[0][0])){
         	$insertar = true;
@@ -794,9 +794,8 @@ class FormProcessor {
         	exit();
         } else {
         	//var_dump("ENTRO NO INSERTAR");exit;
-        	//$this->miConfigurador->setVariableConfiguracion("cache", true);
+        	$this->miConfigurador->setVariableConfiguracion("cache", true);
         	Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
-        	var_dump("TEXTO NO INS");exit;
         	exit();
         }
         
