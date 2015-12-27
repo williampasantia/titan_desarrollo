@@ -125,6 +125,7 @@ class Sql extends \Sql {
                 $cadenaSql .= 'tipo_nomina,';
                 $cadenaSql .= 'reglamentacion,';
                 $cadenaSql .= 'estado,';
+                $cadenaSql .= 'periodo,';
                 $cadenaSql .= 'id';
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
@@ -134,6 +135,7 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable['tipoNomina'] . '\', ';
                 $cadenaSql .= '\'' . $variable ['reglamentacion']  . '\', ';
                 $cadenaSql .= '\'' . $variable['estadoRegistroNomina'] . '\', ';
+                $cadenaSql .= '\'' . $variable['periodo'] . '\', ';
                 $cadenaSql .= $variable ['id'] . '';
                 $cadenaSql .= ') ';
                 break;
