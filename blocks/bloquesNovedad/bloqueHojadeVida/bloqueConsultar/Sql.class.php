@@ -762,7 +762,200 @@ class Sql extends \Sql {
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id_datos_residencia =  ' . $variable . ';';
 				break;
-                
+				
+			case 'consultarFormacionAcademicaFuncionario' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_formacion_basica,';
+				$cadenaSql .= 'id_formacion_media ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.formacion_academica_funcionario ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_datos_formacion_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarFormacionBasica' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'modalidad,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'nombre_colegio,';
+				$cadenaSql .= 'titulo_obtenido,';
+				$cadenaSql .= 'fecha_graduacion,';
+				$cadenaSql .= 'soporte_graduacion ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.formacion_basica ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_basica =  ' . $variable . ';';
+				break;
+				
+			case 'consultarFormacionMedia' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'modalidad,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'nombre_colegio,';
+				$cadenaSql .= 'titulo_obtenido,';
+				$cadenaSql .= 'fecha_graduacion,';
+				$cadenaSql .= 'soporte_graduacion ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.formacion_media ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_media =  ' . $variable . ';';
+				break;
+				
+			case 'consultarCantidadFormacionSuperior' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_formacion_superior ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.formacion_superior ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_datos_formacion_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarCantidadFormacionInformal' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_formacion_informal ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.formacion_informal ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_datos_formacion_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarCantidadFormacionIdiomas' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_formacion_idioma ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.formacion_idioma ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarCantidadExperiencia' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_experiencia_laboral ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.experiencia_laboral ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarCantidadReferencia' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_referencia_laboral ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.referencia_laboral ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarReferenciasPersonales' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_funcionario,';
+				$cadenaSql .= 'tipo_referencia,';
+				$cadenaSql .= 'nombres_referencia,';
+				$cadenaSql .= 'apellidos_referencia,';
+				$cadenaSql .= 'telefono_contacto,';
+				$cadenaSql .= 'parentesco_relacion,';
+				$cadenaSql .= 'soporte_referencia ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.referencia_laboral ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarExperienciaLaboral' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_funcionario,';
+				$cadenaSql .= 'nombre_empresa,';
+				$cadenaSql .= 'nit_empresa,';
+				$cadenaSql .= 'tipo_entidad,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'correo_empresa,';
+				$cadenaSql .= 'telefono_empresa,';
+				$cadenaSql .= 'fecha_ingreso,';
+				$cadenaSql .= 'fecha_retiro,';
+				$cadenaSql .= 'dependencia,';
+				$cadenaSql .= 'cargo,';
+				$cadenaSql .= 'horas_semanales_trabajo,';
+				$cadenaSql .= 'soporte_experiencia ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.experiencia_laboral ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarFormacionIdiomas' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_funcionario,';
+				$cadenaSql .= 'idioma,';
+				$cadenaSql .= 'nombre_institucion,';
+				$cadenaSql .= 'nivel,';
+				$cadenaSql .= 'habla,';
+				$cadenaSql .= 'lee,';
+				$cadenaSql .= 'escribe,';
+				$cadenaSql .= 'escucha,';
+				$cadenaSql .= 'soporte_idioma,';
+				$cadenaSql .= 'observaciones ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.formacion_idioma ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarFormacionSuperior' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_datos_formacion_funcionario,';
+				$cadenaSql .= 'modalidad_academica,';
+				$cadenaSql .= 'cantidad_semestres_aprobados,';
+				$cadenaSql .= 'graduado,';
+				$cadenaSql .= 'id_ubicacion,';
+				$cadenaSql .= 'convalidacion_resolucion,';
+				$cadenaSql .= 'convalidacion_fecha,';
+				$cadenaSql .= 'convalidacion_entidad,';
+				$cadenaSql .= 'nombre_universidad,';
+				$cadenaSql .= 'titulo_obtenido,';
+				$cadenaSql .= 'fecha_graduacion,';
+				$cadenaSql .= 'numero_tarjeta_profesional,';
+				$cadenaSql .= 'fecha_expe_tarjeta,';
+				$cadenaSql .= 'soporte_educacion_superior ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.formacion_superior ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_datos_formacion_funcionario =  ' . $variable . ';';
+				break;
+			
+			case 'consultarFormacionInformal' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_datos_formacion_funcionario,';
+				$cadenaSql .= 'nombre_curso,';
+				$cadenaSql .= 'nombre_institucion,';
+				$cadenaSql .= 'intesidad_horaria,';
+				$cadenaSql .= 'fecha_terminacion,';
+				$cadenaSql .= 'soporte_certificado ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.formacion_informal ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_datos_formacion_funcionario =  ' . $variable . ';';
+				break;
+				
+			case 'consultarFormacionInvestigacion' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'tematica,';
+				$cadenaSql .= 'tipo_investigacion,';
+				$cadenaSql .= 'logros_obtenidos,';
+				$cadenaSql .= 'referencias_bibliograficas ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.publicacion_investigacion ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_publicacion =  ' . $variable . ';';
+				break;
+				
+				
+				
+				
+				
+				
+				
+				
+				
 			case 'consultarUbicacion' :
 				
 				$cadenaSql = 'SELECT ';

@@ -306,6 +306,8 @@ $( "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>" ).datepicker
 
 $(document).ready(function(){
 
+	$("#bloqueConsultar").validationEngine();
+	
 	$("#bloqueFuncionario").validationEngine({
 		promptPosition : "centerRight",
 		scroll: false,

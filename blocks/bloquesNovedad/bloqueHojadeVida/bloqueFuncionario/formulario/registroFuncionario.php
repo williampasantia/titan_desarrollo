@@ -84,11 +84,11 @@ class Formulario {
         
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
-        $cantidad_referencias = 1;
-        $cantidad_referencias_info = 1;
-        $cantidad_idiomas = 1;
-        $cantidad_experiencia = 1;
-        $cantidad_referencias_per = 1;
+        $cantidad_referencias = 2;
+        $cantidad_referencias_info = 2;
+        $cantidad_idiomas = 2;
+        $cantidad_experiencia = 2;
+        $cantidad_referencias_per = 2;
         
         // ---------------- FIN: Lista Variables Control--------------------------------------------------------
 

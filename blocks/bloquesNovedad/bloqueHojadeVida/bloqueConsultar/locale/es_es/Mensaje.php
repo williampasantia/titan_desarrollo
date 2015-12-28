@@ -54,6 +54,7 @@ $this->idioma["botonRegresarConsulta"]="Regresar a Registro Funcionarios";
 $this->idioma["botonConsultarFun"]="Consultar Funcionarios";
 $this->idioma["botonModificarFun"]="Modificar Funcionarios";
 $this->idioma["botonModificarFuncionario"]="Modificar";
+$this->idioma["botonRegresar"]="Regresar Consulta";
 
 $this->idioma["funcionarioIdentificacion"]="Tipo Identificación";
 $this->idioma["funcionarioDocumento"]="Identificación";

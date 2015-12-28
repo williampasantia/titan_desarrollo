@@ -81,7 +81,13 @@ class Frontera {
 					break;
 		
 				case "modificar":
-					include_once($this->ruta . "/formulario/modificarFuncionario.php");
+					//var_dump($_REQUEST);exit;
+					if($_REQUEST['botonVerDetalle'] == 'true'){
+						include_once ($this->ruta . "/formulario/verDetalleFuncionario.php");
+					}
+					if($_REQUEST['botonModificar'] == 'true'){
+						include_once ($this->ruta . "/formulario/modificarFuncionario.php");
+					}
 					break;
 					
 			}

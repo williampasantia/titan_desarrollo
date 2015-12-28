@@ -19,7 +19,6 @@ class Redireccionador {
 	    		$variable = "pagina=" . $miPaginaActual;
 	    		$variable .= "&opcion=mensaje";
 	    		$variable .= "&mensaje=inserto";
-	    		$variable .= "&usuario=" . $valor ;
 	    		$variable .= "&primerNombre=" . $valor ['primerNombre'];
 	    		$variable .= "&segundoNombre=" . $valor ['segundoNombre'];
 	    		$variable .= "&primerApellido=" . $valor ['primerApellido'];
@@ -33,7 +32,6 @@ class Redireccionador {
 	    		$variable = "pagina=" . $miPaginaActual;
 	    		$variable .= "&opcion=mensaje";
 	    		$variable .= "&mensaje=noInserto";
-	    		$variable .= "&usuario=" . $valor ;
 	    		$variable .= "&primerNombre=" . $valor ['primerNombre'];
 	    		$variable .= "&segundoNombre=" . $valor ['segundoNombre'];
 	    		$variable .= "&primerApellido=" . $valor ['primerApellido'];

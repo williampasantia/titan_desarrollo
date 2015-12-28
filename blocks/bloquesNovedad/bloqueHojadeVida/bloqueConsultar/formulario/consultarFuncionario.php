@@ -463,7 +463,7 @@ class Formulario {
 	$valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
 	$valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
 	$valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
-	$valorCodificado .= "&opcion=verDetalle"; //Opcion para Switch Case ------
+	$valorCodificado .= "&opcion=modificar"; //Opcion para Switch Case ------
 	/**
 	* SARA permite que los nombres de los campos sean dinámicos.
 	* Para ello utiliza la hora en que es creado el formulario para
