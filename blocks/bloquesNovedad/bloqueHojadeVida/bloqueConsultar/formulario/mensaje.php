@@ -84,7 +84,7 @@ class registrarForm {
 			$variable = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variable, $directorio );
 				
 			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-			$esteCampo = 'botonRegresarConsulta';
+			$esteCampo = 'botonRegresarConsultaMod';
 			$atributos ['id'] = $esteCampo;
 			$atributos ['enlace'] = $variable;
 			$atributos ['tabIndex'] = 1;
@@ -111,10 +111,10 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Registro Funcionario Satisfactorio <br> Nombres: <h4>" . $_REQUEST ['primerNombre'] . " ".$_REQUEST ['segundoNombre']."</h4>".
+					$mensaje = "Modificación Funcionario Satisfactorio <br> Nombres: <h4>" . $_REQUEST ['primerNombre'] . " ".$_REQUEST ['segundoNombre']."</h4>".
 					"<br>Apellidos: <h4>" . $_REQUEST ['primerApellido'] . " ".$_REQUEST ['segundoApellido']."</h4>".
-					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Hoja de Vida Registrada y Estado ACTIVO del Funcionario";
+					"<br>Fecha Modificación: " . date ( 'Y-m-d' );
+					$mensaje .= "<br> Hoja de Vida Modificada y Estado ACTIVO del Funcionario";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;

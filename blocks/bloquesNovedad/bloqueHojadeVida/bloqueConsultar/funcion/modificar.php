@@ -106,9 +106,25 @@ class FormProcessor {
         $cadenaSql = $this->miSql->getCadenaSql("modificarIdentificacionDocumento",$datosInformacionPersonalExpedicion);
 		$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
 		
+		
+		
+		
+		if (isset($matrizInfoExpe[0][0])) {
+			//var_dump("ENTRO INSERTAR");exit;
+			$this->miConfigurador->setVariableConfiguracion("cache", true);
+			Redireccionador::redireccionar('inserto', $datosPersonaNatural);
+			exit();
+		} else {
+			//var_dump("ENTRO NO INSERTAR");exit;
+			$this->miConfigurador->setVariableConfiguracion("cache", true);
+			Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
+			exit();
+		}
+		
+		
 		var_dump("Modificar - Datos de Identificación <Completo>
 					Desarrollando...
-				");exit;
+				");exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         
 //*************************************************************************************************//
         
