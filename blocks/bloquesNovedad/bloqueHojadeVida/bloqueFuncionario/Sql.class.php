@@ -407,7 +407,8 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_datos_residencia,';
 				$cadenaSql .= 'id_datos_formacion_funcionario,';
 				$cadenaSql .= 'id_publicacion,';
-				$cadenaSql .= 'estado_funcionario';
+				$cadenaSql .= 'estado_funcionario,';
+				$cadenaSql .= 'documento';
 				$cadenaSql .= ') ';
 				$cadenaSql .= 'VALUES ';
 				$cadenaSql .= '( ';
@@ -416,7 +417,8 @@ class Sql extends \Sql {
 				$cadenaSql .= $variable ['fk_id_datos_residencia'] . ', ';
 				$cadenaSql .= $variable ['fk_id_datos_formacion_funcionario'] . ', ';
 				$cadenaSql .= $variable ['fk_id_publicacion'] . ', ';
-				$cadenaSql .= '\'Activo\' ';
+				$cadenaSql .= '\'Activo\', ';
+				$cadenaSql .= $variable ['documento_fun'] . ' ';
 				$cadenaSql .= ') ';
 				$cadenaSql .= "RETURNING  id_funcionario; ";
 				break;
@@ -602,7 +604,7 @@ class Sql extends \Sql {
 				$cadenaSql .= $variable ['fk_funcionario'] . ', ';
 				$cadenaSql .= '\'' . $variable ['nombreEmpresa'] . '\', ';
 				if($variable ['nitEmpresa'] > 0){
-					$cadenaSql .= $variable ['nitEmpresa'] . ' ';
+					$cadenaSql .= $variable ['nitEmpresa'] . ', ';
 				}
 				$cadenaSql .= '\'' . $variable ['tipoEntidad'] . '\', ';
 				$cadenaSql .= $variable ['fk_ubicacion'] . ', ';
@@ -730,7 +732,7 @@ class Sql extends \Sql {
 				
 				$cadenaSql = 'SELECT ';
 				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
-				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'nombre as NOMBRECIUDAD ';
 				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'otro.ciudad ';
 				$cadenaSql .= 'WHERE ';
@@ -749,7 +751,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'nomina.persona.persona_natural pNatural ';
 				$cadenaSql .= 'LEFT JOIN ';
-				$cadenaSql .= 'nomina.novedad.identificacion_expedicion pFuncionario ';
+				$cadenaSql .= 'nomina.novedad.funcionario pFuncionario ';
 				$cadenaSql .= 'ON ';
 				$cadenaSql .= 'pNatural.documento = pFuncionario.documento ';
 				$cadenaSql .= 'WHERE ';
@@ -768,7 +770,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'nomina.persona.persona_natural pNatural ';
 				$cadenaSql .= 'INNER JOIN ';
-				$cadenaSql .= 'nomina.novedad.identificacion_expedicion pFuncionario ';
+				$cadenaSql .= 'nomina.novedad.funcionario pFuncionario ';
 				$cadenaSql .= 'ON ';
 				$cadenaSql .= 'pNatural.documento = pFuncionario.documento; ';
 				break;

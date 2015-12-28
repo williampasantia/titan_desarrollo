@@ -389,7 +389,8 @@ class FormProcessor {
         		'fk_id_informacion_personal_basica' => $id_informacion_personal_basica[0][0],
         		'fk_id_datos_residencia' => $id_datos_residencia[0][0],
         		'fk_id_datos_formacion_funcionario' => $id_datos_formacion_funcionario[0][0],
-        		'fk_id_publicacion' => $id_publicacion[0][0]
+        		'fk_id_publicacion' => $id_publicacion[0][0],
+        		'documento_fun' => $_REQUEST ['funcionarioDocumento']
         );
         
         $cadenaSql = $this->miSql->getCadenaSql("insertarFuncionario",$datosFuncionario);
@@ -776,20 +777,26 @@ class FormProcessor {
         		*******************************************************");
         exit;*/
         
-        if($id_funcionario[0][0] > 0 && $id_datos_formacion_funcionario[0][0] > 0){
+        //var_dump("TEXTO");exit;
+        
+        /*if(isset($id_funcionario[0][0]) && isset($id_datos_formacion_funcionario[0][0])){
         	$insertar = true;
+        	//var_dump("INSERTO");exit;
         }else{
         	$insertar = false;
-        }
+        	//var_dump("NO INSERTO");exit;
+        }*/
         
-        if ($insertar = true) {
+        if (isset($id_funcionario[0][0]) && isset($id_datos_formacion_funcionario[0][0])) {
         	//var_dump("ENTRO INSERTAR");exit;
         	$this->miConfigurador->setVariableConfiguracion("cache", true);
         	Redireccionador::redireccionar('inserto', $datosPersonaNatural);
         	exit();
         } else {
         	//var_dump("ENTRO NO INSERTAR");exit;
-        	Redireccionador::redireccionar('noInserto');
+        	//$this->miConfigurador->setVariableConfiguracion("cache", true);
+        	Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
+        	var_dump("TEXTO NO INS");exit;
         	exit();
         }
         

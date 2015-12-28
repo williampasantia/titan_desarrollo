@@ -31,8 +31,11 @@ class Redireccionador {
 	    	case "noInserto" :
 	    		$variable = "pagina=" . $miPaginaActual;
 	    		$variable .= "&opcion=mensaje";
-	    		$variable .= "&mensaje=error";
-	    		$variable .= "&usuario=" . $valor ;
+	    		$variable .= "&mensaje=noInserto";
+	    		$variable .= "&primerNombre=" . $valor ['primerNombre'];
+	    		$variable .= "&segundoNombre=" . $valor ['segundoNombre'];
+	    		$variable .= "&primerApellido=" . $valor ['primerApellido'];
+	    		$variable .= "&segundoApellido=" . $valor ['segundoApellido'];
 	    
 	    		break;
 	    			
@@ -53,6 +56,7 @@ class Redireccionador {
 				$variable = "pagina=" . $miPaginaActual;
 	    		$variable .= "&opcion=modificar";
 				break;
+				
 	    }
 	    
 	    /*

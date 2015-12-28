@@ -79,11 +79,11 @@ class Frontera {
 				case "verDetalle" :
 					include_once ($this->ruta . "/formulario/verDetalleFuncionario.php");
 					break;
-					
 		
 				case "modificar":
 					include_once($this->ruta . "/formulario/modificarFuncionario.php");
 					break;
+					
 			}
 		} else {
 			$_REQUEST['opcion'] = "buscarAprobado";

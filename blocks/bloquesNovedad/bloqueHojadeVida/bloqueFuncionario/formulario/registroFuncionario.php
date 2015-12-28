@@ -76,7 +76,7 @@ class Formulario {
         $atributos ['titulo'] = false;//$this->lenguaje->getCadena ( $esteCampo );
 
         // Si no se coloca, entonces toma el valor predeterminado.
-        $atributos ['estilo'] = ' ';
+        $atributos ['estilo'] = '';
         $atributos ['marco'] = true;
         $tab = 1;
         // ---------------- FIN SECCION: de Parámetros Generales del Formulario ----------------------------
@@ -84,11 +84,11 @@ class Formulario {
         
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
-        $cantidad_referencias = $_REQUEST['funcionarioCantidadRegistroSuperior']; 
-        $cantidad_referencias_info = $_REQUEST['funcionarioCantidadRegistroInformal'];
-        $cantidad_idiomas = $_REQUEST['funcionarioCantidadRegistroIdioma'];
-        $cantidad_experiencia = $_REQUEST['funcionarioCantidadRegistroExperiencia'];
-        $cantidad_referencias_per = $_REQUEST['funcionarioCantidadRegistroReferencia'];
+        $cantidad_referencias = 2;
+        $cantidad_referencias_info = 2;
+        $cantidad_idiomas = 2;
+        $cantidad_experiencia = 2;
+        $cantidad_referencias_per = 2;
         
         // ---------------- FIN: Lista Variables Control--------------------------------------------------------
 
@@ -101,15 +101,13 @@ class Formulario {
         
         // ---------------- CONTROL: Cuadro Mensaje Titulo --------------------------------------------------
          
-        $esteCampo = 'bloqueContenidoDF';
-        $atributos['texto'] = ' ';
-        $atributos['estilo'] = 'jqueryui';
-        $atributos['etiqueta'] = "<h2>".$this->lenguaje->getCadena ( $esteCampo )."</h2>";
-        $tab ++;
-         
-        // Aplica atributos globales al control
-        $atributos = array_merge ( $atributos, $atributosGlobales );
-        echo $this->miFormulario->campoTexto( $atributos );
+        $esteCampo = "AgrupacionGeneral";
+        $atributos ['id'] = $esteCampo;
+        $atributos ["estilo"] = "jqueryui";
+        $atributos ['tipoEtiqueta'] = 'inicio';
+        $atributos ["leyenda"] = "<center>REGISTRO HOJA DE VIDA</center>";
+        echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
+        {
          
         // --------------------------------------------------------------------------------------------------
        
@@ -126,12 +124,7 @@ class Formulario {
         	$atributos ["estilo"] = "botonDatos";
         	echo $this->miFormulario->division ( "inicio", $atributos );
         	{
-				echo "<button id=\"mostrarb1\" name=\"mas1\" ALIGN=RIGHT class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
-	        		  </button>";
-	        	echo "<button id=\"ocultarb1\" ALIGN=RIGHT name=\"menos1\" class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
-	        		  </button>";
+	        	echo "<button id=\"ocultarb1\" ALIGN=RIGHT name=\"menos1\" class=\"\">Siguiente</button>";
         	}
         	echo $this->miFormulario->division ( "fin" );
         	
@@ -335,7 +328,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -370,7 +363,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -589,12 +582,8 @@ class Formulario {
         	$atributos ["estilo"] = "botonDatos";
         	echo $this->miFormulario->division ( "inicio", $atributos );
         	{
-        		echo "<button id=\"mostrarb2\" name=\"mas1\" ALIGN=RIGHT class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
-	        		  </button>";
-        		echo "<button id=\"ocultarb2\" ALIGN=RIGHT name=\"menos1\" class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
-	        		  </button>";
+        		echo "<button id=\"mostrarb2\" name=\"mas1\" ALIGN=RIGHT class=\"\">Atrás</button>";
+        		echo "<button id=\"ocultarb2\" ALIGN=RIGHT name=\"menos1\" class=\"\">Siguiente</button>";
         	}
         	echo $this->miFormulario->division ( "fin" );
         	 
@@ -1314,12 +1303,8 @@ class Formulario {
         	$atributos ["estilo"] = "botonDatos";
         	echo $this->miFormulario->division ( "inicio", $atributos );
         	{
-        		echo "<button id=\"mostrarb3\" name=\"mas1\" ALIGN=RIGHT class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
-	        		  </button>";
-        		echo "<button id=\"ocultarb3\" ALIGN=RIGHT name=\"menos1\" class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
-	        		  </button>";
+        		echo "<button id=\"mostrarb3\" name=\"mas1\" ALIGN=RIGHT class=\"\">Atrás</button>";
+        		echo "<button id=\"ocultarb3\" ALIGN=RIGHT name=\"menos1\" class=\"\">Siguiente</button>";
         	}
         	echo $this->miFormulario->division ( "fin" );
         	 
@@ -1416,7 +1401,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -1451,7 +1436,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -1941,12 +1926,8 @@ class Formulario {
         	$atributos ["estilo"] = "botonDatos";
         	echo $this->miFormulario->division ( "inicio", $atributos );
         	{
-        		echo "<button id=\"mostrarb4\" name=\"mas1\" ALIGN=RIGHT class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
-	        		  </button>";
-        		echo "<button id=\"ocultarb4\" ALIGN=RIGHT name=\"menos1\" class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
-	        		  </button>";
+        		echo "<button id=\"mostrarb4\" name=\"mas1\" ALIGN=RIGHT class=\"\">Atrás</button>";
+        		echo "<button id=\"ocultarb4\" ALIGN=RIGHT name=\"menos1\" class=\"\">Siguiente</button>";
         	}
         	echo $this->miFormulario->division ( "fin" );
         	 
@@ -2044,7 +2025,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -2079,7 +2060,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -2322,7 +2303,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -2357,7 +2338,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = false;
+	        $atributos['deshabilitado'] = true;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -2527,6 +2508,12 @@ class Formulario {
 	        
 //***************************************************************************************************************
 //***************************************************************************************************************
+	        
+	        if (isset ( $_REQUEST ['funcionarioRegistrosSuperior'] )) {
+	        	$cantidad_referencias = $_REQUEST ['funcionarioRegistrosSuperior']+1;
+	        } else {
+	        	$cantidad_referencias = 1;
+	        }
 	        
 	        //$cantidad_referencias = 3;//---------------------------------------------
 	        
@@ -3060,6 +3047,35 @@ class Formulario {
 	        	
 	        	}
 	        	echo $this->miFormulario->marcoAgrupacion ( 'fin' );
+	        	
+	        	$atributos ["id"] = "botonDatos1";
+	        	$atributos ["estilo"] = "botonDatos";
+	        	echo $this->miFormulario->division ( "inicio", $atributos );
+	        	{
+	        	
+	        		// -----------------CONTROL: Botón ----------------------------------------------------------------
+	        		$esteCampo = 'botonAgregarSuperior';
+	        		$atributos ["id"] = $esteCampo;
+	        		$atributos ["tabIndex"] = $tab;
+	        		$atributos ["tipo"] = 'boton';
+	        		// submit: no se coloca si se desea un tipo button genérico
+	        		$atributos ['submit'] = true;
+	        		$atributos ["estiloMarco"] = '';
+	        		$atributos ["estiloBoton"] = 'jqueryui';
+	        		// verificar: true para verificar el formulario antes de pasarlo al servidor.
+	        		$atributos ["verificar"] = '';
+	        		$atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
+	        		$atributos ["valor"] = "Agregar";
+	        		$atributos ['nombreFormulario'] = $esteBloque ['nombre'];
+	        		$tab ++;
+	        		 
+	        		// Aplica atributos globales al control
+	        		$atributos = array_merge ( $atributos, $atributosGlobales );
+	        		echo $this->miFormulario->campoBoton ( $atributos );
+	        	
+	        	}
+	        	echo $this->miFormulario->division ( "fin" );
+	        	
 	        	
 	        }
 	        
@@ -3793,12 +3809,7 @@ class Formulario {
         	$atributos ["estilo"] = "botonDatos";
         	echo $this->miFormulario->division ( "inicio", $atributos );
         	{
-        		echo "<button id=\"mostrarb5\" name=\"mas1\" ALIGN=RIGHT class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/show.png\" width=\"20\" height=\"20\">
-	        		  </button>";
-        		echo "<button id=\"ocultarb5\" ALIGN=RIGHT name=\"menos1\" class=\"\">
-	        			<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueFuncionario/css/images/hide.png\" width=\"20\" height=\"20\">
-	        		  </button>";
+        		echo "<button id=\"mostrarb5\" name=\"mas1\" ALIGN=RIGHT class=\"\">Atrás</button>";
         	}
         	echo $this->miFormulario->division ( "fin" );
         	 
@@ -4844,6 +4855,8 @@ class Formulario {
 	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 //*********************************************************************************************************	    
 	    
+	    }
+	    echo $this->miFormulario->marcoAgrupacion ( 'fin' );
         
         // ------------------Division para los botones-----------------------------------------------------
         $atributos ["id"] = "botones";
@@ -4887,7 +4900,7 @@ class Formulario {
          * formsara, cuyo valor será una cadena codificada que contiene las variables.
          * (c) a través de campos ocultos en los formularios. (deprecated)
         */
-
+		
         // En este formulario se utiliza el mecanismo (b) para pasar las siguientes variables:
 
         // Paso 1: crear el listado de variables

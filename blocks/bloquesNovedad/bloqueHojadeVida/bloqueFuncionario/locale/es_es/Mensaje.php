@@ -34,7 +34,7 @@ $this->idioma["funcionarioCantidadRegistroReferenciaTitulo"]="Digite la cantidad
 
 
 
-$this->idioma["bloqueContenidoDF"]="Registro del Funcionario";
+$this->idioma["bloqueContenidoDF"]="Registro Hoja de Vida 1/5";
 
 $this->idioma["novedadesIdentificacion"]="DATOS DE IDENTIFICACIÓN";
 $this->idioma["novedadesIdentificacion2"]="DATOS DE IDENTIFICACIÓN";
@@ -308,6 +308,12 @@ $this->idioma["funcionarioSoporteReferenciaTitulo"]="Adjunte Soporte de la Refer
 
 
 $this->idioma["botonGuardar"]="Guardar Cambios";
+
+$this->idioma["botonSiguiente"]="Siguiente";
+$this->idioma["botonSiguienteDos"]="Siguiente";
+$this->idioma["botonSiguienteTres"]="Siguiente";
+$this->idioma["botonSiguienteCuatro"]="Siguiente";
+$this->idioma["botonAtras"]="Atrás";
 
 $this->idioma["botonActivarRegistro"]="Seleccionar";
 
