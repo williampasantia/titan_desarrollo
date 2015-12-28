@@ -33,15 +33,38 @@ class FormProcessor {
          $i=0;
             while($i<$_REQUEST['tamaño']){
                 if(isset($_REQUEST['botonModificarNomina'.$i]) && $_REQUEST['botonModificarNomina'.$i] == 'true'){
-                 Redireccionador::redireccionar('modificar',$i); 
+                    $datos = array(
+            
+            'variablei' => $i,
+            'variable' => $_REQUEST['variable'],            
+            'vinculacion' => $_REQUEST['vinculacion']
+            
+                       );
+                    
+                 Redireccionador::redireccionar('modificar',$datos); 
                   break; 
                 }
                 if(isset($_REQUEST['botonVerDetalleNomina'.$i]) && $_REQUEST['botonVerDetalleNomina'.$i] == 'true'){
-                  Redireccionador::redireccionar('verdetalleNomina',$i);
+                    $datos = array(
+            
+            'variablei' => $i,
+            'variable' => $_REQUEST['variable'],            
+            'vinculacion' => $_REQUEST['vinculacion']
+            
+                       );
+                    Redireccionador::redireccionar('verdetalleNomina',$datos);
                   break;
                 }
                 if(isset($_REQUEST['botonInactivarNomina'.$i]) && $_REQUEST['botonInactivarNomina'.$i] == 'true'){
-                  Redireccionador::redireccionar('inactivar',$i);
+                  $datos = array(
+            
+            'variablei' => $i,
+            'variable' => $_REQUEST['variable'],            
+            'vinculacion' => $_REQUEST['vinculacion']
+            
+                       );
+                    
+                    Redireccionador::redireccionar('inactivar',$datos);
                   break;
                 }
                 

@@ -62,7 +62,7 @@ class FormProcessor {
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
         
-        Redireccionador::redireccionar('form');
+        Redireccionador::redireccionar('modifico',$datos);
     	        
     }
     

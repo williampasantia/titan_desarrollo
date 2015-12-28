@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesLiquidacion\tipoNomina\funcion;
 
 
 include_once('Redireccionador.php');
@@ -31,7 +31,7 @@ class FormProcessor {
        
         
         if($_REQUEST['enviarInactivar'] =='true'){
-            if($_REQUEST ['estadoRegistro']=='Inactivo'){
+            if($_REQUEST ['estadoRegistroNomina']=='Inactivo'){
                       $opcion='Activo';
         }
         else{
@@ -40,22 +40,28 @@ class FormProcessor {
         
             
             $datos = array(
-            'codigoRegistro' => $_REQUEST ['codigoRegistro'],
-            'estadoRegistro' => $opcion       
+            'codigoNomina'=> $_REQUEST['codigoNomina'],
+            'nombreNomina' => $_REQUEST ['nombreNomina'],
+            'estadoRegistroNomina' => $opcion,
+            'variable' => $_REQUEST['variable']
         );
 //       
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("inactivarRegistro",$datos);
+       
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
                 
         
-                  Redireccionador::redireccionar('form');      
+                  Redireccionador::redireccionar('verDetalle2',$datos);      
 
         
        }
                 
       if($_REQUEST['cancelarInactivar'] =='true'){
-                    
-                     Redireccionador::redireccionar('form'); 
+                    $datos = array(
+            'codigoNomina'=> $_REQUEST['codigoNomina'],
+            'variable' => $_REQUEST['variable']
+        );
+                     Redireccionador::redireccionar('verDetalle2',$datos); 
                 }
         
        

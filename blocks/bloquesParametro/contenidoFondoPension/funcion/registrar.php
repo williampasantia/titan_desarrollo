@@ -29,20 +29,26 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
- 
+      $datosubicacion = array(
+            'fdpDepartamento' => $_REQUEST ['fdpDepartamento'],
+            'fdpCiudad' => $_REQUEST ['fdpCiudad']
+     );
                    
-                
-//                if(isset($_REQUEST['lugarRegistro'])){
-//                    switch($_REQUEST ['lugarRegistro']){
-//                           case 1 :
-//					$_REQUEST ['lugarRegistro']='Amazonas';
-//			   break;
-//                       
-//                           case 2 :
-//					$_REQUEST ['lugarRegistro']='no';
-//			   break;
-//                    }
-//                }
+          
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
+        $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+    
+          if(empty($ubicacion)){
+              $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarUbicacion",$datosubicacion);
+              $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "insertar");
+           
+              $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
+              $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+          }      
+       
+           
+        
+     
         
         $datos = array(
             'nitRegistro' => $_REQUEST ['nitRegistro'],
@@ -52,7 +58,7 @@ class FormProcessor {
             'extTelefonoRegistro' => $_REQUEST ['extTelefonoRegistro'],
             'faxRegistro' => $_REQUEST ['faxRegistro'],
             'extFaxRegistro' => $_REQUEST ['extFaxRegistro'],
-            'lugarRegistro' => $_REQUEST ['lugarRegistro'],
+            'id_ubicacion' => $ubicacion[0][0],
             'nomRepreRegistro' => $_REQUEST ['nomRepreRegistro'],
             'emailRegistro' => $_REQUEST ['emailRegistro']
         );
@@ -63,7 +69,7 @@ class FormProcessor {
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
         
-        RedireccionadorFP::redireccionar('form');
+        RedireccionadorFP::redireccionar('inserto',$datos);
     	        
     }
     

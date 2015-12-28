@@ -4,68 +4,61 @@
 $url = $this->miConfigurador->getVariableConfiguracion ( "host" );
 $url .= $this->miConfigurador->getVariableConfiguracion ( "site" );
 $url .= "/index.php?";
-
-
-
-// Variables
-$cadenaACodificar4 = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( "pagina" );
-$cadenaACodificar4 .= "&procesarAjax=true";
-$cadenaACodificar4 .= "&action=index.php";
-$cadenaACodificar4 .= "&bloqueNombre=" . $esteBloque ["nombre"];
-$cadenaACodificar4 .= "&bloqueGrupo=" . $esteBloque ["grupo"];
-$cadenaACodificar4 .= $cadenaACodificar4 . "&funcion=consultarCiudad";
-$cadenaACodificar4 .= "&tiempo=" . $_REQUEST ['tiempo'];
-
+//Variables
+$cadenaACodificar17 = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( "pagina" );
+$cadenaACodificar17 .= "&procesarAjax=true";
+$cadenaACodificar17 .= "&action=index.php";
+$cadenaACodificar17 .= "&bloqueNombre=" . $esteBloque ["nombre"];
+$cadenaACodificar17 .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+$cadenaACodificar17 .= $cadenaACodificar17 . "&funcion=consultarCiudadAjax";
+$cadenaACodificar17 .= "&tiempo=" . $_REQUEST ['tiempo'];
 // Codificar las variables
 $enlace = $this->miConfigurador->getVariableConfiguracion ( "enlace" );
-$cadena4 = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $cadenaACodificar4, $enlace );
-
+$cadena17 = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $cadenaACodificar17, $enlace );
 // URL definitiva
-$urlFinal4 = $url . $cadena4;
-
-
+$urlFinal17 = $url . $cadena17;
 ?>
 
-<script type='text/javascript'>
-    
-
-
-
-
-
-
-
-function consultarCiudad(elem, request, response){
+<script>
+    function consultarCiudad(elem, request, response){
 		  $.ajax({
-		    url: "<?php echo $urlFinal4?>",
+		    url: "<?php echo $urlFinal17?>",
 		    dataType: "json",
-		    data: { valor:$("#<?php echo $this->campoSeguro('lugarRegistroDepto')?>").val()},
+		    data: { valor:$("#<?php echo $this->campoSeguro('fdpDepartamento')?>").val()},
 		    success: function(data){ 
-
-
-
 		        if(data[0]!=" "){
-
-		            $("#<?php echo $this->campoSeguro('lugarRegistro')?>").html('');
-		            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('lugarRegistro')?>");
+		            $("#<?php echo $this->campoSeguro('fdpCiudad')?>").html('');
+		            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('fdpCiudad')?>");
 		            $.each(data , function(indice,valor){
-
-		            	$("<option value='"+data[ indice ].ID_CIUDAD+"'>"+data[ indice ].NOMBRE+"</option>").appendTo("#<?php echo $this->campoSeguro('lugarRegistro')?>");
+		            	$("<option value='"+data[ indice ].id_ciudad+"'>"+data[ indice ].nombreciudad+"</option>").appendTo("#<?php echo $this->campoSeguro('fdpCiudad')?>");
 		            	
 		            });
 		            
-		            $("#<?php echo $this->campoSeguro('lugarRegistro')?>").removeAttr('disabled');
+		            $("#<?php echo $this->campoSeguro('fdpCiudad')?>").removeAttr('disabled');
 		            
-		            $('#<?php echo $this->campoSeguro('lugarRegistro')?>').width(200);
-		            $("#<?php echo $this->campoSeguro('lugarRegistro')?>").select2();
+		            //$('#<?php echo $this->campoSeguro('fdpCiudad')?>').width(250);
+		            $("#<?php echo $this->campoSeguro('fdpCiudad')?>").select2();
 		            
-		          
+		            $("#<?php echo $this->campoSeguro('fdpCiudad')?>").removeClass("validate[required]");
 		            
 			        }
 		    			
-
 		    }
 			                    
 		   });
-}
+		};
+
+                
+          $(function () {
+	        
+	        $("#<?php echo $this->campoSeguro('fdpDepartamento')?>").change(function(){
+	        	if($("#<?php echo $this->campoSeguro('fdpDepartamento')?>").val()!=''){
+	            	consultarCiudad();
+	    		}else{
+	    			$("#<?php echo $this->campoSeguro('fdpCiudad')?>").attr('disabled','');
+	    			}
+	    	      });
+	        
+		
+	    });
 </script>

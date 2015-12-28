@@ -26,30 +26,51 @@ class Redireccionador {
                         case "modificar" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=modificar";
-                                $variable .= '&variable=' . $valor;
-                                $variable .= '&vinculacion='.$_REQUEST['vinculacion'];
+                                $variable .= '&variable=' . $valor['variable'];
+                                $variable .= '&variablei=' . $valor['variablei'];
+                                $variable .= '&vinculacion='. $valor['vinculacion'];
 				break; 
+                            
                         case "verDetalle" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=verdetalle";
                                 $variable .= '&variable=' . $valor;
                                 break;
-                        
+                        case "inserto" :
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&mensaje=inserto";
+                                $variable .= "&nombreNomina=" . $valor ['nombreNomina'];
+                                $variable .= "&estadoRegistroNomina=" . $valor ['estadoRegistroNomina'];
+                                $variable .= "&variable=" . $valor ['variable'];
+				break;  
+                        case "modifico" :
+				$variable = 'pagina='.$miPaginaActual;
+                                $variable .= "&mensaje=modifico";
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&nombreNomina=" . $valor ['nombreNomina'];
+                                $variable .= "&estadoRegistroNomina=" . $valor ['estadoRegistroNomina'];
+                                $variable .= "&variable=" . $valor ['variable'];
+				break;        
                         case "verDetalle2" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=verdetalle";
-                                $variable .= '&variable=' . $valor;
+                                $variable .= '&variable=' . $valor['variable'];
                                 break;     
                             
                          case "verdetalleNomina" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=verdetallenomina";
-                                $variable .= '&variable=' . $valor;
+                                $variable .= '&variable=' . $valor['variable'];
+                                $variable .= '&variablei=' . $valor['variablei'];
+                                $variable .= '&vinculacion='. $valor['vinculacion'];
                                 break;
                         case "inactivar" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=inactivar";
-                                $variable .= '&variable=' . $valor;
+                                $variable .= '&variable=' . $valor['variable'];
+                                $variable .= '&variablei=' . $valor['variablei'];
+                                $variable .= '&vinculacion='. $valor['vinculacion'];
                             break;  
                         case "registrar" :
 				$variable = 'pagina='.$miPaginaActual;                                

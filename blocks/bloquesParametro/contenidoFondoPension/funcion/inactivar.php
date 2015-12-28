@@ -48,14 +48,14 @@ class FormProcessor {
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
                 
         
-                  RedireccionadorFP::redireccionar('form');      
+                  RedireccionadorFP::redireccionar('form',$datos);      
 
         
        }
                 
       if($_REQUEST['cancelarInactivar'] =='true'){
                     
-                     RedireccionadorFP::redireccionar('form'); 
+                     RedireccionadorFP::redireccionar('form',$datos); 
                 }
         
        
