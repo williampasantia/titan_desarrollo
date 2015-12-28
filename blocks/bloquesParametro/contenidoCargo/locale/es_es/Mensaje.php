@@ -10,6 +10,9 @@ $this->idioma["botonActivar"]="Activar";
 $this->idioma["botonVerDetalle"]="Ver detalle";
 $this->idioma["enviarInactivar"]="Aceptar";
 $this->idioma["cancelarInactivar"]="Cancelar";
+$this->idioma["botonAceptarRegistro"]="Aceptar";
+
+
 
 
 

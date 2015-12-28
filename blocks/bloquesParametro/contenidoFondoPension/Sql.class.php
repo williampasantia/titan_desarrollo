@@ -176,7 +176,20 @@ class Sql extends \Sql {
                 $cadenaSql .= $variable ['fdpDepartamento'] . ', ';
                 $cadenaSql .= $variable ['fdpCiudad'] . '';
                 $cadenaSql .= ') ';
-				break;  
+				break; 
+                            
+           case 'buscarUbicacionDC' :
+				
+        	$cadenaSql = 'SELECT ';
+	        $cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+                $cadenaSql .= 'id_departamento as ID_DEPARTAMENTO ';
+		$cadenaSql .= 'FROM ';
+         	$cadenaSql .= 'otro.ubicacion ';
+         	$cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'id_ubicacion = ';
+                $cadenaSql .= $variable .'';
+	   
+            break;  
                             
                 case 'buscarModificarxFP' :
                 

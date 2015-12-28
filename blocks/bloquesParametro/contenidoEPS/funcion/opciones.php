@@ -32,19 +32,18 @@ class FormProcessor {
         
          $i=0;
             while($i<$_REQUEST['tamaño']){
-                if($_REQUEST['botonModificar'.$i] == 'true'){
+                if(isset($_REQUEST['botonModificar'.$i]) && $_REQUEST['botonModificar'.$i] == 'true'){
                  RedireccionadorEPS::redireccionar('modificar',$i); 
                   break; 
                 }
-                if($_REQUEST['botonVerDetalle'.$i] == 'true'){
+                if(isset($_REQUEST['botonVerDetalle'.$i]) && $_REQUEST['botonVerDetalle'.$i] == 'true'){
                   RedireccionadorEPS::redireccionar('verdetalle',$i);
                   break;
                 }
-                if($_REQUEST['botonInactivar'.$i] == 'true'){
+                if(isset($_REQUEST['botonInactivar'.$i]) && $_REQUEST['botonInactivar'.$i] == 'true'){
                   RedireccionadorEPS::redireccionar('inactivar',$i);
                   break;
                 }
-                
                 $i+=1;
             }
        

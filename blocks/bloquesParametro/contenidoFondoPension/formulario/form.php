@@ -140,6 +140,8 @@ class Formulario {
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         $longitud = count($matrizItems);
         $i=0;
+        if(!empty($matrizItems)){
+            
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
                  . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."ESTADO".'</th><th>'."GESTION".'</th></tr></thead>
@@ -224,7 +226,7 @@ class Formulario {
                      $i+=1;
         }  
            echo '</tbody></table>';                
-                        
+           }             
         // ---------------- CONTROL: Tabla Cargos -----------------------------------------------                
                         
 //        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxEPS");

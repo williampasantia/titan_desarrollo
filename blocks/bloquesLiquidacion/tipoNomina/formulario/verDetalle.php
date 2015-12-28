@@ -330,7 +330,9 @@ class Formulario {
             </tr>
         </tfoot>  
                     <tbody>'; 
-        
+        if(!empty($matriz)){
+            
+       
         while($var<$longitud){
                     echo "<tr><td>".$matriz[$var][0]."</td>";
                     echo "<td>".$matriz[$var][1]."</td>";
@@ -409,7 +411,7 @@ class Formulario {
                     
                      $var+=1;
         }  
-          
+         }  
            echo '</tbody></table>';
         
         echo $this->miFormulario->marcoAgrupacion ( 'fin' );

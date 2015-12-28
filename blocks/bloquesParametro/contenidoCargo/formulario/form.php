@@ -149,6 +149,8 @@ class Formulario {
         $longitud = count($matrizItems);
         
         $i=0;
+        if(!empty($matrizItems)){
+            
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
                  . '<thead style="display: table-row-group"><tr><th>'."COD CARGO".'</th><th>'."NIVEL".'</th> <th>'."COD ALTERNATIVO".'</th> <th>'."GRADO".'</th> <th>'."NOMBRE".'</th><th>'."COD TIPO".'</th><th>'."ESTADO".'</th><th>'."GESTION".'</th></tr></thead>
@@ -250,7 +252,7 @@ class Formulario {
           
            echo '</tbody></table>';
                        
-             
+          }   
            
                 
         
