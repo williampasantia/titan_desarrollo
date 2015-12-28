@@ -617,7 +617,7 @@ class Sql extends \Sql {
 				$cadenaSql .= $variable ['fk_funcionario'] . ', ';
 				$cadenaSql .= '\'' . $variable ['nombreEmpresa'] . '\', ';
 				if($variable ['nitEmpresa'] > 0){
-					$cadenaSql .= $variable ['nitEmpresa'] . ' ';
+					$cadenaSql .= $variable ['nitEmpresa'] . ', ';
 				}
 				$cadenaSql .= '\'' . $variable ['tipoEntidad'] . '\', ';
 				$cadenaSql .= $variable ['fk_ubicacion'] . ', ';
