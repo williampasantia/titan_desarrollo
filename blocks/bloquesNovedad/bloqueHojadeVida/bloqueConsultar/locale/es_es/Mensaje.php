@@ -63,6 +63,9 @@ $this->idioma["funcionarioSoporteIden"]="Soporte";
 $this->idioma["funcionarioSoporteIdenTitulo"]="Adjunte Soporte de Identificación - Opcional";
 $this->idioma["funcionarioFechaExpDoc"]="Fecha Expedición";
 $this->idioma["funcionarioFechaExpDocTitulo"]="Digite Fecha de Expedición del Documento";
+$this->idioma["funcionarioFechaExpDocFunMod"]="Fecha Expedición";
+$this->idioma["funcionarioFechaExpDocFunModTitulo"]="Digite Fecha de Expedición del Documento";
+
 
 $this->idioma["funcionarioFechaExpDocFun"]="Fecha Expedición";
 $this->idioma["funcionarioFechaExpDocFunTitulo"]="Fecha Expedición Registrada";

@@ -28,6 +28,34 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
+        //*****************************************************************************************************
+        $cadenaSql1 = $this->miSql->getCadenaSql("buscarInfoIdent", $_REQUEST['funcionarioDocumento']);
+        $matrizInfoExpe = $primerRecursoDB->ejecutarAcceso($cadenaSql1, "busqueda");
+        	
+        //--var_dump($matrizInfoExpe[0][0]);//id datos de expedicion
+        //--var_dump($matrizInfoExpe[0][1]);//id ubicacion
+        //var_dump($matrizInfoExpe[0][2]);
+        //var_dump($matrizInfoExpe[0][3]);
+        	
+        $cadenaSql2 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizInfoExpe[0][1]);
+        $matrizUbicacion = $primerRecursoDB->ejecutarAcceso($cadenaSql2, "busqueda");
+        	
+        //--var_dump($matrizUbicacion[0][0]);//id pais
+        //--var_dump($matrizUbicacion[0][1]);//id departamento
+        //--var_dump($matrizUbicacion[0][2]);//id ciudad
+        
+        $cadenaSql3 = $this->miSql->getCadenaSql("consultarFuncionario", $_REQUEST['funcionarioDocumento']);
+        $matrizFuncionario = $primerRecursoDB->ejecutarAcceso($cadenaSql3, "busqueda");
+        	
+        //var_dump($matrizFuncionario[0][0]); //id funcionario
+        //var_dump($matrizFuncionario[0][1]); //id datos de expedicion
+        //var_dump($matrizFuncionario[0][2]); //id informacion personal
+        //var_dump($matrizFuncionario[0][3]); //id datos residencia
+        //var_dump($matrizFuncionario[0][4]); //id datos formacion funcionario
+        //var_dump($matrizFuncionario[0][5]); //id publicacion
+        //****************************************************************************************************
+        
+        
         /*Datos de PERSONA NATURAL ------------------------------------------------------------------------*/
         /*
         if(isset($_REQUEST['funcionarioIdentificacion'])){
@@ -59,23 +87,28 @@ class FormProcessor {
         $datosUbicacionExpedicion = array(
         		'paisExpedicion' => $_REQUEST['funcionarioPais'],
         		'departamentoExpedicion' => $_REQUEST['funcionarioDepartamento'],
-        		'ciudadExpedicion' => $_REQUEST['funcionarioCiudad']
+        		'ciudadExpedicion' => $_REQUEST['funcionarioCiudad'],
+        		'id_ubicacion_expe' => $matrizInfoExpe[0][1]
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionExpedicion",$datosUbicacionExpedicion);
-        $id_ubicacion_expe = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionExpedicion, "insertarUbicacionExpedicion");
+        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionExpedicion",$datosUbicacionExpedicion);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
         
         
         
         $datosInformacionPersonalExpedicion = array (
         		'numeroDocumento' => $_REQUEST ['funcionarioDocumento'], //Llave Foranea fk Persona Natural
         		'soporteDocumento' => $_REQUEST ['funcionarioSoporteIden'],
-        		'fechaExpedicionDocumento' => $_REQUEST ['funcionarioFechaExpDoc'],
-        		'fk_ubicacion_expedicion' => $id_ubicacion_expe[0][0]
+        		'fechaExpedicionDocumento' => $_REQUEST ['funcionarioFechaExpDocFunMod'],
+        		'id_datos_expedicion' => $matrizInfoExpe[0][0]
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarIdentificacionDocumento",$datosInformacionPersonalExpedicion);
-		$id_datos_identificacion = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosInformacionPersonalExpedicion, "insertarIdentificacionDocumento");
+        $cadenaSql = $this->miSql->getCadenaSql("modificarIdentificacionDocumento",$datosInformacionPersonalExpedicion);
+		$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+		
+		var_dump("Modificar - Datos de Identificación <Completo>
+					Desarrollando...
+				");exit;
         
 //*************************************************************************************************//
         

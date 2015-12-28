@@ -41,8 +41,8 @@ class Funcion {
         include_once ($this->ruta . "funcion/procesarAjax.php");
     }
     
-    function registrar() {
-    	include_once ($this->ruta . "funcion/registrar.php");
+    function modificar() {
+    	include_once ($this->ruta . "funcion/modificar.php");
     }
     
     function opciones() {
@@ -67,8 +67,8 @@ class Funcion {
         
         	
         	switch ($_REQUEST['opcion']){
-        		case "registrar":		
-        			$this->registrar ();
+        		case "modificar":		
+        			$this->modificar ();
         			break;
         		case "opciones":
         			$this->opciones ();

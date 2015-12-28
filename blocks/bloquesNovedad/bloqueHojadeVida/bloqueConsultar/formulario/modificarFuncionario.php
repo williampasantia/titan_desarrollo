@@ -325,7 +325,7 @@ class Formulario {
 					 
 					$atributos ['obligatorio'] = true;
 					$atributos ['etiquetaObligatorio'] = true;
-					$atributos ['validar'] = 'required';
+					$atributos ['validar'] = '';
 					 
 					//var_dump($this->miSql->getCadenaSql("buscarRegistro"));
 					 
@@ -411,7 +411,7 @@ class Formulario {
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 					 
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-					$esteCampo = 'funcionarioFechaExpDocFun';
+					$esteCampo = 'funcionarioFechaExpDocFunMod';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['nombre'] = $esteCampo;
 					$atributos ['tipo'] = 'text';
@@ -432,7 +432,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoExpe[0][2];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 10;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -463,9 +463,9 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -474,7 +474,7 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = 'required';
 					 
-					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "consultarPais", $matrizUbicacion[0][0] );
+					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
 					$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 			
 					$atributos['matrizItems'] = $matrizItems;
@@ -4989,7 +4989,7 @@ class Formulario {
 		$atributos = array_merge ( $atributos, $atributosGlobales );
 		echo $this->miFormulario->campoBoton ( $atributos );
 		// -----------------FIN CONTROL: Botón -----------------------------------------------------------
-
+		
 
 		// ------------------- SECCION: Paso de variables ------------------------------------------------
 

@@ -950,6 +950,39 @@ class Sql extends \Sql {
 				
 				
 				
+			case 'modificarUbicacionExpedicion' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisExpedicion'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoExpedicion'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadExpedicion'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion =  ' . $variable ['id_ubicacion_expe'] . ';';
+				break;
+			
+			case 'modificarIdentificacionDocumento' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.identificacion_expedicion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'documento = ';
+				$cadenaSql .= $variable ['numeroDocumento'] . ', ';
+				$cadenaSql .= 'fecha_expe_documento = ';
+				$cadenaSql .= '\'' . $variable ['fechaExpedicionDocumento'] . '\', ';
+				$cadenaSql .= 'soporte_identificacion = ';
+				$cadenaSql .= '\'' . $variable ['soporteDocumento'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_datos_identificacion =  ' . $variable ['id_datos_expedicion'] . ';';
+				break;
+				
+				
+				
+				
+				
+				
 				
 				
 				

@@ -7,8 +7,8 @@ $( document ).ready(function() {
 	var IFechaB= 0;
 	var contFecha = 0;
 	
-	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaExpDoc')?>";
-	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaExpDoc')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaExpDocFunMod')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaExpDocFunMod')?>";
 	
 	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>";
 	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>";
