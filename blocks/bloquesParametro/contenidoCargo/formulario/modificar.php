@@ -321,24 +321,21 @@ class Formulario {
         $atributos['tamanno']= 1;
         $atributos['columnas']= 1;
         
-        $atributos ['ajax_function'] = "";
-        $atributos ['ajax_control'] = $esteCampo;
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required';
         
-                 $matrizItems=array(
+                 $matrizSelect=array(
                  		array(1,'M'),
                  		array(2,'H')
                  );
-        $atributos['matrizItems'] = $matrizItems;
-        
-        if (isset ( $_REQUEST [$esteCampo] )) {
-        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-        } else {
-        	$atributos ['valor'] = '';
+        $atributos['matrizItems'] = $matrizSelect;
+        if($matrizItems[$_REQUEST['variable']][7] == 'M'){
+            $aux=1;
         }
+        else{ $aux=2;}
+        $atributos['seleccion'] = $aux;
         $tab ++;
         
         // Aplica atributos globales al control

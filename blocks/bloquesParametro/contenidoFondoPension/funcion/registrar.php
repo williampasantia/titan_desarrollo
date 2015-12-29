@@ -46,6 +46,18 @@ class FormProcessor {
               $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
           }      
        
+          $extTel='0';
+        $fax='0';
+        $extFax='0';  
+          if($_REQUEST ['extTelefonoRegistro'] != ''){
+              $extTel=$_REQUEST ['extTelefonoRegistro'];
+          }
+          if($_REQUEST ['faxRegistro'] != ''){
+              $fax=$_REQUEST ['faxRegistro'];
+          }
+          if($_REQUEST ['extFaxRegistro'] != '' ){
+              $extFax=$_REQUEST ['extFaxRegistro'];
+          }
            
         
      
@@ -55,9 +67,9 @@ class FormProcessor {
             'nombreRegistro' => $_REQUEST ['nombreRegistro'],
             'direccionRegistro' => $_REQUEST ['direccionRegistro'],
             'telefonoRegistro' => $_REQUEST ['telefonoRegistro'],
-            'extTelefonoRegistro' => $_REQUEST ['extTelefonoRegistro'],
-            'faxRegistro' => $_REQUEST ['faxRegistro'],
-            'extFaxRegistro' => $_REQUEST ['extFaxRegistro'],
+            'extTelefonoRegistro' => $extTel,
+            'faxRegistro' => $fax,
+            'extFaxRegistro' => $extFax,
             'id_ubicacion' => $ubicacion[0][0],
             'nomRepreRegistro' => $_REQUEST ['nomRepreRegistro'],
             'emailRegistro' => $_REQUEST ['emailRegistro']

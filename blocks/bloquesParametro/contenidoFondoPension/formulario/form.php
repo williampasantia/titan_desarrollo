@@ -140,7 +140,7 @@ class Formulario {
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         $longitud = count($matrizItems);
         $i=0;
-        if(!empty($matrizItems)){
+        
             
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
@@ -154,7 +154,7 @@ class Formulario {
             </tr>
         </tfoot>  
                     <tbody>'; 
-        
+        if(!empty($matrizItems)){
         while($i<$longitud){
                     echo "<tr><td>".$matrizItems[$i][0]."</td>";
                     echo "<td>".$matrizItems[$i][1]."</td>";
@@ -224,9 +224,9 @@ class Formulario {
                             
                     
                      $i+=1;
-        }  
+        } } 
            echo '</tbody></table>';                
-           }             
+                        
         // ---------------- CONTROL: Tabla Cargos -----------------------------------------------                
                         
 //        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxEPS");
