@@ -29,6 +29,7 @@ class Redireccionador {
                                 $variable .= '&variable=' . $valor['variable'];
                                 $variable .= '&variablei=' . $valor['variablei'];
                                 $variable .= '&vinculacion='. $valor['vinculacion'];
+                               
 				break; 
                             
                         case "verDetalle" :

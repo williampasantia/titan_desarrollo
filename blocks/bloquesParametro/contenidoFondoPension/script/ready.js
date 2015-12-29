@@ -85,5 +85,18 @@ $(document).ready(function() {
     } );
     
     
+    function validar_email()
+	{
+		// creamos nuestra regla con expresiones regulares.
+		var filter = /[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+		// utilizamos test para comprobar si el parametro valor cumple la regla
+		if(filter.test($("#emailRegistro").val()))
+			return true;
+		else
+			return false;
+	}
+	// cuando presionamos el boton verificar
+	
+    
 } );
 

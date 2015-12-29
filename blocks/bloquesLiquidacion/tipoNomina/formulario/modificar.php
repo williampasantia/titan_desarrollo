@@ -188,11 +188,11 @@ class Formulario {
                  );
         $atributos['matrizItems'] = $matrizTipo;
         
-        if (isset ( $_REQUEST [$esteCampo] )) {
-        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-        } else {
-        	$atributos ['valor'] = '';
-        }
+        if($matrizItems[$_REQUEST['variablei']][2] == 'Periodica'){$tipo=1;}
+        if($matrizItems[$_REQUEST['variablei']][2] == 'Esporadica'){$tipo=2;}
+        if($matrizItems[$_REQUEST['variablei']][2] == 'Mixta'){$tipo=3;} 
+        
+        $atributos['seleccion'] = $tipo; 
         $tab ++;
         
         // Aplica atributos globales al control
@@ -235,11 +235,20 @@ class Formulario {
                  );
         $atributos['matrizItems'] = $matrizMes;
         
-        if (isset ( $_REQUEST [$esteCampo] )) {
-        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-        } else {
-        	$atributos ['valor'] = '';
-        }
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Enero'){$tipo=1;}
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Febrero'){$tipo=2;}
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Marzo'){$tipo=3;}
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Abril'){$tipo=4;}
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Mayo'){$tipo=5;}
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Junio'){$tipo=6;} 
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Julio'){$tipo=7;}
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Agosto'){$tipo=8;}
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Septiembre'){$tipo=9;} 
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Noviembre'){$tipo=10;}
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Diciembre'){$tipo=11;}
+        if($matrizItems[$_REQUEST['variablei']][4] == 'Marzo'){$tipo=12;} 
+        
+        $atributos['seleccion'] = $tipo;
         $tab ++;
         
         // Aplica atributos globales al control
@@ -267,7 +276,7 @@ class Formulario {
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required';
         
-                 $matrizItems=array(
+                 $matrizReg=array(
                  		array(1,'DI'),
                  		array(2,'AS'),
                  		array(3,'EJ'),
@@ -278,13 +287,9 @@ class Formulario {
                                 array(8,'DP')
         
                  );
-        $atributos['matrizItems'] = $matrizItems;
+        $atributos['matrizItems'] = $matrizReg;
+         $atributos['seleccion'] = 1;
         
-        if (isset ( $_REQUEST [$esteCampo] )) {
-        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-        } else {
-        	$atributos ['valor'] = '';
-        }
         $tab ++;
         
         // Aplica atributos globales al control
@@ -312,17 +317,13 @@ class Formulario {
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required';
         
-                 $matrizItems=array(
+                 $matrizEstado=array(
                  		array(1,'Activo'),
                  		array(2,'Inactivo')
                  );
-        $atributos['matrizItems'] = $matrizItems;
+        $atributos['matrizItems'] = $matrizEstado;
         
-        if (isset ( $_REQUEST [$esteCampo] )) {
-        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-        } else {
-        	$atributos ['valor'] = '';
-        }
+         $atributos['seleccion'] = 1;
         $tab ++;
         
         // Aplica atributos globales al control
@@ -349,7 +350,7 @@ class Formulario {
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	$atributos ['valor'] = '';
+        	$atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][6];
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
@@ -419,7 +420,7 @@ class Formulario {
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&variable=" .$_REQUEST['variable'];
         $valorCodificado .= "&vinculacion=" . $_REQUEST ['vinculacion'];
-        
+        $valorCodificado .= "&per=" . $matrizItems[$_REQUEST['variablei']][4];
         $valorCodificado .= "&opcion=modificarRegistro";
         /**
          * SARA permite que los nombres de los campos sean dinámicos.
