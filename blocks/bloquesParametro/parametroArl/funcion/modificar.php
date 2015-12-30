@@ -37,7 +37,7 @@ class FormProcessor {
               
         $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
     
-          if(empty($ubicacion)){
+          if(!empty($ubicacion)){
               $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarUbicacion",$datosubicacion);
               $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "insertar");
            

@@ -106,34 +106,64 @@ class Sql extends \Sql {
                 $cadenaSql .= $variable ['codigoRegistro'].";";
                 break;
              case "registrarCajaDeCompensacion" :
-				$cadenaSql=" INSERT INTO parametro.caja_compensacion";
-				$cadenaSql.=" (";
-				$cadenaSql.=" nit,";
-				$cadenaSql.=" nombre,";
-				$cadenaSql.=" direccion,";
-				$cadenaSql.=" telefono,";
-				$cadenaSql.=" extencion_telefono,";
-				$cadenaSql.=" fax,";
-				$cadenaSql.=" extencion_fax,";
-				$cadenaSql.=" lugar,";
-				$cadenaSql.=" nombre_representante_legal,";
-				$cadenaSql.=" email,";
-				$cadenaSql.=" estado";
-				$cadenaSql.=" )";
-				$cadenaSql.=" VALUES";
-				$cadenaSql.=" (";
-				$cadenaSql.=" '" . $_REQUEST['nit']. "',";
-				$cadenaSql.=" '" . $_REQUEST['nombre']. "',";
-				$cadenaSql.=" '" . $_REQUEST['direccion']. "',";
-				$cadenaSql.=" '" . $_REQUEST['telefono']. "',";
-				$cadenaSql.=" '" . $_REQUEST['extencionTelefono']. "',";
-				$cadenaSql.=" '" . $_REQUEST['fax']. "',";
-				$cadenaSql.=" '" . $_REQUEST['extencionFax']. "',";
-				$cadenaSql.=" '" . $_REQUEST['lugar']. "',";
-				$cadenaSql.=" '" . $_REQUEST['nombreRepresentante']. "',";
-                                $cadenaSql.=" '" . $_REQUEST['email']. "',";
-				$cadenaSql.=" 'Activo'";
-				$cadenaSql.=" );";
+				$cadenaSql = 'INSERT INTO ';
+                $cadenaSql .= 'parametro.caja_compensacion ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= 'nit,';                
+             
+                $cadenaSql .= 'nombre,';
+                $cadenaSql .= 'direccion,';
+                $cadenaSql .= 'telefono,';
+                if($variable ['extTelefonoRegistro']!='')
+                {
+                 $cadenaSql .= 'extencion_telefono,';    
+                }
+                 if($variable ['faxRegistro']!='')
+                {
+                   $cadenaSql .= 'fax,';  
+                }
+                 if($variable ['extFaxRegistro']!='')
+                {
+                   $cadenaSql .= 'extencion_fax,';
+                }
+               
+                
+               
+                $cadenaSql .= 'lugar,';
+                $cadenaSql .= 'nombre_representante_legal,';
+                $cadenaSql .= 'email,';
+                $cadenaSql .= 'estado';
+                $cadenaSql .= ') ';
+                $cadenaSql .= 'VALUES ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= $variable ['nitRegistro'] . ', ';
+                
+                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
+                $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
+                $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
+                  if($variable ['extTelefonoRegistro']!='')
+                {
+                  $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';   
+                }
+                 if($variable ['faxRegistro']!='')
+                {
+                  $cadenaSql .= $variable ['faxRegistro'] . ', ';
+                }
+                 if($variable ['extFaxRegistro']!='')
+                {
+                  $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
+                }
+               
+                
+             
+                
+               
+                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
+                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
+                $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
+                $cadenaSql .= '\'' . 'Activo' . '\' ';
+                $cadenaSql .= ') ';
+		
 				break;  
             
             case 'insertarRegistro' :
@@ -256,10 +286,106 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $_REQUEST ['parametroPagina'] . '\'';
                 $cadenaSql .= ') ';
                 break;
-        
+         case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.departamento ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_pais = 112;';
+				break;
+               		
+			case 'buscarDepartamentoAjax' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.departamento ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_pais = ' . $variable . ';';
+				break;
+               		
+			case 'buscarCiudad' : //Provisionalmente Solo Ciudades de Colombia sin Agrupar
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'ab_pais = \'CO\';';
+				break;
+				
+			case 'buscarCiudadAjax' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+				$cadenaSql .= 'nombre as NOMBRECIUDAD ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_departamento = ' . $variable . ';';
+				break;
+                            
+                        case 'buscarIdUbicacion' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ubicacion as ID_UBICACION ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'WHERE ';
+                                $cadenaSql .= 'id_pais = ';
+                                $cadenaSql .=  112 . ' AND ';
+                                $cadenaSql .= 'id_departamento = '; 
+                                $cadenaSql .= $variable ['fdpDepartamento'] . ' AND ';
+                                $cadenaSql .= 'id_ciudad = ';
+                                $cadenaSql .= $variable ['fdpCiudad'] . ';';
+				break;  
+                       case 'buscarUbicacion' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
+                                $cadenaSql .= 'id_departamento as ID_DEPARTAMENTO ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'WHERE ';
+                                $cadenaSql .= 'id_ubicacion = ';
+                                $cadenaSql .= $variable .'';
+		       break;   
+                       case 'buscarCiudadUbicacion' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'nombre as NOMBRE, ';
+                                $cadenaSql .= 'departamento as DEPARTAMENTO ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'WHERE ';
+                                $cadenaSql .= 'id_ciudad = ';
+                                $cadenaSql .= $variable .'';
+		       break; 
+               case 'insertarUbicacion' :
+				
+        	$cadenaSql = 'INSERT INTO ';
+                $cadenaSql .= 'otro.ubicacion ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= 'id_pais,';                
+                $cadenaSql .= 'id_departamento,';
+                $cadenaSql .= 'id_ciudad';
+                $cadenaSql .= ') ';
+                $cadenaSql .= 'VALUES ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= 112 . ', ';
+                $cadenaSql .= $variable ['fdpDepartamento'] . ', ';
+                $cadenaSql .= $variable ['fdpCiudad'] . '';
+                $cadenaSql .= ') ';
+				break;  
         }
         
         return $cadenaSql;
+        
     
     }
 }
