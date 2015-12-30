@@ -313,9 +313,7 @@ class Formulario {
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoCuadroTexto ( $atributos );
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
-        
-        
-       // ---------------- CONTROL: Select --------------------------------------------------------
+// ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'fdpDepartamento';
 	        $atributos['nombre'] = $esteCampo;
 	        $atributos['id'] = $esteCampo;
@@ -367,7 +365,7 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
 	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
 	        $atributos['matrizItems'] = $matrizItems;
@@ -383,7 +381,10 @@ class Formulario {
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
-        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        
+   
+                
+// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         $esteCampo = 'nombreRepresentante';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;

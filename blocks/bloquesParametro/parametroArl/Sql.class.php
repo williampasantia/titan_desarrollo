@@ -111,7 +111,7 @@ class Sql extends \Sql {
         
             case "registrarArl" :
 				$cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'parametro.eps ';
+                $cadenaSql .= 'parametro.arl ';
                 $cadenaSql .= '( ';
                 $cadenaSql .= 'nit,';                
              
@@ -129,13 +129,14 @@ class Sql extends \Sql {
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
                 $cadenaSql .= $variable ['nitRegistro'] . ', ';
-                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
+                
                 $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
                 $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
                 $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
                 $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';
                 $cadenaSql .= $variable ['faxRegistro'] . ', ';
                 $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
+                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
                 $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
                 $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
                 $cadenaSql .= '\'' . 'Activo' . '\' ';

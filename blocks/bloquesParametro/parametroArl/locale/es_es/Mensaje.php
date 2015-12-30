@@ -27,6 +27,7 @@ $this->idioma["telefonoTitulo"]="Telefono ";
 $this->idioma["extencionTelefono"]="Extencion tel:";
 $this->idioma["extencionTelefonoTitulo"]="Extencion tel:";
 $this->idioma["fax"]="Fax: ";
+$this->idioma["lugar"]="Ubicacion: ";
 $this->idioma["faxTitulo"]="Fax ";
 $this->idioma["extencionFax"]="Extencion fax:";
 $this->idioma["extencionFaxTitulo"]="Extencion fax";
@@ -119,4 +120,3 @@ $this->idioma["normatividadTitulo"] = "Ingrese la normatividad.";
 
 ?>
 
-?>

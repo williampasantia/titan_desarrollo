@@ -83,7 +83,7 @@ class registrarForm {
 			$variable = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variable, $directorio );
 				
 			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-			$esteCampo = 'botonRegresarConsulta';
+			/*$esteCampo = 'botonRegresar';
 			$atributos ['id'] = $esteCampo;
 			$atributos ['enlace'] = $variable;
 			$atributos ['tabIndex'] = 1;
@@ -92,7 +92,7 @@ class registrarForm {
 			$atributos ['ancho'] = '10%';
 			$atributos ['alto'] = '10%';
 			$atributos ['redirLugar'] = true;
-			echo $this->miFormulario->enlace ( $atributos );
+			echo $this->miFormulario->enlace ( $atributos );*/
 				
 			unset ( $atributos );
 			
@@ -115,6 +115,27 @@ class registrarForm {
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['tipo'] = 'success';
+					$atributos ['estilo'] = 'textoCentrar';
+					$atributos ['mensaje'] = $mensaje;
+					
+					$tab ++;
+					
+					// Aplica atributos globales al control
+					$atributos = array_merge ( $atributos, $atributosGlobales );
+					echo $this->miFormulario->cuadroMensaje ( $atributos );
+					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+				} 
+                                if ($_REQUEST ['mensaje'] == 'noInserto') {
+					
+					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
+					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
+					
+					$mensaje = "no se ha registrado arl <br>";
+                                        $mensaje .= "revise la informacion suministrada";
+					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					$esteCampo = 'mensajeRegistro';
+					$atributos ['id'] = $esteCampo;
+					$atributos ['tipo'] = 'error';
 					$atributos ['estilo'] = 'textoCentrar';
 					$atributos ['mensaje'] = $mensaje;
 					
@@ -179,7 +200,7 @@ class registrarForm {
 			echo $this->miFormulario->division ( "inicio", $atributos );
 			
 			// -----------------CONTROL: Botón ----------------------------------------------------------------
-			$esteCampo = 'botonAceptarRegistro';
+			$esteCampo = 'botonRegresar';
 			$atributos ["id"] = $esteCampo;
 			$atributos ["tabIndex"] = $tab;
 			$atributos ["tipo"] = 'boton';

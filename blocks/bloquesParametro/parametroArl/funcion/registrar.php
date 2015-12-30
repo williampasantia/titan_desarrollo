@@ -34,8 +34,10 @@ class FormProcessor {
             'fdpCiudad' => $_REQUEST ['fdpCiudad']
      );
                    
-          
+     
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
+   
+              
         $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
     
           if(empty($ubicacion)){
@@ -43,29 +45,29 @@ class FormProcessor {
               $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "insertar");
            
               $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
+             
               $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
           }   
           
        $datos = array(
-            'nitRegistro' => $_REQUEST ['nitRegistro'],
-            'nombreRegistro' => $_REQUEST ['nombreRegistro'],
-            'direccionRegistro' => $_REQUEST ['direccionRegistro'],
-            'telefonoRegistro' => $_REQUEST ['telefonoRegistro'],
-            'extTelefonoRegistro' => $extTel,
-            'faxRegistro' => $fax,
-            'extFaxRegistro' => $extFax,
+            'nitRegistro' => $_REQUEST ['nit'],
+            'nombreRegistro' => $_REQUEST ['nombre'],
+            'direccionRegistro' => $_REQUEST ['direccion'],
+            'telefonoRegistro' => $_REQUEST ['telefono'],
+            'extTelefonoRegistro' => $_REQUEST ['extencionTelefono'],
+            'faxRegistro' => $_REQUEST ['fax'],
+            'extFaxRegistro' => $_REQUEST ['extencionFax'],
             'id_ubicacion' => $ubicacion[0][0],
-            'nomRepreRegistro' => $_REQUEST ['nomRepreRegistro'],
-            'emailRegistro' => $_REQUEST ['emailRegistro']
+            'nomRepreRegistro' => $_REQUEST ['nombreRepresentante'],
+            'emailRegistro' => $_REQUEST ['email']
         );
        
    $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarArl", $datos);
-   echo $atributos ['cadena_sql'];
-   exit;
+  
     $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
  
-   if ($resultado) {
+   if (!empty($resultado)) {
             Redireccionador::redireccionar('inserto');
             exit();
         } else {
