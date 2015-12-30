@@ -51,7 +51,7 @@ $(document).ready(function() {
 	"sZeroRecords":    "No se encontraron resultados",
         "sSearch":         "Buscar:",
         "sLoadingRecords": "Cargando...",
-        "sEmptyTable":     "NingÃºn dato disponible en esta tabla",
+        "sEmptyTable":     "Ningún dato disponible en esta tabla",
 	"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
 	"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
         "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
@@ -84,6 +84,19 @@ $(document).ready(function() {
         } );
     } );
     
+    
+    function validar_email()
+	{
+		// creamos nuestra regla con expresiones regulares.
+		var filter = /[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+		// utilizamos test para comprobar si el parametro valor cumple la regla
+		if(filter.test($("#emailRegistro").val()))
+			return true;
+		else
+			return false;
+	}
+	// cuando presionamos el boton verificar
+	
     
 } );
 

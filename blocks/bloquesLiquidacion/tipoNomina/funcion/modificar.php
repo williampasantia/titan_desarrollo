@@ -136,6 +136,9 @@ class FormProcessor {
 			   break;
                     }
                 }
+                else{
+                    $periodo=$_REQUEST['per'];
+                }
 
         $datos = array(
             

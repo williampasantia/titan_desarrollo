@@ -129,6 +129,8 @@ class Formulario {
             </tr>
         </tfoot>  
                     <tbody>'; 
+        if(!empty($matrizItems)){
+            
         
         while($i<$longitud){
                     echo "<tr><td>".$matrizItems[$i][0]."</td>";
@@ -163,7 +165,7 @@ class Formulario {
                     
                      $i+=1;
         }  
-          
+          }
            echo '</tbody></table>';
                        
              
