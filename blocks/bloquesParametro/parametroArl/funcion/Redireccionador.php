@@ -18,7 +18,7 @@ class Redireccionador {
 			case "inserto" :
 				$variable = "pagina=" . $miPaginaActual;
 				$variable .= "&opcion=mensaje";
-				$variable .= "&mensaje=confirma";
+				$variable .= "&mensaje=inserto";
 				
 				break;
 			
