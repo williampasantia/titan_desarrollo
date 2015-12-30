@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido;
+namespace bloquesPersona\personaNatural;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -56,17 +56,16 @@ class Sql extends \Sql {
             	$cadenaSql .= ') ';
             	$cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-            	$cadenaSql .= $_REQUEST ['personaNaturalDocumento']. ', ';
-            	$cadenaSql .= $_REQUEST ['personaNaturalIdentificacion'] . ', ';
+            	$cadenaSql .= $variable ['numeroDocumento']. ', ';
+            	$cadenaSql .= $variable ['tipoDocumento'] . ', ';
             	$cadenaSql .= '2' . ', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalPrimerNombre'] . '\''.', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalSegundoNombre'].'\''. ', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalPrimerApellido'] . '\''. ', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalSegundoApellido'] .'\''. ', ';
-            	$cadenaSql .= $_REQUEST ['personaNaturalContribuyente'] .  ', ';
-            	$cadenaSql .= $_REQUEST ['personaNaturalAutorretenedor'] . ', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalRegimen'] .'\''. ', ';
-//             	$cadenaSql .= '\'' . $_REQUEST ['emailRegistro'] . '\''. ', ';
+            	$cadenaSql .= '\'' .$variable ['primerNombre'] . '\''.', ';
+            	$cadenaSql .= '\'' .$variable ['segundoNombre'].'\''. ', ';
+            	$cadenaSql .= '\'' .$variable ['primerApellido'] . '\''. ', ';
+            	$cadenaSql .= '\'' .$variable ['segundoApellido'] .'\''. ', ';
+            	$cadenaSql .= '\'' .$variable ['contribuyente'] .'\''.', ';
+            	$cadenaSql .= '\'' .$variable ['autorretenedor'] .'\''.', ';
+            	$cadenaSql .= '\'' .$variable ['regimen'] .'\''. ', ';
             	$cadenaSql .= '\'' . 'Modificable' . '\' ';
             	$cadenaSql .= ') ';
                 break;
