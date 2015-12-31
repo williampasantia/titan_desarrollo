@@ -146,14 +146,7 @@ class Formulario {
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
                  . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DIRECCION".'</th> <th>'."TELEFONO".'</th> <th>'."EXTENCION_TELEFONO".'</th><th>'."ESTADO".'</th><th>'."ver detalle".'</th><th>'."modificar".'</th><th>'."inactivar".'</th></tr></thead>
                        <tfoot  style="display: table-header-group">
-            <tr>
-                <th>NIT</th>
-                <th>NOMBRE</th>
-                <th>DIRECCION</th>
-                <th>TELEFONO</th>
-                <th>EXTENCION_TELEFONO</th>
-                <th>ESTADO</th>
-            </tr>
+            
         </tfoot>  
                     <tbody>'; 
         
