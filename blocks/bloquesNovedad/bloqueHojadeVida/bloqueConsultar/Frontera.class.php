@@ -81,7 +81,7 @@ class Frontera {
 					break;
 		
 				case "modificar":
-					//var_dump($_REQUEST);exit;
+					//var_dump("FRONTERA");exit;
 					if($_REQUEST['botonVerDetalle'] == 'true'){
 						include_once ($this->ruta . "/formulario/verDetalleFuncionario.php");
 					}

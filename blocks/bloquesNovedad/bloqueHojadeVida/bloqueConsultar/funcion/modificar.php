@@ -109,7 +109,7 @@ class FormProcessor {
 		
 		
 		
-		if (isset($matrizInfoExpe[0][0])) {
+		/*if (isset($matrizInfoExpe[0][0])) {
 			//var_dump("ENTRO INSERTAR");exit;
 			$this->miConfigurador->setVariableConfiguracion("cache", true);
 			Redireccionador::redireccionar('inserto', $datosPersonaNatural);
@@ -119,12 +119,15 @@ class FormProcessor {
 			$this->miConfigurador->setVariableConfiguracion("cache", true);
 			Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
 			exit();
-		}
-		
+		}*/
 		
 		var_dump("Modificar - Datos de Identificación <Completo>
 					Desarrollando...
-				");exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				");
+		
+		var_dump($_REQUEST);
+		
+		exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         
 //*************************************************************************************************//
         

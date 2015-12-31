@@ -458,9 +458,11 @@ class Formulario {
 	// En este formulario se utiliza el mecanismo (b) para pasar las siguientes variables:
 
 	// Paso 1: crear el listado de variables
+	
+	// Funcionalidad Funcion.class 'actionBloque' *** Formulario Frontera.class comentariar 'actionBloque'
 
-	//$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
-	$valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
+	//$valorCodificado = "actionBloque=" . $esteBloque ["nombre"];
+	$valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );
 	$valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
 	$valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
 	$valorCodificado .= "&opcion=modificar"; //Opcion para Switch Case ------
@@ -537,3 +539,5 @@ $miFormulario = new Formulario ( $this->lenguaje, $this->miFormulario, $this->sq
 
 $miFormulario->formulario ();
 $miFormulario->mensaje ();
+
+?>

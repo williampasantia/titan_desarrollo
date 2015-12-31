@@ -67,7 +67,8 @@ class Funcion {
         
         	
         	switch ($_REQUEST['opcion']){
-        		case "modificar":		
+        		case "modificar":
+        			//var_dump("FUNCION");exit;
         			$this->modificar ();
         			break;
         		case "opciones":

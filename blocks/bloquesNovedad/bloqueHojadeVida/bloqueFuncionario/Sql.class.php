@@ -43,7 +43,7 @@ class Sql extends \Sql {
         		$cadenaSql .= 'tipo_documento as TIPO ';
         		//$cadenaSql .= 'nombre as NOMBRE ';
         		$cadenaSql .= 'FROM ';
-        		$cadenaSql .= 'nomina.persona.persona_natural ';
+        		$cadenaSql .= 'persona.persona_natural ';
         		$cadenaSql .= 'WHERE ';
         		$cadenaSql .= 'documento = '.$variable.';';
         		break;
@@ -54,7 +54,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'segundo_apellido as APELLIDO2 ';
 				// $cadenaSql .= 'nombre as NOMBRE ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'nomina.persona.persona_natural ';
+				$cadenaSql .= 'persona.persona_natural ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'documento = ' . $variable . ';';
 				break;
@@ -65,7 +65,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'primer_nombre as NOMBRE1 ';
 				// $cadenaSql .= 'nombre as NOMBRE ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'nomina.persona.persona_natural ';
+				$cadenaSql .= 'persona.persona_natural ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'documento = ' . $variable . ';';
 				break;
@@ -76,7 +76,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'segundo_nombre as NOMBRE2 ';
 				// $cadenaSql .= 'nombre as NOMBRE ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'nomina.persona.persona_natural ';
+				$cadenaSql .= 'persona.persona_natural ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'documento = ' . $variable . ';';
 				break;
@@ -87,7 +87,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'primer_apellido as APELLIDO1 ';
 				// $cadenaSql .= 'nombre as NOMBRE ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'nomina.persona.persona_natural ';
+				$cadenaSql .= 'persona.persona_natural ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'documento = ' . $variable . ';';
 				break;
@@ -749,9 +749,9 @@ class Sql extends \Sql {
 				$cadenaSql .= 'segundo_apellido as APELLIDO_2, ';
 				$cadenaSql .= 'estado_solicitud as ESTADO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'nomina.persona.persona_natural pNatural ';
+				$cadenaSql .= 'persona.persona_natural pNatural ';
 				$cadenaSql .= 'LEFT JOIN ';
-				$cadenaSql .= 'nomina.novedad.funcionario pFuncionario ';
+				$cadenaSql .= 'novedad.funcionario pFuncionario ';
 				$cadenaSql .= 'ON ';
 				$cadenaSql .= 'pNatural.documento = pFuncionario.documento ';
 				$cadenaSql .= 'WHERE ';
@@ -768,9 +768,9 @@ class Sql extends \Sql {
 				$cadenaSql .= 'segundo_apellido as APELLIDO_2, ';
 				$cadenaSql .= 'estado_solicitud as ESTADO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'nomina.persona.persona_natural pNatural ';
+				$cadenaSql .= 'persona.persona_natural pNatural ';
 				$cadenaSql .= 'INNER JOIN ';
-				$cadenaSql .= 'nomina.novedad.funcionario pFuncionario ';
+				$cadenaSql .= 'novedad.funcionario pFuncionario ';
 				$cadenaSql .= 'ON ';
 				$cadenaSql .= 'pNatural.documento = pFuncionario.documento; ';
 				break;
@@ -791,7 +791,7 @@ class Sql extends \Sql {
 				// $cadenaSql .= 'nivel as NIVEL,';
 				// $cadenaSql .= 'parametro as PARAMETRO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= "nomina." . $prefijo . 'usuarios ';
+				$cadenaSql .= "" . $prefijo . 'usuarios ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'fecha_reg <=\'' . $_REQUEST ['funcionarioFechaExpDoc'] . '\' ';
 				break;

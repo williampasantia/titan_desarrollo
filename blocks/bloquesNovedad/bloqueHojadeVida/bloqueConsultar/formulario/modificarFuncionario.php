@@ -810,7 +810,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoPersonal[0][0];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 10;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -829,7 +829,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = '';
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -838,20 +838,15 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = 'required';
 					 
-					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "consultarPais", $matrizUbicacionInfoPer[0][0] );
+					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
 					$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
-						
-					 
-					/*
-					 $matrizItems=array(
-					 array(1,'Argentina'),
-					 array(2,'Peru'),
-					 array(3,'Chile'),
-					 array(4,'Colombia')
-					  
-					 );*/
 					 
 					$atributos['matrizItems'] = $matrizItems;
+					
+					$cadenaSqlPais = $this->miSql->getCadenaSql ( "consultarPais", $matrizUbicacionInfoPer[0][0] );
+					$matrizSeleccion = $primerRecursoDB->ejecutarAcceso ( $cadenaSqlPais, "busqueda" );
+						
+					
 					 
 					if (isset ( $_REQUEST [$esteCampo] )) {
 						$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -976,7 +971,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = '';
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1021,7 +1016,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = '';
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1107,7 +1102,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = '';
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1157,7 +1152,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = '';
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1356,7 +1351,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = '';
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1407,7 +1402,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = $matrizInfoPersonal[0][12];
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1442,7 +1437,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = $matrizInfoPersonal[0][13];
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1477,7 +1472,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = $matrizInfoPersonal[0][14];
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -5009,7 +5004,7 @@ class Formulario {
 		// Paso 1: crear el listado de variables
 
 		$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
-		//$valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
+		$valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
 		$valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
 		$valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
 		$valorCodificado .= "&opcion=modificar"; //Opcion para Switch Case ------
@@ -5087,7 +5082,4 @@ $miFormulario = new Formulario ( $this->lenguaje, $this->miFormulario, $this->sq
 $miFormulario->formulario ();
 $miFormulario->mensaje ();
 
-
-
-//var_dump("Redireccionado A MODIFICAR");
-//;exit;
+?>
