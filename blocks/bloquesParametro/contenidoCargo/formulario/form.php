@@ -154,18 +154,7 @@ class Formulario {
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
                  . '<thead style="display: table-row-group"><tr><th>'."COD CARGO".'</th><th>'."NIVEL".'</th> <th>'."COD ALTERNATIVO".'</th> <th>'."GRADO".'</th> <th>'."NOMBRE".'</th><th>'."COD TIPO".'</th><th>'."ESTADO".'</th><th>'."GESTION".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
-            <tr>
-                <th>cod cargo</th>
-                <th>nivel</th>
-                <th>cod alternativo</th>
-                <th>grado</th>
-                <th>nombre</th>
-                <th>cod tipo</th>
-                <th>estado</th>
-                <th>gestion</th>
-            </tr>
-        </tfoot>  
+ 
                     <tbody>'; 
         if(!empty($matrizItems)){
         while($i<$longitud){

@@ -38,6 +38,7 @@ $this->idioma["codTipoCargoRegistroTitulo"]="Código tipo cargo";
 $this->idioma["sueldoRegistro"]="Sueldo  :";
 $this->idioma["sueldoRegistroTitulo"]="Sueldo";
 $this->idioma["tipoSueldoRegistro"]="Tipo sueldo  :";
+$this->idioma["tipoSueldoRegistroMod"]="Tipo sueldo  :";
 $this->idioma["estadoRegistro"]="Estado  :";
 
 

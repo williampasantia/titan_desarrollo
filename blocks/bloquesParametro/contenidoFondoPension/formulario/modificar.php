@@ -201,7 +201,7 @@ class Formulario {
         $esteCampo = 'telefonoRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -234,7 +234,7 @@ class Formulario {
        $esteCampo = 'extTelefonoRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -269,7 +269,7 @@ class Formulario {
          $esteCampo = 'faxRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -302,7 +302,7 @@ class Formulario {
          $esteCampo = 'extFaxRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -381,9 +381,9 @@ class Formulario {
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
 	        
-	        $atributos ['obligatorio'] = true;
-	        $atributos ['etiquetaObligatorio'] = true;
-	        $atributos ['validar'] = 'required';
+	        $atributos ['obligatorio'] = false;
+	        $atributos ['etiquetaObligatorio'] = false;
+	        $atributos ['validar'] = '';
 	        
 	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
 	        $matrizCiudad= $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
@@ -449,7 +449,7 @@ class Formulario {
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required, minSize[6],maxSize[30]';
+        $atributos ['validar'] = 'required, minSize[6],maxSize[30], custom[email]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];

@@ -309,8 +309,12 @@ class Formulario {
                    
                         
                         echo $this->miFormulario->division("fin"); 
+         $datosMatriz = array(
+            
+            'id' => $matrizItems[$_REQUEST['variable']][0]
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarNomina",$matrizItems[$_REQUEST['variable']][0]);
+        );
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarNomina",$datosMatriz);
         $matriz=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         
          $longitud = count($matriz);
@@ -319,16 +323,7 @@ class Formulario {
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
                  . '<thead style="display: table-row-group"><tr><th>'."CODIGO_NOMINA".'</th><th>'."NOMBRE".'</th> <th>'."DESCRIPCION".'</th> <th>'."ESTADO".'</th> <th>'."PERIODO".'</th><th>'."GESTION".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
-            <tr>
-                <th>codigo nomina</th>
-                <th>nombre</th>
-                <th>descripcion</th>
-                <th>estado</th>
-                <th>periodo</th>
-                <th>gestion</th>
-            </tr>
-        </tfoot>  
+                      
                     <tbody>'; 
         if(!empty($matriz)){
             

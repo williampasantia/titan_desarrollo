@@ -118,16 +118,7 @@ class Formulario {
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
                  . '<thead style="display: table-row-group"><tr><th>'."ID".'</th><th>'."NOMBRE".'</th> <th>'."DESCRIPCION".'</th> <th>'."NATURALEZA".'</th> <th>'."REGLAMENTACION".'</th><th>'."GESTION".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
-            <tr>
-                <th>id</th>
-                <th>nombre</th>
-                <th>descripcion</th>
-                <th>naturaleza</th>
-                <th>reglamentacion</th>
-                <th>gestion</th>
-            </tr>
-        </tfoot>  
+                       
                     <tbody>'; 
         if(!empty($matrizItems)){
             

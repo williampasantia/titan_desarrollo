@@ -18,7 +18,7 @@ $estilo[$indice++]="bootstrap-theme.css";
 $estilo[$indice++]="bootstrap-theme.min.css";
 $estilo[$indice++]="bootstrap.css";
 $estilo[$indice++]="bootstrap.min.css";
-
+$estilo[$indice++]="select2.css";
 
 $rutaBloque=$this->miConfigurador->getVariableConfiguracion("host");
 $rutaBloque.=$this->miConfigurador->getVariableConfiguracion("site");
