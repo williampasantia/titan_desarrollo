@@ -16,32 +16,32 @@ $this->idioma["modificar"]="Modificar ";
 
 //REGISTRO
 $this->idioma["nit"]="Nit: " ;
-$this->idioma["nitTitulo"]="Nit " ;
+$this->idioma["nitTitulo"]="" ;
 $this->idioma["nombre"]="Nombre: ";
 
-$this->idioma["nombreTitulo"]="Nombre ";
+$this->idioma["nombreTitulo"]="";
 $this->idioma["direccion"]="Direccion: ";
-$this->idioma["direccionTitulo"]="Direccion: ";
+$this->idioma["direccionTitulo"]="";
 $this->idioma["telefono"]="Telefono: ";
-$this->idioma["telefonoTitulo"]="Telefono ";
+$this->idioma["telefonoTitulo"]="";
 $this->idioma["extencionTelefono"]="Extencion tel:";
-$this->idioma["extencionTelefonoTitulo"]="Extencion tel:";
+$this->idioma["extencionTelefonoTitulo"]="";
 $this->idioma["fax"]="Fax: ";
 $this->idioma["lugar"]="Ubicacion: ";
-$this->idioma["faxTitulo"]="Fax ";
+$this->idioma["faxTitulo"]="";
 $this->idioma["extencionFax"]="Extencion fax:";
-$this->idioma["extencionFaxTitulo"]="Extencion fax";
+$this->idioma["extencionFaxTitulo"]="";
 $this->idioma["nombreRegistro"]="Nombre cargo :";
 
-$this->idioma["nombreRepresentante"]="Representante legal: ";
-$this->idioma["nombreRepresentanteTitulo"]="Representante legal ";
+$this->idioma["nombreRepresentante"]="Repr. legal: ";
+$this->idioma["nombreRepresentanteTitulo"]="";
 $this->idioma["email"]="Email: ";
-$this->idioma["emailTitulo"]="Email";
+$this->idioma["emailTitulo"]="";
 $this->idioma["estado"]="Estado: ";
 $this->idioma["lugarRegistro"]="Ciudad  :";
 $this->idioma["lugarRegistroTitulo"]="Ciudad";
 $this->idioma["lugarRegistroDepto"]="Departamento  :";
-$this->idioma["lugarRegistroDeptoTitulo"]="Departamento";
+$this->idioma["lugarRegistroDeptoTitulo"]="";
 $this->idioma["fdpCiudad"]="Ciudad  :";
 $this->idioma["fdpDepartamento"]="Departamento  :";
 
