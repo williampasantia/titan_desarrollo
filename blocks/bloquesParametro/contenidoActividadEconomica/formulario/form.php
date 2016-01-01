@@ -152,8 +152,8 @@ class Formulario {
         
             
         
-        echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."CODIGO".'</th><th>'."NOMBRE".'</th> <th>'."ESTADO".'</th> <th>'."VER DETALLE".'</th> <th>'."MODIFICAR".'</th> <th>'."ACTIVAR".'</th></tr></thead>
+        echo '<table id="tablaReporteAE" class="display" cellspacing="0" width="100%"> '
+                 . '<thead><tr><th>'."CODIGO".'</th><th>'."NOMBRE".'</th> <th>'."ESTADO".'</th> <th>'."VER DETALLE".'</th> <th>'."MODIFICAR".'</th> <th>'."ACTIVAR".'</th></tr></thead>
  
                     <tbody>'; 
         if(!empty($matrizItems)){

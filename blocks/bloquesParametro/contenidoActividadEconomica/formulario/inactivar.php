@@ -96,18 +96,18 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Modificar Cargo";
+	$atributos ["leyenda"] = "Inactivar Actividad Económica";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
        
         
         
         
-       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexCargo");
+       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexAE");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
         
-        if($matrizItems[$_REQUEST['variable']][8]=='Inactivo'){
+        if($matrizItems[$_REQUEST['variable']][2]=='Inactivo'){
             $opcion='Activo';
         }
         else{
@@ -118,7 +118,7 @@ class Formulario {
        
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         
-        $esteCampo = 'codigoRegistro';
+        $esteCampo = 'codigo';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -151,7 +151,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][8];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][2];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;

@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesParametro\contenidoActividadEconomica\funcion;
 
 
 include_once('Redireccionador.php');
@@ -40,7 +40,7 @@ class FormProcessor {
         
             
             $datos = array(
-            'codigoRegistro' => $_REQUEST ['codigoRegistro'],
+            'codigo' => $_REQUEST ['codigo'],
             'estadoRegistro' => $opcion       
         );
 //       
