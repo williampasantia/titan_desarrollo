@@ -978,6 +978,85 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_datos_identificacion =  ' . $variable ['id_datos_expedicion'] . ';';
 				break;
 				
+			case 'modificarUbicacionNacimiento' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisNacimiento'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoNacimiento'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadNacimiento'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion =  ' . $variable ['id_ubicacion_naci'] . ';';
+				break;
+				
+			case 'modificarInformacionPersonalBasica' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.informacion_personal_basica ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'fecha_nacimiento = ';
+				$cadenaSql .= '\'' . $variable ['fechaNacimiento'] . '\', ';
+				$cadenaSql .= 'genero = ';
+				$cadenaSql .= '\'' . $_REQUEST ['funcionarioGenero'] . '\', ';
+				$cadenaSql .= 'estado_civil = ';
+				$cadenaSql .= '\'' . $_REQUEST ['funcionarioEstadoCivil'] . '\', ';
+				$cadenaSql .= 'edad = ';
+				$cadenaSql .= $variable ['edadNacimiento'] . ', ';
+				$cadenaSql .= 'tipo_sangre = ';
+				if ($_REQUEST ['funcionarioTipoSangre'] != 'NULL') {
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioTipoSangre'] . '\', ';
+				} else {
+					$cadenaSql .= $_REQUEST ['funcionarioTipoSangre'] . ', ';
+				}
+				$cadenaSql .= 'rh_sangre = ';
+				if ($_REQUEST ['funcionarioSangreRH'] != 'NULL') {
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioSangreRH'] . '\', ';
+				} else {
+					$cadenaSql .= $_REQUEST ['funcionarioSangreRH'] . ', ';
+				}
+				$cadenaSql .= 'tipo_libreta_militar = ';
+				if ($_REQUEST ['funcionarioTipoLibreta'] != 'NULL') {
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioTipoLibreta'] . '\', ';
+				} else {
+					$cadenaSql .= $_REQUEST ['funcionarioTipoLibreta'] . ', ';
+				}
+				$cadenaSql .= 'numero_libreta = ';
+				if ($variable ['numeroLibreta'] > 0) {
+					$cadenaSql .= $variable ['numeroLibreta'] . ', ';
+				} else {
+					$cadenaSql .= 'NULL, ';
+				}
+				$cadenaSql .= 'numero_distrito_militar = ';
+				if ($variable ['numeroDistritoLibreta'] > 0) {
+					$cadenaSql .= $variable ['numeroDistritoLibreta'] . ', ';
+				} else {
+					$cadenaSql .= 'NULL, ';
+				}
+				$cadenaSql .= 'soporte_libreta = ';
+				if ($variable ['soporteLibreta'] != NULL) {
+					$cadenaSql .= '\'' . $variable ['soporteLibreta'] . '\', ';
+				} else {
+					$cadenaSql .= '\'\', ';
+				}
+				$cadenaSql .= 'grupo_etnico = ';
+				if ($_REQUEST ['funcionarioGrupoEtnico'] != 'NULL') {
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioGrupoEtnico'] . '\', ';
+				} else {
+					$cadenaSql .= $_REQUEST ['funcionarioGrupoEtnico'] . ', ';
+				}
+				$cadenaSql .= 'comunidad_lgbt = ';
+				$cadenaSql .= $_REQUEST ['funcionarioGrupoLGBT'] . ', ';
+				$cadenaSql .= 'cabeza_familia = ';
+				$cadenaSql .= $_REQUEST ['funcionarioCabezaFamilia'] . ', ';
+				$cadenaSql .= 'personas_a_cargo = ';
+				$cadenaSql .= $_REQUEST ['funcionarioPersonasCargo'] . ', ';
+				$cadenaSql .= 'soporte_caracterizacion = ';
+				$cadenaSql .= '\'' . $variable ['soporteCaracterizacion'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_informacion_personal_basica = ' . $variable ['id_info_personal'] . ';';
+				break;
 				
 				
 				

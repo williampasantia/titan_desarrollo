@@ -119,7 +119,7 @@ class Formulario {
 		$cadenaSql4 = $this->miSql->getCadenaSql("consultarInformacionPersonalBasica", $matrizFuncionario[0][2]);
 		$matrizInfoPersonal = $primerRecursoDB->ejecutarAcceso($cadenaSql4, "busqueda");
 		
-		//var_dump($matrizInfoPersonal[0][1]);
+		var_dump($matrizInfoPersonal);
 		
 		$cadenaSql5 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizInfoPersonal[0][1]);
 		$matrizUbicacionInfoPer = $primerRecursoDB->ejecutarAcceso($cadenaSql5, "busqueda");
@@ -1105,7 +1105,7 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
 					$atributos['deshabilitado'] = true;
 					$atributos['limitar']= 50;
@@ -1155,7 +1155,7 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
 					$atributos['deshabilitado'] = true;
 					$atributos['limitar']= 50;
@@ -1199,7 +1199,7 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
 					$atributos['deshabilitado'] = true;
 					$atributos['limitar']= 50;
@@ -1354,7 +1354,7 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
 					$atributos['deshabilitado'] = true;
 					$atributos['limitar']= 50;
@@ -1405,7 +1405,7 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = $matrizInfoPersonal[0][12];
+					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
 					$atributos['deshabilitado'] = true;
 					$atributos['limitar']= 50;
@@ -1415,6 +1415,15 @@ class Formulario {
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = ' ';
+					
+					if(isset($matrizInfoPersonal[0][12])){
+							
+						if($matrizInfoPersonal[0][12] == 't'){
+							$atributos['seleccion'] = 1;
+						}else if($matrizInfoPersonal[0][12] == 'f'){
+							$atributos['seleccion'] = 2;
+						}
+					}
 					
 					$matrizItems=array(
 							array(1,'Si'),
@@ -1440,7 +1449,7 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = $matrizInfoPersonal[0][13];
+					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
 					$atributos['deshabilitado'] = true;
 					$atributos['limitar']= 50;
@@ -1451,6 +1460,15 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = ' ';
 					 
+					if(isset($matrizInfoPersonal[0][13])){
+							
+						if($matrizInfoPersonal[0][13] == 't'){
+							$atributos['seleccion'] = 1;
+						}else if($matrizInfoPersonal[0][13] == 'f'){
+							$atributos['seleccion'] = 2;
+						}
+					}
+					
 					$matrizItems=array(
 							array(1,'Si'),
 							array(2,'No')
@@ -1475,7 +1493,7 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = $matrizInfoPersonal[0][14];
+					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
 					$atributos['deshabilitado'] = true;
 					$atributos['limitar']= 50;
@@ -1485,6 +1503,15 @@ class Formulario {
 					$atributos ['obligatorio'] = true;
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = '';
+					
+					if(isset($matrizInfoPersonal[0][14])){
+							
+						if($matrizInfoPersonal[0][14] == 't'){
+							$atributos['seleccion'] = 1;
+						}else if($matrizInfoPersonal[0][14] == 'f'){
+							$atributos['seleccion'] = 2;
+						}
+					}
 					 
 					$matrizItems=array(
 							array(1,'Si'),
@@ -1820,7 +1847,7 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
 					$atributos['deshabilitado'] = true;
 					$atributos['limitar']= 50;
@@ -2904,7 +2931,7 @@ class Formulario {
 							$atributos['id'] = $esteCampo;
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 							$atributos['tab'] = $tab;
-							$atributos['seleccion'] = $matrizSuperior[$i][3];
+							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
 							$atributos['deshabilitado'] = true;
 							$atributos['limitar']= 50;
@@ -2914,7 +2941,16 @@ class Formulario {
 							$atributos ['obligatorio'] = true;
 							$atributos ['etiquetaObligatorio'] = true;
 							$atributos ['validar'] = '';
-							 
+							
+							if(isset($matrizSuperior[$i][3])){
+									
+								if($matrizSuperior[$i][3] == 't'){
+									$atributos['seleccion'] = 1;
+								}else if($matrizSuperior[$i][3] == 'f'){
+									$atributos['seleccion'] = 2;
+								}
+							}
+							
 							$matrizItems=array(
 									array(1,'Si'),
 									array(2,'No')
@@ -4743,7 +4779,7 @@ class Formulario {
 							$atributos['id'] = $esteCampo;
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 							$atributos['tab'] = $tab;
-							$atributos['seleccion'] = '';
+							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
 							$atributos['deshabilitado'] = true;
 							$atributos['limitar']= 50;
