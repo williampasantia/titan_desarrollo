@@ -67,18 +67,14 @@ class Sql extends \Sql {
             
           
                 
-             case 'buscarRegistroxCargo' :
+             case 'buscarRegistroxAE' :
                 
                 	$cadenaSql = 'SELECT ';
-                        $cadenaSql .= 'codigo_cargo as COD_CARGO, ';
-                        $cadenaSql .= 'nivel as NIVEL, ';
-                        $cadenaSql .= 'codigo_alternativo as COD_ALTERNATIVO,';
-                        $cadenaSql .= 'grado as GRADO,';
+                        $cadenaSql .= 'codigo as CODIGO, ';
                         $cadenaSql .= 'nombre as NOMBRE,';
-                        $cadenaSql .= 'cod_tipo_cargo as COD_TIPO, ';
                         $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
-                        $cadenaSql .= 'parametro.cargo';
+                        $cadenaSql .= 'parametro.actividad_economica';
 //                        $cadenaSql .= 'WHERE ';
 //                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
 //                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
