@@ -39,26 +39,16 @@ class Sql extends \Sql {
              */
             case 'insertarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'parametro.cargo ';
+                $cadenaSql .= 'parametro.actividad_economica ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= 'nivel,';
-                $cadenaSql .= 'codigo_alternativo,';
-                $cadenaSql .= 'grado,';
+                $cadenaSql .= 'codigo,';
                 $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'cod_tipo_cargo,';
-                $cadenaSql .= 'sueldo,';
-                $cadenaSql .= 'tipo_sueldo,';
                 $cadenaSql .= 'estado';
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= $variable ['nivelRegistro'] . ', ';
-                $cadenaSql .= $variable ['codAlternativoRegistro'] . ', ';
-                $cadenaSql .= $variable ['gradoRegistro'] . ', ';
+                $cadenaSql .= $variable ['codigo'] . ', ';
                 $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
-                $cadenaSql .= '\'' . $variable ['codTipoCargoRegistro'] . '\', ';
-                $cadenaSql .= $variable ['sueldoRegistro'] . ', ';
-                $cadenaSql .= '\'' . $variable['tipoSueldoRegistro'] . '\', ';
                 $cadenaSql .= '\'' . $variable['estadoRegistro'] . '\' ';
                 $cadenaSql .= ') ';
                 break;
