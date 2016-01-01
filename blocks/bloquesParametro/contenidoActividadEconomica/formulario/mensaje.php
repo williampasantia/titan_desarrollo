@@ -113,7 +113,7 @@ class registrarForm {
 					$mensaje = "Registro Actividad Económica Satisfactorio <br> Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
 					"<br>Estado: <h4>" . $_REQUEST ['estadoRegistro'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Nuevo Actividad Económica insertada!";
+					$mensaje .= "<br> Nueva Actividad Económica insertada!";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
@@ -133,10 +133,10 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Modificacion Cargo Satisfactorio <br> Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
-					"<br>Codigo Registro: <h4>" . $_REQUEST ['codigoRegistro'] . "</h4>".
+					$mensaje = "Modificacion Actividad Económica Satisfactoria <br> Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
+					"<br>Codigo : <h4>" . $_REQUEST ['codigoRegistro'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Modificado Cargo!";
+					$mensaje .= "<br> Actividad Economica Modificada!";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;

@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesParametro\contenidoActividadEconomica\funcion;
 
 
 include_once('Redireccionador.php');
@@ -29,35 +29,16 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
-        if(isset($_REQUEST['codTipoCargoRegistro'])){
-                    
-                }
-                
-                if(isset($_REQUEST['tipoSueldoRegistro'])){
-                    switch($_REQUEST ['tipoSueldoRegistro']){
-                           case 1 :
-					$_REQUEST ['tipoSueldoRegistro']='M';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['tipoSueldoRegistro']='H';
-			   break;
-                    }
-                }
-                
-                
+        
+         
         
         $datos = array(
-            'codigoRegistro' => $_REQUEST ['codigoRegistro'],
-            'nivelRegistro' => $_REQUEST ['nivelRegistro'],
-            'gradoRegistro' => $_REQUEST ['gradoRegistro'],
+            'codigo' => $_REQUEST ['codigo'],
             'nombreRegistro' => $_REQUEST ['nombreRegistro'],
-            'sueldoRegistro' => $_REQUEST ['sueldoRegistro'],
-            'tipoSueldoRegistro' => $_REQUEST ['tipoSueldoRegistro']
+            'estadoRegistro' => $_REQUEST ['estadoRegistro']
         );
 //       
-        
-                
+             
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página

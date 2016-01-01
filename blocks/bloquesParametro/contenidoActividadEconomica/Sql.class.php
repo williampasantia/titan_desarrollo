@@ -71,57 +71,38 @@ class Sql extends \Sql {
                         
                 break;
                 	
-                case 'buscarModificarxCargo' :
+                case 'buscarModificarxAE' :
                 
                 	$cadenaSql = 'SELECT ';
-                        $cadenaSql .= 'codigo_cargo as COD_CARGO, ';
-                        $cadenaSql .= 'nivel as NIVEL, ';
-                        $cadenaSql .= 'codigo_alternativo as COD_ALTERNATIVO,';
-                        $cadenaSql .= 'grado as GRADO,';
+                        $cadenaSql .= 'codigo as CODIGO, ';
                         $cadenaSql .= 'nombre as NOMBRE,';
-                        $cadenaSql .= 'cod_tipo_cargo as COD_TIPO, ';
-                        $cadenaSql .= 'sueldo as SUELDO, ';
-                        $cadenaSql .= 'tipo_sueldo as TIPO_SUELDO ';
+                        $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
-                        $cadenaSql .= 'parametro.cargo';
+                        $cadenaSql .= 'parametro.actividad_economica';
                         
                 break;
             
             
-            case 'buscarVerdetallexCargo' :
+            case 'buscarVerdetallexAE' :
                 
                 	$cadenaSql = 'SELECT ';
-                        $cadenaSql .= 'codigo_cargo as COD_CARGO, ';
-                        $cadenaSql .= 'nivel as NIVEL, ';
-                        $cadenaSql .= 'codigo_alternativo as COD_ALTERNATIVO,';
-                        $cadenaSql .= 'grado as GRADO,';
-                        $cadenaSql .= 'nombre as NOMBRE,';
-                        $cadenaSql .= 'cod_tipo_cargo as COD_TIPO, ';
-                        $cadenaSql .= 'sueldo as SUELDO, ';
-                        $cadenaSql .= 'tipo_sueldo as TIPO_SUELDO, ';
+                        $cadenaSql .= 'codigo as CODIGO, ';
+                        $cadenaSql .= 'nombre as NOMBRE, ';
                         $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
-                        $cadenaSql .= 'parametro.cargo';
+                        $cadenaSql .= 'parametro.actividad_economica';
                         
                 break;
 
             case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.cargo ';
+                $cadenaSql .= 'parametro.actividad_economica ';
                 $cadenaSql .= 'SET ';
-                $cadenaSql .= 'nivel = ';
-                $cadenaSql .= $variable ['nivelRegistro'] . ', ';
-                $cadenaSql .= 'grado = ';
-                $cadenaSql .= $variable ['gradoRegistro'] . ', ';
                 $cadenaSql .= 'nombre = ';
-                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
-                $cadenaSql .= 'sueldo = ';
-                $cadenaSql .= $variable ['sueldoRegistro'] . ', ';
-                $cadenaSql .= 'tipo_sueldo = ';
-                $cadenaSql .= '\'' . $variable['tipoSueldoRegistro'] . '\' ';
+                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\' ';
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'codigo_cargo = ';
-                $cadenaSql .= '\'' . $variable ['codigoRegistro']  . '\'';
+                $cadenaSql .= 'codigo = ';
+                $cadenaSql .= '\'' . $variable ['codigo']  . '\'';
                 break;
                 
              case 'inactivarRegistro' :

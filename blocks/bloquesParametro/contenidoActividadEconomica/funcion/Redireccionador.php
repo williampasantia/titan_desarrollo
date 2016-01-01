@@ -45,7 +45,7 @@ class Redireccionador {
                                 $variable .= "&mensaje=modifico";
 				$variable .= "&opcion=mensaje";
                                 $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
-                                $variable .= "&codigoRegistro=" . $valor ['codigoRegistro'];
+                                $variable .= "&codigoRegistro=" . $valor ['codigo'];
                                  
 				break;     
                         case "inactivar" :
