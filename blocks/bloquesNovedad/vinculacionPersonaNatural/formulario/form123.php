@@ -135,24 +135,19 @@ class Formulario {
                         echo $this->miFormulario->division("fin"); 
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarPersona");
-      
-     
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarPersonaVinculada");
+        
+     echo $atributos ['cadena_sql'];
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-     
+        var_dump($matrizItems);
+        exit;
        $longitud = count($matrizItems);
         $i=0;
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."NOMBRES".'</th> <th>'."APELLIDOS".'</th> <th>'."TIPO VINCULACION".'</th><th>'."ESTADO".'</th><th>'."OPCIONES POR REGISTRO".'</th></tr></thead>
+                 . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."NOMBRES".'</th>  <th>'."APELLIDOS".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."INACTIVAR".'</th><th>'."VINCULAR".'</th></tr></thead>
                        <tfoot  style="display: table-header-group">
-            <tr>
-                <th>DOCUMENTO</th>
-                <th>NOMBRE</th>
-                <th>APELLIDO</th>
-             
-              
-            </tr>
+            
         </tfoot>  
                     <tbody>'; 
         
@@ -161,8 +156,8 @@ class Formulario {
                     echo "<tr><td>".$matrizItems[$i][0]."</td>";
                     echo "<td>".$matrizItems[$i][1]."</td>";
                     echo "<td>".$matrizItems[$i][2]."</td>";
-                  echo "<td>".$matrizItems[$i][3]."</td>";
-                   echo "<td>".$matrizItems[$i][4]."</td>";
+                    
+                    
                     
                    
                       $esteCampo = 'botonVerDetalle'.$i;
@@ -185,9 +180,28 @@ class Formulario {
                        
                                
                         
-                     echo "<td>".$this->miFormulario->campoBoton ( $atributos );
+                     echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td>";
                        
-                        $esteCampo = 'botonModificar'.$i;
+                        $esteCampo = 'botonInactivar'.$i;
+                        $baseCampo = 'botonInactivar';
+                        $atributos ["id"] = $esteCampo;
+                        $atributos ["tabIndex"] = $tab;
+                        $atributos ["tipo"] = 'boton';
+                        // submit: no se coloca si se desea un tipo button genérico
+                        $atributos ['submit'] = true;
+                        $atributos ["estiloMarco"] = '';
+                        $atributos ["estiloBoton"] = 'jqueryui';
+                        // verificar: true para verificar el formulario antes de pasarlo al servidor.
+                        $atributos ["verificar"] = '';
+                        $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
+                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
+                        $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
+                        $tab ++;
+                        // Aplica atributos globales al control
+                        $atributos = array_merge ( $atributos, $atributosGlobales );
+                     echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td>";
+                     
+                      $esteCampo = 'botonModificar'.$i;
                         $baseCampo = 'botonModificar';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
@@ -204,7 +218,8 @@ class Formulario {
                         $tab ++;
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
-                     echo $this->miFormulario->campoBoton ( $atributos );
+                     echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td>";
+                     
                      
                         $esteCampo = 'botonInactivar'.$i;
                         if($matrizItems[$i][2]=='Activo'){
@@ -229,7 +244,8 @@ class Formulario {
                         $tab ++;
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales ); 
-                       echo $this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
+                        
+                       echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
                      
                      
                         
@@ -275,7 +291,7 @@ class Formulario {
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
         $valorCodificado .= "&tamaño=".$longitud;
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
-        $valorCodificado .= "&opcion=form2";
+        $valorCodificado .= "&opcion=registrar";
         /**
          * SARA permite que los nombres de los campos sean dinámicos.
          * Para ello utiliza la hora en que es creado el formulario para

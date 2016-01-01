@@ -52,14 +52,38 @@ class Sql extends \Sql {
             
             case 'buscarPersona':
                 $cadenaSql = 'SELECT ';
-                $cadenaSql .= 'documento as DOCUMENTO, ';
-                $cadenaSql .= 'primer_nombre as NOMBRE, ';
-                $cadenaSql .= 'primer_apellido as APELLIDO, ';
-                $cadenaSql .= 'autorretenedor as AUTORRETENEDOR, ';
-                $cadenaSql .= 'regimen_tributario as REGIMEN ';
-               
+                $cadenaSql .= 'p.documento as DOCUMENTO, ';
+                $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
+                $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS, ";
+                $cadenaSql .= 'naturaleza as TIPO_VINCULACION, ';
+                $cadenaSql .= 'estado_vinculacion as ESTADO_VINCULACION ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'persona.persona_natural';
+                $cadenaSql .= 'persona.persona_natural p, ';
+                $cadenaSql .= 'parametro.tipo_vinculacion j, ';
+                $cadenaSql .= 'persona.vinculacion_persona_natural d ';
+                $cadenaSql .= 'where d.documento = p.documento';
+                $cadenaSql .= ' and d.id_tipo_vinculacion = j.id';
+                break;
+            
+            case 'buscarPersonaFuncionario':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'p.documento as DOCUMENTO, ';
+                $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
+                $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS ";
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'novedad.funcionario p, ';
+                $cadenaSql .= 'persona.persona_natural d ';
+                $cadenaSql .= 'where d.documento = p.documento';
+                
+                break;
+             case 'buscarPersonaVinculada':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'documento as DOCUMENTO, ';
+                $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
+                $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS ";
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'persona.persona_natural ';
+                $cadenaSql .= "where estado_solicitud='Aprobado'";
                 break;
          case 'buscarArl1':
                 $cadenaSql = 'SELECT ';
@@ -77,7 +101,17 @@ class Sql extends \Sql {
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'nomina.arl';
                 break;
-            
+           case 'buscarTipoVinculacion':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'id as ID, ';
+                $cadenaSql .= 'nombre as NOMBRE, ';
+                $cadenaSql .= 'descripcion as DESCRIPCION, ';
+                $cadenaSql .= 'naturaleza as NATURALEZA, ';
+                $cadenaSql .= 'reglamentacion as REGLAMENTACION ,';
+                $cadenaSql .= 'estado as ESTADO ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.tipo_vinculacion';
+                break; 
              case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
                 $cadenaSql .= 'nomina.arl ';

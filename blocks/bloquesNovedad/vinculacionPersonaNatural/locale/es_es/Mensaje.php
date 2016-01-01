@@ -7,6 +7,7 @@ $this->idioma["botonGuardar"]="Aceptar";
 $this->idioma["botonModificar"]="Modificar";
 $this->idioma["botonInactivar"]="Inactivar";
 $this->idioma["botonActivar"]="Activar";
+$this->idioma["botonVincular"]="Vincular";
 $this->idioma["botonVerDetalle"]="Ver detalle";
 $this->idioma["enviarInactivar"]="Aceptar";
 $this->idioma["cancelarInactivar"]="cancelar";

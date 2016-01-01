@@ -59,6 +59,13 @@ class Redireccionador {
 				$variable .= "&opcion=inactivar";
                                 $variable .= '&variable=' . $valor;
                             break;    
+                        
+                         case "vincular" :
+                                
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=vincular";
+                                $variable .= '&variable=' . $valor;
+                            break; 
 			
 		}
 		foreach ( $_REQUEST as $clave => $valor ) {
