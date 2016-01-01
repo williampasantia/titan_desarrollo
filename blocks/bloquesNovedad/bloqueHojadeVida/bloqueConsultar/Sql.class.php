@@ -1058,7 +1058,63 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_informacion_personal_basica = ' . $variable ['id_info_personal'] . ';';
 				break;
 				
+			case 'modificarUbicacionContacto' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisContacto'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoContacto'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadContacto'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion =  ' . $variable ['id_ubicacion_contac'] . ';';
+				break;
 				
+			case 'modificarDatosResidenciaCont' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.informacion_residencia_contacto ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'nacionalidad = ';
+				$cadenaSql .= '\'' . $variable ['nacionalidad'] . '\', ';
+				$cadenaSql .= 'localidad = ';
+				$cadenaSql .= '\'' . $variable ['localidadContacto'] . '\', ';
+				$cadenaSql .= 'barrio = ';
+				$cadenaSql .= '\'' . $variable ['barrioContacto'] . '\', ';
+				$cadenaSql .= 'direccion_residencia = ';
+				$cadenaSql .= '\'' . $variable ['direccionContacto'] . '\', ';
+				$cadenaSql .= 'estrato = ';
+				if ($_REQUEST ['funcionarioContactoEstrato'] != 'NULL') {
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioContactoEstrato'] . '\', ';
+				} else {
+					$cadenaSql .= $_REQUEST ['funcionarioContactoEstrato'] . ', ';
+				}
+				$cadenaSql .= 'soporte_estrato = ';
+				$cadenaSql .= '\'' . $variable ['soporteEstrato'] . '\', ';
+				$cadenaSql .= 'soporte_residencia = ';
+				$cadenaSql .= '\'' . $variable ['soporteResidencia'] . '\', ';
+				$cadenaSql .= 'telefono_fijo = ';
+				$cadenaSql .= $variable ['telefonoFijoContacto'] . ', ';
+				$cadenaSql .= 'telefono_movil = ';
+				$cadenaSql .= $variable ['telefonoMovilContacto'] . ', ';
+				$cadenaSql .= 'correo_personal = ';
+				$cadenaSql .= '\'' . $variable ['emailContacto'] . '\', ';
+				$cadenaSql .= 'telefono_oficina = ';
+				if ($variable ['telefonoFijoOficina'] > 0) {
+					$cadenaSql .= $variable ['telefonoFijoOficina'] . ', ';
+				} else {
+					$cadenaSql .= 'NULL, ';
+				}
+				$cadenaSql .= 'correo_oficina = ';
+				$cadenaSql .= '\'' . $variable ['emailOficina'] . '\', ';
+				$cadenaSql .= 'direccion_oficina = ';
+				$cadenaSql .= '\'' . $variable ['direccionOficina'] . '\', ';
+				$cadenaSql .= 'cargo = ';
+				$cadenaSql .= '\'' . $variable ['cargoOficina'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_datos_residencia = ' . $variable ['id_info_contacto'] . ';';
+				break;
 				
 				
 				

@@ -501,9 +501,13 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = 1;
+					
+					$cadenaSqlM1 = $this->miSql->getCadenaSql ( "consultarDepartamento",  $matrizUbicacion[0][1] );
+					$matrizM1 = $primerRecursoDB->ejecutarAcceso ( $cadenaSqlM1, "busqueda" );
+					
+					$atributos['seleccion'] = $matrizM1[0][0];				
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -512,7 +516,7 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = 'required';
 					 
-					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "consultarDepartamento", $matrizUbicacion[0][1] );
+					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamentoAjax", $matrizUbicacion[0][0] );
 					$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 					 
 					$atributos['matrizItems'] = $matrizItems;
@@ -536,9 +540,13 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = 1;
+					
+					$cadenaSqlM1 = $this->miSql->getCadenaSql ( "consultarCiudad",  $matrizUbicacion[0][2] );
+					$matrizM1 = $primerRecursoDB->ejecutarAcceso ( $cadenaSqlM1, "busqueda" );
+					
+					$atributos['seleccion'] = $matrizM1[0][0];	
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -547,7 +555,7 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = 'required';
 					 
-					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "consultarCiudad", $matrizUbicacion[0][2] );
+					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudadAjax", $matrizUbicacion[0][1] );
 					$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 					 
 					$atributos['matrizItems'] = $matrizItems;
@@ -869,9 +877,13 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					
+					$cadenaSqlM2 = $this->miSql->getCadenaSql ( "consultarDepartamento",  $matrizUbicacionInfoPer[0][1] );
+					$matrizM2 = $primerRecursoDB->ejecutarAcceso ( $cadenaSqlM2, "busqueda" );
+					
+					$atributos['seleccion'] = $matrizM2[0][0];
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -880,17 +892,7 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = 'required';
 					 
-					/*
-					 $matrizItems=array(
-					 array(1,'Cundinamarca'),
-					 array(2,'Antioquia'),
-					 array(3,'Santander'),
-					 array(4,'Bolivar'),
-					 array(5,'Bogotá D.C.')
-					  
-					 );*/
-					 
-					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "consultarDepartamento", $matrizUbicacionInfoPer[0][1] );
+					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamentoAjax", $matrizUbicacionInfoPer[0][0] );
 					$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 					 
 					$atributos['matrizItems'] = $matrizItems;
@@ -913,9 +915,13 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					
+					$cadenaSqlM2 = $this->miSql->getCadenaSql ( "consultarCiudad",  $matrizUbicacionInfoPer[0][2] );
+					$matrizM2 = $primerRecursoDB->ejecutarAcceso ( $cadenaSqlM2, "busqueda" );
+						
+					$atributos['seleccion'] = $matrizM2[0][0];
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -924,19 +930,8 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = 'required';
 					 
-					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "consultarCiudad", $matrizUbicacionInfoPer[0][2] );
+					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudadAjax", $matrizUbicacionInfoPer[0][1] );
 					$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
-					 
-					/*
-					 $matrizItems=array(
-					 array(1,'Bogota D.C.'),
-					 array(2,'Medellin'),
-					 array(3,'Barranquilla'),
-					 array(4,'Cali'),
-					 array(5,'Cucuta'),
-					 array(6,'Bucaramanga')
-					  
-					 );*/
 					 
 					$atributos['matrizItems'] = $matrizItems;
 					 
@@ -1629,7 +1624,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][0];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 20;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -1646,9 +1641,13 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					
+					$cadenaSqlM3 = $this->miSql->getCadenaSql ( "consultarPais", $matrizUbicacionInfoRes[0][0] );
+					$matrizM3 = $primerRecursoDB->ejecutarAcceso ( $cadenaSqlM3, "busqueda" );
+					
+					$atributos['seleccion'] = $matrizM3[0][0];
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1657,7 +1656,7 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = 'required';
 			
-					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "consultarPais", $matrizUbicacionInfoRes[0][0] );
+					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais");
 					$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 			
 					$atributos['matrizItems'] = $matrizItems;
@@ -1680,9 +1679,13 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					
+					$cadenaSql = $this->miSql->getCadenaSql ( "consultarDepartamento", $matrizUbicacionInfoRes[0][1] );
+					$matrizValor = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda" );
+					
+					$atributos['seleccion'] = $matrizValor[0][0];
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1691,7 +1694,7 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = 'required';
 					 
-					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "consultarDepartamento", $matrizUbicacionInfoRes[0][1] );
+					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamentoAjax", $matrizUbicacionInfoRes[0][0] );
 					$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 					 
 					$atributos['matrizItems'] = $matrizItems;
@@ -1715,9 +1718,13 @@ class Formulario {
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					$atributos['tab'] = $tab;
-					$atributos['seleccion'] = '';
+					
+					$cadenaSql = $this->miSql->getCadenaSql ( "consultarCiudad", $matrizUbicacionInfoRes[0][2] );
+					$matrizValor = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda" );
+					
+					$atributos['seleccion'] = $matrizValor[0][0];
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1726,7 +1733,7 @@ class Formulario {
 					$atributos ['etiquetaObligatorio'] = true;
 					$atributos ['validar'] = 'required';
 					 
-					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "consultarCiudad", $matrizUbicacionInfoRes[0][2] );
+					$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudadAjax", $matrizUbicacionInfoRes[0][1] );
 					$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 					 
 					$atributos['matrizItems'] = $matrizItems;
@@ -1765,7 +1772,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][2];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 20;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -1797,7 +1804,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][3];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 20;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -1829,7 +1836,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][4];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 50;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -1847,7 +1854,7 @@ class Formulario {
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
-					$atributos['deshabilitado'] = true;
+					$atributos['deshabilitado'] = false;
 					$atributos['limitar']= 50;
 					$atributos['tamanno']= 1;
 					$atributos['columnas']= 1;
@@ -1924,7 +1931,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][6];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 30;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -1956,7 +1963,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][7];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 30;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -1988,7 +1995,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][8];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 7;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -2020,7 +2027,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][9];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 10;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -2052,7 +2059,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][10];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 30;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -2098,7 +2105,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][11];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 10;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -2130,7 +2137,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][12];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 30;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -2162,7 +2169,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][13];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 50;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;
@@ -2194,7 +2201,7 @@ class Formulario {
 						$atributos ['valor'] = $matrizInfoResidencia[0][14];
 					}
 					$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-					$atributos ['deshabilitado'] = true;
+					$atributos ['deshabilitado'] = false;
 					$atributos ['tamanno'] = 20;
 					$atributos ['maximoTamanno'] = '';
 					$tab ++;

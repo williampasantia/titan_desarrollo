@@ -65,6 +65,14 @@ class FormProcessor {
         
         //****************************************************************************************************
         
+        $cadenaSql6 = $this->miSql->getCadenaSql("consultarDatosResidenciaCont", $matrizFuncionario[0][3]);
+        $matrizInfoResidencia = $primerRecursoDB->ejecutarAcceso($cadenaSql6, "busqueda");
+        
+        $cadenaSql7 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizInfoResidencia[0][1]);
+        $matrizUbicacionInfoRes = $primerRecursoDB->ejecutarAcceso($cadenaSql7, "busqueda");
+        
+        //****************************************************************************************************
+        
         
         /*Datos de PERSONA NATURAL ------------------------------------------------------------------------*/
         /*
@@ -293,30 +301,7 @@ class FormProcessor {
         $cadenaSql = $this->miSql->getCadenaSql("modificarInformacionPersonalBasica",$datosPersonalesBasicos);
         $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
         
-        var_dump($cadenaSql);
-
-
-
-        /*if (isset($matrizInfoExpe[0][0])) {
-         //var_dump("ENTRO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
-         exit();
-         } else {
-         //var_dump("ENTRO NO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
-         exit();
-         }*/
         
-        var_dump("Modificar - Datos de Identificación  <Completo>
-        					  Datos Personales Basicos <Completo>
-					Desarrollando...
-				");
-        
-        var_dump($_REQUEST);
-        
-        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //******************************************************************************************************************************************************       
      
@@ -346,15 +331,17 @@ class FormProcessor {
         	}
         }
         
-        $datosUbicacionContacto = array(
-        		'paisContacto' => $_REQUEST['funcionarioContactoPais'],
-        		'departamentoContacto' => $_REQUEST['funcionarioContactoDepartamento'],
-        		'ciudadContacto' => $_REQUEST['funcionarioContactoCiudad']
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionContacto",$datosUbicacionContacto);
-        $id_ubicacion_contacto = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionContacto, "insertarUbicacionContacto");
-        
+        if (isset($_REQUEST['funcionarioContactoDepartamento']) && isset($_REQUEST['funcionarioContactoCiudad'])) {
+	        $datosUbicacionContacto = array(
+	        		'paisContacto' => $_REQUEST['funcionarioContactoPais'],
+	        		'departamentoContacto' => $_REQUEST['funcionarioContactoDepartamento'],
+	        		'ciudadContacto' => $_REQUEST['funcionarioContactoCiudad'],
+	        		'id_ubicacion_contac' => $matrizInfoResidencia[0][1]
+	        );
+	        
+	        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionContacto",$datosUbicacionContacto);
+	        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+	    }
         
         $datosResidenciaContactos = array(
         		'nacionalidad' => $_REQUEST['funcionarioContactoNacionalidad'],
@@ -370,12 +357,40 @@ class FormProcessor {
         		'emailOficina' => $_REQUEST['funcionarioContactoOrganiEmail'],
         		'direccionOficina' => $_REQUEST['funcionarioContactoOrganiDireccion'],
         		'cargoOficina' => $_REQUEST['funcionarioContactoOrganiCargo'],
-        		'fk_ubicacion' => $id_ubicacion_contacto[0][0]
+        		'id_info_contacto' => $matrizFuncionario[0][3]
         		
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarDatosResidenciaCont",$datosResidenciaContactos);
-        $id_datos_residencia = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosResidenciaContactos);//********************************
+        $cadenaSql = $this->miSql->getCadenaSql("modificarDatosResidenciaCont",$datosResidenciaContactos);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        
+        
+        
+        var_dump($cadenaSql);
+        
+        
+        
+        /*if (isset($matrizInfoExpe[0][0])) {
+         //var_dump("ENTRO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
+         exit();
+         } else {
+         //var_dump("ENTRO NO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
+         exit();
+         }*/
+        
+        var_dump("Modificar - Datos de Identificación  <Completo>
+        					  Datos Personales Basicos <Completo>
+					Desarrollando...
+				");
+        
+        var_dump($_REQUEST);
+        
+        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        
         
 //*****************************************************************************************************************
         

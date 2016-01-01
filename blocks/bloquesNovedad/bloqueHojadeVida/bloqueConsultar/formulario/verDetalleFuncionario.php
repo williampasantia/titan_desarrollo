@@ -119,7 +119,7 @@ class Formulario {
 		$cadenaSql4 = $this->miSql->getCadenaSql("consultarInformacionPersonalBasica", $matrizFuncionario[0][2]);
 		$matrizInfoPersonal = $primerRecursoDB->ejecutarAcceso($cadenaSql4, "busqueda");
 		
-		var_dump($matrizInfoPersonal);
+		//var_dump($matrizInfoPersonal);
 		
 		$cadenaSql5 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizInfoPersonal[0][1]);
 		$matrizUbicacionInfoPer = $primerRecursoDB->ejecutarAcceso($cadenaSql5, "busqueda");
