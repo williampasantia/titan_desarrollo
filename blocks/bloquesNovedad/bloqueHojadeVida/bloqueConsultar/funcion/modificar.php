@@ -73,6 +73,29 @@ class FormProcessor {
         
         //****************************************************************************************************
         
+        $cadenaSql8 = $this->miSql->getCadenaSql("consultarFormacionAcademicaFuncionario", $matrizFuncionario[0][4]);
+        $matrizFormacion = $primerRecursoDB->ejecutarAcceso($cadenaSql8, "busqueda");
+        
+        //var_dump($matrizFormacion[0][0]);//id formacion basica
+        //var_dump($matrizFormacion[0][1]);//id formacion media
+        
+        $cadenaSql9 = $this->miSql->getCadenaSql("consultarFormacionBasica", $matrizFormacion[0][0]);
+        $matrizFormacionBasica = $primerRecursoDB->ejecutarAcceso($cadenaSql9, "busqueda");
+        
+        $cadenaSql11 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizFormacionBasica[0][1]);
+        $matrizUbicacionBasica = $primerRecursoDB->ejecutarAcceso($cadenaSql11, "busqueda");
+        
+        //var_dump($matrizFormacionBasica);
+        //var_dump($matrizUbicacionBasica);
+        //-----------------------------------------------------------------------------------------------
+        
+        $cadenaSql10 = $this->miSql->getCadenaSql("consultarFormacionMedia", $matrizFormacion[0][1]);
+        $matrizFormacionMedia = $primerRecursoDB->ejecutarAcceso($cadenaSql10, "busqueda");
+        
+        $cadenaSql12 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizFormacionMedia[0][1]);
+        $matrizUbicacionMedia = $primerRecursoDB->ejecutarAcceso($cadenaSql12, "busqueda");
+        
+        //****************************************************************************************************
         
         /*Datos de PERSONA NATURAL ------------------------------------------------------------------------*/
         /*
@@ -365,6 +388,75 @@ class FormProcessor {
         $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
         
         
+//*****************************************************************************************************************
+        //--------------------------------------------------
+        //--------------------------------------------------
+        //--------------------------------------------------
+        
+        
+        $datosUbicacionFormacionBasica = array(
+        		'paisFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaPais'],
+        		'departamentoFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaDepartamento'],
+        		'ciudadFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaCiudad'],
+        		'id_ubicacion_basica' => $matrizFormacionBasica[0][1]
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionFormacionBasica",$datosUbicacionFormacionBasica);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        
+        $datosFormacionAcademicaBasica = array(
+        		'modalidadBasica' => $_REQUEST['funcionarioFormacionBasicaModalidad'],
+        		'colegioBasica' => $_REQUEST['funcionarioFormacionBasicaColegio'],
+        		'tituloBasica' => $_REQUEST['funcionarioFormacionBasicaTitul'],
+        		'fechaGradoBasica' => $_REQUEST['funcionarioFechaFormacionBasica'],
+        		'soporteBasica' => $_REQUEST['funcionarioSoporteFormacionBasica'],
+        		'id_formacion_basica' => $matrizFormacion[0][0]
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("modificarFormacionBasica",$datosFormacionAcademicaBasica);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        
+ //**************************************************************************************************************
+ 
+        
+        $datosUbicacionFormacionMedia = array(
+        		'paisFormacionMedia' => $_REQUEST['funcionarioFormacionMediaPais'],
+        		'departamentoFormacionMedia' => $_REQUEST['funcionarioFormacionMediaDepartamento'],
+        		'ciudadFormacionMedia' => $_REQUEST['funcionarioFormacionMediaCiudad'],
+        		'id_ubicacion_media' => $matrizFormacionMedia[0][1]
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionFormacionMedia",$datosUbicacionFormacionMedia);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        
+        
+        $datosFormacionAcademicaMedia = array(
+        		'modalidadMedia' => $_REQUEST['funcionarioFormacionMediaModalidad'],
+        		'colegioMedia' => $_REQUEST['funcionarioFormacionMediaColegio'],
+        		'tituloMedia' => $_REQUEST['funcionarioFormacionMediaTitul'],
+        		'fechaGradoMedia' => $_REQUEST['funcionarioFechaFormacionMedia'],
+        		'soporteMedia' => $_REQUEST['funcionarioSoporteFormacionMedia'],
+        		'id_formacion_media' => $matrizFormacion[0][1]
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("modificarFormacionMedia",$datosFormacionAcademicaMedia);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        
+ //***************************************************************************************************************       
+        
+        
+        $datosInvestigacion = array(
+        		'tematicaInvestigacion' => $_REQUEST['funcionarioPublicacionesTematica'],
+        		'tipoInvestigacion' => $_REQUEST['funcionarioPublicacionesTipo'],
+        		'logrosInvestigacion' => $_REQUEST['funcionarioPublicacionesLogros'],
+        		'referenciasInvestigacion' => $_REQUEST['funcionarioPublicacionesReferencias'],
+        		'id_mod_publicacion' => $matrizFuncionario[0][5]
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("modificarFormacionInvestigacion",$datosInvestigacion);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        
+        
         
         var_dump($cadenaSql);
         
@@ -382,104 +474,21 @@ class FormProcessor {
          exit();
          }*/
         
-        var_dump("Modificar - Datos de Identificación  <Completo>
-        					  Datos Personales Basicos <Completo>
-					Desarrollando...
+        var_dump("
+        		Modificar - Datos de Identificación 	<Completo>
+        		Modificar - Datos Personales Basicos	<Completo>
+        		Modificar - Datos Residencia		<Completo>
+        		Modificar - Datos Formacion Basica	<Completo>
+        		Modificar - Datos Formacion Media	<Completo>
+        		Modificar - Datos Investigaciones	<Completo>
+        
+        		Desarrollando...
 				");
         
         var_dump($_REQUEST);
         
         exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         
-        
-//*****************************************************************************************************************
-        
-        
-        
-        $datosUbicacionFormacionBasica = array(
-        		'paisFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaPais'],
-        		'departamentoFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaDepartamento'],
-        		'ciudadFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaCiudad']
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionFormacionBasica",$datosUbicacionFormacionBasica);
-        $id_ubicacion_formacion_basica = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionFormacionBasica, "insertarUbicacionFormacionBasica");
-        
-        $datosFormacionAcademicaBasica = array(
-        		'modalidadBasica' => $_REQUEST['funcionarioFormacionBasicaModalidad'],
-        		'colegioBasica' => $_REQUEST['funcionarioFormacionBasicaColegio'],
-        		'tituloBasica' => $_REQUEST['funcionarioFormacionBasicaTitul'],
-        		'fechaGradoBasica' => $_REQUEST['funcionarioFechaFormacionBasica'],
-        		'soporteBasica' => $_REQUEST['funcionarioSoporteFormacionBasica'],
-        		'fk_ubicacion' => $id_ubicacion_formacion_basica[0][0]
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionBasica",$datosFormacionAcademicaBasica);
-        $id_formacion_basica = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosFormacionAcademicaBasica);//********************************
-        
- //**************************************************************************************************************
- 
-        
-        $datosUbicacionFormacionMedia = array(
-        		'paisFormacionMedia' => $_REQUEST['funcionarioFormacionMediaPais'],
-        		'departamentoFormacionMedia' => $_REQUEST['funcionarioFormacionMediaDepartamento'],
-        		'ciudadFormacionMedia' => $_REQUEST['funcionarioFormacionMediaCiudad']
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionFormacionMedia",$datosUbicacionFormacionMedia);
-        $id_ubicacion_formacion_media = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionFormacionMedia, "insertarUbicacionFormacionMedia");
-        
-        
-        $datosFormacionAcademicaMedia = array(
-        		'modalidadMedia' => $_REQUEST['funcionarioFormacionMediaModalidad'],
-        		'colegioMedia' => $_REQUEST['funcionarioFormacionMediaColegio'],
-        		'tituloMedia' => $_REQUEST['funcionarioFormacionMediaTitul'],
-        		'fechaGradoMedia' => $_REQUEST['funcionarioFechaFormacionMedia'],
-        		'soporteMedia' => $_REQUEST['funcionarioSoporteFormacionMedia'],
-        		'fk_ubicacion' => $id_ubicacion_formacion_media[0][0]
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionMedia",$datosFormacionAcademicaMedia);
-        $id_formacion_media = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda",$datosFormacionAcademicaMedia);//********************************
-        
- //***************************************************************************************************************
-        
-        $datosFormacionAcademicaFuncionario = array(
-        		'fk_id_formacion_basica' => $id_formacion_basica[0][0],
-        		'fk_id_formacion_media' => $id_formacion_media[0][0]
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionFuncionario",$datosFormacionAcademicaFuncionario);
-        $id_datos_formacion_funcionario = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosFormacionAcademicaFuncionario, "insertarFormacionFuncionario");
-        
- //***************************************************************************************************************       
-        
-        
-        $datosInvestigacion = array(
-        		'tematicaInvestigacion' => $_REQUEST['funcionarioPublicacionesTematica'],
-        		'tipoInvestigacion' => $_REQUEST['funcionarioPublicacionesTipo'],
-        		'logrosInvestigacion' => $_REQUEST['funcionarioPublicacionesLogros'],
-        		'referenciasInvestigacion' => $_REQUEST['funcionarioPublicacionesReferencias']
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionInvestigacion",$datosInvestigacion);
-        $id_publicacion = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosInvestigacion, "insertarFormacionInvestigacion");//********************************
-        
-//*******************************************************************************************************************        
-        
-        $datosFuncionario = array(
-        		'fk_id_datos_identificacion' => $id_datos_identificacion[0][0],
-        		'fk_id_informacion_personal_basica' => $id_informacion_personal_basica[0][0],
-        		'fk_id_datos_residencia' => $id_datos_residencia[0][0],
-        		'fk_id_datos_formacion_funcionario' => $id_datos_formacion_funcionario[0][0],
-        		'fk_id_publicacion' => $id_publicacion[0][0],
-        		'documento_fun' => $_REQUEST ['funcionarioDocumento']
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFuncionario",$datosFuncionario);
-        $id_funcionario = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosFuncionario, "insertarFuncionario");//********************************
-        
-
 //****************************************************************************************************************
         
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------

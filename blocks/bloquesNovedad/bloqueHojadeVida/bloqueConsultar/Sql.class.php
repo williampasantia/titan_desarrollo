@@ -1116,6 +1116,90 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_datos_residencia = ' . $variable ['id_info_contacto'] . ';';
 				break;
 				
+			case 'modificarUbicacionFormacionBasica' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisFormacionBasica'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoFormacionBasica'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadFormacionBasica'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion =  ' . $variable ['id_ubicacion_basica'] . ';';
+				break;
+			
+			case 'modificarFormacionBasica' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_basica ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'modalidad = ';
+				$cadenaSql .= '\'' . $variable ['modalidadBasica'] . '\', ';
+				$cadenaSql .= 'nombre_colegio = ';
+				$cadenaSql .= '\'' . $variable ['colegioBasica'] . '\', ';
+				$cadenaSql .= 'titulo_obtenido = ';
+				$cadenaSql .= '\'' . $variable ['tituloBasica'] . '\', ';
+				$cadenaSql .= 'fecha_graduacion = ';
+				$cadenaSql .= '\'' . $variable ['fechaGradoBasica'] . '\', ';
+				$cadenaSql .= 'soporte_graduacion = ';
+				$cadenaSql .= '\'' . $variable ['soporteBasica'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_basica = ' . $variable ['id_formacion_basica'] . ';';
+				break;
+			
+			case 'modificarUbicacionFormacionMedia' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisFormacionMedia'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoFormacionMedia'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadFormacionMedia'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion =  ' . $variable ['id_ubicacion_media'] . ';';
+				break;
+			
+			case 'modificarFormacionMedia' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_media ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'modalidad = ';
+				$cadenaSql .= '\'' . $variable ['modalidadMedia'] . '\', ';
+				$cadenaSql .= 'nombre_colegio = ';
+				$cadenaSql .= '\'' . $variable ['colegioMedia'] . '\', ';
+				$cadenaSql .= 'titulo_obtenido = ';
+				$cadenaSql .= '\'' . $variable ['tituloMedia'] . '\', ';
+				$cadenaSql .= 'fecha_graduacion = ';
+				$cadenaSql .= '\'' . $variable ['fechaGradoMedia'] . '\', ';
+				$cadenaSql .= 'soporte_graduacion = ';
+				$cadenaSql .= '\'' . $variable ['soporteMedia'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_media = ' . $variable ['id_formacion_media'] . ';';
+				break;
+			
+			case 'modificarFormacionInvestigacion' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.publicacion_investigacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'tematica = ';
+				$cadenaSql .= '\'' . $variable ['tematicaInvestigacion'] . '\', ';
+				$cadenaSql .= 'tipo_investigacion = ';
+				$cadenaSql .= '\'' . $variable ['tipoInvestigacion'] . '\', ';
+				$cadenaSql .= 'logros_obtenidos = ';
+				$cadenaSql .= '\'' . $variable ['logrosInvestigacion'] . '\', ';
+				$cadenaSql .= 'referencias_bibliograficas = ';
+				$cadenaSql .= '\'' . $variable ['referenciasInvestigacion'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_publicacion = ' . $variable ['id_mod_publicacion'] . ';';
+				break;
+				
+				
+				
+				
+				
 				
 				
 				
