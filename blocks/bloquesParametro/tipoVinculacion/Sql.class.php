@@ -87,7 +87,7 @@ class Sql extends \Sql {
              case "registrarTipoVinculacion" :
 				$cadenaSql=" INSERT INTO parametro.tipo_vinculacion";
 				$cadenaSql.=" (";
-				$cadenaSql.=" id,";
+				
 				$cadenaSql.=" nombre,";
 				$cadenaSql.=" descripcion,";
 				$cadenaSql.=" naturaleza,";
@@ -96,7 +96,7 @@ class Sql extends \Sql {
 				$cadenaSql.=" )";
 				$cadenaSql.=" VALUES";
 				$cadenaSql.=" (";
-				$cadenaSql.=" nextval('secuenciaTipoVinc'),";
+			
 				$cadenaSql.=" '" . $_REQUEST['nombre']. "',";
 				$cadenaSql.=" '" . $_REQUEST['descripcion']. "',";
 				$cadenaSql.=" '" . $_REQUEST['naturaleza']. "',";

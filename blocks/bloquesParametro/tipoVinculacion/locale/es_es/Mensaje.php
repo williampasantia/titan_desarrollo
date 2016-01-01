@@ -2,7 +2,7 @@
 $this->idioma["bloqueContenido"]="Cargo";
 $this->idioma["noDefinido"]="No definido";
 
-$this->idioma["botonRegistrarCargo"]="Registrar ";
+$this->idioma["botonRegistrar"]="Registrar ";
 $this->idioma["botonGuardar"]="Aceptar";
 $this->idioma["botonModificar"]="Modificar";
 $this->idioma["botonInactivar"]="Inactivar";
@@ -14,13 +14,17 @@ $this->idioma["enviarInactivar"]="Aceptar";
 //REGISTRO
 $this->idioma["id"]="Id:  " ;
 $this->idioma["nombre"]="Nombre: ";
+$this->idioma["nombreTitulo"]="";
 $this->idioma["descripcion"]="Descripcion: ";
+$this->idioma["descripcionTitulo"]="";
 $this->idioma["telefono"]="Telefono: ";
 $this->idioma["extencionTelefono"]="Extencion tel:";
 $this->idioma["reglamentacion"]="Reglamentacion: ";
+$this->idioma["reglamentacionTitulo"]="";
 $this->idioma["extencionFax"]="Extencion fax";
 $this->idioma["nombreRegistro"]="Nombre cargo :";
 $this->idioma["naturaleza"]="Naturaleza: ";
+$this->idioma["naturalezaTitulo"]="";
 $this->idioma["nombreRepresentante"]="Representante legal: ";
 $this->idioma["email"]="Email: ";
 $this->idioma["estado"]="Estado ";
