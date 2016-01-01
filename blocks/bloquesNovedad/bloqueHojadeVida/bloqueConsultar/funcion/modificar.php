@@ -55,6 +55,16 @@ class FormProcessor {
         //var_dump($matrizFuncionario[0][5]); //id publicacion
         //****************************************************************************************************
         
+        $cadenaSql4 = $this->miSql->getCadenaSql("consultarInformacionPersonalBasica", $matrizFuncionario[0][2]);
+        $matrizInfoPersonal = $primerRecursoDB->ejecutarAcceso($cadenaSql4, "busqueda");
+        
+        //var_dump($matrizInfoPersonal[0][1]);
+        
+        $cadenaSql5 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizInfoPersonal[0][1]);
+        $matrizUbicacionInfoPer = $primerRecursoDB->ejecutarAcceso($cadenaSql5, "busqueda");
+        
+        //****************************************************************************************************
+        
         
         /*Datos de PERSONA NATURAL ------------------------------------------------------------------------*/
         /*
@@ -84,16 +94,17 @@ class FormProcessor {
         );
         /*-------------------------------------------------------------------------------------------------*/
         
-        $datosUbicacionExpedicion = array(
-        		'paisExpedicion' => $_REQUEST['funcionarioPais'],
-        		'departamentoExpedicion' => $_REQUEST['funcionarioDepartamento'],
-        		'ciudadExpedicion' => $_REQUEST['funcionarioCiudad'],
-        		'id_ubicacion_expe' => $matrizInfoExpe[0][1]
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionExpedicion",$datosUbicacionExpedicion);
-        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
-        
+        if (isset($_REQUEST['funcionarioDepartamento']) && isset($_REQUEST['funcionarioCiudad'])) {
+	        $datosUbicacionExpedicion = array(
+	        		'paisExpedicion' => $_REQUEST['funcionarioPais'],
+	        		'departamentoExpedicion' => $_REQUEST['funcionarioDepartamento'],
+	        		'ciudadExpedicion' => $_REQUEST['funcionarioCiudad'],
+	        		'id_ubicacion_expe' => $matrizInfoExpe[0][1]
+	        );
+	        
+	        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionExpedicion",$datosUbicacionExpedicion);
+	        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        }
         
         
         $datosInformacionPersonalExpedicion = array (
@@ -106,25 +117,6 @@ class FormProcessor {
         $cadenaSql = $this->miSql->getCadenaSql("modificarIdentificacionDocumento",$datosInformacionPersonalExpedicion);
 		$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
 		
-		
-		
-		
-		if (isset($matrizInfoExpe[0][0])) {
-			//var_dump("ENTRO INSERTAR");exit;
-			$this->miConfigurador->setVariableConfiguracion("cache", true);
-			Redireccionador::redireccionar('inserto', $datosPersonaNatural);
-			exit();
-		} else {
-			//var_dump("ENTRO NO INSERTAR");exit;
-			$this->miConfigurador->setVariableConfiguracion("cache", true);
-			Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
-			exit();
-		}
-		
-		
-		var_dump("Modificar - Datos de Identificación <Completo>
-					Desarrollando...
-				");exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         
 //*************************************************************************************************//
         
@@ -275,15 +267,17 @@ class FormProcessor {
         	}
         }
         
-        $datosUbicacionNacimiento = array(
-        		'paisNacimiento' => $_REQUEST['funcionarioPaisNacimiento'],
-        		'departamentoNacimiento' => $_REQUEST['funcionarioDepartamentoNacimiento'],
-        		'ciudadNacimiento' => $_REQUEST['funcionarioCiudadNacimiento']
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionNacimiento",$datosUbicacionNacimiento);
-        $id_ubicacion_nacimiento = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionNacimiento, "insertarUbicacionNacimiento");
-        
+        if (isset($_REQUEST['funcionarioDepartamentoNacimiento']) && isset($_REQUEST['funcionarioCiudadNacimiento'])) {
+	        $datosUbicacionNacimiento = array(
+	        		'paisNacimiento' => $_REQUEST['funcionarioPaisNacimiento'],
+	        		'departamentoNacimiento' => $_REQUEST['funcionarioDepartamentoNacimiento'],
+	        		'ciudadNacimiento' => $_REQUEST['funcionarioCiudadNacimiento'],
+	        		'id_ubicacion_naci' => $matrizInfoPersonal[0][1]
+	        );
+	        
+	        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionNacimiento",$datosUbicacionNacimiento);
+	        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        }
         
         $datosPersonalesBasicos = array(
         		'fechaNacimiento' => $_REQUEST['funcionarioFechaNacimiento'],
@@ -292,12 +286,37 @@ class FormProcessor {
         		'numeroDistritoLibreta' => $_REQUEST['funcionarioDistritoLibreta'],
         		'soporteLibreta' => $valorSoporteLib,
         		'soporteCaracterizacion' => $_REQUEST['funcionarioSoporteCaracterizacion'],
-        		'fk_ubicacion' => $id_ubicacion_nacimiento[0][0]
+        		'id_info_personal' => $matrizFuncionario[0][2]
         );
         
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarInformacionPersonalBasica",$datosPersonalesBasicos);
-        $id_informacion_personal_basica = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionNacimiento, "insertarInformacionPersonalBasica");
+        $cadenaSql = $this->miSql->getCadenaSql("modificarInformacionPersonalBasica",$datosPersonalesBasicos);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        
+        var_dump($cadenaSql);
+
+
+
+        /*if (isset($matrizInfoExpe[0][0])) {
+         //var_dump("ENTRO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
+         exit();
+         } else {
+         //var_dump("ENTRO NO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
+         exit();
+         }*/
+        
+        var_dump("Modificar - Datos de Identificación  <Completo>
+        					  Datos Personales Basicos <Completo>
+					Desarrollando...
+				");
+        
+        var_dump($_REQUEST);
+        
+        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //******************************************************************************************************************************************************       
      
