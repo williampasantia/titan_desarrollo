@@ -249,15 +249,6 @@ class Formulario {
 		
 		//var_dump($matrizSuperior);
 		
-		/*$count = 0;
-		while($count < $cantidad_referencias){
-		
-			$cadenaSql20 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizSuperior[$count][4]);
-			$matrizUbicacionSuperior = $primerRecursoDB->ejecutarAcceso($cadenaSql20, "busqueda");
-			$count++;
-		
-		}*/
-		
 		$cadenaSql24 = $this->miSql->getCadenaSql("consultarFormacionInvestigacion", $matrizFuncionario[0][5]);
 		$matrizPublicacion = $primerRecursoDB->ejecutarAcceso($cadenaSql24, "busqueda");
 		
@@ -3478,7 +3469,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizInformal[$i][1];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 100;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3511,7 +3502,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizInformal[$i][2];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 30;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3544,7 +3535,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizInformal[$i][3];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3577,7 +3568,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizInformal[$i][4];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3610,7 +3601,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizInformal[$i][5];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 30;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;

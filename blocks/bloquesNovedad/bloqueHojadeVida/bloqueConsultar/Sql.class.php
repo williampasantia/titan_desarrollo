@@ -1256,7 +1256,33 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_formacion_superior = ' . $variable ['id_formacion_superior'] . ';';
 				break;
 				
+			case 'modificarFormacionInformal' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_informal ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'nombre_curso = ';
+				$cadenaSql .= '\'' . $variable ['cursoInformal'] . '\', ';
+				$cadenaSql .= 'nombre_institucion = ';
+				$cadenaSql .= '\'' . $variable ['entidadCurso'] . '\', ';
+				$cadenaSql .= 'intesidad_horaria = ';
+				$cadenaSql .= '\'' . $variable ['intensidadHoraria'] . '\', ';
+				if ($variable ['fechaTerminacion'] != NULL) {
+					$cadenaSql .= 'fecha_terminacion = ';
+					$cadenaSql .= '\'' . $variable ['fechaTerminacion'] . '\', ';
+				}
+				$cadenaSql .= 'soporte_certificado = ';
+				$cadenaSql .= '\'' . $variable ['soporteInformal'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_informal = ' . $variable ['id_formacion_informal'] . ';';
+				break;
 				
+			case 'eliminarFormacionInformal' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'novedad.formacion_informal ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_informal = ' . $variable ['id_formacion_informal'] . ';';
+				break;
 				
 				
 				
