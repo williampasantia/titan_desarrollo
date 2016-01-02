@@ -28,6 +28,7 @@ class FormProcessor {
          $i=0;
             while($i<$_REQUEST['tamaño']){
                 if(isset($_REQUEST['botonVincular'.$i])&& $_REQUEST['botonVincular'.$i] == 'true'){
+                 
                  Redireccionador::redireccionar('vincular',$i); 
                 // var_dump($_REQUEST['botonModificar'.$i]);
                   break; 
@@ -36,6 +37,12 @@ class FormProcessor {
                
                 if($_REQUEST['botonVerDetalle'.$i] == 'true'){
                  Redireccionador::redireccionar('verdetalle',$i); 
+                // var_dump($_REQUEST['botonModificar'.$i]);
+                  break; 
+                   
+                }
+                  if($_REQUEST['botonModificar'.$i] == 'true'){
+                 Redireccionador::redireccionar('modificar',$i); 
                 // var_dump($_REQUEST['botonModificar'.$i]);
                   break; 
                    

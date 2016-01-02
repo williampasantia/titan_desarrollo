@@ -44,7 +44,7 @@ class FormProcessor {
                    
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarVinculacion",$datos);
        
- 
+echo "hola";
     $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
  

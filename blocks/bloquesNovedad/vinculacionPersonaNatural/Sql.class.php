@@ -84,8 +84,9 @@ class Sql extends \Sql {
                 $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS, ";
               // nombre o naturaleza
                 $cadenaSql .= 'naturaleza as TIPO_VINCULACION, ';
-                $cadenaSql .= 'fecha_inicio as FECHA_INICIO, ';
-                $cadenaSql .= 'fecha_final as FECHA_FINAL ';
+                $cadenaSql .= "to_char(fecha_inicio,'DD/MM/YYYY') as FECHA_INICIO, ";
+                $cadenaSql .= "to_char(fecha_final,'DD/MM/YYYY') as FECHA_FINAL, ";
+                 $cadenaSql .= "d.id as ID_VINCULACION ";
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'persona.persona_natural p, ';
                 $cadenaSql .= 'parametro.tipo_vinculacion j, ';
@@ -145,35 +146,29 @@ class Sql extends \Sql {
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'parametro.tipo_vinculacion';
                 break; 
+            
              case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'nomina.arl ';
+                $cadenaSql .= 'persona.vinculacion_persona_natural ';
                 $cadenaSql .= 'SET ';
-                $cadenaSql .= 'nombre = ';
-                $cadenaSql .= "'".$variable ['nombre'] . "',";
-                $cadenaSql .= 'direccion = ';
-                $cadenaSql .= "'".$variable ['direccion']  . "',";
-                $cadenaSql .= 'telefono = ';
-                $cadenaSql .= $variable ['telefono']  . ', ';
-                $cadenaSql .= 'extencion_telefono = ';
-                $cadenaSql .= $variable ['extencionTelefono']  . ', ';
-                $cadenaSql .= 'Fax = ';
-                $cadenaSql .= $variable ['fax']  . ', ';
-               
-               
-                if($variable ['lugar']!='')
+                 if($variable ['tipoVinculacion']!='')
                 {
-                     $cadenaSql .= 'lugar = ';
-                     $cadenaSql .= "'".$variable ['lugar']  . "',";
+                     $cadenaSql .= 'id_tipo_vinculacion = ';
+                     $cadenaSql .= "'".$variable ['tipoVinculacion']  . "',";
                 }
+                $cadenaSql .= 'fecha_inicio = ';
+                $cadenaSql .= "'".$variable ['fechaInicio'] . "',";
+                $cadenaSql .= 'fecha_final = ';
+                $cadenaSql .= "'".$variable ['fechaFin']  . "' ";
+                
+              
                
-                $cadenaSql .= 'nombre_representante_legal = ';
-                $cadenaSql .= "'".$variable ['nombreRepresentante']  . "',";
-                $cadenaSql .= 'email = ';
-                $cadenaSql .= "'".$variable ['email']."'";
+               
+               
+                
                 $cadenaSql .= ' WHERE ';
-                $cadenaSql .= 'nit = ';
-                $cadenaSql .= $variable ['nit']  .';';
+                $cadenaSql .= 'id = ';
+                $cadenaSql .= $variable ['id']  .';';
                 break;
                 
             case 'inactivarRegistro' :

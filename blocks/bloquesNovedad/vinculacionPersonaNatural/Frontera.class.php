@@ -43,9 +43,8 @@ class Frontera {
 		
 		
         $this->ruta=$this->miConfigurador->getVariableConfiguracion("rutaBloque");
+    
        
-
-		
         if(isset($_REQUEST['opcion'])){
                           
                            switch ($_REQUEST ['opcion']) {
@@ -58,7 +57,7 @@ class Frontera {
                                
 					include_once ($this->ruta . "/formulario/mensaje.php");
 					break;
-				case "modificar":
+				case "fmodificar":
 					include_once($this->ruta."/formulario/modificar.php");
 					break;	
                                
@@ -81,6 +80,11 @@ class Frontera {
                                         include_once ($this->ruta . "/formulario/verdetalle.php");
 					break;
                                     
+                                    
+                                      case "vincular":
+                                                                              
+                                        include_once ($this->ruta . "/formulario/registrar.php");
+					break;
                                 
         		}
 		}else{

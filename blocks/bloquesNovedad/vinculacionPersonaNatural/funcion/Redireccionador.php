@@ -45,7 +45,7 @@ class Redireccionador {
                             
                             case "modificar" :
 				$variable = 'pagina='.$miPaginaActual;                                
-				$variable .= "&opcion=modificar";
+				$variable .= "&opcion=fmodificar";
                                 $variable .= '&variable=' . $valor;
                                 break;	
 			case "form" :
@@ -63,7 +63,7 @@ class Redireccionador {
                          case "vincular" :
                                 
 				$variable = 'pagina='.$miPaginaActual;                                
-				$variable .= "&opcion=registrar";
+				$variable .= "&opcion=vincular";
                                 $variable .= '&variable=' . $valor;
                                
                             break; 

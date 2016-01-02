@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl\funcion;
+namespace bloquesParametro\vinculacionPersonaNatural\funcion;
     
 include_once('Redireccionador.php');
 class FormProcessor {
@@ -26,39 +26,30 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
-        if(isset($_REQUEST['codTipoCargoRegistro'])){
-                    
-                }
-                
-                if(isset($_REQUEST['tipoSueldoRegistro'])){
-                    switch($_REQUEST ['tipoSueldoRegistro']){
-                           case 1 :
-					$_REQUEST ['tipoSueldoRegistro']='M';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['tipoSueldoRegistro']='H';
-			   break;
-                    }
-                }
-                
-                
         
+                
+               
+             
+            
+        if($_REQUEST ['tipoVinculacion']){
         $datos = array(
-            'nit' => $_REQUEST ['nit'],
-            'nombre' => $_REQUEST ['nombre'],
-            'direccion' => $_REQUEST ['direccion'],
-            'telefono' => $_REQUEST ['telefono'],
-            'extencionTelefono' => $_REQUEST ['extencionTelefono'],
-            'fax' => $_REQUEST ['fax'],
-            'extencionFax' => $_REQUEST ['extencionFax'],
-            'lugar' => $_REQUEST ['lugar'],
-            'nombreRepresentante' => $_REQUEST ['nombreRepresentante'],
-            'email' => $_REQUEST ['email']
+            'tipoVinculacion' => $_REQUEST ['tipoVinculacion'],
+            'fechaInicio' => $_REQUEST ['fechaInicio'],
+            'fechaFin' => $_REQUEST ['fechaFin'],
+            'id'=> $_REQUEST ['id']
             
         );
 //       
-        
+        }else {
+            
+            $datos = array(
+            'tipoVinculacion' => '',
+            'fechaInicio' => $_REQUEST ['fechaInicio'],
+            'fechaFin' => $_REQUEST ['fechaFin'],
+             'id'=> $_REQUEST ['id']
+            
+        );
+        }
                 
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
         

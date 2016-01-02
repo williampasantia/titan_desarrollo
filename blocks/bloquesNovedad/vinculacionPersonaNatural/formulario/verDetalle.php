@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesParametro\contenidoCargo\formulario;
+ namespace bloquesParametro\parametroArl\formulario;
 if(!isset($GLOBALS["autorizado"])) {
 	include("../index.php");
 	exit;
@@ -160,7 +160,7 @@ class Formulario {
         unset($atributos);
         
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-        $esteCampo = 'fechaInicial';
+        $esteCampo = 'fechaInicio';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -185,7 +185,7 @@ class Formulario {
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-        $esteCampo = 'fechaFinal';
+        $esteCampo = 'fechaFin';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';

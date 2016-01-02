@@ -11,7 +11,7 @@ $this->idioma["botonVincular"]="Vincular";
 $this->idioma["botonVerDetalle"]="Ver detalle";
 $this->idioma["enviarInactivar"]="Aceptar";
 $this->idioma["cancelarInactivar"]="cancelar";
-$this->idioma["regresar"]="Regresar: ";
+$this->idioma["regresar"]="Regresar ";
 
 
 //REGISTRO
@@ -22,6 +22,9 @@ $this->idioma["fechaInicioTitulo"]="" ;
 $this->idioma["tipoVinculacion"]="Tipo vinculacion: " ;
 $this->idioma["tipoVinculacionTitulo"]="" ;
 $this->idioma["sede"]="Sede: " ;
+$this->idioma["nombres"]="Nombres " ;
+$this->idioma["id"]="Id. vinculacion " ;
+$this->idioma["apellidos"]="Apellidos " ;
 $this->idioma["sedeTitulo"]="" ;
 $this->idioma["dependencia"]="Dependencia: " ;
 $this->idioma["dependenciaTitulo"]="" ;
