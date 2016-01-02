@@ -86,18 +86,6 @@ class Formulario {
 		
 		//---------------------------------------------------------------------------------------------------
 		
-		
-		// ---------------- INICIO: Lista Variables Control--------------------------------------------------------
-		
-		$cantidad_referencias = 2;
-		$cantidad_referencias_info = 2;
-		$cantidad_idiomas = 2;
-		$cantidad_experiencia = 2;
-		$cantidad_referencias_per = 2;
-		
-		// ---------------- FIN: Lista Variables Control--------------------------------------------------------
-		
-		
 
 		//************************************************************************************************************
 		//************************************************************************************************************
@@ -259,7 +247,7 @@ class Formulario {
 		$cadenaSql23 = $this->miSql->getCadenaSql("consultarFormacionSuperior", $matrizFuncionario[0][4]);
 		$matrizSuperior = $primerRecursoDB->ejecutarAcceso($cadenaSql23, "busqueda");
 		
-		var_dump($matrizSuperior);
+		//var_dump($matrizSuperior);
 		
 		/*$count = 0;
 		while($count < $cantidad_referencias){
