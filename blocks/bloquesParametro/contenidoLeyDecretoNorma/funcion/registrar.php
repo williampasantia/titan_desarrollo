@@ -46,7 +46,7 @@ class FormProcessor {
               $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
           }      
        
-          $fechaven='9999/12/12'; 
+          $fechaven='NULL'; 
           if($_REQUEST ['fechaVen'] != ''){
               $fechaven=$_REQUEST ['fechaVen'];
           }

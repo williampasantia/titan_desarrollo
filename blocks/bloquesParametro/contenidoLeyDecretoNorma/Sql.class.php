@@ -41,7 +41,9 @@ class Sql extends \Sql {
                 $cadenaSql .= '( ';
                 $cadenaSql .= 'nombre,';                
                 $cadenaSql .= 'fecha_exp,';
-                $cadenaSql .= 'fecha_ven,';
+                if($variable ['fechaVen']!='NULL'){
+                  $cadenaSql .= 'fecha_ven,';
+                }
                 $cadenaSql .= 'entidad,';
                 $cadenaSql .= 'id_ubicacion,';
                 $cadenaSql .= 'soporte,';
@@ -51,7 +53,10 @@ class Sql extends \Sql {
                 $cadenaSql .= '( ';
                 $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
                 $cadenaSql .= '\'' . $variable ['fechaExp']  . '\', ';
-                $cadenaSql .= '\'' . $variable ['fechaVen']  . '\', ';
+                if($variable ['fechaVen']!='NULL'){
+                  $cadenaSql .= '\'' . $variable ['fechaVen']  . '\', ';
+                }
+                
                 $cadenaSql .= '\'' . $variable ['entidad']  . '\', ';
                 $cadenaSql .= $variable ['id_ubicacion'] . ', ';
                 $cadenaSql .= '\'' . 'nada'  . '\', ';

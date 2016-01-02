@@ -44,9 +44,15 @@ class Sql extends \Sql {
                 $cadenaSql .= 'nombre,';
                 $cadenaSql .= 'direccion,';
                 $cadenaSql .= 'telefono,';
-                $cadenaSql .= 'ext_telefono,';
-                $cadenaSql .= 'fax,';
-                $cadenaSql .= 'ext_fax,';
+                if($variable ['extTelefonoRegistro']!='0'){
+                 $cadenaSql .= 'ext_telefono,';   
+                }
+                if($variable ['faxRegistro']!='0'){
+                 $cadenaSql .= 'fax,';  
+                }
+                 if($variable ['extFaxRegistro']!='0'){
+                 $cadenaSql .= 'ext_fax,'; 
+                }
                 $cadenaSql .= 'nom_representante,';
                 $cadenaSql .= 'email,';
                 $cadenaSql .= 'estado';
@@ -58,9 +64,15 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
                 $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
                 $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
-                $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';
-                $cadenaSql .= $variable ['faxRegistro'] . ', ';
-                $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
+                if($variable ['extTelefonoRegistro']!='0'){
+                 $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';   
+                }
+                if($variable ['faxRegistro']!='0'){
+                 $cadenaSql .= $variable ['faxRegistro'] . ', ';   
+                }
+                if($variable ['extFaxRegistro']!='0'){
+                 $cadenaSql .= $variable ['extFaxRegistro'] . ', ';   
+                }
                 $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
                 $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
@@ -76,12 +88,12 @@ class Sql extends \Sql {
                         $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
                         $cadenaSql .= 'parametro.fondo_pensiones ';
-//                        $cadenaSql .= 'WHERE ';
 //                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
 //                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
                 break;
              
-           case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia
+     //                        $cadenaSql .= 'WHERE ';
+      case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia
 				
 				$cadenaSql = 'SELECT ';
 				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';

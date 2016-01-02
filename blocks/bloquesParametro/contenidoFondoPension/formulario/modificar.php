@@ -249,9 +249,10 @@ class Formulario {
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	if($matrizItems[$_REQUEST['variable']][5] == 0)
-                    {$atributos ['valor'] = '';}
-                else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][5];}
+//        	if($matrizItems[$_REQUEST['variable']][5] == 0)
+//                    {$atributos ['valor'] = '';}
+//                else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][5];}
+            $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][5];
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
@@ -284,8 +285,9 @@ class Formulario {
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	if($matrizItems[$_REQUEST['variable']][6] == 0){$atributos ['valor'] = '';}
-                else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];}
+//        	if($matrizItems[$_REQUEST['variable']][6] == 0){$atributos ['valor'] = '';}
+//                else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];}
+            $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
@@ -317,8 +319,9 @@ class Formulario {
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	if($matrizItems[$_REQUEST['variable']][7] == 0){$atributos ['valor'] ='';}
-            else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][7];}
+//        	if($matrizItems[$_REQUEST['variable']][7] == 0){$atributos ['valor'] ='';}
+//            else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][7];}
+            $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][7];
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;

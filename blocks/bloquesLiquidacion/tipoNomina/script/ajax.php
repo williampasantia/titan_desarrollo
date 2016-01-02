@@ -22,7 +22,7 @@
 		            //$('#<?php echo $this->campoSeguro('periodo')?>').width(250);
 		            $("#<?php echo $this->campoSeguro('periodo')?>").select2();
 		            
-		            $("#<?php echo $this->campoSeguro('periodo')?>").removeClass("validate[required]");
+		           
 	    		}else{
 	    			$("#<?php echo $this->campoSeguro('periodo')?>").attr('disabled','');
 	    			}
