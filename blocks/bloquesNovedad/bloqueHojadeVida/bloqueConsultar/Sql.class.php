@@ -1196,6 +1196,66 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_publicacion = ' . $variable ['id_mod_publicacion'] . ';';
 				break;
 				
+			case 'modificarUbicacionFormacionSuperior' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisFormacionSuperior'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoFormacionSuperior'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadFormacionSuperior'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion = ' . $variable ['id_ubicacion_superior'] . ';';
+				break;
+			
+			case 'modificarFormacionSuperior' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_superior ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'modalidad_academica = ';
+				$cadenaSql .= '\'' . $variable ['modalidadAcademica'] . '\', ';
+				$cadenaSql .= 'cantidad_semestres_aprobados = ';
+				$cadenaSql .= $variable ['semestresCursados'] . ', ';
+				$cadenaSql .= 'graduado = ';
+				$cadenaSql .= $variable ['esGraduado'] . ', ';
+				$cadenaSql .= 'convalidacion_resolucion = ';
+				$cadenaSql .= '\'' . $variable ['resolucionConvalidacion'] . '\', ';
+				if ($variable ['fechaConvalidacion'] != NULL) {
+					$cadenaSql .= 'convalidacion_fecha = ';
+					$cadenaSql .= '\'' . $variable ['fechaConvalidacion'] . '\', ';
+				}
+				$cadenaSql .= 'convalidacion_entidad = ';
+				$cadenaSql .= '\'' . $variable ['entidadConvalidacion'] . '\', ';
+				$cadenaSql .= 'nombre_universidad = ';
+				$cadenaSql .= '\'' . $variable ['universidadSuperior'] . '\', ';
+				$cadenaSql .= 'titulo_obtenido = ';
+				$cadenaSql .= '\'' . $variable ['tituloSuperior'] . '\', ';
+				if ($variable ['fechaGraduacionSuperior'] != NULL) {
+					$cadenaSql .= 'fecha_graduacion = ';
+					$cadenaSql .= '\'' . $variable ['fechaGraduacionSuperior'] . '\', ';
+				}
+				$cadenaSql .= 'numero_tarjeta_profesional = ';
+				$cadenaSql .= '\'' . $variable ['numeroTarjetaProfesional'] . '\', ';
+				if ($variable ['fechaExpedicionTarjeta'] != NULL) {
+					$cadenaSql .= 'fecha_expe_tarjeta = ';
+					$cadenaSql .= '\'' . $variable ['fechaExpedicionTarjeta'] . '\', ';
+				}
+				$cadenaSql .= 'soporte_educacion_superior = ';
+				$cadenaSql .= '\'' . $variable ['soporteSuperior'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_superior = ' . $variable ['id_formacion_superior'] . ';';
+				break;
+				
+			case 'eliminarFormacionSuperior' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'novedad.formacion_superior ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_superior = ' . $variable ['id_formacion_superior'] . ';';
+				break;
+				
 				
 				
 				

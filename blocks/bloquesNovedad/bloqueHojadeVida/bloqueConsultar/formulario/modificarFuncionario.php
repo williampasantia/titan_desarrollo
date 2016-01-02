@@ -86,6 +86,18 @@ class Formulario {
 		
 		//---------------------------------------------------------------------------------------------------
 		
+		
+		// ---------------- INICIO: Lista Variables Control--------------------------------------------------------
+		
+		$cantidad_referencias = 2;
+		$cantidad_referencias_info = 2;
+		$cantidad_idiomas = 2;
+		$cantidad_experiencia = 2;
+		$cantidad_referencias_per = 2;
+		
+		// ---------------- FIN: Lista Variables Control--------------------------------------------------------
+		
+		
 
 		//************************************************************************************************************
 		//************************************************************************************************************
@@ -171,7 +183,7 @@ class Formulario {
 			$cantidad_referencias = count($matrizCantFormacionSuperior);
 		}
 		
-		//var_dump(count($matrizCantFormacionSuperior)); //Obtengo los id x cada formacion superior
+		var_dump($matrizCantFormacionSuperior); //Obtengo los id x cada formacion superior
 		
 		$cadenaSql14 = $this->miSql->getCadenaSql("consultarCantidadFormacionInformal", $matrizFuncionario[0][4]);
 		$matrizCantFormacionInformal = $primerRecursoDB->ejecutarAcceso($cadenaSql14, "busqueda");
@@ -246,6 +258,8 @@ class Formulario {
 		
 		$cadenaSql23 = $this->miSql->getCadenaSql("consultarFormacionSuperior", $matrizFuncionario[0][4]);
 		$matrizSuperior = $primerRecursoDB->ejecutarAcceso($cadenaSql23, "busqueda");
+		
+		var_dump($matrizSuperior);
 		
 		/*$count = 0;
 		while($count < $cantidad_referencias){
@@ -2866,7 +2880,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -2943,7 +2957,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][2];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 20;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -2962,7 +2976,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 						    $atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -3009,7 +3023,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = '';
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -3050,7 +3064,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = '';
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -3089,7 +3103,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = '';
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -3142,7 +3156,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][5];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 20;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3175,7 +3189,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][6];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3208,7 +3222,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][7];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 20;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3241,7 +3255,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][8];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 20;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3274,7 +3288,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][9];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 30;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3307,7 +3321,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][10];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3340,7 +3354,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][11];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 30;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3373,7 +3387,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][12];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3406,7 +3420,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizSuperior[$i][13];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 30;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -5025,10 +5039,175 @@ class Formulario {
 				 
 			}
 			echo $this->miFormulario->marcoAgrupacion ( 'fin' );
-			
 		
+			
+//*************************************************************************************************************
+			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+			$esteCampo = 'funcionarioRegistrosSuperior';
+			$atributos ['id'] = $esteCampo;
+			$atributos ['nombre'] = $esteCampo;
+			$atributos ['tipo'] = 'hidden';
+			$atributos ['estilo'] = 'jqueryui';
+			$atributos ['marco'] = true;
+			$atributos ['columnas'] = 1;
+			$atributos ['dobleLinea'] = false;
+			$atributos ['tabIndex'] = $tab;
+			$atributos ['etiqueta'] = '';
+			
+			$atributos ['obligatorio'] = false;
+			$atributos ['etiquetaObligatorio'] = false;
+			$atributos ['validar'] = 'custom[onlyLetterSp]';
+			
+			if (isset ( $_REQUEST [$esteCampo] )) {
+				$atributos ['valor'] = $_REQUEST [$esteCampo];
+			} else {
+				$atributos ['valor'] = $cantidad_referencias;
+			}
+			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+			$atributos ['deshabilitado'] = false;
+			$atributos ['tamanno'] = 30;
+			$atributos ['maximoTamanno'] = '';
+			$tab ++;
+			
+			// Aplica atributos globales al control
+			$atributos = array_merge ( $atributos, $atributosGlobales );
+			echo $this->miFormulario->campoCuadroTexto ( $atributos );
+			// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+			 
+			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+			$esteCampo = 'funcionarioRegistrosInformal';
+			$atributos ['id'] = $esteCampo;
+			$atributos ['nombre'] = $esteCampo;
+			$atributos ['tipo'] = 'hidden';
+			$atributos ['estilo'] = 'jqueryui';
+			$atributos ['marco'] = true;
+			$atributos ['columnas'] = 1;
+			$atributos ['dobleLinea'] = false;
+			$atributos ['tabIndex'] = $tab;
+			$atributos ['etiqueta'] = '';
+			 
+			$atributos ['obligatorio'] = false;
+			$atributos ['etiquetaObligatorio'] = false;
+			$atributos ['validar'] = 'custom[onlyLetterSp]';
+			 
+			if (isset ( $_REQUEST [$esteCampo] )) {
+				$atributos ['valor'] = $_REQUEST [$esteCampo];
+			} else {
+				$atributos ['valor'] = $cantidad_referencias_info;
+			}
+			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+			$atributos ['deshabilitado'] = false;
+			$atributos ['tamanno'] = 30;
+			$atributos ['maximoTamanno'] = '';
+			$tab ++;
+			 
+			// Aplica atributos globales al control
+			$atributos = array_merge ( $atributos, $atributosGlobales );
+			echo $this->miFormulario->campoCuadroTexto ( $atributos );
+			// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+			 
+			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+			$esteCampo = 'funcionarioRegistrosIdioma';
+			$atributos ['id'] = $esteCampo;
+			$atributos ['nombre'] = $esteCampo;
+			$atributos ['tipo'] = 'hidden';
+			$atributos ['estilo'] = 'jqueryui';
+			$atributos ['marco'] = true;
+			$atributos ['columnas'] = 1;
+			$atributos ['dobleLinea'] = false;
+			$atributos ['tabIndex'] = $tab;
+			$atributos ['etiqueta'] = '';
+			 
+			$atributos ['obligatorio'] = false;
+			$atributos ['etiquetaObligatorio'] = false;
+			$atributos ['validar'] = 'custom[onlyLetterSp]';
+			 
+			if (isset ( $_REQUEST [$esteCampo] )) {
+				$atributos ['valor'] = $_REQUEST [$esteCampo];
+			} else {
+				$atributos ['valor'] = $cantidad_idiomas;
+			}
+			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+			$atributos ['deshabilitado'] = false;
+			$atributos ['tamanno'] = 30;
+			$atributos ['maximoTamanno'] = '';
+			$tab ++;
+			 
+			// Aplica atributos globales al control
+			$atributos = array_merge ( $atributos, $atributosGlobales );
+			echo $this->miFormulario->campoCuadroTexto ( $atributos );
+			// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+			 
+			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+			$esteCampo = 'funcionarioRegistrosExperiencia';
+			$atributos ['id'] = $esteCampo;
+			$atributos ['nombre'] = $esteCampo;
+			$atributos ['tipo'] = 'hidden';
+			$atributos ['estilo'] = 'jqueryui';
+			$atributos ['marco'] = true;
+			$atributos ['columnas'] = 1;
+			$atributos ['dobleLinea'] = false;
+			$atributos ['tabIndex'] = $tab;
+			$atributos ['etiqueta'] = '';
+			 
+			$atributos ['obligatorio'] = false;
+			$atributos ['etiquetaObligatorio'] = false;
+			$atributos ['validar'] = 'custom[onlyLetterSp]';
+			 
+			if (isset ( $_REQUEST [$esteCampo] )) {
+				$atributos ['valor'] = $_REQUEST [$esteCampo];
+			} else {
+				$atributos ['valor'] = $cantidad_experiencia;
+			}
+			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+			$atributos ['deshabilitado'] = false;
+			$atributos ['tamanno'] = 30;
+			$atributos ['maximoTamanno'] = '';
+			$tab ++;
+			 
+			// Aplica atributos globales al control
+			$atributos = array_merge ( $atributos, $atributosGlobales );
+			echo $this->miFormulario->campoCuadroTexto ( $atributos );
+			// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+			 
+			 
+			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+			$esteCampo = 'funcionarioRegistrosReferencia';
+			$atributos ['id'] = $esteCampo;
+			$atributos ['nombre'] = $esteCampo;
+			$atributos ['tipo'] = 'hidden';
+			$atributos ['estilo'] = 'jqueryui';
+			$atributos ['marco'] = true;
+			$atributos ['columnas'] = 1;
+			$atributos ['dobleLinea'] = false;
+			$atributos ['tabIndex'] = $tab;
+			$atributos ['etiqueta'] = '';
+			
+			$atributos ['obligatorio'] = false;
+			$atributos ['etiquetaObligatorio'] = false;
+			$atributos ['validar'] = 'custom[onlyLetterSp]';
+			
+			if (isset ( $_REQUEST [$esteCampo] )) {
+				$atributos ['valor'] = $_REQUEST [$esteCampo];
+			} else {
+				$atributos ['valor'] = $cantidad_referencias_per;
+			}
+			$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+			$atributos ['deshabilitado'] = false;
+			$atributos ['tamanno'] = 30;
+			$atributos ['maximoTamanno'] = '';
+			$tab ++;
+			
+			// Aplica atributos globales al control
+			$atributos = array_merge ( $atributos, $atributosGlobales );
+			echo $this->miFormulario->campoCuadroTexto ( $atributos );
+			// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+//*********************************************************************************************************
+
 		}
 		echo $this->miFormulario->marcoAgrupacion ( 'fin' );
+		
+
 		// ------------------Division para los botones-------------------------
 		$atributos ["id"] = "botonesUsuario";
 		$atributos ["estilo"] = "marcoBotones";
