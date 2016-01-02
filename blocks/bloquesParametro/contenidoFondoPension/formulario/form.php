@@ -144,7 +144,7 @@ class Formulario {
             
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."ESTADO".'</th><th>'."GESTION".'</th></tr></thead>
+                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."ACTIVAR".'</th></tr></thead>
                        
                     <tbody>'; 
         if(!empty($matrizItems)){
@@ -189,7 +189,7 @@ class Formulario {
 
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
-                     echo $this->miFormulario->campoBoton ( $atributos );
+                     echo "</td><td>".$this->miFormulario->campoBoton ( $atributos );
                          $esteCampo = 'botonInactivar'.$i;
                          if($matrizItems[$i][2]=='Activo'){
                             $baseCampo = 'botonInactivar';
@@ -213,7 +213,7 @@ class Formulario {
 
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales ); 
-                       echo $this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
+                       echo "</td><td>".$this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
                             
                     
                      $i+=1;
