@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl;
+namespace bloquesParametro\vinculacionPersonaNatural;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -49,23 +49,56 @@ class Sql extends \Sql {
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'nomina.arl';
                 break;
+            case 'buscarTipoVinculacion':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'id as ID, ';
+                $cadenaSql .= 'nombre as NOMBRE ';
+                
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.tipo_vinculacion';
+                break;
             
-            case 'buscarPersona':
+            case 'buscarPersonaVinculada':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'p.documento as DOCUMENTO, ';
-                $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
-                $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS, ";
-                $cadenaSql .= 'naturaleza as TIPO_VINCULACION, ';
+              
+                $cadenaSql .= 'd.id as ID_VINCULACION, ';
+              
                 $cadenaSql .= 'estado_vinculacion as ESTADO_VINCULACION ';
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'persona.persona_natural p, ';
                 $cadenaSql .= 'parametro.tipo_vinculacion j, ';
+                $cadenaSql .= 'novedad.funcionario f, ';
                 $cadenaSql .= 'persona.vinculacion_persona_natural d ';
                 $cadenaSql .= 'where d.documento = p.documento';
-                $cadenaSql .= ' and d.id_tipo_vinculacion = j.id';
+                $cadenaSql .= ' and d.id_tipo_vinculacion = j.id ';
+                $cadenaSql .= '  and d.documento=f.documento';
+                
+             
+                break;
+               
+            case 'buscarPersonaVinculadaDetalle':
+                $cadenaSql = 'SELECT ';
+            
+                $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
+                $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS, ";
+              // nombre o naturaleza
+                $cadenaSql .= 'naturaleza as TIPO_VINCULACION, ';
+                $cadenaSql .= 'fecha_inicio as FECHA_INICIO, ';
+                $cadenaSql .= 'fecha_final as FECHA_FINAL ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'persona.persona_natural p, ';
+                $cadenaSql .= 'parametro.tipo_vinculacion j, ';
+                $cadenaSql .= 'novedad.funcionario f, ';
+                $cadenaSql .= 'persona.vinculacion_persona_natural d ';
+                $cadenaSql .= 'where d.documento = p.documento';
+                $cadenaSql .= ' and d.id_tipo_vinculacion = j.id ';
+                $cadenaSql .= '  and d.documento=f.documento';
+                
                 break;
             
-            case 'buscarPersonaFuncionario':
+                      
+                case 'buscarPersonaFuncionario':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'p.documento as DOCUMENTO, ';
                 $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
@@ -76,7 +109,7 @@ class Sql extends \Sql {
                 $cadenaSql .= 'where d.documento = p.documento';
                 
                 break;
-             case 'buscarPersonaVinculada':
+             case 'buscarPersonaVinculadaghjgj':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'documento as DOCUMENTO, ';
                 $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
@@ -211,6 +244,38 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';
                 echo $cadenaSql;
+                break;
+            
+            case 'insertarVinculacion' :
+                $cadenaSql = 'INSERT INTO ';
+                $cadenaSql .= 'persona.vinculacion_persona_natural ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= 'fecha_inicio,';
+                $cadenaSql .= 'fecha_final,';
+                $cadenaSql .= 'id_tipo_vinculacion,';
+                $cadenaSql .= 'documento,';
+                $cadenaSql .= 'estado_vinculacion,';
+                $cadenaSql .= 'estado_vinculacion_dependencia,';
+                $cadenaSql .= 'sede,';
+                $cadenaSql .= 'dependencia,';
+                $cadenaSql .= 'ubicacion_especifica';
+                $cadenaSql .= ') ';
+                $cadenaSql .= 'VALUES ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= "'".$variable['fechaInicio'] . "',";
+                $cadenaSql .= "'".$variable ['fechaFin'] . "',";
+                $cadenaSql .= $variable ['tipoVinculacion'] . ', ';
+          
+                $cadenaSql .= $variable ['cedula'] . ', ';
+                $cadenaSql .="'Activo' ,";
+               $cadenaSql .="'Activo' ,";
+                $cadenaSql .= "'".$variable ['sede'] . "',";
+                $cadenaSql .= "'".$variable ['dependencia'] . "',";
+                $cadenaSql .= "'".$variable ['ubicacion']. "'" ;
+               
+                
+                $cadenaSql .= ') ';
+                
                 break;
             
             case 'actualizarRegistro' :

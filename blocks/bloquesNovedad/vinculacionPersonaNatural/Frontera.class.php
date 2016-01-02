@@ -1,6 +1,6 @@
 <?
 
- namespace bloquesParametro\parametroArl;
+ namespace bloquesParametro\vinculacionPersonaNatural;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("../index.php");
@@ -52,10 +52,10 @@ class Frontera {
 				
 				case "registrar" :
                                     
-					include_once ($this->ruta . "/formulario/registrar.php");
+					include_once ($this->ruta . "/formulario/form2.php");
 					break;
 				case "mensaje" :
-                                    echo "mensaje";
+                               
 					include_once ($this->ruta . "/formulario/mensaje.php");
 					break;
 				case "modificar":
@@ -77,9 +77,11 @@ class Frontera {
 					include_once ($this->ruta . "/formulario/detalle.php");
 					break;	
                                     
-                                     case "verdetalle":
+                                case "verdetalle":
                                         include_once ($this->ruta . "/formulario/verdetalle.php");
 					break;
+                                    
+                                
         		}
 		}else{
                     

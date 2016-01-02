@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl;
+namespace bloquesParametro\vinculacionPersonaNatural;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");

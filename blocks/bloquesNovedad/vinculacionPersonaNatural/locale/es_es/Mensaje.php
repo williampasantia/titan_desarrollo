@@ -15,20 +15,20 @@ $this->idioma["regresar"]="Regresar: ";
 
 
 //REGISTRO
-$this->idioma["nit"]="Nit: " ;
-$this->idioma["nombre"]="Nombre: ";
-$this->idioma["direccion"]="Direccion: ";
-$this->idioma["telefono"]="Telefono: ";
-$this->idioma["extencionTelefono"]="Extencion tel:";
-$this->idioma["fax"]="Fax: ";
-$this->idioma["extencionFax"]="Extencion fax";
-$this->idioma["nombreRegistro"]="Nombre cargo :";
-$this->idioma["lugar"]="Lugar: ";
-$this->idioma["nombreRepresentante"]="Representante legal: ";
-$this->idioma["email"]="Email: ";
-$this->idioma["estado"]="Estado: ";
-
-
+$this->idioma["fechaInicio"]="Fecha de inicio: " ;
+$this->idioma["fechaInicioTitulo"]="" ;
+$this->idioma["fechaFin"]="Fecha de fin: " ;
+$this->idioma["fechaInicioTitulo"]="" ;
+$this->idioma["tipoVinculacion"]="Tipo vinculacion: " ;
+$this->idioma["tipoVinculacionTitulo"]="" ;
+$this->idioma["sede"]="Sede: " ;
+$this->idioma["sedeTitulo"]="" ;
+$this->idioma["dependencia"]="Dependencia: " ;
+$this->idioma["dependenciaTitulo"]="" ;
+$this->idioma["ubicacion"]="Ubiacion: " ;
+$this->idioma["ubicacionTitulo"]="" ;
+$this->idioma["cedula"]="Cedula: " ;
+$this->idioma["ubicacionTitulo"]="" ;
 ///************ SECCIÓN DE NOMBRES DE TABS *****************//
 $this->idioma["tabConsultar"] = "Consultar Ponencias del Docente";
 $this->idioma["tabIngresar"] = "Ingresar Ponencias del Docente";
@@ -104,4 +104,3 @@ $this->idioma["normatividadTitulo"] = "Ingrese la normatividad.";
 
 ?>
 
-?>

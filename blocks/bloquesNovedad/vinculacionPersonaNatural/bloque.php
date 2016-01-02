@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl;
+namespace bloquesParametro\vinculacionPersonaNatural;
 
 // Evitar un acceso directo a este archivo
 if (! isset ( $GLOBALS ["autorizado"] )) {

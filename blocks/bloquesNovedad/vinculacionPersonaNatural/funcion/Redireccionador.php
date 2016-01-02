@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl\funcion;
+namespace bloquesParametro\vinculacionPersonaNatural\funcion;
                         
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("index.php");
@@ -63,8 +63,9 @@ class Redireccionador {
                          case "vincular" :
                                 
 				$variable = 'pagina='.$miPaginaActual;                                
-				$variable .= "&opcion=vincular";
+				$variable .= "&opcion=registrar";
                                 $variable .= '&variable=' . $valor;
+                               
                             break; 
 			
 		}
