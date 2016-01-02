@@ -105,7 +105,8 @@ class Formulario {
         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexCargo");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-//         var_dump($matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda"));        
+//    var_dump($matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda"));exit;
+		
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         
         $esteCampo = 'personaNaturalIdentificacion';

@@ -114,7 +114,7 @@ class Formulario {
        
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         
-        $esteCampo = 'personaNaturalDocumento';
+        $esteCampo = 'codigoRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';

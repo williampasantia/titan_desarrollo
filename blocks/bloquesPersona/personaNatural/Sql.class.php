@@ -66,7 +66,8 @@ class Sql extends \Sql {
             	$cadenaSql .= '\'' .$variable ['contribuyente'] .'\''.', ';
             	$cadenaSql .= '\'' .$variable ['autorretenedor'] .'\''.', ';
             	$cadenaSql .= '\'' .$variable ['regimen'] .'\''. ', ';
-            	$cadenaSql .= '\'' . 'Modificable' . '\' ';
+            	$cadenaSql .= '\'' . 'Modificable' . '\' '.',';
+            	$cadenaSql .= '\'' .'no funciona '.'\'';
             	$cadenaSql .= ') ';
                 break;
             
@@ -86,20 +87,15 @@ class Sql extends \Sql {
                 	$cadenaSql .= ') ';
                 	$cadenaSql .= 'VALUES ';
                 	$cadenaSql .= '( ';
-                	$cadenaSql .= $_REQUEST ['personaNaturalConsecutivo']. ', ';
-                	$cadenaSql .= $_REQUEST ['personaNaturalBanco'] . ', ';
-                	$cadenaSql .= $_REQUEST ['personaNaturalTipoCuenta'] . ', ';
-                	$cadenasql .= $_REQUEST ['personaNaturalNumeroCuenta'] . ', ';
-                	$cadenasql .= $_REQUEST ['personaNaturalTipoPago'] . ', ';
-                	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalPrimerNombre'] . '\''.', ';
-                	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalSegundoNombre'].'\''. ', ';
-                	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalPrimerApellido'] . '\''. ', ';
-                	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalSegundoApellido'] .'\''. ', ';
-                	$cadenaSql .= $_REQUEST ['personaNaturalContribuyente'] .  ', ';
-                	$cadenaSql .= $_REQUEST ['personaNaturalAutorretenedor'] . ', ';
-                	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalRegimen'] .'\''. ', ';
-                	//             	$cadenaSql .= '\'' . $_REQUEST ['emailRegistro'] . '\''. ', ';
-                	$cadenaSql .= '\'' . 'Activo' . '\' ';
+                	$cadenaSql .= $variable ['consecutivo']. ', ';
+                	$cadenaSql .= '\'' .$variable ['banco'] . '\''. ', ';
+                	$cadenaSql .= '\'' .$variable ['tipoCuenta'] .'\''. ', ';
+                	$cadenasql .= $variable ['numeroCuenta'] . ', ';
+                	$cadenasql .= '\'' .$variable ['tipoPago'] . '\''. ', ';
+                	$cadenaSql .= '\'' .$variable ['estado'] . '\''.', ';
+                	$cadenaSql .= '\'' .$variable ['fecha'].'\''. ', ';
+                	$cadenaSql .= '\'' .$variabe ['creador'] . '\''. ', ';
+                	$cadenaSql .= '\'' .$variable ['soporteRUT'];
                 	$cadenaSql .= ') ';
                 	break;
             
@@ -153,7 +149,7 @@ class Sql extends \Sql {
                 $cadenaSql .= 'segundo_apellido as SEGUNDO_APELLIDO, ';
                 $cadenaSql .= 'gran_contribuyente as CONTRIBUYENTE, ';
                 $cadenaSql .= 'autoretenedor as AUTORRETENEDOR, ';
-                $cadenaSql .= 'regimen_tributario as REGIMEN ';
+                $cadenaSql .= 'regimen_tributario as REGIMEN, ';
                 $cadenaSql .= 'estado_solicitud as ESTADO ';
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'persona.persona_natural';
@@ -181,12 +177,12 @@ class Sql extends \Sql {
                 
              case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.cargo ';
+                $cadenaSql .= 'persona.persona_natural ';
                 $cadenaSql .= 'SET ';
-                $cadenaSql .= 'estado = ';
-                $cadenaSql .= '\'' . $variable ['estadoRegistro']  . '\' ';
+                $cadenaSql .= 'estado_solicitud = ';
+                $cadenaSql .= '\'' . 'Aprobado'  . '\' ';
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'codigo_cargo = ';
+                $cadenaSql .= 'documento = ';
                 $cadenaSql .= '\'' . $variable ['codigoRegistro']  . '\'';
                 break;
                 

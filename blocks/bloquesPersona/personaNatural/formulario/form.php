@@ -152,7 +152,7 @@ class Formulario {
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
                  . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."1 NOMBRE".'</th> <th>'."2 NOMBRE".'</th> <th>'."1 APELLIDO".'</th> <th>'." 2 APELLIDO".'</th><th>'."REGIMEN".'</th><th>'."ESTADO".'</th><th>'."GESTION".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
+                       <tfoot  style="display: none">
             <tr>
                 <th>DOCUMENTO</th>
                 <th>1 NOMBRE</th>
