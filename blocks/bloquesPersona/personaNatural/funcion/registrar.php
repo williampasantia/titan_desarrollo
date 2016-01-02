@@ -154,6 +154,38 @@ class FormProcessor {
         var_dump($atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroComercial",$datosCom));exit;
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
+       
+        if(isset($_REQUEST['personaNaturalContactoTipo'])){
+        	switch($_REQUEST ['personaNaturalContactoTipo']){
+        		case 1 :
+        			$_REQUEST ['personaNaturalContactoTipo']='Dirección';
+        			break;
+        		case 2 :
+        			$_REQUEST ['personaNaturalContactoTipo']='e-mail';
+        			break;
+        		case 3 :
+        			$_REQUEST ['personaNaturalContactoTipo']='Teléfono fijo';
+        			break;
+        		case 4 :
+        			$_REQUEST ['personaNaturalContactoTipo']='Teléfono Movil';
+        			break;
+        		case 5 :
+        			$_REQUEST ['personaNaturalBanco']='Fax';
+        			break;
+        	}
+        	 
+        	
+        
+        $datosContacto = array(
+        		'banco' => $_REQUEST['personaNaturalBanco'],
+        		'tipoCuenta' => $_REQUEST['personaNaturalTipoCuenta'],
+        		'numeroCuenta' => $_REQUEST['personaNaturalNumeroCuenta'],
+        		'tipoPago' => $_REQUEST['personaNaturalTipoPago'],
+        		'estado' => $_REQUEST['personaNaturalEconomicoEstado'],
+        		'fecha' => $_REQUEST['fechaCreacionConsulta1'],
+        		'creador' => $_REQUEST['personaNaturalCreo'],
+        		'soporteRUT' => $_REQUEST['personaNaturalSoporteRUT']
+        );
         
         Redireccionador::redireccionar('form');
     	        
@@ -168,8 +200,8 @@ class FormProcessor {
         }
     }
     
-
-    }}
+        }}
+    }
 $miProcesador = new FormProcessor ( $this->lenguaje, $this->sql );
 
 $resultado= $miProcesador->procesarFormulario ();
