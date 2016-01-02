@@ -98,7 +98,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Registro Arl";
+	$atributos ["leyenda"] = "Registro vinculacion persona natural";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
      $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarPersonaFuncionario");

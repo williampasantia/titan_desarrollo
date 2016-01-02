@@ -84,9 +84,9 @@ class Sql extends \Sql {
                 $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS, ";
               // nombre o naturaleza
                 $cadenaSql .= 'naturaleza as TIPO_VINCULACION, ';
-                $cadenaSql .= "to_char(fecha_inicio,'DD/MM/YYYY') as FECHA_INICIO, ";
-                $cadenaSql .= "to_char(fecha_final,'DD/MM/YYYY') as FECHA_FINAL, ";
-                 $cadenaSql .= "d.id as ID_VINCULACION ";
+                $cadenaSql .= "fecha_inicio as FECHA_INICIO, ";
+                $cadenaSql .= "fecha_final as FECHA_FINAL, ";
+                $cadenaSql .= "d.id as ID_VINCULACION ";
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'persona.persona_natural p, ';
                 $cadenaSql .= 'parametro.tipo_vinculacion j, ';

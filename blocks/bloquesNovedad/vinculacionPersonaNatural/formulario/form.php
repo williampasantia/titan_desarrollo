@@ -145,9 +145,7 @@ class Formulario {
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
                  . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."ID VINCULACION".'</th> <th>'."ESTADO".'</th><th>'."ver detalle".'</th><th>'."modificar".'</th><th>'."modifcar estado".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
-           
-        </tfoot>  
+                       
                     <tbody>'; 
         
         while($i<$longitud){
@@ -157,7 +155,7 @@ class Formulario {
                     echo "<td>".$matrizItems[$i][2]."</td>";
                  
                    
-                      $esteCampo = 'botonVerDetalle'.$i;
+                        $esteCampo = 'botonVerDetalle'.$i;
                         $baseCampo = 'botonVerDetalle';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
