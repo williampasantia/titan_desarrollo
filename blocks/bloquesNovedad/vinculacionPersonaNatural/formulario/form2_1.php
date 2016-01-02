@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesParametro\parametroArl\formulario;
+ namespace bloquesParametro\cajaDeCompensacion\formulario;
 
 
 
@@ -96,7 +96,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "ARL";
+	$atributos ["leyenda"] = "VINCULAR PERSONA NATURAL";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         // --------------------------------------------------------------------------------------------------
         
@@ -105,46 +105,24 @@ class Formulario {
                         $atributos ["estilo"] = "marcoBotones";
                         echo $this->miFormulario->division ( "inicio", $atributos );
 
-                        // -----------------CONTROL: Botón ----------------------------------------------------------------
-                        $esteCampo = 'botonRegistrar';
-                        $atributos ["id"] = $esteCampo;
-                        $atributos ["tabIndex"] = $tab;
-                        $atributos ["tipo"] = 'boton';
-                        // submit: no se coloca si se desea un tipo button genérico
-                        $atributos ['submit'] = true;
-                        $atributos ["estiloMarco"] = '';
-                        $atributos ["estiloBoton"] = 'jqueryui';
-                        // verificar: true para verificar el formulario antes de pasarlo al servidor.
-                        $atributos ["verificar"] = '';
-                        $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
-                        $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
-                        $tab ++;
-
-                        // Aplica atributos globales al control
-                        $atributos = array_merge ( $atributos, $atributosGlobales );
-                        echo $this->miFormulario->campoBoton ( $atributos );
-                        
-                        
-                        
-                        // -----------------FIN CONTROL: Botón -----------------------------------------------------------
-
                         // ------------------Fin Division para los botones-------------------------
                    
                         
                         echo $this->miFormulario->division("fin"); 
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarArl");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarPersonaFuncionario");
         
-      
+       
+       
+       
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-     
+       
        $longitud = count($matrizItems);
         $i=0;
         
-        echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DIRECCION".'</th> <th>'."TELEFONO".'</th> <th>'."EXTENCION_TELEFONO".'</th><th>'."ESTADO".'</th><th>'."ver detalle".'</th><th>'."modificar".'</th><th>'."modificar estado".'</th></tr></thead>
+         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
+                 . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."NOMBRE".'</th> <th>'."APELLIDO".'</th> <th>'."Vincular".'</th></tr></thead>
                        <tfoot  style="display: table-header-group">
             
         </tfoot>  
@@ -155,12 +133,11 @@ class Formulario {
                     echo "<tr><td>".$matrizItems[$i][0]."</td>";
                     echo "<td>".$matrizItems[$i][1]."</td>";
                     echo "<td>".$matrizItems[$i][2]."</td>";
-                    echo "<td>".$matrizItems[$i][3]."</td>";
-                    echo "<td>".$matrizItems[$i][4]."</td>";
-                    echo "<td>".$matrizItems[$i][5]."</td>";
                    
-                      $esteCampo = 'botonVerDetalle'.$i;
-                        $baseCampo = 'botonVerDetalle';
+                  
+                   
+                    $esteCampo = 'botonVincular'.$i;
+                        $baseCampo = 'botonVincular';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -179,54 +156,8 @@ class Formulario {
                        
                                
                         
-                     echo "<td>".$this->miFormulario->campoBoton ( $atributos )."</td>";
+                     echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td>";
                        
-                        $esteCampo = 'botonModificar'.$i;
-                        $baseCampo = 'botonModificar';
-                        $atributos ["id"] = $esteCampo;
-                        $atributos ["tabIndex"] = $tab;
-                        $atributos ["tipo"] = 'boton';
-                        // submit: no se coloca si se desea un tipo button genérico
-                        $atributos ['submit'] = true;
-                        $atributos ["estiloMarco"] = '';
-                        $atributos ["estiloBoton"] = 'jqueryui';
-                        // verificar: true para verificar el formulario antes de pasarlo al servidor.
-                        $atributos ["verificar"] = '';
-                        $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
-                        $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
-                        $tab ++;
-                        // Aplica atributos globales al control
-                        $atributos = array_merge ( $atributos, $atributosGlobales );
-                     echo "<td>".$this->miFormulario->campoBoton ( $atributos )."</td>";
-                     
-                        $esteCampo = 'botonInactivar'.$i;
-                        if($matrizItems[$i][5]=='Activo'){
-                            $baseCampo = 'botonInactivar';
-                        }
-                        else{
-                            $baseCampo = 'botonActivar';
-                        }
-                        
-                        $atributos ["id"] = $esteCampo;
-                        $atributos ["tabIndex"] = $tab;
-                        $atributos ["tipo"] = 'boton';
-                        // submit: no se coloca si se desea un tipo button genérico
-                        $atributos ['submit'] = true;
-                        $atributos ["estiloMarco"] = '';
-                        $atributos ["estiloBoton"] = 'jqueryui';
-                        // verificar: true para verificar el formulario antes de pasarlo al servidor.
-                        $atributos ["verificar"] = '';
-                        $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
-                        $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
-                        $tab ++;
-                        // Aplica atributos globales al control
-                        $atributos = array_merge ( $atributos, $atributosGlobales ); 
-                       echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
-                     
-                     
-                        
                             
                     
                      $i+=1;
@@ -263,11 +194,11 @@ class Formulario {
         // En este formulario se utiliza el mecanismo (b) para pasar las siguientes variables:
 
         // Paso 1: crear el listado de variables
-
+        $valorCodificado  = "action=" . $esteBloque ["nombre"];
         $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
         $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
-        $valorCodificado .= "&tamaño=".$longitud;
+         $valorCodificado .= "&tamaño=".$longitud;
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&opcion=registrar";
         /**

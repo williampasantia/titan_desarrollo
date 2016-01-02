@@ -1,5 +1,5 @@
 <?php
-namespace bloquesParametro\parametroArl;
+namespace bloquesParametro\vinculacionPersonaNatural;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -58,6 +58,7 @@ class Funcion {
         } else{
         
             
+        	
         	switch ($_REQUEST['opcion']){
                    
         		case "mostrar":
@@ -67,7 +68,7 @@ class Funcion {
         			break;
                             
                              case "registrar":
-                          
+                              
                             include_once ($this->ruta."funcion/opciones.php");
         		
         			break;

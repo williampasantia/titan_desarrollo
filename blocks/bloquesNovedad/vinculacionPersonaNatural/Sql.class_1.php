@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl;
+namespace bloquesParametro\vinculacionPersonaNatural;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -47,7 +47,77 @@ class Sql extends \Sql {
                 $cadenaSql .= 'extencion_telefono as EXTENCION_TELEFONO, ';
                 $cadenaSql .= 'estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'parametro.arl';
+                $cadenaSql .= 'nomina.arl';
+                break;
+            case 'buscarTipoVinculacion':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'id as ID, ';
+                $cadenaSql .= 'nombre as NOMBRE ';
+                
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.tipo_vinculacion';
+                break;
+            
+            case 'buscarPersonaVinculada':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'p.documento as DOCUMENTO, ';
+              
+                $cadenaSql .= 'd.id as ID_VINCULACION, ';
+              
+                $cadenaSql .= 'estado_vinculacion as ESTADO_VINCULACION ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'persona.persona_natural p, ';
+                $cadenaSql .= 'parametro.tipo_vinculacion j, ';
+                $cadenaSql .= 'novedad.funcionario f, ';
+                $cadenaSql .= 'persona.vinculacion_persona_natural d ';
+                $cadenaSql .= 'where d.documento = p.documento';
+                $cadenaSql .= ' and d.id_tipo_vinculacion = j.id ';
+                $cadenaSql .= '  and d.documento=f.documento';
+                
+             
+                break;
+               
+            case 'buscarPersonaVinculadaDetalle':
+                $cadenaSql = 'SELECT ';
+            
+                $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
+                $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS, ";
+              // nombre o naturaleza
+                $cadenaSql .= 'naturaleza as TIPO_VINCULACION, ';
+                $cadenaSql .= "fecha_inicio as FECHA_INICIO, ";
+                $cadenaSql .= "fecha_final as FECHA_FINAL, ";
+                $cadenaSql .= "d.id as ID_VINCULACION ";
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'persona.persona_natural p, ';
+                $cadenaSql .= 'parametro.tipo_vinculacion j, ';
+                $cadenaSql .= 'novedad.funcionario f, ';
+                $cadenaSql .= 'persona.vinculacion_persona_natural d ';
+                $cadenaSql .= 'where d.documento = p.documento';
+                $cadenaSql .= ' and d.id_tipo_vinculacion = j.id ';
+                $cadenaSql .= '  and d.documento=f.documento';
+                
+                break;
+            
+                      
+                case 'buscarPersonaFuncionario':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'p.documento as DOCUMENTO, ';
+                $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
+                $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS ";
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'novedad.funcionario p, ';
+                $cadenaSql .= 'persona.persona_natural d ';
+                $cadenaSql .= 'where d.documento = p.documento';
+                
+                break;
+             case 'buscarPersonaVinculadaghjgj':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'documento as DOCUMENTO, ';
+                $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
+                $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS ";
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'persona.persona_natural ';
+                $cadenaSql .= "where estado_solicitud='Aprobado'";
                 break;
          case 'buscarArl1':
                 $cadenaSql = 'SELECT ';
@@ -63,43 +133,47 @@ class Sql extends \Sql {
                 $cadenaSql .= 'email as EMAIL, ';
                 $cadenaSql .= 'estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'parametro.arl';
+                $cadenaSql .= 'nomina.arl';
                 break;
+           case 'buscarTipoVinculacion':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'id as ID, ';
+                $cadenaSql .= 'nombre as NOMBRE, ';
+                $cadenaSql .= 'descripcion as DESCRIPCION, ';
+                $cadenaSql .= 'naturaleza as NATURALEZA, ';
+                $cadenaSql .= 'reglamentacion as REGLAMENTACION ,';
+                $cadenaSql .= 'estado as ESTADO ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.tipo_vinculacion';
+                break; 
             
              case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.arl ';
+                $cadenaSql .= 'persona.vinculacion_persona_natural ';
                 $cadenaSql .= 'SET ';
-                $cadenaSql .= 'nombre = ';
-                $cadenaSql .= "'".$variable ['nombre'] . "',";
-                $cadenaSql .= 'direccion = ';
-                $cadenaSql .= "'".$variable ['direccion']  . "',";
-                $cadenaSql .= 'telefono = ';
-                $cadenaSql .= $variable ['telefono']  . ', ';
-                $cadenaSql .= 'extencion_telefono = ';
-                $cadenaSql .= $variable ['extencionTelefono']  . ', ';
-                $cadenaSql .= 'Fax = ';
-                $cadenaSql .= $variable ['fax']  . ', ';
-               
-               
-                if($variable ['lugar']!='')
+                 if($variable ['tipoVinculacion']!='')
                 {
-                     $cadenaSql .= 'lugar = ';
-                     $cadenaSql .= "'".$variable ['lugar']  . "',";
+                     $cadenaSql .= 'id_tipo_vinculacion = ';
+                     $cadenaSql .= "'".$variable ['tipoVinculacion']  . "',";
                 }
+                $cadenaSql .= 'fecha_inicio = ';
+                $cadenaSql .= "'".$variable ['fechaInicio'] . "',";
+                $cadenaSql .= 'fecha_final = ';
+                $cadenaSql .= "'".$variable ['fechaFin']  . "' ";
+                
+              
                
-                $cadenaSql .= 'nombre_representante_legal = ';
-                $cadenaSql .= "'".$variable ['nombreRepresentante']  . "',";
-                $cadenaSql .= 'email = ';
-                $cadenaSql .= "'".$variable ['email']."'";
+               
+               
+                
                 $cadenaSql .= ' WHERE ';
-                $cadenaSql .= 'nit = ';
-                $cadenaSql .= $variable ['nit']  .';';
+                $cadenaSql .= 'id = ';
+                $cadenaSql .= $variable ['id']  .';';
                 break;
                 
             case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.arl ';
+                $cadenaSql .= 'nomina.arl ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'estado = ';
                 $cadenaSql .= "'". $variable ['estadoRegistro']  ."' ";
@@ -110,37 +184,34 @@ class Sql extends \Sql {
         
         
             case "registrarArl" :
-				$cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'parametro.arl ';
-                $cadenaSql .= '( ';
-                $cadenaSql .= 'nit,';                
-             
-                $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'direccion,';
-                $cadenaSql .= 'telefono,';
-                $cadenaSql .= 'extencion_telefono,';
-                $cadenaSql .= 'fax,';
-                $cadenaSql .= 'extencion_fax,';
-                $cadenaSql .= 'lugar,';
-                $cadenaSql .= 'nombre_representante_legal,';
-                $cadenaSql .= 'email,';
-                $cadenaSql .= 'estado';
-                $cadenaSql .= ') ';
-                $cadenaSql .= 'VALUES ';
-                $cadenaSql .= '( ';
-                $cadenaSql .= $variable ['nitRegistro'] . ', ';
-                
-                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
-                $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
-                $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
-                $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';
-                $cadenaSql .= $variable ['faxRegistro'] . ', ';
-                $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
-                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
-                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
-                $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
-                $cadenaSql .= '\'' . 'Activo' . '\' ';
-                $cadenaSql .= ') ';
+				$cadenaSql=" INSERT INTO nomina.arl";
+				$cadenaSql.=" (";
+				$cadenaSql.=" nit,";
+				$cadenaSql.=" nombre,";
+				$cadenaSql.=" direccion,";
+				$cadenaSql.=" telefono,";
+				$cadenaSql.=" extencion_telefono,";
+				$cadenaSql.=" fax,";
+				$cadenaSql.=" extencion_fax,";
+				$cadenaSql.=" lugar,";
+				$cadenaSql.=" nombre_representante_legal,";
+				$cadenaSql.=" email,";
+				$cadenaSql.=" estado";
+				$cadenaSql.=" )";
+				$cadenaSql.=" VALUES";
+				$cadenaSql.=" (";
+				$cadenaSql.=" '" . $_REQUEST['nit']. "',";
+				$cadenaSql.=" '" . $_REQUEST['nombre']. "',";
+				$cadenaSql.=" '" . $_REQUEST['direccion']. "',";
+				$cadenaSql.=" '" . $_REQUEST['telefono']. "',";
+				$cadenaSql.=" '" . $_REQUEST['extencionTelefono']. "',";
+				$cadenaSql.=" '" . $_REQUEST['fax']. "',";
+				$cadenaSql.=" '" . $_REQUEST['extencionFax']. "',";
+				$cadenaSql.=" '" . $_REQUEST['lugar']. "',";
+				$cadenaSql.=" '" . $_REQUEST['nombreRepresentante']. "',";
+                                $cadenaSql.=" '" . $_REQUEST['email']. "',";
+				$cadenaSql.=" 'Activo'";
+				$cadenaSql.=" );";
 				break;  
             
             case 'insertarRegistro' :
@@ -168,6 +239,38 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';
                 echo $cadenaSql;
+                break;
+            
+            case 'insertarVinculacion' :
+                $cadenaSql = 'INSERT INTO ';
+                $cadenaSql .= 'persona.vinculacion_persona_natural ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= 'fecha_inicio,';
+                $cadenaSql .= 'fecha_final,';
+                $cadenaSql .= 'id_tipo_vinculacion,';
+                $cadenaSql .= 'documento,';
+                $cadenaSql .= 'estado_vinculacion,';
+                $cadenaSql .= 'estado_vinculacion_dependencia,';
+                $cadenaSql .= 'sede,';
+                $cadenaSql .= 'dependencia,';
+                $cadenaSql .= 'ubicacion_especifica';
+                $cadenaSql .= ') ';
+                $cadenaSql .= 'VALUES ';
+                $cadenaSql .= '( ';
+                $cadenaSql .= "'".$variable['fechaInicio'] . "',";
+                $cadenaSql .= "'".$variable ['fechaFin'] . "',";
+                $cadenaSql .= $variable ['tipoVinculacion'] . ', ';
+          
+                $cadenaSql .= $variable ['cedula'] . ', ';
+                $cadenaSql .="'Activo' ,";
+               $cadenaSql .="'Activo' ,";
+                $cadenaSql .= "'".$variable ['sede'] . "',";
+                $cadenaSql .= "'".$variable ['dependencia'] . "',";
+                $cadenaSql .= "'".$variable ['ubicacion']. "'" ;
+               
+                
+                $cadenaSql .= ') ';
+                
                 break;
             
             case 'actualizarRegistro' :
@@ -239,7 +342,7 @@ class Sql extends \Sql {
                 		//$cadenaSql .= 'nivel as NIVEL,';
                 		//$cadenaSql .= 'parametro as PARAMETRO ';
                 		$cadenaSql .= 'FROM ';
-                		$cadenaSql .= "parametro." .$prefijo . 'usuarios ';
+                		$cadenaSql .= "nomina." .$prefijo . 'usuarios ';
 //                		$cadenaSql .= 'WHERE ';
 //                		$cadenaSql .= 'fecha_reg <=\'' . $_REQUEST ['fechaRegistroConsulta'] . '\' ';
                 break;
@@ -263,120 +366,7 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $_REQUEST ['parametroPagina'] . '\'';
                 $cadenaSql .= ') ';
                 break;
-         case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
-				$cadenaSql .= 'nombre as NOMBRE ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.departamento ';
-				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'id_pais = 112;';
-				break;
-               		
-			case 'buscarDepartamentoAjax' :
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
-				$cadenaSql .= 'nombre as NOMBRE ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.departamento ';
-				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'id_pais = ' . $variable . ';';
-				break;
-               		
-			case 'buscarCiudad' : //Provisionalmente Solo Ciudades de Colombia sin Agrupar
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
-				$cadenaSql .= 'nombre as NOMBRE ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.ciudad ';
-				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'ab_pais = \'CO\';';
-				break;
-				
-			case 'buscarCiudadAjax' :
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
-				$cadenaSql .= 'nombre as NOMBRECIUDAD ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.ciudad ';
-				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'id_departamento = ' . $variable . ';';
-				break;
-                            case 'buscarDepartamentoEspecifico' ://Provisionalmente solo Departamentos de Colombia
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'nombre as NOMBRE ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.departamento ';
-				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'id_pais = 112 and ';
-                                $cadenaSql .= 'id_departamento = '.$variable;
-				break;
-                            case 'buscarCiudadEspecifico' ://Provisionalmente solo Departamentos de Colombia
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'nombre as NOMBRE ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.ciudad ';
-				$cadenaSql .= 'WHERE ';
-			        $cadenaSql .= 'id_ciudad = '.$variable;
-				break;
-                        case 'buscarIdUbicacion' :
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_ubicacion as ID_UBICACION ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.ubicacion ';
-				$cadenaSql .= 'WHERE ';
-                                $cadenaSql .= 'id_pais = ';
-                                $cadenaSql .=  112 . ' AND ';
-                                $cadenaSql .= 'id_departamento = '; 
-                                $cadenaSql .= $variable ['fdpDepartamento'] . ' AND ';
-                                $cadenaSql .= 'id_ciudad = ';
-                                $cadenaSql .= $variable ['fdpCiudad'] . ';';
-				break;  
-                       case 'buscarUbicacion' :
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
-                                $cadenaSql .= 'id_departamento as ID_DEPARTAMENTO ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.ubicacion ';
-				$cadenaSql .= 'WHERE ';
-                                $cadenaSql .= 'id_ubicacion = ';
-                                $cadenaSql .= $variable .'';
-		       break;   
-                       case 'buscarCiudadUbicacion' :
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'nombre as NOMBRE, ';
-                                $cadenaSql .= 'departamento as DEPARTAMENTO ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.ciudad ';
-				$cadenaSql .= 'WHERE ';
-                                $cadenaSql .= 'id_ciudad = ';
-                                $cadenaSql .= $variable .'';
-		       break; 
-               case 'insertarUbicacion' :
-				
-        	$cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'otro.ubicacion ';
-                $cadenaSql .= '( ';
-                $cadenaSql .= 'id_pais,';                
-                $cadenaSql .= 'id_departamento,';
-                $cadenaSql .= 'id_ciudad';
-                $cadenaSql .= ') ';
-                $cadenaSql .= 'VALUES ';
-                $cadenaSql .= '( ';
-                $cadenaSql .= 112 . ', ';
-                $cadenaSql .= $variable ['fdpDepartamento'] . ', ';
-                $cadenaSql .= $variable ['fdpCiudad'] . '';
-                $cadenaSql .= ') ';
-				break;  
+        
         }
         
         return $cadenaSql;

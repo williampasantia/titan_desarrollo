@@ -99,6 +99,11 @@ class Formulario {
 		$_REQUEST['email'] =  $resultado[$_REQUEST['variable']]['email'];
 		$_REQUEST['estado'] =  $resultado[$_REQUEST['variable']]['estado'];
 		
+       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarUbicacion",$_REQUEST['lugar']);
+        
+        $resultado1=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda"); 
+        
+        
         
         
         
@@ -335,9 +340,9 @@ class Formulario {
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+	        	$atributos ['seleccion'] = $resultado1[0][1];
 	        } else {
-	        	$atributos ['valor'] = '';
+                        $atributos ['seleccion'] = $resultado1[0][1];
 	        }
 	        $tab ++;
 	        
@@ -370,9 +375,9 @@ class Formulario {
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+	        	$atributos ['valor'] = $resultado1[0][0];
 	        } else {
-	        	$atributos ['valor'] = '';
+	        	$atributos ['seleccion'] = $resultado1[0][0];
 	        }
 	        $tab ++;
 	        

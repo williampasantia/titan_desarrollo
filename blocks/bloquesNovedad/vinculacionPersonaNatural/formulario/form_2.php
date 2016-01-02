@@ -96,7 +96,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "ARL";
+	$atributos ["leyenda"] = "VINCULACION PERSONA NATURAL";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         // --------------------------------------------------------------------------------------------------
         
@@ -135,19 +135,17 @@ class Formulario {
                         echo $this->miFormulario->division("fin"); 
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarArl");
-        
-      
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarPersonaVinculada");
+    
+     
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
        $longitud = count($matrizItems);
         $i=0;
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DIRECCION".'</th> <th>'."TELEFONO".'</th> <th>'."EXTENCION_TELEFONO".'</th><th>'."ESTADO".'</th><th>'."ver detalle".'</th><th>'."modificar".'</th><th>'."modificar estado".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
-            
-        </tfoot>  
+                 . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."ID VINCULACION".'</th> <th>'."ESTADO".'</th><th>'."ver detalle".'</th><th>'."modificar".'</th><th>'."modifcar estado".'</th></tr></thead>
+                       
                     <tbody>'; 
         
         while($i<$longitud){
@@ -155,11 +153,9 @@ class Formulario {
                     echo "<tr><td>".$matrizItems[$i][0]."</td>";
                     echo "<td>".$matrizItems[$i][1]."</td>";
                     echo "<td>".$matrizItems[$i][2]."</td>";
-                    echo "<td>".$matrizItems[$i][3]."</td>";
-                    echo "<td>".$matrizItems[$i][4]."</td>";
-                    echo "<td>".$matrizItems[$i][5]."</td>";
+                 
                    
-                      $esteCampo = 'botonVerDetalle'.$i;
+                        $esteCampo = 'botonVerDetalle'.$i;
                         $baseCampo = 'botonVerDetalle';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
@@ -179,7 +175,7 @@ class Formulario {
                        
                                
                         
-                     echo "<td>".$this->miFormulario->campoBoton ( $atributos )."</td>";
+                     echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td>";
                        
                         $esteCampo = 'botonModificar'.$i;
                         $baseCampo = 'botonModificar';
@@ -198,10 +194,9 @@ class Formulario {
                         $tab ++;
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
-                     echo "<td>".$this->miFormulario->campoBoton ( $atributos )."</td>";
-                     
+                     echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td>";
                         $esteCampo = 'botonInactivar'.$i;
-                        if($matrizItems[$i][5]=='Activo'){
+                        if($matrizItems[$i][2]=='Activo'){
                             $baseCampo = 'botonInactivar';
                         }
                         else{

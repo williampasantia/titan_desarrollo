@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\tipoVinculacion\funcion;
+namespace bloquesParametro\vinculacionPersonaNatural\funcion;
 
 
 include_once('Redireccionador.php');
@@ -25,23 +25,26 @@ class FormProcessor {
     function procesarFormulario() {    
 
         //Aquí va la lógica de procesamiento
-      if(isset($_REQUEST['naturaleza'])){
-                    switch($_REQUEST ['naturaleza']){
-                           case 1 :
-					$_REQUEST ['naturaleza']='Temporal';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['naturaleza']='Indefinido';
-			   break;
-                    }
-                }
+      
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB ($conexion );
-        
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarTipoVinculacion");
+      $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarPersonaFuncionario");
+      $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
 
-   
+          $datos = array(
+            'fechaInicio' => $_REQUEST ['fechaInicio'],
+            'fechaFin' => $_REQUEST ['fechaFin'],
+            'tipoVinculacion' => $_REQUEST ['tipoVinculacion'],
+            'sede' => $_REQUEST ['sede'],
+            'dependencia' => $_REQUEST ['dependencia'],
+            'ubicacion' => $_REQUEST ['ubicacion'],
+              'cedula'=>$_REQUEST ['cedula']
+                   );
+              
+                   
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarVinculacion",$datos);
+       
+echo "hola";
     $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
  

@@ -6,10 +6,11 @@ $( document ).ready(function() {
 	var indiceB= 0;
 	var cont = 0;
 	
-	campoFecha[indiceA++] = "#<?php echo $this->campoSeguro('fechaRegistroConsulta')?>";
-	campoFechaInput[indiceB++] = "input#<?php echo $this->campoSeguro('fechaRegistroConsulta')?>";
+	campoFecha[indiceA++] = "#<?php echo $this->campoSeguro('fechaInicio')?>";
+	campoFechaInput[indiceB++] = "input#<?php echo $this->campoSeguro('fechaInicio')?>";
 	
-       
+         campoFecha[indiceA++] = "#<?php echo $this->campoSeguro('fechaFin')?>";
+	campoFechaInput[indiceB++] = "input#<?php echo $this->campoSeguro('fechaFin')?>";
 	//campoFecha[indiceA++] = "#<?php echo $this->campoSeguro('fechaActa')?>";
 	//campoFechaInput[indiceB++] = "input#<?php echo $this->campoSeguro('fechaActa')?>";
 	

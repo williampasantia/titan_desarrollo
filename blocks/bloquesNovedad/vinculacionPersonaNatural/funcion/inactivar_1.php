@@ -1,10 +1,6 @@
 <?php
-
-namespace bloquesParametro\tipoVinculacion\funcion;
-
-
+namespace bloquesParametro\parametroArl\funcion;
 include_once('Redireccionador.php');
-
 class FormProcessor {
     
     var $miConfigurador;
@@ -23,40 +19,45 @@ class FormProcessor {
     }
     
     function procesarFormulario() {    
-
         //Aquí va la lógica de procesamiento
-      if(isset($_REQUEST['naturaleza'])){
-                    switch($_REQUEST ['naturaleza']){
-                           case 1 :
-					$_REQUEST ['naturaleza']='Temporal';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['naturaleza']='Indefinido';
-			   break;
-                    }
-                }
+        
         $conexion = 'estructura';
-        $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB ($conexion );
-        
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarTipoVinculacion");
-
-   
-    $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
-        
- 
-   if (!empty($resultado)) {
-            Redireccionador::redireccionar('inserto');
-            exit();
-        } else {
-           Redireccionador::redireccionar('noInserto');
-            exit();
+        $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
+       
+       
+        if($_REQUEST['enviarInactivar'] =='true'){
+            if($_REQUEST ['estado']=='Inactivo'){
+                      $opcion='Activo';
+        }
+        else{
+            $opcion='Inactivo';
         }
         
+            
+            $datos = array(
+            'codigoRegistro' => $_REQUEST ['nit'],
+            'estadoRegistro' => $opcion       
+        );
+//       
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("inactivarRegistro",$datos);
+        echo$atributos ['cadena_sql'];
+        
+        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+                
+        
+                  Redireccionador::redireccionar('form');      
+        
+       }
+                
+      if($_REQUEST['cancelarInactivar'] =='true'){
+                    
+                     Redireccionador::redireccionar('form'); 
+                }
+        
+       
         //Al final se ejecuta la redirección la cual pasará el control a otra página
         
-       // Redireccionador::redireccionar('opcion1');
-      
+        
     	        
     }
     
@@ -70,8 +71,6 @@ class FormProcessor {
     }
     
 }
-
 $miProcesador = new FormProcessor ( $this->lenguaje, $this->sql );
-
 $resultado= $miProcesador->procesarFormulario ();
 
