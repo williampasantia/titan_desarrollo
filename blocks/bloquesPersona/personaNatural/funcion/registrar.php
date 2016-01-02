@@ -127,6 +127,7 @@ class FormProcessor {
         		}
         	}
         	
+        	
         	if(isset($_REQUEST['personaNaturalEconomicoEstado'])){
         		switch($_REQUEST ['personaNaturalEconomicoEstado']){
         			case 1 :
@@ -149,8 +150,7 @@ class FormProcessor {
         		'creador' => $_REQUEST['personaNaturalRegimen'],
         		'soporteRUT' => $_REQUEST['personaNaturalSoporteRUT']
         );
-        
-        
+ 
         var_dump($atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroComercial",$datosCom));exit;
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página

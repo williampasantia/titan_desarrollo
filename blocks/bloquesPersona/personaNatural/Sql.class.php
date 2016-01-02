@@ -72,7 +72,7 @@ class Sql extends \Sql {
                 break;
             
           case 'insertarRegistroComercial' :
-                	$cadenaSql = 'INSERT INTO ';
+          	       	$cadenaSql = 'INSERT INTO ';
                 	$cadenaSql .= 'persona.info_comercial ';
                 	$cadenaSql .= '( ';
                 	$cadenaSql .= 'consecutivo,';
@@ -90,12 +90,12 @@ class Sql extends \Sql {
                 	$cadenaSql .= $variable ['consecutivo']. ', ';
                 	$cadenaSql .= '\'' .$variable ['banco'] . '\''. ', ';
                 	$cadenaSql .= '\'' .$variable ['tipoCuenta'] .'\''. ', ';
-                	$cadenasql .= $variable ['numeroCuenta'] . ', ';
-                	$cadenasql .= '\'' .$variable ['tipoPago'] . '\''. ', ';
+                	$cadenaSql .=  $variable ['numeroCuenta'] . ', ';
+                	$cadenaSql .= '\'' .$variable ['tipoPago'] . '\''. ', ';
                 	$cadenaSql .= '\'' .$variable ['estado'] . '\''.', ';
                 	$cadenaSql .= '\'' .$variable ['fecha'].'\''. ', ';
                 	$cadenaSql .= '\'' .$variabe ['creador'] . '\''. ', ';
-                	$cadenaSql .= '\'' .$variable ['soporteRUT'];
+                	$cadenaSql .= '\'' .'soporte RUT'.'\'';
                 	$cadenaSql .= ') ';
                 	break;
             
