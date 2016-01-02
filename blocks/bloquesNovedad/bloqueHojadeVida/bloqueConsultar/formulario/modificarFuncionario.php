@@ -4290,7 +4290,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][1];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 100;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4323,7 +4323,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][2];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 15;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4342,7 +4342,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -4389,7 +4389,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = '';
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -4428,7 +4428,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = '';
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -4467,7 +4467,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = '';
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -4520,7 +4520,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][5];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 50;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4553,7 +4553,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][6];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4586,7 +4586,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][7];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4619,7 +4619,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][8];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4652,7 +4652,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][9];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 20;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4685,7 +4685,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][10];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 30;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4718,7 +4718,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][11];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4751,7 +4751,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizExperiencia[$i][12];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 150;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;

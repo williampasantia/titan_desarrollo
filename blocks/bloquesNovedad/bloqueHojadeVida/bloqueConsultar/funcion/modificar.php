@@ -23,6 +23,8 @@ class FormProcessor {
     
     function procesarFormulario() {
     	
+    	//var_dump($_REQUEST);exit;
+    	
         //Aquí va la lógica de procesamiento
         
         $conexion = 'estructura';
@@ -884,44 +886,6 @@ class FormProcessor {
         	$count++;
         }
         
-     
-
-
-
-        //var_dump($cadenaSql);
-        
-        
-        
-        /*if (isset($matrizInfoExpe[0][0])) {
-         //var_dump("ENTRO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
-         exit();
-         } else {
-         //var_dump("ENTRO NO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
-         exit();
-         }*/
-        
-        var_dump("
-        		Modificar - Datos de Identificación 	<Completo>
-        		Modificar - Datos Personales Basicos	<Completo>
-        		Modificar - Datos Residencia		<Completo>
-        		Modificar - Datos Formacion Basica	<Completo>
-        		Modificar - Datos Formacion Media	<Completo>
-        		Modificar - Datos Investigaciones	<Completo>
-        		Modificar - n Formacion Superior	<Completo>
-        		Modificar - n Formacion Informal	<Completo>
-        		Modificar - n Formacion Idioma	<Completo>
-        
-        		Desarrollando...
-				");
-        
-        var_dump($_REQUEST);
-        
-        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        
         
 //**********************************************************************************************************************        
         
@@ -954,7 +918,7 @@ class FormProcessor {
         		
         		 
         		$datosExperiencia = array(
-        				'fk_funcionario' => $id_funcionario[0][0],
+        				'fk_funcionario' => $matrizFuncionario[0][0],
         				'nombreEmpresa' => $_REQUEST['funcionarioExperienciaEmpresa_'.$count],
         				'nitEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaNIT_'.$count],
         				'tipoEntidad' => $_REQUEST ['funcionarioExperienciaTipo_'.$count],
@@ -976,15 +940,91 @@ class FormProcessor {
         	}else{
         		if(isset($_REQUEST['funcionarioExperienciaEliminar_'.$count]) && isset($matrizCantExperiencia[$count][0])){
         			 
+        			$datosExperiencia = array(
+        					'id_experiencia' => $matrizCantExperiencia[$count][0]
+        			);
+        			 
+        			$cadenaSql = $this->miSql->getCadenaSql("eliminarExperienciaLaboral",$datosExperiencia);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
         			//Eliminar --
         		}else{
         			 
+        			$datosUbicacionExperiencia = array(
+        					'paisExperiencia' => $_REQUEST ['funcionarioExperienciaPais_'.$count],
+        					'departamentoExperiencia' => $_REQUEST ['funcionarioExperienciaDepartamento_'.$count],
+        					'ciudadExperiencia' => $_REQUEST ['funcionarioExperienciaCiudad_'.$count],
+        					'id_ubicacion_experiencia' => $matrizExperiencia[$count][4]
+        			);
+        			
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionExperiencia",$datosUbicacionExperiencia);
+        			$id_ubicacion_experiencia = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionExperiencia, "insertarUbicacionExperiencia");
+        			
+        			
+        			$datosExperiencia = array(
+        					'nombreEmpresa' => $_REQUEST['funcionarioExperienciaEmpresa_'.$count],
+        					'nitEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaNIT_'.$count],
+        					'tipoEntidad' => $_REQUEST ['funcionarioExperienciaTipo_'.$count],
+        					'emailEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCorreo_'.$count],
+        					'telefonoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaTelefono_'.$count],
+        					'fechaIngreso' => $_REQUEST['funcionarioFechaEntradaExperiencia_'.$count],
+        					'fechaRetiro' => $_REQUEST['funcionarioFechaSalidaExperiencia_'.$count],
+        					'dependenciaEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaDependencia_'.$count],
+        					'cargoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCargo_'.$count],
+        					'horasTrabajo' => $_REQUEST['funcionarioExperienciaEmpresaHoras_'.$count],
+        					'soporteExperiencia' => $_REQUEST['funcionarioSoporteExperiencia_'.$count],
+        					'id_experiencia' => $matrizCantExperiencia[$count][0]
+        			);
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarExperienciaLaboral",$datosExperiencia);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
         			//Modificar
         		}
         	}
         	
         	$count++;
         }
+        
+        
+        
+
+
+
+
+        //var_dump($cadenaSql);
+        
+        
+        
+        /*if (isset($matrizInfoExpe[0][0])) {
+         //var_dump("ENTRO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
+         exit();
+         } else {
+         //var_dump("ENTRO NO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
+         exit();
+         }*/
+        
+        var_dump("
+        		Modificar - Datos de Identificación 	<Completo>
+        		Modificar - Datos Personales Basicos	<Completo>
+        		Modificar - Datos Residencia		<Completo>
+        		Modificar - Datos Formacion Basica	<Completo>
+        		Modificar - Datos Formacion Media	<Completo>
+        		Modificar - Datos Investigaciones	<Completo>
+        		Modificar - n Formacion Superior	<Completo>
+        		Modificar - n Formacion Informal	<Completo>
+        		Modificar - n Formacion Idioma	<Completo>
+        		Modificar - n Experiencia Laboral	<Completo>
+        
+        		Desarrollando...
+				");
+        
+        var_dump($_REQUEST);
+        
+        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         
         
 //****************************************************************************************************************

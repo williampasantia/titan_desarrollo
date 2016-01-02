@@ -1326,8 +1326,59 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_formacion_idioma = ' . $variable ['id_formacion_idioma'] . ';';
 				break;
 				
+			case 'modificarUbicacionExperiencia' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisExperiencia'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoExperiencia'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadExperiencia'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion = ' . $variable ['id_ubicacion_experiencia'] . ';';
+				break;
+			
+			case 'modificarExperienciaLaboral' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.experiencia_laboral ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'nombre_empresa = ';
+				$cadenaSql .= '\'' . $variable ['nombreEmpresa'] . '\', ';
+				if ($variable ['nitEmpresa'] > 0) {
+					$cadenaSql .= 'nit_empresa = ';
+					$cadenaSql .= $variable ['nitEmpresa'] . ', ';
+				}
+				$cadenaSql .= 'tipo_entidad = ';
+				$cadenaSql .= '\'' . $variable ['tipoEntidad'] . '\', ';
+				$cadenaSql .= 'correo_empresa = ';
+				$cadenaSql .= '\'' . $variable ['emailEmpresa'] . '\', ';
+				$cadenaSql .= 'telefono_empresa = ';
+				$cadenaSql .= $variable ['telefonoEmpresa'] . ', ';
+				$cadenaSql .= 'fecha_ingreso = ';
+				$cadenaSql .= '\'' . $variable ['fechaIngreso'] . '\', ';
+				$cadenaSql .= 'fecha_retiro = ';
+				$cadenaSql .= '\'' . $variable ['fechaRetiro'] . '\', ';
+				$cadenaSql .= 'dependencia = ';
+				$cadenaSql .= '\'' . $variable ['dependenciaEmpresa'] . '\', ';
+				$cadenaSql .= 'cargo = ';
+				$cadenaSql .= '\'' . $variable ['cargoEmpresa'] . '\', ';
+				$cadenaSql .= 'horas_semanales_trabajo = ';
+				$cadenaSql .= '\'' . $variable ['horasTrabajo'] . '\', ';
+				$cadenaSql .= 'soporte_experiencia = ';
+				$cadenaSql .= '\'' . $variable ['soporteExperiencia'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_experiencia_laboral = ' . $variable ['id_experiencia'] . ';';
+				break;
 				
-				
+			case 'eliminarExperienciaLaboral' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'novedad.experiencia_laboral ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_experiencia_laboral = ' . $variable ['id_experiencia'] . ';';
+				break;
 				
 				
 				
