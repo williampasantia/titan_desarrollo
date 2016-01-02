@@ -151,11 +151,10 @@ class registrarForm {
 					echo $this->miFormulario->cuadroMensaje ( $atributos );
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 				} 
-				if ($_REQUEST ['mensaje'] == 'error') {
+				if ($_REQUEST ['mensaje'] == 'noInserto') {
 					
-					$mensaje = "No Se Pudo Hacer Registro Funcionario <br> Nombres: " . $_REQUEST ['primerNombre'] . " ".$_REQUEST ['segundoNombre'].
-					"<br>Apellidos:" . $_REQUEST ['primerApellido'] . " ".$_REQUEST ['segundoApellido'].
-					"<br>Fecha Registro:" . date ( 'Y-m-d' );
+					$mensaje = "No Se Pudo Hacer Registro de la Ley , Decreto o norma, Por favor revisar que los campos de ubicación estén completos <br> 
+					<br>Fecha Registro:" . date ( 'Y-m-d' );
 					
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';

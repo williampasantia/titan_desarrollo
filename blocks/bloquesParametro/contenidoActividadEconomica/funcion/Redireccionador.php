@@ -39,7 +39,12 @@ class Redireccionador {
                                 $variable .= "&mensaje=inserto";
                                 $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
                                 $variable .= "&estadoRegistro=" . $valor ['estadoRegistro'];
-				break;  
+				break;
+                        case "noInserto" :
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&mensaje=noInserto";
+				break;     
                         case "modifico" :
 				$variable = 'pagina='.$miPaginaActual;
                                 $variable .= "&mensaje=modifico";
