@@ -42,14 +42,14 @@ class Sql extends \Sql {
                 $cadenaSql .= 'persona.persona_natural ';
                 $cadenaSql .= '( ';
                 $cadenaSql .= 'documento,';
-                $cadenaSql .= 'tipodocumento,';
+                $cadenaSql .= 'tipo_documento,';
                 $cadenaSql .= 'consecutivo,';
                 $cadenaSql .= 'primer_nombre,';
                 $cadenaSql .= 'segundo_nombre,';
                 $cadenaSql .= 'primer_apellido,';
                 $cadenaSql .= 'segundo_apellido,';
                 $cadenaSql .= 'gran_contribuyente,';
-                $cadenaSql .= 'autoretenedor,';
+                $cadenaSql .= 'autorretenedor,';
                 $cadenaSql .= 'regimen_tributario,';
                 $cadenaSql .= 'estado_solicitud,';
                 $cadenaSql .= 'soporte_documento';
@@ -94,7 +94,7 @@ class Sql extends \Sql {
                 	$cadenaSql .= '\'' .$variable ['tipoPago'] . '\''. ', ';
                 	$cadenaSql .= '\'' .$variable ['estado'] . '\''.', ';
                 	$cadenaSql .= '\'' .$variable ['fecha'].'\''. ', ';
-                	$cadenaSql .= '\'' .$variabe ['creador'] . '\''. ', ';
+                	$cadenaSql .= '\'' .$variable ['creador'] . '\''. ', ';
                 	$cadenaSql .= '\'' .'soporte RUT'.'\'';
                 	$cadenaSql .= ') ';
                 	break;

@@ -12,8 +12,8 @@ $( document ).ready(function() {
 	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('fechaCreacionConsulta')?>";
 	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('fechaCreacionConsulta')?>";
 	
-	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('fechaEconomicoCreacion')?>";
-	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('fechaEconomicoCreacion')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('fechaCreacionConsulta1')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('fechaCreacionConsulta1')?>";
 	
 	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('fechaEconomicoInicio')?>";
 	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('fechaEconomicoInicio')?>";

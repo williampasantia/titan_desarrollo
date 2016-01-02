@@ -859,11 +859,12 @@ class Formulario {
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoCuadroLista ( $atributos );
+        unset($atributos);
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
         
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-        $esteCampo = 'fechaEconomicoCreacion';
+        $esteCampo = 'fechaCreacionConsulta1';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -895,7 +896,7 @@ class Formulario {
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-        $esteCampo = 'personaNaturalEconomicoUsuarioCreo';
+ 		$esteCampo = 'personaNaturalCreo';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -909,21 +910,22 @@ class Formulario {
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required, minSize[1]';
-        
+
         if (isset ( $_REQUEST [$esteCampo] )) {
-        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+            $atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	$atributos ['valor'] = '';
+            $atributos ['valor'] = '';
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
-        $atributos ['tamanno'] = 30;
+        $atributos ['tamanno'] = 80;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
-        
+
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
 	        // ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------

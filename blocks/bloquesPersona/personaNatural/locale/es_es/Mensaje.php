@@ -81,7 +81,7 @@ $this->idioma["fechaEconomicoInicio"]="Fecha de Inicio";
 $this->idioma["fechaEconomicoFin"]="Fecha Finalización";
 $this->idioma["fechaEconomicoCreacion"]="Fecha de Creación";
 $this->idioma["personaNaturalEconomicoEstado"]="Estado";
-$this->idioma["personaNaturalEconomicoUsuarioCreo"]="Usuario que lo Creo";
+$this->idioma["personaNaturalCreo"]="Usuario que lo Creo";
 
 $this->idioma["infoSoporte"]="Adjuntar Documentos Soportes";
 
@@ -95,6 +95,7 @@ $this->idioma["fechaRegistroUsuario"]="Fecha de Registro";
 $this->idioma["fechaRegistroConsultaTitulo"]="Fecha de Creación dato Financiero";
 $this->idioma["fechaRegistroConsulta"]="Fecha de Creación";
 $this->idioma["fechaCreacionConsulta"]="Fecha de Creación";
+$this->idioma["fechaCreacionConsulta1"]="Fecha de Creación";
 $this->idioma["usuarioNombre"]="Nombre";
 $this->idioma["usuarioApellido"]="Apellido";
 $this->idioma["botonRegistrar"]="Registrar Nuevo";

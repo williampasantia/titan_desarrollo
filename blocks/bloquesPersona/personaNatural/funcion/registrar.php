@@ -146,8 +146,8 @@ class FormProcessor {
         		'numeroCuenta' => $_REQUEST['personaNaturalNumeroCuenta'],
         		'tipoPago' => $_REQUEST['personaNaturalTipoPago'],
         		'estado' => $_REQUEST['personaNaturalEconomicoEstado'],
-        		'fecha' => $_REQUEST['fechaEconomicoCreacion'],
-        		'creador' => $_REQUEST['personaNaturalRegimen'],
+        		'fecha' => $_REQUEST['fechaCreacionConsulta1'],
+        		'creador' => $_REQUEST['personaNaturalCreo'],
         		'soporteRUT' => $_REQUEST['personaNaturalSoporteRUT']
         );
  
