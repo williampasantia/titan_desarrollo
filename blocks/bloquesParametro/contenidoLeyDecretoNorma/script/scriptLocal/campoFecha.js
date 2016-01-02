@@ -6,11 +6,11 @@ $( document ).ready(function() {
 	var IFechaA = 0;
 	var IFechaB= 0;
 	var contFecha = 0;
-	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('fechaRegistroConsulta')?>";
-	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('fechaRegistroConsulta')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('fechaExp')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('fechaExp')?>";
 	
-	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('fechaCreacionConsulta')?>";
-	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('fechaCreacionConsulta')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('fechaVen')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('fechaVen')?>";
 	
 	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('fechaEconomicoCreacion')?>";
 	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('fechaEconomicoCreacion')?>";

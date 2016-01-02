@@ -37,45 +37,40 @@ class Sql extends \Sql {
              */
            case 'insertarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'parametro.fondo_pensiones ';
+                $cadenaSql .= 'parametro.ley_decreto_norma ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= 'nit,';                
+                $cadenaSql .= 'nombre,';                
+                $cadenaSql .= 'fecha_exp,';
+                $cadenaSql .= 'fecha_ven,';
+                $cadenaSql .= 'entidad,';
                 $cadenaSql .= 'id_ubicacion,';
-                $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'direccion,';
-                $cadenaSql .= 'telefono,';
-                $cadenaSql .= 'ext_telefono,';
-                $cadenaSql .= 'fax,';
-                $cadenaSql .= 'ext_fax,';
-                $cadenaSql .= 'nom_representante,';
-                $cadenaSql .= 'email,';
+                $cadenaSql .= 'soporte,';
                 $cadenaSql .= 'estado';
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= $variable ['nitRegistro'] . ', ';
-                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
                 $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
-                $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
-                $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
-                $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';
-                $cadenaSql .= $variable ['faxRegistro'] . ', ';
-                $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
-                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
-                $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
+                $cadenaSql .= '\'' . $variable ['fechaExp']  . '\', ';
+                $cadenaSql .= '\'' . $variable ['fechaVen']  . '\', ';
+                $cadenaSql .= '\'' . $variable ['entidad']  . '\', ';
+                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
+                $cadenaSql .= '\'' . 'nada'  . '\', ';
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';
                 break;
             
                 
-             case 'buscarRegistroxFP' :
+             case 'buscarRegistroxLDN' :
                 
                 	$cadenaSql = 'SELECT ';
-                        $cadenaSql .= 'nit as NIT, ';
+                        $cadenaSql .= 'id_ldn as ID_LDN, ';
                         $cadenaSql .= 'nombre as NOMBRE, ';
+                        $cadenaSql .= 'fecha_exp as FECHA_EXP, ';
+                        $cadenaSql .= 'fecha_ven as FECHA_VEN, ';
+                        $cadenaSql .= 'entidad as ENTIDAD, ';
                         $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
-                        $cadenaSql .= 'parametro.fondo_pensiones ';
+                        $cadenaSql .= 'parametro.ley_decreto_norma ';
 //                        $cadenaSql .= 'WHERE ';
 //                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
 //                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';

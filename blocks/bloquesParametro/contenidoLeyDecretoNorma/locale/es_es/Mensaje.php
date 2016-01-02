@@ -2,7 +2,7 @@
 $this->idioma["bloqueContenido"]="EPS";
 $this->idioma["noDefinido"]="No definido";
 
-$this->idioma["botonRegistrarFDP"]="Registrar Fondo de Pensión";
+$this->idioma["botonRegistrarLDN"]="Registrar Ley, Decreto o Norma";
 $this->idioma["botonGuardar"]="Aceptar";
 $this->idioma["botonInactivar"]="Inactivar";
 $this->idioma["botonActivar"]="Activar";
@@ -23,14 +23,20 @@ $this->idioma["cancelarInactivar"]="Cancelar";
 //REGISTRO
 $this->idioma["nitRegistro"]="Nit  :";
 $this->idioma["nitRegistroTitulo"]="Nit";
+$this->idioma["fechaExp"]="Fecha Exp:";
+$this->idioma["fechaExpTitulo"]="Fecha Expedicion";
+$this->idioma["fechaVen"]="Fecha Ven:";
+$this->idioma["fechaVenTitulo"]="fechaVencimiento";
+
 $this->idioma["mensajeRegistro"]="Mensaje";
-$this->idioma["nombreRegistro"]="Nombre Fondo :";
-$this->idioma["nombreRegistroTitulo"]="Nombre Fondo de pensión";
+$this->idioma["nombreRegistro"]="Nombre :";
+$this->idioma["nombreRegistroTitulo"]="Nombre";
 $this->idioma["direccionRegistro"]="Dirección  :";
 $this->idioma["direccionRegistroTitulo"]="Dirección";
 $this->idioma["telefonoRegistro"]="Teléfono :";
 $this->idioma["telefonoRegistroTitulo"]="Teléfono";
-$this->idioma["extTelefonoRegistro"]="Ext. Teléfono :";
+$this->idioma["entidad"]="Entidad :";
+$this->idioma["entidadTitulo"]="Entidad";
 $this->idioma["lugarRegistro"]="Ciudad :";
 $this->idioma["lugarRegistroTitulo"]="Ciudad";
 $this->idioma["lugarRegistroDepto"]="Departamento :";
@@ -40,7 +46,7 @@ $this->idioma["lugarRegistroDeptoTitulo"]="Departamento";
 
 $this->idioma["estadoRegistro"]="Estado";
 $this->idioma["estadoRegistroTitulo"]="Estado";
-$this->idioma["extTelefonoRegistroTitulo"]="Ext. Teléfono";
+
 $this->idioma["faxRegistro"]="Fax  :";
 $this->idioma["faxRegistroTitulo"]="Fax";
 $this->idioma["extFaxRegistro"]="Ext. Fax  :";

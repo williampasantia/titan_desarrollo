@@ -1,9 +1,9 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesParametro\contenidoLeyDecretoNorma\funcion;
 
 
-include_once('RedireccionadorFP.php');
+include_once('Redireccionador.php');
 
 class FormProcessor {
     
@@ -46,33 +46,21 @@ class FormProcessor {
               $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
           }      
        
-          $extTel='0';
-        $fax='0';
-        $extFax='0';  
-          if($_REQUEST ['extTelefonoRegistro'] != ''){
-              $extTel=$_REQUEST ['extTelefonoRegistro'];
+          $fechaven='9999/12/12'; 
+          if($_REQUEST ['fechaVen'] != ''){
+              $fechaven=$_REQUEST ['fechaVen'];
           }
-          if($_REQUEST ['faxRegistro'] != ''){
-              $fax=$_REQUEST ['faxRegistro'];
-          }
-          if($_REQUEST ['extFaxRegistro'] != '' ){
-              $extFax=$_REQUEST ['extFaxRegistro'];
-          }
+          
            
         
      
         
         $datos = array(
-            'nitRegistro' => $_REQUEST ['nitRegistro'],
             'nombreRegistro' => $_REQUEST ['nombreRegistro'],
-            'direccionRegistro' => $_REQUEST ['direccionRegistro'],
-            'telefonoRegistro' => $_REQUEST ['telefonoRegistro'],
-            'extTelefonoRegistro' => $extTel,
-            'faxRegistro' => $fax,
-            'extFaxRegistro' => $extFax,
-            'id_ubicacion' => $ubicacion[0][0],
-            'nomRepreRegistro' => $_REQUEST ['nomRepreRegistro'],
-            'emailRegistro' => $_REQUEST ['emailRegistro']
+            'fechaExp' => $_REQUEST ['fechaExp'],
+            'fechaVen' => $fechaven,
+            'entidad' => $_REQUEST ['entidad'],
+            'id_ubicacion' => $ubicacion[0][0]
         );
 //       
         

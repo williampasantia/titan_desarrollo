@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesParametro\contenidoLeyDecretoNorma\funcion;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("index.php");
@@ -27,10 +27,8 @@ class RedireccionadorFP {
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=mensaje";
                                 $variable .= "&mensaje=inserto";
-                                $variable .= "&nitRegistro=" . $valor ['nitRegistro'];
                                 $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
-                                $variable .= "&direccionRegistro=" . $valor ['direccionRegistro'];
-                                $variable .= "&telefonoRegistro=" . $valor ['telefonoRegistro'];
+                                $variable .= "&entidad=" . $valor ['entidad'];
 				break;    
                         case "modificar" :
 				$variable = 'pagina='.$miPaginaActual;                                
