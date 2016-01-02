@@ -1380,11 +1380,29 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_experiencia_laboral = ' . $variable ['id_experiencia'] . ';';
 				break;
 				
-				
-				
-				
-				
-				
+			case 'modificarReferenciasPersonales' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.referencia_laboral ';
+				$cadenaSql .= 'SET ';
+				if ($variable ['tipoReferencia'] != NULL) {
+					$cadenaSql .= 'tipo_referencia = ';
+					$cadenaSql .= '\'' . $variable ['tipoReferencia'] . '\', ';
+				}
+				$cadenaSql .= 'nombres_referencia = ';
+				$cadenaSql .= '\'' . $variable ['nombresReferencia'] . '\', ';
+				$cadenaSql .= 'apellidos_referencia = ';
+				$cadenaSql .= '\'' . $variable ['apellidosReferencia'] . '\', ';
+				if ($variable ['telefonoReferencia'] > 0) {
+					$cadenaSql .= 'telefono_contacto = ';
+					$cadenaSql .= $variable ['telefonoReferencia'] . ', ';
+				}
+				$cadenaSql .= 'parentesco_relacion = ';
+				$cadenaSql .= '\'' . $variable ['relacionReferencia'] . '\', ';
+				$cadenaSql .= 'soporte_referencia = ';
+				$cadenaSql .= '\'' . $variable ['soporteReferencia'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_referencia_laboral = ' . $variable ['id_referencia'] . ';';
+				break;
 				
 			case 'consultarUbicacion' :
 				

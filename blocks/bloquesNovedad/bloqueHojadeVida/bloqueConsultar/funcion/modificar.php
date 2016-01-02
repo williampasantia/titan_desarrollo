@@ -986,47 +986,6 @@ class FormProcessor {
         }
         
         
-        
-
-
-
-
-        //var_dump($cadenaSql);
-        
-        
-        
-        /*if (isset($matrizInfoExpe[0][0])) {
-         //var_dump("ENTRO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
-         exit();
-         } else {
-         //var_dump("ENTRO NO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
-         exit();
-         }*/
-        
-        var_dump("
-        		Modificar - Datos de Identificación 	<Completo>
-        		Modificar - Datos Personales Basicos	<Completo>
-        		Modificar - Datos Residencia		<Completo>
-        		Modificar - Datos Formacion Basica	<Completo>
-        		Modificar - Datos Formacion Media	<Completo>
-        		Modificar - Datos Investigaciones	<Completo>
-        		Modificar - n Formacion Superior	<Completo>
-        		Modificar - n Formacion Informal	<Completo>
-        		Modificar - n Formacion Idioma	<Completo>
-        		Modificar - n Experiencia Laboral	<Completo>
-        
-        		Desarrollando...
-				");
-        
-        var_dump($_REQUEST);
-        
-        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        
-        
 //****************************************************************************************************************
 
         
@@ -1051,7 +1010,7 @@ class FormProcessor {
         	if(isset($_REQUEST['funcionarioReferenciasNuevo_'.$count])){
         		 
         		$datosReferencias = array(
-        				'fk_funcionario' => $id_funcionario[0][0],
+        				'fk_funcionario' => $matrizFuncionario[0][0],
         				'nombresReferencia' => $_REQUEST['funcionarioReferenciaNombres_'.$count],
         				'tipoReferencia' => $_REQUEST ['funcionarioReferenciaTipo_'.$count],
         				'apellidosReferencia' => $_REQUEST['funcionarioReferenciaApellidos_'.$count],
@@ -1066,10 +1025,30 @@ class FormProcessor {
         		//Agregar
         	}else{
         		if(isset($_REQUEST['funcionarioReferenciasEliminar_'.$count]) && isset($matrizCantReferencia[$count][0])){
-        			 
+        			
+        			$datosReferencias = array(
+        					'id_referencia' => $matrizCantReferencia[$count][0]
+        			);
+        			
+        			$cadenaSql = $this->miSql->getCadenaSql("eliminarReferenciasPersonales",$datosReferencias);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
         			//Eliminar --
         		}else{
+        			
+        			$datosReferencias = array(
+        					'nombresReferencia' => $_REQUEST['funcionarioReferenciaNombres_'.$count],
+        					'tipoReferencia' => $_REQUEST ['funcionarioReferenciaTipo_'.$count],
+        					'apellidosReferencia' => $_REQUEST['funcionarioReferenciaApellidos_'.$count],
+        					'telefonoReferencia' => $_REQUEST['funcionarioReferenciaTelefono_'.$count],
+        					'relacionReferencia' => $_REQUEST['funcionarioReferenciaRelacion_'.$count],
+        					'soporteReferencia' => $_REQUEST['funcionarioSoporteReferencia_'.$count],
+        					'id_referencia' => $matrizCantReferencia[$count][0]
+        			);
         			 
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarReferenciasPersonales",$datosReferencias);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
         			//Modificar
         		}
         	}
@@ -1081,6 +1060,52 @@ class FormProcessor {
         
 //*****************************************************************************************************************
 
+        
+
+
+
+
+
+
+        //var_dump($cadenaSql);
+        
+        
+        
+        /*if (isset($matrizInfoExpe[0][0])) {
+         //var_dump("ENTRO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
+         exit();
+         } else {
+         //var_dump("ENTRO NO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
+         exit();
+         }*/
+        /*
+        var_dump("
+        		Modificar - Datos de Identificación 	<Completo>
+        		Modificar - Datos Personales Basicos	<Completo>
+        		Modificar - Datos Residencia		<Completo>
+        		Modificar - Datos Formacion Basica	<Completo>
+        		Modificar - Datos Formacion Media	<Completo>
+        		Modificar - Datos Investigaciones	<Completo>
+        		Modificar - n Formacion Superior	<Completo>
+        		Modificar - n Formacion Informal	<Completo>
+        		Modificar - n Formacion Idioma	<Completo>
+        		Modificar - n Experiencia Laboral	<Completo>
+        		Modificar - n Referencia Laboral	<Completo>
+        
+        		Desarrollando...
+				");
+        
+        var_dump($_REQUEST);
+        
+        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        
+        */
+        
+        
         /*var_dump($cadenaSql);
         //var_dump("El ID es..... ".$id_salida[0][0]);
         //exit;
@@ -1132,7 +1157,7 @@ class FormProcessor {
         	//var_dump("NO INSERTO");exit;
         }*/
         
-        if (isset($id_funcionario[0][0]) && isset($id_datos_formacion_funcionario[0][0])) {
+        if (isset($matrizFuncionario[0][0]) && isset($matrizFuncionario[0][4])) {
         	//var_dump("ENTRO INSERTAR");exit;
         	$this->miConfigurador->setVariableConfiguracion("cache", true);
         	Redireccionador::redireccionar('inserto', $datosPersonaNatural);

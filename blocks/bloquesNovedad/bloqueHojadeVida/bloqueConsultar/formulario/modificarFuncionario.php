@@ -4804,7 +4804,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -4866,7 +4866,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizReferencia[$i][2];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 50;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4899,7 +4899,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizReferencia[$i][3];;
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 50;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4932,7 +4932,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizReferencia[$i][4];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 10;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4965,7 +4965,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizReferencia[$i][5];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 20;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4998,7 +4998,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizReferencia[$i][6];;
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 150;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
