@@ -133,7 +133,7 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Modificacion Fondo de Pension Satisfactorio <br> Nit: <h4>" . $_REQUEST ['nitRegistro'] . "</h4>".
+					$mensaje = "Modificacion Ley, decreto o norma Satisfactorio <br> Id : <h4>" . $_REQUEST ['id_ldn'] . "</h4>".
 					"<br>Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
 					$mensaje .= "<br> fondo de pension modificado!";

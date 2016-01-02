@@ -240,12 +240,21 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
                 $cadenaSql .= 'telefono = ';
                 $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
-                $cadenaSql .= 'ext_telefono = ';
-                $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';
-                $cadenaSql .= 'fax = ';
-                $cadenaSql .= $variable ['faxRegistro'] . ', ';
-                $cadenaSql .= 'ext_fax = ';
-                $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
+                if($variable ['extTelefonoRegistro']!='0'){
+                 $cadenaSql .= 'ext_telefono = ';
+                $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';  
+                }
+                if($variable ['faxRegistro']!='0'){
+                 $cadenaSql .= 'fax = ';
+                $cadenaSql .= $variable ['faxRegistro'] . ', ';  
+                }
+                 if($variable ['extFaxRegistro']!='0'){
+                 $cadenaSql .= 'ext_fax = ';
+                 $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
+                }
+                
+                
+                
                 $cadenaSql .= 'nom_representante = ';
                 $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
                 $cadenaSql .= 'email = ';

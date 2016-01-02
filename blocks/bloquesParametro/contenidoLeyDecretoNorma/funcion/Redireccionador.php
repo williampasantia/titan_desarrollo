@@ -45,10 +45,8 @@ class RedireccionadorFP {
 				$variable = 'pagina='.$miPaginaActual;
                                 $variable .= "&mensaje=modifico";
 				$variable .= "&opcion=mensaje";
-                                $variable .= "&nitRegistro=" . $valor ['nitRegistro'];
+                                $variable .= "&id_ldn=" . $valor ['id_ldn'];
                                 $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
-                                $variable .= "&direccionRegistro=" . $valor ['direccionRegistro'];
-                                $variable .= "&telefonoRegistro=" . $valor ['telefonoRegistro'];
 				break; 
                        case "verdetalle" :
 				$variable = 'pagina='.$miPaginaActual;                                

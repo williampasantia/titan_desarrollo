@@ -209,61 +209,51 @@ class Sql extends \Sql {
                         
                 break;       
             
-             case 'buscarVerdetallexFP' :
+             case 'buscarVerdetallexLDN' :
                 
                 	$cadenaSql = 'SELECT ';
-                        $cadenaSql .= 'nit as NIT, ';
-                        $cadenaSql .= 'id_ubicacion as ID_UBICACION, ';
+                        $cadenaSql .= 'id_ldn as ID_LDN, ';
                         $cadenaSql .= 'nombre as NOMBRE,';
-                        $cadenaSql .= 'direccion as DIRECCION,';
-                        $cadenaSql .= 'telefono as TELEFONO,';
-                        $cadenaSql .= 'ext_telefono as EXT_TELEFONO, ';
-                        $cadenaSql .= 'fax as FAX, ';
-                        $cadenaSql .= 'ext_fax as EXT_FAX, ';
-                        $cadenaSql .= 'nom_representante as NOM_REPRESENTANTE, ';
-                        $cadenaSql .= 'email as EMAIL, ';
+                        $cadenaSql .= 'fecha_exp as FECHA_EXP, ';
+                        $cadenaSql .= 'fecha_ven as FECHA_VEN, ';
+                        $cadenaSql .= 'entidad as ENTIDAD,';
+                        $cadenaSql .= 'id_ubicacion as ID_UBICACION,';
                         $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
-                        $cadenaSql .= 'parametro.fondo_pensiones';
+                        $cadenaSql .= 'parametro.ley_decreto_norma';
                         
                 break;
                 
             case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.fondo_pensiones ';
+                $cadenaSql .= 'parametro.ley_decreto_norma ';
                 $cadenaSql .= 'SET ';
-                $cadenaSql .= 'id_ubicacion = ';
-                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
                 $cadenaSql .= 'nombre = ';
                 $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
-                $cadenaSql .= 'direccion = ';
-                $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
-                $cadenaSql .= 'telefono = ';
-                $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
-                $cadenaSql .= 'ext_telefono = ';
-                $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';
-                $cadenaSql .= 'fax = ';
-                $cadenaSql .= $variable ['faxRegistro'] . ', ';
-                $cadenaSql .= 'ext_fax = ';
-                $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
-                $cadenaSql .= 'nom_representante = ';
-                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
-                $cadenaSql .= 'email = ';
-                $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\' ';
+                $cadenaSql .= 'fecha_exp = ';
+                $cadenaSql .= '\'' . $variable ['fechaExp']  . '\', ';
+                if($variable ['fechaVen']!='NULL'){
+                $cadenaSql .= 'fecha_ven = ';
+                $cadenaSql .= '\'' . $variable ['fechaVen'] . '\', '; 
+                }                
+                $cadenaSql .= 'entidad = ';
+                $cadenaSql .= '\'' . $variable ['entidad'] . '\', ';
+                $cadenaSql .= 'id_ubicacion = ';
+                $cadenaSql .= $variable ['id_ubicacion'] . ' ';
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'nit = ';
-                $cadenaSql .= $variable ['nitRegistro'] . ' ';
-                break;
+                $cadenaSql .= 'id_ldn = ';
+                $cadenaSql .= $variable ['id_ldn'] . ' ';
+                 break;
                
               case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.fondo_pensiones ';
+                $cadenaSql .= 'parametro.ley_decreto_norma ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'estado = ';
                 $cadenaSql .= '\'' . $variable ['estadoRegistro']  . '\' ';
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'nit = ';
-                $cadenaSql .= '\'' . $variable ['nitRegistro']  . '\'';
+                $cadenaSql .= 'id_ldn = ';
+                $cadenaSql .= '\'' . $variable ['id_ldn']  . '\'';
               break;
         
         }

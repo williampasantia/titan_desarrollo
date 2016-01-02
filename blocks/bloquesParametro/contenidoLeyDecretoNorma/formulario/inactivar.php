@@ -103,11 +103,11 @@ class Formulario {
         
         
         
-       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexFP");
+       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexLDN");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
         
-        if($matrizItems[$_REQUEST['variable']][10]=='Inactivo'){
+        if($matrizItems[$_REQUEST['variable']][6]=='Inactivo'){
             $opcion='Activo';
         }
         else{
@@ -118,7 +118,7 @@ class Formulario {
        
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         
-       $esteCampo = 'nitRegistro';
+       $esteCampo = 'id_ldn';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -151,7 +151,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][10];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;

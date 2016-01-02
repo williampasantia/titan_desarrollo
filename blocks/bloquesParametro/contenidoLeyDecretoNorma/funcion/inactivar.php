@@ -1,9 +1,9 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesParametro\contenidoLeyDecretoNorma\funcion;
 
 
-include_once('RedireccionadorFP.php');
+include_once('Redireccionador.php');
 
 class FormProcessor {
     
@@ -40,7 +40,7 @@ class FormProcessor {
         
             
             $datos = array(
-            'nitRegistro' => $_REQUEST ['nitRegistro'],
+            'id_ldn' => $_REQUEST ['id_ldn'],
             'estadoRegistro' => $opcion       
         );
 //       

@@ -1,9 +1,9 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesParametro\contenidoLeyDecretoNorma\funcion;
 
 
-include_once('RedireccionadorFP.php');
+include_once('Redireccionador.php');
 
 class FormProcessor {
     
@@ -29,7 +29,6 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
-        
         if(isset($_REQUEST ['fdpCiudad'])){
             $datosubicacion = array(
             'fdpDepartamento' => $_REQUEST ['fdpDepartamento'],
@@ -53,41 +52,46 @@ class FormProcessor {
            
               $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
               $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-          }
-           $extTel='0';
-        $fax='0';
-        $extFax='0';  
-          if($_REQUEST ['extTelefonoRegistro'] != ''){
-              $extTel=$_REQUEST ['extTelefonoRegistro'];
-          }
-          if($_REQUEST ['faxRegistro'] != ''){
-              $fax=$_REQUEST ['faxRegistro'];
-          }
-          if($_REQUEST ['extFaxRegistro'] != '' ){
-              $extFax=$_REQUEST ['extFaxRegistro'];
+          }      
+       
+          $fechaven='NULL'; 
+          if($_REQUEST ['fechaVen'] != ''){
+              $fechaven=$_REQUEST ['fechaVen'];
           }
           
+           
+        
+     
+        
         $datos = array(
-            'nitRegistro' => $_REQUEST ['nitRegistro'],
-            'nombreRegistro' => $_REQUEST ['nombreRegistro'],
-            'direccionRegistro' => $_REQUEST ['direccionRegistro'],
-            'telefonoRegistro' => $_REQUEST ['telefonoRegistro'],
-            'extTelefonoRegistro' => $extTel,
-            'faxRegistro' => $fax,
-            'extFaxRegistro' => $extFax,
-            'id_ubicacion' => $ubicacion[0][0],
-            'nomRepreRegistro' => $_REQUEST ['nomRepreRegistro'],
-            'emailRegistro' => $_REQUEST ['emailRegistro']
-        );        
-                
             
+            'id_ldn' => $_REQUEST ['id_ldn'],
+            'nombreRegistro' => $_REQUEST ['nombreRegistro'],
+            'fechaExp' => $_REQUEST ['fechaExp'],
+            'fechaVen' => $fechaven,
+            'entidad' => $_REQUEST ['entidad'],
+            'id_ubicacion' => $ubicacion[0][0]
+        );
+//       
         
                 
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+        $resultado=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");;
+        //Al final se ejecuta la redirección la cual pasará el control a otra página
+        if (!empty($resultado)) {
+              RedireccionadorFP::redireccionar('modifico',$datos);
+            exit();
+        } else {
+           RedireccionadorFP::redireccionar('noInserto');
+            exit();
+        }
+            
+        
+                
+        
         //Al final se ejecuta la redirección la cual pasará el control a otra página
         
-        RedireccionadorFP::redireccionar('modifico',$datos);
+        
     	        
     }
     
