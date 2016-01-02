@@ -703,49 +703,6 @@ class FormProcessor {
         } 
         
         
-        
-        
-
-
-
-
-
-
-
-        //var_dump($cadenaSql);
-        
-        
-        
-        /*if (isset($matrizInfoExpe[0][0])) {
-         //var_dump("ENTRO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
-         exit();
-         } else {
-         //var_dump("ENTRO NO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
-         exit();
-         }*/
-        
-        var_dump("
-        		Modificar - Datos de Identificación 	<Completo>
-        		Modificar - Datos Personales Basicos	<Completo>
-        		Modificar - Datos Residencia		<Completo>
-        		Modificar - Datos Formacion Basica	<Completo>
-        		Modificar - Datos Formacion Media	<Completo>
-        		Modificar - Datos Investigaciones	<Completo>
-        		Modificar - n Formacion Superior	<Completo>
-        		Modificar - n Formacion Informal	<Completo>
-        
-        		Desarrollando...
-				");
-        
-        var_dump($_REQUEST);
-        
-        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        
-        
 //****************************************************************************************************************
 
         
@@ -874,7 +831,7 @@ class FormProcessor {
         	if(isset($_REQUEST['funcionarioFormacionIdiomasNuevo_'.$count])){
         		 
         		$datosFormacionAcademicaIdiomas = array(
-        				'fk_funcionario' => $id_funcionario[0][0],
+        				'fk_funcionario' => $matrizFuncionario[0][0],
         				'idioma' => $_REQUEST ['funcionarioFormacionIdioma_'.$count],
         				'universidadIdioma' => $_REQUEST['funcionarioFormacionIdiomaUniversidad_'.$count],
         				'nivel' => $_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count],
@@ -892,16 +849,79 @@ class FormProcessor {
         		//Agregar
         	}else{
         		if(isset($_REQUEST['funcionarioFormacionIdiomasEliminar_'.$count]) && isset($matrizCantFormacionIdioma[$count][0])){
-        			 
+        			
+        			$datosFormacionAcademicaIdiomas = array(
+        					'id_formacion_idioma' => $matrizCantFormacionIdioma[$count][0]
+        			);
+        			
+        			$cadenaSql = $this->miSql->getCadenaSql("eliminarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//******************************** 
+        			
         			//Eliminar --
         		}else{
         			 
+        			$datosFormacionAcademicaIdiomas = array(
+        					'idioma' => $_REQUEST ['funcionarioFormacionIdioma_'.$count],
+        					'universidadIdioma' => $_REQUEST['funcionarioFormacionIdiomaUniversidad_'.$count],
+        					'nivel' => $_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count],
+        					'habla' => $_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count],
+        					'lee' => $_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count],
+        					'escribe' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count],
+        					'escucha' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count],
+        					'soporteIdioma' => $_REQUEST['funcionarioSoporteIdioma_'.$count],
+        					'observacionIdioma' => $_REQUEST['funcionarioIdiomaObservacion_'.$count],
+        					'id_formacion_idioma' => $matrizCantFormacionIdioma[$count][0]
+        			);
+        			 
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
+        			
         			//Modificar
         		}
         	}
         	
         	$count++;
         }
+        
+     
+
+
+
+        //var_dump($cadenaSql);
+        
+        
+        
+        /*if (isset($matrizInfoExpe[0][0])) {
+         //var_dump("ENTRO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
+         exit();
+         } else {
+         //var_dump("ENTRO NO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
+         exit();
+         }*/
+        
+        var_dump("
+        		Modificar - Datos de Identificación 	<Completo>
+        		Modificar - Datos Personales Basicos	<Completo>
+        		Modificar - Datos Residencia		<Completo>
+        		Modificar - Datos Formacion Basica	<Completo>
+        		Modificar - Datos Formacion Media	<Completo>
+        		Modificar - Datos Investigaciones	<Completo>
+        		Modificar - n Formacion Superior	<Completo>
+        		Modificar - n Formacion Informal	<Completo>
+        		Modificar - n Formacion Idioma	<Completo>
+        
+        		Desarrollando...
+				");
+        
+        var_dump($_REQUEST);
+        
+        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        
         
 //**********************************************************************************************************************        
         

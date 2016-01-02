@@ -1284,6 +1284,47 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_formacion_informal = ' . $variable ['id_formacion_informal'] . ';';
 				break;
 				
+			case 'modificarFormacionIdiomas' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_idioma ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'idioma = ';
+				$cadenaSql .= '\'' . $variable ['idioma'] . '\', ';
+				$cadenaSql .= 'nombre_institucion = ';
+				$cadenaSql .= '\'' . $variable ['universidadIdioma'] . '\', ';
+				$cadenaSql .= 'nivel = ';
+				$cadenaSql .= '\'' . $variable ['nivel'] . '\', ';
+				if ($variable ['habla'] != NULL) {
+					$cadenaSql .= 'habla = ';
+					$cadenaSql .= '\'' . $variable ['habla'] . '\', ';
+				}
+				if ($variable ['lee'] != NULL) {
+					$cadenaSql .= 'lee = ';
+					$cadenaSql .= '\'' . $variable ['lee'] . '\', ';
+				}
+				if ($variable ['escribe'] != NULL) {
+					$cadenaSql .= 'escribe = ';
+					$cadenaSql .= '\'' . $variable ['escribe'] . '\', ';
+				}
+				if ($variable ['escucha'] != NULL) {
+					$cadenaSql .= 'escucha = ';
+					$cadenaSql .= '\'' . $variable ['escucha'] . '\', ';
+				}
+				$cadenaSql .= 'soporte_idioma = ';
+				$cadenaSql .= '\'' . $variable ['soporteIdioma'] . '\', ';
+				$cadenaSql .= 'observaciones = ';
+				$cadenaSql .= '\'' . $variable ['observacionIdioma'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_idioma = ' . $variable ['id_formacion_idioma'] . ';';
+				break;
+				
+			case 'eliminarFormacionIdiomas' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'novedad.formacion_idioma ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_idioma = ' . $variable ['id_formacion_idioma'] . ';';
+				break;
 				
 				
 				

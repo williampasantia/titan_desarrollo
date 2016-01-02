@@ -3658,7 +3658,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -3734,7 +3734,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizIdiomas[$i][2];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 50;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -3753,7 +3753,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -3811,7 +3811,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -3860,7 +3860,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -3909,7 +3909,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -3958,7 +3958,7 @@ class Formulario {
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = true;
+							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -4021,7 +4021,7 @@ class Formulario {
 								$atributos ['valor'] = $matrizIdiomas[$i][8];
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							$atributos ['tamanno'] = 30;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
@@ -4054,7 +4054,7 @@ class Formulario {
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$tab ++;
-							$atributos ['deshabilitado'] = true;
+							$atributos ['deshabilitado'] = false;
 							// Aplica atributos globales al control
 							$atributos = array_merge ( $atributos, $atributosGlobales );
 							echo $this->miFormulario->campoTextArea ( $atributos );
