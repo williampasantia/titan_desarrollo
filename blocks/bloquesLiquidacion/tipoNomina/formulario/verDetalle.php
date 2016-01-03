@@ -278,7 +278,6 @@ class Formulario {
                         $atributos ["id"] = "botones";
                         $atributos ["estilo"] = "marcoBotones";
                         echo $this->miFormulario->division ( "inicio", $atributos );
-
                         // -----------------CONTROL: Botón ----------------------------------------------------------------
                         $esteCampo = 'botonRegistrarNomina';
                         $atributos ["id"] = $esteCampo;
@@ -294,7 +293,6 @@ class Formulario {
                         $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
                         $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
                         $tab ++;
-
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
                         echo $this->miFormulario->campoBoton ( $atributos );
@@ -304,7 +302,6 @@ class Formulario {
                         
                         
                         // -----------------FIN CONTROL: Botón -----------------------------------------------------------
-
                         // ------------------Fin Division para los botones-------------------------
                    
                         
@@ -395,7 +392,6 @@ class Formulario {
                         $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
                         $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
                         $tab ++;
-
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales ); 
                        echo "</td><td>".$this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  

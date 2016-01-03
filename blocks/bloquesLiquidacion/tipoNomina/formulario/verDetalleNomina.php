@@ -179,28 +179,28 @@ class Formulario {
         unset($atributos);
         
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-        $esteCampo = 'reglamentacion';
-        $atributos ['id'] = $esteCampo;
-        $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'text';
-        $atributos ['estilo'] = 'jqueryui';
-        $atributos ['columnas'] = 1;
-        $atributos ['dobleLinea'] = false;
-        $atributos ['marco'] = true;
-        $atributos ['tabIndex'] = $tab;
-        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][3];       
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-        $atributos ['deshabilitado'] = true;
-        $atributos ['tamanno'] = 20;
-        $atributos ['maximoTamanno'] = '';
-        
-        $tab ++;
-        
-        // Aplica atributos globales al control
-        $atributos = array_merge ( $atributos, $atributosGlobales );
-        echo $this->miFormulario->campoCuadroTexto ( $atributos );
-        unset($atributos);
+//        $esteCampo = 'reglamentacion';
+//        $atributos ['id'] = $esteCampo;
+//        $atributos ['nombre'] = $esteCampo;
+//        $atributos ['tipo'] = 'text';
+//        $atributos ['estilo'] = 'jqueryui';
+//        $atributos ['columnas'] = 1;
+//        $atributos ['dobleLinea'] = false;
+//        $atributos ['marco'] = true;
+//        $atributos ['tabIndex'] = $tab;
+//        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+//        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][3];       
+//        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+//        $atributos ['deshabilitado'] = true;
+//        $atributos ['tamanno'] = 20;
+//        $atributos ['maximoTamanno'] = '';
+//        
+//        $tab ++;
+//        
+//        // Aplica atributos globales al control
+//        $atributos = array_merge ( $atributos, $atributosGlobales );
+//        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+//        unset($atributos);
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
@@ -214,7 +214,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][4];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][3];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
@@ -238,7 +238,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][5];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][4];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
@@ -263,7 +263,7 @@ class Formulario {
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 175;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][6];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][5];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
