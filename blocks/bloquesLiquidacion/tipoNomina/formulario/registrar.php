@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesParametro\contenidoCargo\formulario;
+namespace bloquesLiquidacion\tipoNomina\formulario;
 
 
 
@@ -269,7 +269,7 @@ class Formulario {
         $atributos ["titulo"] = "Reglamentacion";
         echo $this->miFormulario->division ( "inicio", $atributos );
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxLDN");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxLEY");
         $matrizLeyes=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         $longitud = count($matrizLeyes);
         $i=0;

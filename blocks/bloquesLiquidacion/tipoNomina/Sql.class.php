@@ -137,15 +137,11 @@ class Sql extends \Sql {
                 $cadenaSql .= $variable ['id'] . '';
                 $cadenaSql .= ') ';
                 break;
-              case 'buscarRegistroxLDN' :
+              case 'buscarRegistroxLEY' :
                 
                 	$cadenaSql = 'SELECT ';
                         $cadenaSql .= 'id_ldn as ID_LDN, ';
                         $cadenaSql .= 'nombre as NOMBRE, ';
-                        $cadenaSql .= 'fecha_exp as FECHA_EXP, ';
-                        $cadenaSql .= 'fecha_ven as FECHA_VEN, ';
-                        $cadenaSql .= 'entidad as ENTIDAD, ';
-                        $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
                         $cadenaSql .= 'parametro.ley_decreto_norma ';
 //                        $cadenaSql .= 'WHERE ';
