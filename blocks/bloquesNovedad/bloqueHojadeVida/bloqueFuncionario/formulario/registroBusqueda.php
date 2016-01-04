@@ -86,20 +86,6 @@ class Formulario {
 
 		// ---------------- SECCION: Controles del Formulario -----------------------------------------------
 		
-		// ---------------- CONTROL: Cuadro Mensaje Titulo --------------------------------------------------
-		 
-		$esteCampo = 'bloqueContenidoBusqueda';
-		$atributos['texto'] = ' ';
-		$atributos['estilo'] = 'jqueryui';
-		$atributos['etiqueta'] = "<h2>".$this->lenguaje->getCadena ( $esteCampo )."</h2>";
-		$tab ++;
-		 
-		// Aplica atributos globales al control
-		$atributos = array_merge ( $atributos, $atributosGlobales );
-		echo $this->miFormulario->campoTexto( $atributos );
-		 
-		// --------------------------------------------------------------------------------------------------
-		
 		
 		$esteCampo = "novedadesBusqueda";
 		$atributos ['id'] = $esteCampo;
