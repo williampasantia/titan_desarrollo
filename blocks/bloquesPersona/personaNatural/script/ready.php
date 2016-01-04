@@ -22,3 +22,12 @@ $("#<?php echo $this->campoSeguro('personaNaturalDepartamento')?>").select2();
 
 $('#<?php echo $this->campoSeguro('personaNaturalCiudad')?>').width(); 
 $("#<?php echo $this->campoSeguro('personaNaturalCiudad')?>").select2();
+
+$('#<?php echo $this->campoSeguro('personaNaturalContactosPais')?>').width(); 
+$("#<?php echo $this->campoSeguro('personaNaturalContactosPais')?>").select2();
+
+$('#<?php echo $this->campoSeguro('personaNaturalContactosDepartamento')?>').width(); 
+$("#<?php echo $this->campoSeguro('personaNaturalContactosDepartamento')?>").select2();
+
+$('#<?php echo $this->campoSeguro('personaNaturalContactosCiudad')?>').width(); 
+$("#<?php echo $this->campoSeguro('personaNaturalContactosCiudad')?>").select2();

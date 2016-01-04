@@ -75,7 +75,7 @@ class Sql extends \Sql {
           	       	$cadenaSql = 'INSERT INTO ';
                 	$cadenaSql .= 'persona.info_comercial ';
                 	$cadenaSql .= '( ';
-                	$cadenaSql .= 'consecutivo,';
+//                 	$cadenaSql .= 'consecutivo,';
                 	$cadenaSql .= 'banco,';
                 	$cadenaSql .= 'tipo_cuenta,';
                 	$cadenaSql .= 'numero_cuenta,';
@@ -87,7 +87,7 @@ class Sql extends \Sql {
                 	$cadenaSql .= ') ';
                 	$cadenaSql .= 'VALUES ';
                 	$cadenaSql .= '( ';
-                	$cadenaSql .= $variable ['consecutivo']. ', ';
+//                 	$cadenaSql .= $variable ['consecutivo']. ', ';
                 	$cadenaSql .= '\'' .$variable ['banco'] . '\''. ', ';
                 	$cadenaSql .= '\'' .$variable ['tipoCuenta'] .'\''. ', ';
                 	$cadenaSql .=  $variable ['numeroCuenta'] . ', ';
@@ -96,9 +96,32 @@ class Sql extends \Sql {
                 	$cadenaSql .= '\'' .$variable ['fecha'].'\''. ', ';
                 	$cadenaSql .= '\'' .$variable ['creador'] . '\''. ', ';
                 	$cadenaSql .= '\'' .'soporte RUT'.'\'';
-                	$cadenaSql .= ') ';
+                	$cadenaSql .= ')';
                 	break;
-            
+          
+           case 'insertarRegistroContacto' :
+                		$cadenaSql = 'INSERT INTO ';
+                		$cadenaSql .= 'persona.contacto ';
+                		$cadenaSql .= '( ';
+                		//                 	$cadenaSql .= 'consecutivo,';
+                		$cadenaSql .= 'tipo,';
+                		$cadenaSql .= 'descripcion,';
+                		$cadenaSql .= 'estado,';
+                		$cadenaSql .= 'observacion,';
+                		$cadenaSql .= 'fecha_creacion,';
+                		$cadenaSql .= 'usuario_creo';
+                		$cadenaSql .= ') ';
+                		$cadenaSql .= 'VALUES ';
+                		$cadenaSql .= '( ';
+                		//                 	$cadenaSql .= $variable ['consecutivo']. ', ';
+                		$cadenaSql .= '\'' .$variable ['tipo'] . '\''. ', ';
+                		$cadenaSql .= '\'' .$variable ['descripcion'] .'\''. ', ';
+                		$cadenaSql .= '\'' .$variable ['estado'] . '\''. ', ';
+                		$cadenaSql .= '\'' .$variable ['observacion'] . '\''.', ';
+                		$cadenaSql .= '\'' .$variable ['fecha'].'\''. ', ';
+                		$cadenaSql .= '\'' .$variable ['creador'] . '\'';
+                		$cadenaSql .= ')';
+                		break;
           
                 
              case 'buscarRegistroxCargo' :
@@ -119,6 +142,24 @@ class Sql extends \Sql {
                         
                 break;
                 
+                case 'buscardetalleECOxCargo' :
+                
+                	$cadenaSql = 'SELECT ';
+                	$cadenaSql .= 'consecutivo as CONSECUTIVO, ';
+                	$cadenaSql .= 'banco as BANCO, ';
+                	$cadenaSql .= 'tipo_cuenta as TIPO_CUENTA, ';
+                	$cadenaSql .= 'numero_cuenta as NUMERO_CUENTA, ';
+                	$cadenaSql .= 'tipo_pago as TIPO_PAGO, ';
+                	$cadenaSql .= 'estado as ESTADO, ';
+                	$cadenaSql .= 'fecha_creacion as FECHA_CREACION, ';
+                	$cadenaSql .= 'usuario_creo as USUARIO_CREO ';
+                	$cadenaSql .= 'FROM ';
+                	$cadenaSql .= 'persona.info_comercial';
+                	//                        $cadenaSql .= 'WHERE ';
+                	//                        $cadenaSql .= 'ESTADO=\'' .'modificabl'. '\' OR ';
+                	//                        $cadenaSql .= 'ESTADO=\'' . 'rechazada' . '\' ';
+                
+                	break;
               
                 	
                 case 'buscarModificarxPersona' :
@@ -141,14 +182,14 @@ class Sql extends \Sql {
                 
                	$cadenaSql = 'SELECT ';
                 $cadenaSql .= 'documento as	DOCUMENTO, ';
-                $cadenaSql .= 'tipodocumento as TIPO_DOCUMENTO, ';
+                $cadenaSql .= 'tipo_documento as TIPO_DOCUMENTO, ';
                 $cadenaSql .= 'consecutivo as CONSECUTIVO, ';
                 $cadenaSql .= 'primer_nombre as PRIMER_NOMBRE, ';
                 $cadenaSql .= 'segundo_nombre as SEGUNDO_NOMBRE, ';
                 $cadenaSql .= 'primer_apellido as PRIMER_APELLIDO, ';
                 $cadenaSql .= 'segundo_apellido as SEGUNDO_APELLIDO, ';
                 $cadenaSql .= 'gran_contribuyente as CONTRIBUYENTE, ';
-                $cadenaSql .= 'autoretenedor as AUTORRETENEDOR, ';
+                $cadenaSql .= 'autorretenedor as AUTORRETENEDOR, ';
                 $cadenaSql .= 'regimen_tributario as REGIMEN, ';
                 $cadenaSql .= 'estado_solicitud as ESTADO ';
                 $cadenaSql .= 'FROM ';
@@ -158,7 +199,7 @@ class Sql extends \Sql {
 
             case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.cargo ';
+                $cadenaSql .= 'persona.persona_natural ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'nivel = ';
                 $cadenaSql .= $variable ['nivelRegistro'] . ', ';

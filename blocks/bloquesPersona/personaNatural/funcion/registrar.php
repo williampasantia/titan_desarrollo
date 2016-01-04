@@ -122,11 +122,10 @@ class FormProcessor {
         				$_REQUEST ['personaNaturalTipoPago']='Transferencia';
         				break;
         			case 2 :
-        				$_REQUEST ['personaNaturalTipoCuenta']='SAP';
+        				$_REQUEST ['personaNaturalTipoPago']='SAP';
         				break;
         		}
         	}
-        	
         	
         	if(isset($_REQUEST['personaNaturalEconomicoEstado'])){
         		switch($_REQUEST ['personaNaturalEconomicoEstado']){
@@ -151,7 +150,7 @@ class FormProcessor {
         		'soporteRUT' => $_REQUEST['personaNaturalSoporteRUT']
         );
  
-        var_dump($atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroComercial",$datosCom));exit;
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroComercial",$datosCom);
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
        
@@ -174,18 +173,28 @@ class FormProcessor {
         			break;
         	}
         	 
-        	
+        	if(isset($_REQUEST['personaNaturalContactosEstado'])){
+        		switch($_REQUEST ['personaNaturalContactosEstado']){
+        			case 1 :
+        				$_REQUEST ['personaNaturalContactosEstado']='Activo';
+        				break;
+        			case 2 :
+        				$_REQUEST ['personaNaturalContactosEstado']='Inactivo';
+        				break;
+        		}
+        	}	
         
         $datosContacto = array(
-        		'banco' => $_REQUEST['personaNaturalBanco'],
-        		'tipoCuenta' => $_REQUEST['personaNaturalTipoCuenta'],
-        		'numeroCuenta' => $_REQUEST['personaNaturalNumeroCuenta'],
-        		'tipoPago' => $_REQUEST['personaNaturalTipoPago'],
-        		'estado' => $_REQUEST['personaNaturalEconomicoEstado'],
-        		'fecha' => $_REQUEST['fechaCreacionConsulta1'],
-        		'creador' => $_REQUEST['personaNaturalCreo'],
-        		'soporteRUT' => $_REQUEST['personaNaturalSoporteRUT']
-        );
+        		'tipo' => $_REQUEST['personaNaturalContactoTipo'],
+        		'descripcion' => $_REQUEST['personaNaturalContactosDescrip'],
+        		'estado' => $_REQUEST['personaNaturalContactosEstado'],
+        		'observacion' => $_REQUEST['personaNaturalContactosObserv'],
+        		'fecha' => $_REQUEST['fechaCreacionConsulta'],
+        		'creador' => $_REQUEST['personaNaturalContactosUsuarioCreo']
+        	);
+        
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroContacto",$datosContacto);
+        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
         Redireccionador::redireccionar('form');
     	        

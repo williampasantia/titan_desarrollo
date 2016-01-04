@@ -23,7 +23,7 @@ $this->idioma["botonCancelar"]="Cancelar";
 $this->idioma["noDefinido"]="No definido";
 $this->idioma["botonIngresar"]="Ingresar";
 
-$this->idioma["personaNaturalIdentificacion"]="Tipo de Identificación";
+$this->idioma["personaNaturalIdentificacion"]="Tipo Identificación";
 $this->idioma["personaNaturalDocumento"]="Identificación";
 
 $this->idioma["personaNaturalPrimerNombre"]="Primer Nombre";
@@ -58,8 +58,10 @@ $this->idioma["personaNaturalNumeroCuenta"]="Número de Cuenta";
 $this->idioma["personaNaturalTipoPago"]="Tipo de Pago";
 $this->idioma["personaNaturalEstado"]="Estado";
 $this->idioma["personaNaturalUsuarioCreo"]="Usuario que lo Creo";
-
-$this->idioma["infoContactos"]="CONTACTOS";
+$this->idioma["personaNaturalTPago"]="Tipo Pago";
+$this->idioma["personaNaturalTCuenta"]="Tipo Cuenta";
+$this->idioma["personaNaturalBancoI"]="Banco";
+$this->idioma["infoContactos"]="CONTACTO";
 
 $this->idioma["personaNaturalContactosConsecutivo"]="Consecutivo";
 $this->idioma["personaNaturalContactoTipo"]="Tipo";
