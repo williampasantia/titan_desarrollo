@@ -235,18 +235,18 @@ class Formulario {
                  );
         $atributos['matrizItems'] = $matrizMes;
         
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Enero'){$tipo=1;}
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Febrero'){$tipo=2;}
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Marzo'){$tipo=3;}
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Abril'){$tipo=4;}
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Mayo'){$tipo=5;}
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Junio'){$tipo=6;} 
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Julio'){$tipo=7;}
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Agosto'){$tipo=8;}
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Septiembre'){$tipo=9;} 
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Noviembre'){$tipo=10;}
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Diciembre'){$tipo=11;}
-        if($matrizItems[$_REQUEST['variablei']][4] == 'Marzo'){$tipo=12;} 
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Enero'){$tipo=1;}
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Febrero'){$tipo=2;}
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Marzo'){$tipo=3;}
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Abril'){$tipo=4;}
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Mayo'){$tipo=5;}
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Junio'){$tipo=6;} 
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Julio'){$tipo=7;}
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Agosto'){$tipo=8;}
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Septiembre'){$tipo=9;} 
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Noviembre'){$tipo=10;}
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Diciembre'){$tipo=11;}
+        if($matrizItems[$_REQUEST['variablei']][3] == 'Marzo'){$tipo=12;} 
         
         $atributos['seleccion'] = $tipo;
         $tab ++;
@@ -257,44 +257,44 @@ class Formulario {
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
          // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'reglamentacion';
-        $atributos['nombre'] = $esteCampo;
-        $atributos['id'] = $esteCampo;
-        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos['tab'] = $tab;
-        $atributos['seleccion'] = -1;
-        $atributos['evento'] = ' ';
-        $atributos['deshabilitado'] = false;
-        $atributos['limitar']= 50;
-        $atributos['tamanno']= 1;
-        $atributos['columnas']= 1;
-        
-        $atributos ['ajax_function'] = "";
-        $atributos ['ajax_control'] = $esteCampo;
-        
-        $atributos ['obligatorio'] = true;
-        $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required';
-        
-                 $matrizReg=array(
-                 		array(1,'DI'),
-                 		array(2,'AS'),
-                 		array(3,'EJ'),
-                 		array(4,'TE'),
-                 		array(5,'AI'),
-                 		array(6,'TO'),
-                 		array(7,'DC'),
-                                array(8,'DP')
-        
-                 );
-        $atributos['matrizItems'] = $matrizReg;
-         $atributos['seleccion'] = 1;
-        
-        $tab ++;
-        
-        // Aplica atributos globales al control
-        $atributos = array_merge ( $atributos, $atributosGlobales );
-        echo $this->miFormulario->campoCuadroLista ( $atributos );
+//        $esteCampo = 'reglamentacion';
+//        $atributos['nombre'] = $esteCampo;
+//        $atributos['id'] = $esteCampo;
+//        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+//        $atributos['tab'] = $tab;
+//        $atributos['seleccion'] = -1;
+//        $atributos['evento'] = ' ';
+//        $atributos['deshabilitado'] = false;
+//        $atributos['limitar']= 50;
+//        $atributos['tamanno']= 1;
+//        $atributos['columnas']= 1;
+//        
+//        $atributos ['ajax_function'] = "";
+//        $atributos ['ajax_control'] = $esteCampo;
+//        
+//        $atributos ['obligatorio'] = true;
+//        $atributos ['etiquetaObligatorio'] = true;
+//        $atributos ['validar'] = 'required';
+//        
+//                 $matrizReg=array(
+//                 		array(1,'DI'),
+//                 		array(2,'AS'),
+//                 		array(3,'EJ'),
+//                 		array(4,'TE'),
+//                 		array(5,'AI'),
+//                 		array(6,'TO'),
+//                 		array(7,'DC'),
+//                                array(8,'DP')
+//        
+//                 );
+//        $atributos['matrizItems'] = $matrizReg;
+//         $atributos['seleccion'] = 1;
+//        
+//        $tab ++;
+//        
+//        // Aplica atributos globales al control
+//        $atributos = array_merge ( $atributos, $atributosGlobales );
+//        echo $this->miFormulario->campoCuadroLista ( $atributos );
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
@@ -350,7 +350,7 @@ class Formulario {
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	$atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][6];
+        	$atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][5];
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
@@ -420,7 +420,7 @@ class Formulario {
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&variable=" .$_REQUEST['variable'];
         $valorCodificado .= "&vinculacion=" . $_REQUEST ['vinculacion'];
-        $valorCodificado .= "&per=" . $matrizItems[$_REQUEST['variablei']][4];
+        $valorCodificado .= "&per=" . $matrizItems[$_REQUEST['variablei']][3];
         $valorCodificado .= "&opcion=modificarRegistro";
         /**
          * SARA permite que los nombres de los campos sean dinámicos.

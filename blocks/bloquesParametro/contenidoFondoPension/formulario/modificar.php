@@ -201,7 +201,7 @@ class Formulario {
         $esteCampo = 'telefonoRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -234,7 +234,7 @@ class Formulario {
        $esteCampo = 'extTelefonoRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -249,9 +249,10 @@ class Formulario {
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	if($matrizItems[$_REQUEST['variable']][5] == 0)
-                    {$atributos ['valor'] = '';}
-                else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][5];}
+//        	if($matrizItems[$_REQUEST['variable']][5] == 0)
+//                    {$atributos ['valor'] = '';}
+//                else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][5];}
+            $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][5];
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
@@ -269,7 +270,7 @@ class Formulario {
          $esteCampo = 'faxRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -284,8 +285,9 @@ class Formulario {
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	if($matrizItems[$_REQUEST['variable']][6] == 0){$atributos ['valor'] = '';}
-                else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];}
+//        	if($matrizItems[$_REQUEST['variable']][6] == 0){$atributos ['valor'] = '';}
+//                else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];}
+            $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
@@ -302,7 +304,7 @@ class Formulario {
          $esteCampo = 'extFaxRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -317,8 +319,9 @@ class Formulario {
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	if($matrizItems[$_REQUEST['variable']][7] == 0){$atributos ['valor'] ='';}
-            else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][7];}
+//        	if($matrizItems[$_REQUEST['variable']][7] == 0){$atributos ['valor'] ='';}
+//            else{$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][7];}
+            $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][7];
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
@@ -381,9 +384,9 @@ class Formulario {
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
 	        
-	        $atributos ['obligatorio'] = true;
-	        $atributos ['etiquetaObligatorio'] = true;
-	        $atributos ['validar'] = 'required';
+	        $atributos ['obligatorio'] = false;
+	        $atributos ['etiquetaObligatorio'] = false;
+	        $atributos ['validar'] = '';
 	        
 	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
 	        $matrizCiudad= $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
@@ -449,7 +452,7 @@ class Formulario {
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required, minSize[6],maxSize[30]';
+        $atributos ['validar'] = 'required, minSize[6],maxSize[30], custom[email]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];

@@ -68,7 +68,6 @@ class Sql extends \Sql {
                 $cadenaSql .= 'codigo_nomina as CODIGO_NOMINA, ';
                 $cadenaSql .= 'nombre as NOMBRE, ';
                 $cadenaSql .= 'tipo_nomina as TIPO_NOMINA, ';
-                $cadenaSql .= 'reglamentacion as REGLAMENTACION, ';
                 $cadenaSql .= 'periodo as PERIODO, ';
                 $cadenaSql .= 'estado as ESTADO, ';
                 $cadenaSql .= 'descripcion as DESCRIPCION ';
@@ -124,7 +123,6 @@ class Sql extends \Sql {
                 $cadenaSql .= 'nombre,';
                 $cadenaSql .= 'descripcion,';
                 $cadenaSql .= 'tipo_nomina,';
-                $cadenaSql .= 'reglamentacion,';
                 $cadenaSql .= 'estado,';
                 $cadenaSql .= 'periodo,';
                 $cadenaSql .= 'id';
@@ -134,13 +132,22 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable ['nombreNomina']  . '\', ';
                 $cadenaSql .= '\'' . $variable ['descripcionNomina'] . '\', ';
                 $cadenaSql .= '\'' . $variable['tipoNomina'] . '\', ';
-                $cadenaSql .= '\'' . $variable ['reglamentacion']  . '\', ';
                 $cadenaSql .= '\'' . $variable['estadoRegistroNomina'] . '\', ';
                 $cadenaSql .= '\'' . $variable['periodo'] . '\', ';
                 $cadenaSql .= $variable ['id'] . '';
                 $cadenaSql .= ') ';
                 break;
-            
+              case 'buscarRegistroxLEY' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'id_ldn as ID_LDN, ';
+                        $cadenaSql .= 'nombre as NOMBRE ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'parametro.ley_decreto_norma ';
+//                        $cadenaSql .= 'WHERE ';
+//                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
+//                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
+                break;
           
                 
              case 'buscarRegistroxCargo' :
@@ -205,8 +212,6 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable ['descripcionNomina']  . '\', ';
                 $cadenaSql .= 'tipo_nomina = ';
                 $cadenaSql .= '\'' . $variable ['tipoNomina']  . '\', ';
-                $cadenaSql .= 'reglamentacion = ';
-                $cadenaSql .= '\'' . $variable ['reglamentacion']  . '\', ';
                 $cadenaSql .= 'estado = ';
                 $cadenaSql .= '\'' . $variable ['estadoRegistroNomina']  . '\', ';
                 $cadenaSql .= 'periodo = ';

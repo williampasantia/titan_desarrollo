@@ -59,7 +59,7 @@ class CheckBoxHtml extends HtmlBase{
             $this->miOpcion .= "checked ";
         }
     
-        $this->miOpcion .= "/>";
+//        $this->miOpcion .= "/>";
         return $this->miOpcion;
     
     }

@@ -110,10 +110,10 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Registro Nomina satisfactoria! <br> Estado: <h4>" . $_REQUEST ['estadoRegistroNomina'] . "</h4>".
+					$mensaje = "Registro Nomina Satisfactoria! <br> Estado: <h4>" . $_REQUEST ['estadoRegistroNomina'] . "</h4>".
 					"<br>Nombre: <h4>" . $_REQUEST ['nombreNomina'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Nuevo fondo de pension insertado!";
+					$mensaje .= "<br> Nuevo Nomina Registrada!";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
@@ -151,11 +151,9 @@ class registrarForm {
 					echo $this->miFormulario->cuadroMensaje ( $atributos );
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 				} 
-				if ($_REQUEST ['mensaje'] == 'error') {
+				if ($_REQUEST ['mensaje'] == 'noInserto') {
 					
-					$mensaje = "No Se Pudo Hacer Registro Funcionario <br> Nombres: " . $_REQUEST ['primerNombre'] . " ".$_REQUEST ['segundoNombre'].
-					"<br>Apellidos:" . $_REQUEST ['primerApellido'] . " ".$_REQUEST ['segundoApellido'].
-					"<br>Fecha Registro:" . date ( 'Y-m-d' );
+					$mensaje = "No Se Pudo Hacer Registro de nomina, Por favor revisar que todos lo campos esten correctos y vuelva a intentarlo<br>Fecha Registro:" . date ( 'Y-m-d' );
 					
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';

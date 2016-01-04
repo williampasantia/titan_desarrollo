@@ -88,10 +88,16 @@ class FormProcessor {
         
               
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+        $resultado=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
+         if (!empty($resultado)) {
+              RedireccionadorEPS::redireccionar('modifico',$datos);
+            exit();
+        } else {
+           RedireccionadorEPS::redireccionar('noInserto');
+            exit();
+        }
         
-        RedireccionadorEPS::redireccionar('modifico',$datos);
     	        
     }
     

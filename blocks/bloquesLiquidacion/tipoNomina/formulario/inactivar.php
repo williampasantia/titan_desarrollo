@@ -107,7 +107,7 @@ class Formulario {
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
         
-        if($matrizItems[$_REQUEST['variablei']][5]=='Inactivo'){
+        if($matrizItems[$_REQUEST['variablei']][4]=='Inactivo'){
             $opcion='Activo';
         }
         else{
@@ -176,7 +176,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][5];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][4];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;

@@ -36,7 +36,9 @@ class Formulario {
          * Por tanto en el archivo ready.php se delaran algunas funciones js
          * que lo complementan.
          */
-
+       $directorio = $this->miConfigurador->getVariableConfiguracion ( "host" );
+       $directorio .= $this->miConfigurador->getVariableConfiguracion ( "site" ) . "/index.php?";
+       $directorio .= $this->miConfigurador->getVariableConfiguracion ( "enlace" );
         // Rescatar los datos de este bloque
         $esteBloque = $this->miConfigurador->getVariableConfiguracion ( "esteBloque" );
         
@@ -117,17 +119,8 @@ class Formulario {
         $i=0;
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."ID".'</th><th>'."NOMBRE".'</th> <th>'."DESCRIPCION".'</th> <th>'."NATURALEZA".'</th> <th>'."REGLAMENTACION".'</th><th>'."GESTION".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
-            <tr>
-                <th>id</th>
-                <th>nombre</th>
-                <th>descripcion</th>
-                <th>naturaleza</th>
-                <th>reglamentacion</th>
-                <th>gestion</th>
-            </tr>
-        </tfoot>  
+                 . '<thead style="display: table-row-group"><tr><th>'."ID".'</th><th>'."NOMBRE".'</th> <th>'."DESCRIPCION".'</th> <th>'."NATURALEZA".'</th> <th>'."REGLAMENTACION".'</th><th>'."VER DETALLE".'</th></tr></thead>
+                       
                     <tbody>'; 
         if(!empty($matrizItems)){
             
@@ -138,31 +131,20 @@ class Formulario {
                     echo "<td>".$matrizItems[$i][2]."</td>";
                     echo "<td>".$matrizItems[$i][3]."</td>";
                     echo "<td>".$matrizItems[$i][4]."</td>";
-                        $esteCampo = 'botonVerDetalle'.$i;
-                        $baseCampo = 'botonVerDetalle';
-                        $atributos ["id"] = $esteCampo;
-                        $atributos ["tabIndex"] = $tab;
-                        $atributos ["tipo"] = 'boton';
-                        // submit: no se coloca si se desea un tipo button genérico
-                        $atributos ['submit'] = true;
-                        $atributos ["estiloMarco"] = '';
-                        $atributos ["estiloBoton"] = 'jqueryui';
-                        // verificar: true para verificar el formulario antes de pasarlo al servidor.
-                        $atributos ["verificar"] = '';
-                        $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
-                        $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
-                        $tab ++;
-                        // Aplica atributos globales al control
-                        $atributos = array_merge ( $atributos, $atributosGlobales );
-                       
-                                             
-                       echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
-                     
-                     
-                        
-                            
                     
+//                   $variable ="actionBloque=" . $esteBloque ["nombre"]; 
+                    $variable = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
+		    $variable .= "&opcion=verdetalle";
+                    $variable .= "&bloque=" . $esteBloque ['nombre'];
+                    $variable .="&tamaño=".$longitud;
+                    $variable .= "&variable=" . $i;
+                    $variable .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+                    $variable = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variable, $directorio );
+
+                    echo "<td><center><a href='" . $variable . "'>
+                          <img src='" . $rutaBloque . "/css/images/verDetalle.png' width='25px'>
+                          </a></center> </td></tr>";
+                     
                      $i+=1;
         }  
           }

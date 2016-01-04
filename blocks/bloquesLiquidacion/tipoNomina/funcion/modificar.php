@@ -29,43 +29,7 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
-         if(isset($_REQUEST['reglamentacion'])){
-                    switch($_REQUEST ['reglamentacion']){
-                           case 1 :
-					$_REQUEST ['reglamentacion']='DI';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['reglamentacion']='AS';
-			   break;
-                       
-                           case 3 :
-					$_REQUEST ['reglamentacion']='EJ';
-			   break;
-                       
-                           case 4 :
-					$_REQUEST ['reglamentacion']='TE';
-			   break;
-			   
-                           case 5 :
-					$_REQUEST ['reglamentacion']='AI';
-			   break;
-                       
-                           case 6 :
-					$_REQUEST ['reglamentacion']='TO';
-			   break;
-		           		
-                           case 7 :
-					$_REQUEST ['reglamentacion']='DC';
-			   break;
-                           
-                           case 8 :
-					$_REQUEST ['reglamentacion']='DP';
-			   break;
-                    
-                    
-                    }
-                }
+        
                 
                 if(isset($_REQUEST['tipoNomina'])){
                     switch($_REQUEST ['tipoNomina']){
@@ -147,7 +111,6 @@ class FormProcessor {
             'nombreNomina' => $_REQUEST ['nombreNomina'],
             'tipoNomina' => $_REQUEST ['tipoNomina'],
             'periodo' => $periodo,
-            'reglamentacion' => $_REQUEST ['reglamentacion'],
             'estadoRegistroNomina' => $_REQUEST ['estadoRegistroNomina'],
             'descripcionNomina' => $_REQUEST ['descripcionNomina'],
             'variable' => $_REQUEST['variable']
@@ -157,10 +120,16 @@ class FormProcessor {
                 
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistroxnomina",$datos);
         
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+        $resultado=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
-       
-        Redireccionador::redireccionar('modifico',$datos);
+        if (!empty($resultado)) {
+              Redireccionador::redireccionar('modifico',$datos);
+            exit();
+        } else {
+           Redireccionador::redireccionar('noInserto');
+            exit();
+        }
+        
     	        
     }
     

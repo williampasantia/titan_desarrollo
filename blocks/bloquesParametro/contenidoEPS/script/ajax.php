@@ -20,6 +20,11 @@ $urlFinal17 = $url . $cadena17;
 ?>
 
 <script>
+    $('#<?php echo $this->campoSeguro('fdpDepartamento')?>').width(250);
+$("#<?php echo $this->campoSeguro('fdpDepartamento')?>").select2();
+$('#<?php echo $this->campoSeguro('fdpCiudad')?>').width(250);
+$("#<?php echo $this->campoSeguro('fdpCiudad')?>").select2();
+
     function consultarCiudad(elem, request, response){
 		  $.ajax({
 		    url: "<?php echo $urlFinal17?>",
@@ -36,10 +41,10 @@ $urlFinal17 = $url . $cadena17;
 		            
 		            $("#<?php echo $this->campoSeguro('fdpCiudad')?>").removeAttr('disabled');
 		            
-		            //$('#<?php echo $this->campoSeguro('fdpCiudad')?>').width(250);
+		            $('#<?php echo $this->campoSeguro('fdpCiudad')?>').width(250);
 		            $("#<?php echo $this->campoSeguro('fdpCiudad')?>").select2();
 		            
-		            $("#<?php echo $this->campoSeguro('fdpCiudad')?>").removeClass("validate[required]");
+		           
 		            
 			        }
 		    			

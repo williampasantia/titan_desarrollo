@@ -113,7 +113,7 @@ class registrarForm {
 					$mensaje = "Registro EPS Satisfactorio <br> Nit: <h4>" . $_REQUEST ['nitRegistro'] . "</h4>".
 					"<br>Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Nueva EPS insertada!";
+					$mensaje .= "<br> Nueva EPS Registrada!";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
@@ -151,11 +151,9 @@ class registrarForm {
 					echo $this->miFormulario->cuadroMensaje ( $atributos );
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 				} 
-				if ($_REQUEST ['mensaje'] == 'error') {
+				if ($_REQUEST ['mensaje'] == 'noInserto') {
 					
-					$mensaje = "No Se Pudo Hacer Registro Funcionario <br> Nombres: " . $_REQUEST ['primerNombre'] . " ".$_REQUEST ['segundoNombre'].
-					"<br>Apellidos:" . $_REQUEST ['primerApellido'] . " ".$_REQUEST ['segundoApellido'].
-					"<br>Fecha Registro:" . date ( 'Y-m-d' );
+					$mensaje = "No Se Pudo Hacer Registro de EPS, Por favor revisar que todos lo campos esten correctos y vuelva a intentarlo <br>Fecha Registro:" . date ( 'Y-m-d' );
 					
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';

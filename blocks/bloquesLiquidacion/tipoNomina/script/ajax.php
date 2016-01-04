@@ -5,7 +5,14 @@
 ?>
 
 <script>
-                  
+    $('#<?php echo $this->campoSeguro('tipoNomina')?>').width(250);
+    $("#<?php echo $this->campoSeguro('tipoNomina')?>").select2();            
+    $('#<?php echo $this->campoSeguro('periodo')?>').width(250);
+    $("#<?php echo $this->campoSeguro('periodo')?>").select2();
+    $('#<?php echo $this->campoSeguro('reglamentacion')?>').width(250);
+    $("#<?php echo $this->campoSeguro('reglamentacion')?>").select2();
+    $('#<?php echo $this->campoSeguro('estadoRegistroNomina')?>').width(250);
+    $("#<?php echo $this->campoSeguro('estadoRegistroNomina')?>").select2();
           $(function () {
 	        
 	        $("#<?php echo $this->campoSeguro('tipoNomina')?>").change(function(){
@@ -15,7 +22,7 @@
 		            //$('#<?php echo $this->campoSeguro('periodo')?>').width(250);
 		            $("#<?php echo $this->campoSeguro('periodo')?>").select2();
 		            
-		            $("#<?php echo $this->campoSeguro('periodo')?>").removeClass("validate[required]");
+		           
 	    		}else{
 	    			$("#<?php echo $this->campoSeguro('periodo')?>").attr('disabled','');
 	    			}

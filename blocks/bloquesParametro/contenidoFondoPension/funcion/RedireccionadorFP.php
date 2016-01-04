@@ -31,7 +31,12 @@ class RedireccionadorFP {
                                 $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
                                 $variable .= "&direccionRegistro=" . $valor ['direccionRegistro'];
                                 $variable .= "&telefonoRegistro=" . $valor ['telefonoRegistro'];
-				break;    
+				break;
+                        case "noInserto" :
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&mensaje=noInserto";
+				break;     
                         case "modificar" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=modificar";

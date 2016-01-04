@@ -19,6 +19,11 @@ $this->idioma["mensajeRegistro"]="Mensaje";
 $this->idioma["botonAceptarRegistro"]="Aceptar";
 $this->idioma["botonRegresarConsulta"]="Regresar";
 
+$this->idioma["opcionRegla"]="opcion: ";
+
+$this->idioma["opcionReglaTitulo"]="opcion";
+
+
 
 
 
