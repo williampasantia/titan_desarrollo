@@ -171,7 +171,7 @@ class Formulario {
 			$cantidad_referencias = count($matrizCantFormacionSuperior);
 		}
 		
-		var_dump($matrizCantFormacionSuperior); //Obtengo los id x cada formacion superior
+		//var_dump($matrizCantFormacionSuperior); //Obtengo los id x cada formacion superior
 		
 		$cadenaSql14 = $this->miSql->getCadenaSql("consultarCantidadFormacionInformal", $matrizFuncionario[0][4]);
 		$matrizCantFormacionInformal = $primerRecursoDB->ejecutarAcceso($cadenaSql14, "busqueda");

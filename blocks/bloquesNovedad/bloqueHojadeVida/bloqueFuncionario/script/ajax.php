@@ -316,6 +316,10 @@ $(document).ready(function(){
 	    updatePromptsPosition:true
 	});
 
+	$("#novedadesDatosCantidadEduacionSuperior"+"1").hide("fast");
+	$("#novedadesDatosCantidadEduacionSuperior"+"2").hide("fast");
+	$("#novedadesDatosCantidadEduacionSuperior"+"3").hide("fast");
+	
 	$("#novedadesDatosPersonales").hide("fast");
 	$("#novedadesDatosCiudadania").hide("fast");
 	$("#novedadesDatosFormacionAcademica").hide("fast");

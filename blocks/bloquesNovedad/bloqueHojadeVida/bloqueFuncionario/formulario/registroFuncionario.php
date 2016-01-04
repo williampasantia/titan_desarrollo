@@ -84,11 +84,13 @@ class Formulario {
         
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
-        $cantidad_referencias = 2;
-        $cantidad_referencias_info = 2;
-        $cantidad_idiomas = 2;
-        $cantidad_experiencia = 2;
-        $cantidad_referencias_per = 2;
+        //Establecimiento Limite de Campos y Referencias Dinamicas **************************************************
+        
+        $cantidad_referencias = 4;
+        $cantidad_referencias_info = 5;
+        $cantidad_idiomas = 3;
+        $cantidad_experiencia = 5;
+        $cantidad_referencias_per = 5;
         
         // ---------------- FIN: Lista Variables Control--------------------------------------------------------
 
@@ -2509,19 +2511,13 @@ class Formulario {
 //***************************************************************************************************************
 //***************************************************************************************************************
 	        
-	        if (isset ( $_REQUEST ['funcionarioRegistrosSuperior'] )) {
-	        	$cantidad_referencias = $_REQUEST ['funcionarioRegistrosSuperior']+1;
-	        } else {
-	        	$cantidad_referencias = 1;
-	        }
-	        
 	        //$cantidad_referencias = 3;//---------------------------------------------
 	        
 	        for($i = 0; $i < $cantidad_referencias; $i++){
 	        	
 	        	 
 	        	$esteCampo = "novedadesDatosCantidadEduacionSuperior";
-	        	$atributos ['id'] = $esteCampo;
+	        	$atributos ['id'] = $esteCampo.$i;
 	        	$atributos ["estilo"] = "jqueryui";
 	        	$atributos ['tipoEtiqueta'] = 'inicio';
 	        	$numero_estudio = $i+1;
@@ -3048,33 +3044,7 @@ class Formulario {
 	        	}
 	        	echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 	        	
-	        	$atributos ["id"] = "botonDatos1";
-	        	$atributos ["estilo"] = "botonDatos";
-	        	echo $this->miFormulario->division ( "inicio", $atributos );
-	        	{
-	        	
-	        		// -----------------CONTROL: Botón ----------------------------------------------------------------
-	        		$esteCampo = 'botonAgregarSuperior';
-	        		$atributos ["id"] = $esteCampo;
-	        		$atributos ["tabIndex"] = $tab;
-	        		$atributos ["tipo"] = 'boton';
-	        		// submit: no se coloca si se desea un tipo button genérico
-	        		$atributos ['submit'] = true;
-	        		$atributos ["estiloMarco"] = '';
-	        		$atributos ["estiloBoton"] = 'jqueryui';
-	        		// verificar: true para verificar el formulario antes de pasarlo al servidor.
-	        		$atributos ["verificar"] = '';
-	        		$atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-	        		$atributos ["valor"] = "Agregar";
-	        		$atributos ['nombreFormulario'] = $esteBloque ['nombre'];
-	        		$tab ++;
-	        		 
-	        		// Aplica atributos globales al control
-	        		$atributos = array_merge ( $atributos, $atributosGlobales );
-	        		echo $this->miFormulario->campoBoton ( $atributos );
-	        	
-	        	}
-	        	echo $this->miFormulario->division ( "fin" );
+	   
 	        	
 	        	
 	        }
