@@ -20,16 +20,16 @@ $this->idioma["nitTitulo"]="" ;
 $this->idioma["nombre"]="Nombre: ";
 
 $this->idioma["nombreTitulo"]="";
-$this->idioma["direccion"]="Direccion: ";
+$this->idioma["direccion"]="Dirección: ";
 $this->idioma["direccionTitulo"]="";
 $this->idioma["telefono"]="Telefono: ";
 $this->idioma["telefonoTitulo"]="";
-$this->idioma["extencionTelefono"]="Extencion tel:";
+$this->idioma["extencionTelefono"]="Extención tel:";
 $this->idioma["extencionTelefonoTitulo"]="";
 $this->idioma["fax"]="Fax: ";
-$this->idioma["lugar"]="Ubicacion: ";
+$this->idioma["lugar"]="Ubicación: ";
 $this->idioma["faxTitulo"]="";
-$this->idioma["extencionFax"]="Extencion fax:";
+$this->idioma["extencionFax"]="Extención fax:";
 $this->idioma["extencionFaxTitulo"]="";
 $this->idioma["nombreRegistro"]="Nombre cargo :";
 

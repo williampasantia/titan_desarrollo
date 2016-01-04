@@ -98,7 +98,7 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Registro Tipo Vinculacion Satisfactorio";
+					$mensaje = "Registro Tipo Vinculación Satisfactorio";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
@@ -113,19 +113,58 @@ class registrarForm {
 					echo $this->miFormulario->cuadroMensaje ( $atributos );
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 				} 
+                                 if($_REQUEST ['mensaje'] == 'noInserto') {
+					
+					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
+					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
+					
+					$mensaje = "No se ha registrado el tipo de vinculación <br>";
+                                        $mensaje .= "revise la informacion suministrada";
+					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					$esteCampo = 'mensajeRegistro';
+					$atributos ['id'] = $esteCampo;
+					$atributos ['tipo'] = 'error';
+					$atributos ['estilo'] = 'textoCentrar';
+					$atributos ['mensaje'] = $mensaje;
+					
+					$tab ++;
+					
+					// Aplica atributos globales al control
+					$atributos = array_merge ( $atributos, $atributosGlobales );
+					echo $this->miFormulario->cuadroMensaje ( $atributos );
+                                }
 				if ($_REQUEST ['mensaje'] == 'modifico') {
 					
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Modificacion Cargo Satisfactorio <br> Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
-					"<br>Codigo Registro: <h4>" . $_REQUEST ['codigoRegistro'] . "</h4>".
-					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Modificado Cargo!";
+					$mensaje = "Modificacion exitosa"; 
+					
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['tipo'] = 'success';
+					$atributos ['estilo'] = 'textoCentrar';
+					$atributos ['mensaje'] = $mensaje;
+					
+					$tab ++;
+					
+					// Aplica atributos globales al control
+					$atributos = array_merge ( $atributos, $atributosGlobales );
+					echo $this->miFormulario->cuadroMensaje ( $atributos );
+					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+				} 
+                                if ($_REQUEST ['mensaje'] == 'nomodifico') {
+					
+					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
+					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
+					
+					$mensaje = "No se realizo la modificación"; 
+					
+					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					$esteCampo = 'mensajeRegistro';
+					$atributos ['id'] = $esteCampo;
+					$atributos ['tipo'] = 'error';
 					$atributos ['estilo'] = 'textoCentrar';
 					$atributos ['mensaje'] = $mensaje;
 					

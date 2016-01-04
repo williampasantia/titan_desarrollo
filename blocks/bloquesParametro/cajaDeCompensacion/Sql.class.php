@@ -59,16 +59,27 @@ class Sql extends \Sql {
                 $cadenaSql .= "'".$variable ['direccion']  . "',";
                 $cadenaSql .= 'telefono = ';
                 $cadenaSql .= $variable ['telefono']  . ', ';
-                $cadenaSql .= 'extencion_telefono = ';
-                $cadenaSql .= $variable ['extencionTelefono']  . ', ';
-                $cadenaSql .= 'Fax = ';
-                $cadenaSql .= $variable ['fax']  . ', ';
-               
+                if($variable ['extencionTelefono']!='')
+                {
+                 $cadenaSql .= 'extencion_telefono= '; 
+                 $cadenaSql .= $variable ['extencionTelefono'] . ', ';   
+                 
+                }
+                 if($variable ['fax']!='')
+                {
+                   $cadenaSql .= 'fax= '; 
+                   $cadenaSql .= $variable ['fax'] . ', ';
+                }
+                 if($variable ['extencionFax']!='')
+                {
+                   $cadenaSql .= 'extencion_fax=';
+                   $cadenaSql .= $variable ['extencionFax'] . ', ';
+                }
                
                 if($variable ['lugar']!='')
                 {
                      $cadenaSql .= 'lugar = ';
-                     $cadenaSql .= "'".$variable ['lugar']  . "',";
+                     $cadenaSql .= $variable ['lugar']  . ",";
                 }
                
                 $cadenaSql .= 'nombre_representante_legal = ';

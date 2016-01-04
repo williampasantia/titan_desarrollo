@@ -129,7 +129,7 @@ class Formulario {
         	$atributos ['valor'] = '';
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-        $atributos ['deshabilitado'] = false;
+        $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
@@ -498,6 +498,7 @@ class Formulario {
         $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
         $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
+        $valorCodificado .= "&ciudad=".$resultado1[0][0];
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&opcion=modificar";
         /**

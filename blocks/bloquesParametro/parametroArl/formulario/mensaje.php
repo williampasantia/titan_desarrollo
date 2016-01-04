@@ -82,19 +82,7 @@ class registrarForm {
 			//$variable .= "&usuario=" . $_REQUEST['usuario'];
 			$variable = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variable, $directorio );
 				
-			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-			/*$esteCampo = 'botonRegresar';
-			$atributos ['id'] = $esteCampo;
-			$atributos ['enlace'] = $variable;
-			$atributos ['tabIndex'] = 1;
-			$atributos ['estilo'] = 'textoSubtitulo';
-			$atributos ['enlaceTexto'] = "<h4>".$this->lenguaje->getCadena ( $esteCampo )."</h4>";
-			$atributos ['ancho'] = '10%';
-			$atributos ['alto'] = '10%';
-			$atributos ['redirLugar'] = true;
-			echo $this->miFormulario->enlace ( $atributos );*/
-				
-			unset ( $atributos );
+			
 			
 			$esteCampo = "marcoDatosBasicos";
 			$atributos ['id'] = $esteCampo;
@@ -104,13 +92,14 @@ class registrarForm {
 			echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 			
 			{
+                            
 				
 				if ($_REQUEST ['mensaje'] == 'inserto') {
 					
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Registro Arl Satisfactorio";
+					$mensaje = "Registro de arl Satisfactorio";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
@@ -125,7 +114,8 @@ class registrarForm {
 					echo $this->miFormulario->cuadroMensaje ( $atributos );
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 				} 
-                                if ($_REQUEST ['mensaje'] == 'noInserto') {
+                                
+                                if($_REQUEST ['mensaje'] == 'noInserto') {
 					
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
@@ -144,17 +134,36 @@ class registrarForm {
 					// Aplica atributos globales al control
 					$atributos = array_merge ( $atributos, $atributosGlobales );
 					echo $this->miFormulario->cuadroMensaje ( $atributos );
-					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
-				} 
+                                }
 				if ($_REQUEST ['mensaje'] == 'modifico') {
 					
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Modificacion Cargo Satisfactorio <br> Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
-					"<br>Codigo Registro: <h4>" . $_REQUEST ['codigoRegistro'] . "</h4>".
-					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Modificado Cargo!";
+					$mensaje = "Modificación exitosa"; 
+					
+					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					$esteCampo = 'mensajeRegistro';
+					$atributos ['id'] = $esteCampo;
+					$atributos ['tipo'] = 'success';
+					$atributos ['estilo'] = 'textoCentrar';
+					$atributos ['mensaje'] = $mensaje;
+					
+					$tab ++;
+					
+					// Aplica atributos globales al control
+					$atributos = array_merge ( $atributos, $atributosGlobales );
+					echo $this->miFormulario->cuadroMensaje ( $atributos );
+					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+				} 
+                                
+                                if ($_REQUEST ['mensaje'] == 'nomodifico') {
+					
+					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
+					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
+					
+					$mensaje = "no se realizó la modificación "; 
+					
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
@@ -200,7 +209,7 @@ class registrarForm {
 			echo $this->miFormulario->division ( "inicio", $atributos );
 			
 			// -----------------CONTROL: Botón ----------------------------------------------------------------
-			$esteCampo = 'botonRegresar';
+			$esteCampo = 'botonAceptar';
 			$atributos ["id"] = $esteCampo;
 			$atributos ["tabIndex"] = $tab;
 			$atributos ["tipo"] = 'boton';
@@ -291,4 +300,4 @@ class registrarForm {
 }
 $miSeleccionador = new registrarForm ( $this->lenguaje, $this->miFormulario, $this->sql );
 $miSeleccionador->miForm ();
-?>>
+?>

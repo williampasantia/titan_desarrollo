@@ -123,7 +123,7 @@ class Formulario {
         } else {
         	$atributos ['valor'] = '';
         }
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+       
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
@@ -153,7 +153,7 @@ class Formulario {
         } else {
         	$atributos ['valor'] = '';
         }
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+       
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
@@ -183,7 +183,7 @@ class Formulario {
         } else {
         	$atributos ['valor'] = '';
         }
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+     
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
@@ -197,7 +197,7 @@ class Formulario {
         $esteCampo = 'telefono';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -206,14 +206,14 @@ class Formulario {
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required, minSize[7], maxSize[10]';
+        $atributos ['validar'] = 'minSize[7], maxSize[10],custom[onlyNumberSp]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
         	$atributos ['valor'] = '';
         }
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
@@ -227,7 +227,7 @@ class Formulario {
         $esteCampo = 'extencionTelefono';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -236,14 +236,14 @@ class Formulario {
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
-        $atributos ['validar'] = ' minSize[1], maxSize[4]';
+        $atributos ['validar'] = ' minSize[1], maxSize[4],custom[onlyNumberSp]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
         	$atributos ['valor'] = '';
         }
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+       
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
@@ -257,7 +257,7 @@ class Formulario {
         $esteCampo = 'fax';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -266,14 +266,14 @@ class Formulario {
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
-        $atributos ['validar'] = ' minSize[7], maxSize[10]';
+        $atributos ['validar'] = ' minSize[7], maxSize[10],custom[onlyNumberSp]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
         	$atributos ['valor'] = '';
         }
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+      
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
@@ -287,7 +287,7 @@ class Formulario {
         $esteCampo = 'extencionFax';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-        $atributos ['tipo'] = 'number';
+        $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
@@ -296,14 +296,14 @@ class Formulario {
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
-        $atributos ['validar'] = ' minSize[1], maxSize[4]';
+        $atributos ['validar'] = ' minSize[1], maxSize[4],custom[onlyNumberSp]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
         	$atributos ['valor'] = '';
         }
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+  
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
@@ -404,7 +404,7 @@ class Formulario {
         } else {
         	$atributos ['valor'] = '';
         }
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+       
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
@@ -436,7 +436,7 @@ class Formulario {
         } else {
         	$atributos ['valor'] = '';
         }
-        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+       
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';

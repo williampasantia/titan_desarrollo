@@ -81,4 +81,3 @@ $this->idioma["normatividadTitulo"] = "Ingrese la normatividad.";
 
 ?>
 
-?>

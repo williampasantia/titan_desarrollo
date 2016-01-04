@@ -128,7 +128,7 @@ class Formulario {
         	$atributos ['valor'] = '';
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-        $atributos ['deshabilitado'] = false;
+        $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
@@ -498,6 +498,7 @@ class Formulario {
         $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+        $valorCodificado .= "&ciudad= ". $resultado1[0][0];
         $valorCodificado .= "&opcion=modificar";
         /**
          * SARA permite que los nombres de los campos sean dinámicos.

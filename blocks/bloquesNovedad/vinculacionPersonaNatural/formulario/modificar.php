@@ -184,7 +184,7 @@ class Formulario {
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	        } else {
-	        	$atributos ['valor'] = 'hvkhjkjh';
+	        	$atributos ['seleccion'] =$matrizItems[$_REQUEST['variable']][2]; 
 	        }
 	        $tab ++;
 	        

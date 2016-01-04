@@ -28,7 +28,7 @@ class FormProcessor {
        if($_REQUEST ['fdpDepartamento']){
           $datosubicacion = array(
             'fdpDepartamento' => $_REQUEST ['fdpDepartamento'],
-            'fdpCiudad' => $_REQUEST ['fdpCiudad']
+            'fdpCiudad' => $_REQUEST ['ciudad']
      );
        
      
@@ -77,14 +77,31 @@ class FormProcessor {
 //       
        }
                 
+      
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
+       
+                
+    
         
         
         
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+        $resultado=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
-   
-        Redireccionador::redireccionar('form');
+    
+      
+   if (!empty($resultado)) {
+      
+
+            Redireccionador::redireccionar('modifico');
+            
+            exit();
+        } else {
+       
+        
+           Redireccionador::redireccionar('nomodifico');
+            exit();
+        }
+        
     	        
     }
     

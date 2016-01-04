@@ -48,7 +48,7 @@ echo "hola";
     $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
  
-   if ($resultado) {
+   if (!empty($resultado)) {
             Redireccionador::redireccionar('inserto');
             exit();
         } else {
