@@ -304,6 +304,9 @@ $( "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>" ).datepicker
 	} 
 });
 
+//************************************************************************************************
+
+
 $(document).ready(function(){
 
 	$("#bloqueConsultar").validationEngine();

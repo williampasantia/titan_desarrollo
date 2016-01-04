@@ -1058,15 +1058,351 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id_informacion_personal_basica = ' . $variable ['id_info_personal'] . ';';
 				break;
 				
+			case 'modificarUbicacionContacto' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisContacto'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoContacto'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadContacto'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion =  ' . $variable ['id_ubicacion_contac'] . ';';
+				break;
 				
+			case 'modificarDatosResidenciaCont' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.informacion_residencia_contacto ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'nacionalidad = ';
+				$cadenaSql .= '\'' . $variable ['nacionalidad'] . '\', ';
+				$cadenaSql .= 'localidad = ';
+				$cadenaSql .= '\'' . $variable ['localidadContacto'] . '\', ';
+				$cadenaSql .= 'barrio = ';
+				$cadenaSql .= '\'' . $variable ['barrioContacto'] . '\', ';
+				$cadenaSql .= 'direccion_residencia = ';
+				$cadenaSql .= '\'' . $variable ['direccionContacto'] . '\', ';
+				$cadenaSql .= 'estrato = ';
+				if ($_REQUEST ['funcionarioContactoEstrato'] != 'NULL') {
+					$cadenaSql .= '\'' . $_REQUEST ['funcionarioContactoEstrato'] . '\', ';
+				} else {
+					$cadenaSql .= $_REQUEST ['funcionarioContactoEstrato'] . ', ';
+				}
+				$cadenaSql .= 'soporte_estrato = ';
+				$cadenaSql .= '\'' . $variable ['soporteEstrato'] . '\', ';
+				$cadenaSql .= 'soporte_residencia = ';
+				$cadenaSql .= '\'' . $variable ['soporteResidencia'] . '\', ';
+				$cadenaSql .= 'telefono_fijo = ';
+				$cadenaSql .= $variable ['telefonoFijoContacto'] . ', ';
+				$cadenaSql .= 'telefono_movil = ';
+				$cadenaSql .= $variable ['telefonoMovilContacto'] . ', ';
+				$cadenaSql .= 'correo_personal = ';
+				$cadenaSql .= '\'' . $variable ['emailContacto'] . '\', ';
+				$cadenaSql .= 'telefono_oficina = ';
+				if ($variable ['telefonoFijoOficina'] > 0) {
+					$cadenaSql .= $variable ['telefonoFijoOficina'] . ', ';
+				} else {
+					$cadenaSql .= 'NULL, ';
+				}
+				$cadenaSql .= 'correo_oficina = ';
+				$cadenaSql .= '\'' . $variable ['emailOficina'] . '\', ';
+				$cadenaSql .= 'direccion_oficina = ';
+				$cadenaSql .= '\'' . $variable ['direccionOficina'] . '\', ';
+				$cadenaSql .= 'cargo = ';
+				$cadenaSql .= '\'' . $variable ['cargoOficina'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_datos_residencia = ' . $variable ['id_info_contacto'] . ';';
+				break;
 				
+			case 'modificarUbicacionFormacionBasica' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisFormacionBasica'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoFormacionBasica'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadFormacionBasica'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion =  ' . $variable ['id_ubicacion_basica'] . ';';
+				break;
+			
+			case 'modificarFormacionBasica' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_basica ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'modalidad = ';
+				$cadenaSql .= '\'' . $variable ['modalidadBasica'] . '\', ';
+				$cadenaSql .= 'nombre_colegio = ';
+				$cadenaSql .= '\'' . $variable ['colegioBasica'] . '\', ';
+				$cadenaSql .= 'titulo_obtenido = ';
+				$cadenaSql .= '\'' . $variable ['tituloBasica'] . '\', ';
+				$cadenaSql .= 'fecha_graduacion = ';
+				$cadenaSql .= '\'' . $variable ['fechaGradoBasica'] . '\', ';
+				$cadenaSql .= 'soporte_graduacion = ';
+				$cadenaSql .= '\'' . $variable ['soporteBasica'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_basica = ' . $variable ['id_formacion_basica'] . ';';
+				break;
+			
+			case 'modificarUbicacionFormacionMedia' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisFormacionMedia'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoFormacionMedia'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadFormacionMedia'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion =  ' . $variable ['id_ubicacion_media'] . ';';
+				break;
+			
+			case 'modificarFormacionMedia' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_media ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'modalidad = ';
+				$cadenaSql .= '\'' . $variable ['modalidadMedia'] . '\', ';
+				$cadenaSql .= 'nombre_colegio = ';
+				$cadenaSql .= '\'' . $variable ['colegioMedia'] . '\', ';
+				$cadenaSql .= 'titulo_obtenido = ';
+				$cadenaSql .= '\'' . $variable ['tituloMedia'] . '\', ';
+				$cadenaSql .= 'fecha_graduacion = ';
+				$cadenaSql .= '\'' . $variable ['fechaGradoMedia'] . '\', ';
+				$cadenaSql .= 'soporte_graduacion = ';
+				$cadenaSql .= '\'' . $variable ['soporteMedia'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_media = ' . $variable ['id_formacion_media'] . ';';
+				break;
+			
+			case 'modificarFormacionInvestigacion' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.publicacion_investigacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'tematica = ';
+				$cadenaSql .= '\'' . $variable ['tematicaInvestigacion'] . '\', ';
+				$cadenaSql .= 'tipo_investigacion = ';
+				$cadenaSql .= '\'' . $variable ['tipoInvestigacion'] . '\', ';
+				$cadenaSql .= 'logros_obtenidos = ';
+				$cadenaSql .= '\'' . $variable ['logrosInvestigacion'] . '\', ';
+				$cadenaSql .= 'referencias_bibliograficas = ';
+				$cadenaSql .= '\'' . $variable ['referenciasInvestigacion'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_publicacion = ' . $variable ['id_mod_publicacion'] . ';';
+				break;
 				
+			case 'modificarUbicacionFormacionSuperior' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisFormacionSuperior'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoFormacionSuperior'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadFormacionSuperior'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion = ' . $variable ['id_ubicacion_superior'] . ';';
+				break;
+			
+			case 'modificarFormacionSuperior' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_superior ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'modalidad_academica = ';
+				$cadenaSql .= '\'' . $variable ['modalidadAcademica'] . '\', ';
+				$cadenaSql .= 'cantidad_semestres_aprobados = ';
+				$cadenaSql .= $variable ['semestresCursados'] . ', ';
+				$cadenaSql .= 'graduado = ';
+				$cadenaSql .= $variable ['esGraduado'] . ', ';
+				$cadenaSql .= 'convalidacion_resolucion = ';
+				$cadenaSql .= '\'' . $variable ['resolucionConvalidacion'] . '\', ';
+				if ($variable ['fechaConvalidacion'] != NULL) {
+					$cadenaSql .= 'convalidacion_fecha = ';
+					$cadenaSql .= '\'' . $variable ['fechaConvalidacion'] . '\', ';
+				}
+				$cadenaSql .= 'convalidacion_entidad = ';
+				$cadenaSql .= '\'' . $variable ['entidadConvalidacion'] . '\', ';
+				$cadenaSql .= 'nombre_universidad = ';
+				$cadenaSql .= '\'' . $variable ['universidadSuperior'] . '\', ';
+				$cadenaSql .= 'titulo_obtenido = ';
+				$cadenaSql .= '\'' . $variable ['tituloSuperior'] . '\', ';
+				if ($variable ['fechaGraduacionSuperior'] != NULL) {
+					$cadenaSql .= 'fecha_graduacion = ';
+					$cadenaSql .= '\'' . $variable ['fechaGraduacionSuperior'] . '\', ';
+				}
+				$cadenaSql .= 'numero_tarjeta_profesional = ';
+				$cadenaSql .= '\'' . $variable ['numeroTarjetaProfesional'] . '\', ';
+				if ($variable ['fechaExpedicionTarjeta'] != NULL) {
+					$cadenaSql .= 'fecha_expe_tarjeta = ';
+					$cadenaSql .= '\'' . $variable ['fechaExpedicionTarjeta'] . '\', ';
+				}
+				$cadenaSql .= 'soporte_educacion_superior = ';
+				$cadenaSql .= '\'' . $variable ['soporteSuperior'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_superior = ' . $variable ['id_formacion_superior'] . ';';
+				break;
 				
+			case 'eliminarFormacionSuperior' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'novedad.formacion_superior ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_superior = ' . $variable ['id_formacion_superior'] . ';';
+				break;
 				
+			case 'modificarFormacionInformal' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_informal ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'nombre_curso = ';
+				$cadenaSql .= '\'' . $variable ['cursoInformal'] . '\', ';
+				$cadenaSql .= 'nombre_institucion = ';
+				$cadenaSql .= '\'' . $variable ['entidadCurso'] . '\', ';
+				$cadenaSql .= 'intesidad_horaria = ';
+				$cadenaSql .= '\'' . $variable ['intensidadHoraria'] . '\', ';
+				if ($variable ['fechaTerminacion'] != NULL) {
+					$cadenaSql .= 'fecha_terminacion = ';
+					$cadenaSql .= '\'' . $variable ['fechaTerminacion'] . '\', ';
+				}
+				$cadenaSql .= 'soporte_certificado = ';
+				$cadenaSql .= '\'' . $variable ['soporteInformal'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_informal = ' . $variable ['id_formacion_informal'] . ';';
+				break;
 				
+			case 'eliminarFormacionInformal' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'novedad.formacion_informal ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_informal = ' . $variable ['id_formacion_informal'] . ';';
+				break;
 				
+			case 'modificarFormacionIdiomas' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.formacion_idioma ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'idioma = ';
+				$cadenaSql .= '\'' . $variable ['idioma'] . '\', ';
+				$cadenaSql .= 'nombre_institucion = ';
+				$cadenaSql .= '\'' . $variable ['universidadIdioma'] . '\', ';
+				$cadenaSql .= 'nivel = ';
+				$cadenaSql .= '\'' . $variable ['nivel'] . '\', ';
+				if ($variable ['habla'] != NULL) {
+					$cadenaSql .= 'habla = ';
+					$cadenaSql .= '\'' . $variable ['habla'] . '\', ';
+				}
+				if ($variable ['lee'] != NULL) {
+					$cadenaSql .= 'lee = ';
+					$cadenaSql .= '\'' . $variable ['lee'] . '\', ';
+				}
+				if ($variable ['escribe'] != NULL) {
+					$cadenaSql .= 'escribe = ';
+					$cadenaSql .= '\'' . $variable ['escribe'] . '\', ';
+				}
+				if ($variable ['escucha'] != NULL) {
+					$cadenaSql .= 'escucha = ';
+					$cadenaSql .= '\'' . $variable ['escucha'] . '\', ';
+				}
+				$cadenaSql .= 'soporte_idioma = ';
+				$cadenaSql .= '\'' . $variable ['soporteIdioma'] . '\', ';
+				$cadenaSql .= 'observaciones = ';
+				$cadenaSql .= '\'' . $variable ['observacionIdioma'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_idioma = ' . $variable ['id_formacion_idioma'] . ';';
+				break;
 				
+			case 'eliminarFormacionIdiomas' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'novedad.formacion_idioma ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_formacion_idioma = ' . $variable ['id_formacion_idioma'] . ';';
+				break;
 				
+			case 'modificarUbicacionExperiencia' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'id_pais = ';
+				$cadenaSql .= $variable ['paisExperiencia'] . ', ';
+				$cadenaSql .= 'id_departamento = ';
+				$cadenaSql .= $variable ['departamentoExperiencia'] . ', ';
+				$cadenaSql .= 'id_ciudad = ';
+				$cadenaSql .= $variable ['ciudadExperiencia'] . ' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ubicacion = ' . $variable ['id_ubicacion_experiencia'] . ';';
+				break;
+			
+			case 'modificarExperienciaLaboral' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.experiencia_laboral ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'nombre_empresa = ';
+				$cadenaSql .= '\'' . $variable ['nombreEmpresa'] . '\', ';
+				if ($variable ['nitEmpresa'] > 0) {
+					$cadenaSql .= 'nit_empresa = ';
+					$cadenaSql .= $variable ['nitEmpresa'] . ', ';
+				}
+				$cadenaSql .= 'tipo_entidad = ';
+				$cadenaSql .= '\'' . $variable ['tipoEntidad'] . '\', ';
+				$cadenaSql .= 'correo_empresa = ';
+				$cadenaSql .= '\'' . $variable ['emailEmpresa'] . '\', ';
+				$cadenaSql .= 'telefono_empresa = ';
+				$cadenaSql .= $variable ['telefonoEmpresa'] . ', ';
+				$cadenaSql .= 'fecha_ingreso = ';
+				$cadenaSql .= '\'' . $variable ['fechaIngreso'] . '\', ';
+				$cadenaSql .= 'fecha_retiro = ';
+				$cadenaSql .= '\'' . $variable ['fechaRetiro'] . '\', ';
+				$cadenaSql .= 'dependencia = ';
+				$cadenaSql .= '\'' . $variable ['dependenciaEmpresa'] . '\', ';
+				$cadenaSql .= 'cargo = ';
+				$cadenaSql .= '\'' . $variable ['cargoEmpresa'] . '\', ';
+				$cadenaSql .= 'horas_semanales_trabajo = ';
+				$cadenaSql .= '\'' . $variable ['horasTrabajo'] . '\', ';
+				$cadenaSql .= 'soporte_experiencia = ';
+				$cadenaSql .= '\'' . $variable ['soporteExperiencia'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_experiencia_laboral = ' . $variable ['id_experiencia'] . ';';
+				break;
+				
+			case 'eliminarExperienciaLaboral' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'novedad.experiencia_laboral ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_experiencia_laboral = ' . $variable ['id_experiencia'] . ';';
+				break;
+				
+			case 'modificarReferenciasPersonales' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'novedad.referencia_laboral ';
+				$cadenaSql .= 'SET ';
+				if ($variable ['tipoReferencia'] != NULL) {
+					$cadenaSql .= 'tipo_referencia = ';
+					$cadenaSql .= '\'' . $variable ['tipoReferencia'] . '\', ';
+				}
+				$cadenaSql .= 'nombres_referencia = ';
+				$cadenaSql .= '\'' . $variable ['nombresReferencia'] . '\', ';
+				$cadenaSql .= 'apellidos_referencia = ';
+				$cadenaSql .= '\'' . $variable ['apellidosReferencia'] . '\', ';
+				if ($variable ['telefonoReferencia'] > 0) {
+					$cadenaSql .= 'telefono_contacto = ';
+					$cadenaSql .= $variable ['telefonoReferencia'] . ', ';
+				}
+				$cadenaSql .= 'parentesco_relacion = ';
+				$cadenaSql .= '\'' . $variable ['relacionReferencia'] . '\', ';
+				$cadenaSql .= 'soporte_referencia = ';
+				$cadenaSql .= '\'' . $variable ['soporteReferencia'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_referencia_laboral = ' . $variable ['id_referencia'] . ';';
+				break;
 				
 			case 'consultarUbicacion' :
 				

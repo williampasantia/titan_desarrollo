@@ -177,6 +177,8 @@ $this->idioma["funcionarioFormacionBasicaTitul"]="Titulo Obtenido";
 $this->idioma["funcionarioFormacionBasicaTitulTitulo"]="Digite el Titulo Obtenido";
 $this->idioma["funcionarioFechaFormacionBasica"]="Fecha Graduación";
 $this->idioma["funcionarioFechaFormacionBasicaTitulo"]="Digite la Fecha de Graduación";
+$this->idioma["funcionarioFechaFormacionBasicaCon"]="Fecha Graduación";
+$this->idioma["funcionarioFechaFormacionBasicaConTitulo"]="Digite la Fecha de Graduación";
 $this->idioma["funcionarioSoporteFormacionBasica"]="Soporte Graduación";
 $this->idioma["funcionarioSoporteFormacionBasicaTitulo"]="Adjunte Soporte de Graduación - Opcional";
 
@@ -192,6 +194,8 @@ $this->idioma["funcionarioFormacionMediaTitul"]="Titulo Obtenido";
 $this->idioma["funcionarioFormacionMediaTitulTitulo"]="Digite el Titulo Obtenido";
 $this->idioma["funcionarioFechaFormacionMedia"]="Fecha Graduación";
 $this->idioma["funcionarioFechaFormacionMediaTitulo"]="Digite la Fecha de Graduación";
+$this->idioma["funcionarioFechaFormacionMediaCon"]="Fecha Graduación";
+$this->idioma["funcionarioFechaFormacionMediaConTitulo"]="Digite la Fecha de Graduación";
 $this->idioma["funcionarioSoporteFormacionMedia"]="Soporte Graduación";
 $this->idioma["funcionarioSoporteFormacionMediaTitulo"]="Adjunte Soporte de Graduación - Opcional";
 

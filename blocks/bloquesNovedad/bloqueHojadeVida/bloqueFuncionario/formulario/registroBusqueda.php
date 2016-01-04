@@ -145,7 +145,7 @@ class Formulario {
                             <th>'."GESTION".'</th>
                          </tr>
                         </thead>
-                       <tfoot  style="display: table-header-group">
+                       <tfoot  style="display: none">
             <tr>
                 <th>cedula</th>
                 <th>primer nombre</th>

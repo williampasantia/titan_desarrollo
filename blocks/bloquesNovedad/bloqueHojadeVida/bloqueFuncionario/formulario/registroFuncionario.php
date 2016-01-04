@@ -84,11 +84,13 @@ class Formulario {
         
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
-        $cantidad_referencias = 2;
-        $cantidad_referencias_info = 2;
-        $cantidad_idiomas = 2;
-        $cantidad_experiencia = 2;
-        $cantidad_referencias_per = 2;
+        //Establecimiento Limite de Campos y Referencias Dinamicas **************************************************
+        
+        $cantidad_referencias = 1;
+        $cantidad_referencias_info = 1;
+        $cantidad_idiomas = 1;
+        $cantidad_experiencia = 1;
+        $cantidad_referencias_per = 1;
         
         // ---------------- FIN: Lista Variables Control--------------------------------------------------------
 
@@ -208,16 +210,18 @@ class Formulario {
 	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	        
 	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        
+	        unset($atributos);
 	        $esteCampo = 'funcionarioSoporteIden';
 	        $atributos ['id'] = $esteCampo;
 	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'file';
+	        $atributos ['tipo'] = 'hidden';
 	        $atributos ['estilo'] = 'jqueryui';
 	        $atributos ['marco'] = true;
 	        $atributos ['columnas'] = 1;
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        //$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -1064,16 +1068,17 @@ class Formulario {
 	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	        
 	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        unset($atributos);
 	        $esteCampo = 'funcionarioSoporteLibreta';
 	        $atributos ['id'] = $esteCampo;
 	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'file';
+	        $atributos ['tipo'] = 'hidden';
 	        $atributos ['estilo'] = 'jqueryui';
 	        $atributos ['marco'] = true;
 	        $atributos ['columnas'] = 1;
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        //$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -1253,16 +1258,17 @@ class Formulario {
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
 	        
 	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        unset($atributos);
 	        $esteCampo = 'funcionarioSoporteCaracterizacion';
 	        $atributos ['id'] = $esteCampo;
 	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'file';
+	        $atributos ['tipo'] = 'hidden';
 	        $atributos ['estilo'] = 'jqueryui';
 	        $atributos ['marco'] = true;
 	        $atributos ['columnas'] = 1;
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        //$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -1605,16 +1611,17 @@ class Formulario {
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
 	        
 	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        unset($atributos);
 	        $esteCampo = 'funcionarioSoporteEstrato';
 	        $atributos ['id'] = $esteCampo;
 	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'file';
+	        $atributos ['tipo'] = 'hidden';
 	        $atributos ['estilo'] = 'jqueryui';
 	        $atributos ['marco'] = true;
 	        $atributos ['columnas'] = 1;
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        //$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -1637,16 +1644,17 @@ class Formulario {
 	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	        
 	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        unset($atributos);
 	        $esteCampo = 'funcionarioSoporteResidencia';
 	        $atributos ['id'] = $esteCampo;
 	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'file';
+	        $atributos ['tipo'] = 'hidden';
 	        $atributos ['estilo'] = 'jqueryui';
 	        $atributos ['marco'] = true;
 	        $atributos ['columnas'] = 1;
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        //$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -2184,16 +2192,17 @@ class Formulario {
 	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	        
 	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        unset($atributos);
 	        $esteCampo = 'funcionarioSoporteFormacionBasica';
 	        $atributos ['id'] = $esteCampo;
 	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'file';
+	        $atributos ['tipo'] = 'hidden';
 	        $atributos ['estilo'] = 'jqueryui';
 	        $atributos ['marco'] = true;
 	        $atributos ['columnas'] = 1;
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        //$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -2461,16 +2470,17 @@ class Formulario {
 	        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	        
 	        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        unset($atributos);
 	        $esteCampo = 'funcionarioSoporteFormacionMedia';
 	        $atributos ['id'] = $esteCampo;
 	        $atributos ['nombre'] = $esteCampo;
-	        $atributos ['tipo'] = 'file';
+	        $atributos ['tipo'] = 'hidden';
 	        $atributos ['estilo'] = 'jqueryui';
 	        $atributos ['marco'] = true;
 	        $atributos ['columnas'] = 1;
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
-	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        //$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -2509,19 +2519,13 @@ class Formulario {
 //***************************************************************************************************************
 //***************************************************************************************************************
 	        
-	        if (isset ( $_REQUEST ['funcionarioRegistrosSuperior'] )) {
-	        	$cantidad_referencias = $_REQUEST ['funcionarioRegistrosSuperior']+1;
-	        } else {
-	        	$cantidad_referencias = 1;
-	        }
-	        
 	        //$cantidad_referencias = 3;//---------------------------------------------
 	        
 	        for($i = 0; $i < $cantidad_referencias; $i++){
 	        	
 	        	 
 	        	$esteCampo = "novedadesDatosCantidadEduacionSuperior";
-	        	$atributos ['id'] = $esteCampo;
+	        	$atributos ['id'] = $esteCampo.$i;
 	        	$atributos ["estilo"] = "jqueryui";
 	        	$atributos ['tipoEtiqueta'] = 'inicio';
 	        	$numero_estudio = $i+1;
@@ -3013,17 +3017,18 @@ class Formulario {
 	        	// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	        	
 	        	// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        	unset($atributos);
 	        	$esteCampo = 'funcionarioSoporteFormacionSuperior_'.$i;
 	        	$baseCampo = 'funcionarioSoporteFormacionSuperior';
 	        	$atributos ['id'] = $esteCampo;
 	        	$atributos ['nombre'] = $esteCampo;
-	        	$atributos ['tipo'] = 'file';
+	        	$atributos ['tipo'] = 'hidden';
 	        	$atributos ['estilo'] = 'jqueryui';
 	        	$atributos ['marco'] = true;
 	        	$atributos ['columnas'] = 1;
 	        	$atributos ['dobleLinea'] = false;
 	        	$atributos ['tabIndex'] = $tab;
-	        	$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+	        	//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 	        	 
 	        	$atributos ['obligatorio'] = false;
 	        	$atributos ['etiquetaObligatorio'] = false;
@@ -3048,33 +3053,7 @@ class Formulario {
 	        	}
 	        	echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 	        	
-	        	$atributos ["id"] = "botonDatos1";
-	        	$atributos ["estilo"] = "botonDatos";
-	        	echo $this->miFormulario->division ( "inicio", $atributos );
-	        	{
-	        	
-	        		// -----------------CONTROL: Botón ----------------------------------------------------------------
-	        		$esteCampo = 'botonAgregarSuperior';
-	        		$atributos ["id"] = $esteCampo;
-	        		$atributos ["tabIndex"] = $tab;
-	        		$atributos ["tipo"] = 'boton';
-	        		// submit: no se coloca si se desea un tipo button genérico
-	        		$atributos ['submit'] = true;
-	        		$atributos ["estiloMarco"] = '';
-	        		$atributos ["estiloBoton"] = 'jqueryui';
-	        		// verificar: true para verificar el formulario antes de pasarlo al servidor.
-	        		$atributos ["verificar"] = '';
-	        		$atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-	        		$atributos ["valor"] = "Agregar";
-	        		$atributos ['nombreFormulario'] = $esteBloque ['nombre'];
-	        		$tab ++;
-	        		 
-	        		// Aplica atributos globales al control
-	        		$atributos = array_merge ( $atributos, $atributosGlobales );
-	        		echo $this->miFormulario->campoBoton ( $atributos );
-	        	
-	        	}
-	        	echo $this->miFormulario->division ( "fin" );
+	   
 	        	
 	        	
 	        }
@@ -3244,17 +3223,18 @@ class Formulario {
 	        		// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	        		
 	        		// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	        		unset($atributos);
 	        		$esteCampo = 'funcionarioSoporteFormacionInformal_'.$i;
 	        		$baseCampo = 'funcionarioSoporteFormacionInformal';
 	        		$atributos ['id'] = $esteCampo;
 	        		$atributos ['nombre'] = $esteCampo;
-	        		$atributos ['tipo'] = 'file';
+	        		$atributos ['tipo'] = 'hidden';
 	        		$atributos ['estilo'] = 'jqueryui';
 	        		$atributos ['marco'] = true;
 	        		$atributos ['columnas'] = 1;
 	        		$atributos ['dobleLinea'] = false;
 	        		$atributos ['tabIndex'] = $tab;
-	        		$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+	        		//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 	        		 
 	        		$atributos ['obligatorio'] = false;
 	        		$atributos ['etiquetaObligatorio'] = false;
@@ -3583,17 +3563,18 @@ class Formulario {
 			        	// --------------- FIN CONTROL : Select --------------------------------------------------
 			        	
 			        	// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+			        	unset($atributos);
 			        	$esteCampo = 'funcionarioSoporteIdioma_'.$i;
 			        	$baseCampo = 'funcionarioSoporteIdioma';
 			        	$atributos ['id'] = $esteCampo;
 			        	$atributos ['nombre'] = $esteCampo;
-			        	$atributos ['tipo'] = 'file';
+			        	$atributos ['tipo'] = 'hidden';
 			        	$atributos ['estilo'] = 'jqueryui';
 			        	$atributos ['marco'] = true;
 			        	$atributos ['columnas'] = 1;
 			        	$atributos ['dobleLinea'] = false;
 			        	$atributos ['tabIndex'] = $tab;
-			        	$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+			        	//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 			        	
 			        	$atributos ['obligatorio'] = false;
 			        	$atributos ['etiquetaObligatorio'] = false;
@@ -4286,17 +4267,18 @@ class Formulario {
 	    			// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	    			
 	    			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	    			unset($atributos);
 	    			$esteCampo = 'funcionarioSoporteExperiencia_'.$i;
 	    			$baseCampo = 'funcionarioSoporteExperiencia';
 	    			$atributos ['id'] = $esteCampo;
 	    			$atributos ['nombre'] = $esteCampo;
-	    			$atributos ['tipo'] = 'file';
+	    			$atributos ['tipo'] = 'hidden';
 	    			$atributos ['estilo'] = 'jqueryui';
 	    			$atributos ['marco'] = true;
 	    			$atributos ['columnas'] = 1;
 	    			$atributos ['dobleLinea'] = false;
 	    			$atributos ['tabIndex'] = $tab;
-	    			$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+	    			//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 	    			
 	    			$atributos ['obligatorio'] = false;
 	    			$atributos ['etiquetaObligatorio'] = false;
@@ -4522,17 +4504,18 @@ class Formulario {
 	    			// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	    			
 	    			// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+	    			unset($atributos);
 	    			$esteCampo = 'funcionarioSoporteReferencia_'.$i;
 	    			$baseCampo = 'funcionarioSoporteReferencia';
 	    			$atributos ['id'] = $esteCampo;
 	    			$atributos ['nombre'] = $esteCampo;
-	    			$atributos ['tipo'] = 'file';
+	    			$atributos ['tipo'] = 'hidden';
 	    			$atributos ['estilo'] = 'jqueryui';
 	    			$atributos ['marco'] = true;
 	    			$atributos ['columnas'] = 1;
 	    			$atributos ['dobleLinea'] = false;
 	    			$atributos ['tabIndex'] = $tab;
-	    			$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+	    			//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 	    			
 	    			$atributos ['obligatorio'] = false;
 	    			$atributos ['etiquetaObligatorio'] = false;
@@ -4694,133 +4677,6 @@ class Formulario {
 	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
 	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	    
-	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-	    $esteCampo = 'funcionarioRegistrosReferencias';
-	    $atributos ['id'] = $esteCampo;
-	    $atributos ['nombre'] = $esteCampo;
-	    $atributos ['tipo'] = 'hidden';
-	    $atributos ['estilo'] = 'jqueryui';
-	    $atributos ['marco'] = true;
-	    $atributos ['columnas'] = 1;
-	    $atributos ['dobleLinea'] = false;
-	    $atributos ['tabIndex'] = $tab;
-	    $atributos ['etiqueta'] = '';
-	    
-	    $atributos ['obligatorio'] = false;
-	    $atributos ['etiquetaObligatorio'] = false;
-	    $atributos ['validar'] = 'custom[onlyLetterSp]';
-	    
-	    if (isset ( $_REQUEST [$esteCampo] )) {
-	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	    } else {
-	    	$atributos ['valor'] = $cantidad_referencias_per;
-	    }
-	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	    $atributos ['deshabilitado'] = false;
-	    $atributos ['tamanno'] = 30;
-	    $atributos ['maximoTamanno'] = '';
-	    $tab ++;
-	    
-	    // Aplica atributos globales al control
-	    $atributos = array_merge ( $atributos, $atributosGlobales );
-	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
-	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
-	    
-	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-	    $esteCampo = 'funcionarioRegistrosInformal';
-	    $atributos ['id'] = $esteCampo;
-	    $atributos ['nombre'] = $esteCampo;
-	    $atributos ['tipo'] = 'hidden';
-	    $atributos ['estilo'] = 'jqueryui';
-	    $atributos ['marco'] = true;
-	    $atributos ['columnas'] = 1;
-	    $atributos ['dobleLinea'] = false;
-	    $atributos ['tabIndex'] = $tab;
-	    $atributos ['etiqueta'] = '';
-	     
-	    $atributos ['obligatorio'] = false;
-	    $atributos ['etiquetaObligatorio'] = false;
-	    $atributos ['validar'] = 'custom[onlyLetterSp]';
-	     
-	    if (isset ( $_REQUEST [$esteCampo] )) {
-	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	    } else {
-	    	$atributos ['valor'] = $cantidad_referencias_info;
-	    }
-	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	    $atributos ['deshabilitado'] = false;
-	    $atributos ['tamanno'] = 30;
-	    $atributos ['maximoTamanno'] = '';
-	    $tab ++;
-	     
-	    // Aplica atributos globales al control
-	    $atributos = array_merge ( $atributos, $atributosGlobales );
-	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
-	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
-	    
-	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-	    $esteCampo = 'funcionarioRegistrosIdioma';
-	    $atributos ['id'] = $esteCampo;
-	    $atributos ['nombre'] = $esteCampo;
-	    $atributos ['tipo'] = 'hidden';
-	    $atributos ['estilo'] = 'jqueryui';
-	    $atributos ['marco'] = true;
-	    $atributos ['columnas'] = 1;
-	    $atributos ['dobleLinea'] = false;
-	    $atributos ['tabIndex'] = $tab;
-	    $atributos ['etiqueta'] = '';
-	     
-	    $atributos ['obligatorio'] = false;
-	    $atributos ['etiquetaObligatorio'] = false;
-	    $atributos ['validar'] = 'custom[onlyLetterSp]';
-	     
-	    if (isset ( $_REQUEST [$esteCampo] )) {
-	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	    } else {
-	    	$atributos ['valor'] = $cantidad_idiomas;
-	    }
-	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	    $atributos ['deshabilitado'] = false;
-	    $atributos ['tamanno'] = 30;
-	    $atributos ['maximoTamanno'] = '';
-	    $tab ++;
-	     
-	    // Aplica atributos globales al control
-	    $atributos = array_merge ( $atributos, $atributosGlobales );
-	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
-	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
-	    
-	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-	    $esteCampo = 'funcionarioRegistrosExperiencia';
-	    $atributos ['id'] = $esteCampo;
-	    $atributos ['nombre'] = $esteCampo;
-	    $atributos ['tipo'] = 'hidden';
-	    $atributos ['estilo'] = 'jqueryui';
-	    $atributos ['marco'] = true;
-	    $atributos ['columnas'] = 1;
-	    $atributos ['dobleLinea'] = false;
-	    $atributos ['tabIndex'] = $tab;
-	    $atributos ['etiqueta'] = '';
-	     
-	    $atributos ['obligatorio'] = false;
-	    $atributos ['etiquetaObligatorio'] = false;
-	    $atributos ['validar'] = 'custom[onlyLetterSp]';
-	     
-	    if (isset ( $_REQUEST [$esteCampo] )) {
-	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	    } else {
-	    	$atributos ['valor'] = $cantidad_experiencia;
-	    }
-	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-	    $atributos ['deshabilitado'] = false;
-	    $atributos ['tamanno'] = 30;
-	    $atributos ['maximoTamanno'] = '';
-	    $tab ++;
-	     
-	    // Aplica atributos globales al control
-	    $atributos = array_merge ( $atributos, $atributosGlobales );
-	    echo $this->miFormulario->campoCuadroTexto ( $atributos );
-	    // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 	    
 	    // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 	    $esteCampo = 'funcionarioRegistrosReferencia';

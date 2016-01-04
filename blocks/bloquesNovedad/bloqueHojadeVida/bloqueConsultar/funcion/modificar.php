@@ -23,6 +23,8 @@ class FormProcessor {
     
     function procesarFormulario() {
     	
+    	//var_dump($_REQUEST);exit;
+    	
         //Aquí va la lógica de procesamiento
         
         $conexion = 'estructura';
@@ -65,6 +67,37 @@ class FormProcessor {
         
         //****************************************************************************************************
         
+        $cadenaSql6 = $this->miSql->getCadenaSql("consultarDatosResidenciaCont", $matrizFuncionario[0][3]);
+        $matrizInfoResidencia = $primerRecursoDB->ejecutarAcceso($cadenaSql6, "busqueda");
+        
+        $cadenaSql7 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizInfoResidencia[0][1]);
+        $matrizUbicacionInfoRes = $primerRecursoDB->ejecutarAcceso($cadenaSql7, "busqueda");
+        
+        //****************************************************************************************************
+        
+        $cadenaSql8 = $this->miSql->getCadenaSql("consultarFormacionAcademicaFuncionario", $matrizFuncionario[0][4]);
+        $matrizFormacion = $primerRecursoDB->ejecutarAcceso($cadenaSql8, "busqueda");
+        
+        //var_dump($matrizFormacion[0][0]);//id formacion basica
+        //var_dump($matrizFormacion[0][1]);//id formacion media
+        
+        $cadenaSql9 = $this->miSql->getCadenaSql("consultarFormacionBasica", $matrizFormacion[0][0]);
+        $matrizFormacionBasica = $primerRecursoDB->ejecutarAcceso($cadenaSql9, "busqueda");
+        
+        $cadenaSql11 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizFormacionBasica[0][1]);
+        $matrizUbicacionBasica = $primerRecursoDB->ejecutarAcceso($cadenaSql11, "busqueda");
+        
+        //var_dump($matrizFormacionBasica);
+        //var_dump($matrizUbicacionBasica);
+        //-----------------------------------------------------------------------------------------------
+        
+        $cadenaSql10 = $this->miSql->getCadenaSql("consultarFormacionMedia", $matrizFormacion[0][1]);
+        $matrizFormacionMedia = $primerRecursoDB->ejecutarAcceso($cadenaSql10, "busqueda");
+        
+        $cadenaSql12 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizFormacionMedia[0][1]);
+        $matrizUbicacionMedia = $primerRecursoDB->ejecutarAcceso($cadenaSql12, "busqueda");
+        
+        //****************************************************************************************************
         
         /*Datos de PERSONA NATURAL ------------------------------------------------------------------------*/
         /*
@@ -293,30 +326,7 @@ class FormProcessor {
         $cadenaSql = $this->miSql->getCadenaSql("modificarInformacionPersonalBasica",$datosPersonalesBasicos);
         $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
         
-        var_dump($cadenaSql);
-
-
-
-        /*if (isset($matrizInfoExpe[0][0])) {
-         //var_dump("ENTRO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
-         exit();
-         } else {
-         //var_dump("ENTRO NO INSERTAR");exit;
-         $this->miConfigurador->setVariableConfiguracion("cache", true);
-         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
-         exit();
-         }*/
         
-        var_dump("Modificar - Datos de Identificación  <Completo>
-        					  Datos Personales Basicos <Completo>
-					Desarrollando...
-				");
-        
-        var_dump($_REQUEST);
-        
-        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //******************************************************************************************************************************************************       
      
@@ -346,15 +356,17 @@ class FormProcessor {
         	}
         }
         
-        $datosUbicacionContacto = array(
-        		'paisContacto' => $_REQUEST['funcionarioContactoPais'],
-        		'departamentoContacto' => $_REQUEST['funcionarioContactoDepartamento'],
-        		'ciudadContacto' => $_REQUEST['funcionarioContactoCiudad']
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionContacto",$datosUbicacionContacto);
-        $id_ubicacion_contacto = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionContacto, "insertarUbicacionContacto");
-        
+        if (isset($_REQUEST['funcionarioContactoDepartamento']) && isset($_REQUEST['funcionarioContactoCiudad'])) {
+	        $datosUbicacionContacto = array(
+	        		'paisContacto' => $_REQUEST['funcionarioContactoPais'],
+	        		'departamentoContacto' => $_REQUEST['funcionarioContactoDepartamento'],
+	        		'ciudadContacto' => $_REQUEST['funcionarioContactoCiudad'],
+	        		'id_ubicacion_contac' => $matrizInfoResidencia[0][1]
+	        );
+	        
+	        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionContacto",$datosUbicacionContacto);
+	        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+	    }
         
         $datosResidenciaContactos = array(
         		'nacionalidad' => $_REQUEST['funcionarioContactoNacionalidad'],
@@ -370,25 +382,29 @@ class FormProcessor {
         		'emailOficina' => $_REQUEST['funcionarioContactoOrganiEmail'],
         		'direccionOficina' => $_REQUEST['funcionarioContactoOrganiDireccion'],
         		'cargoOficina' => $_REQUEST['funcionarioContactoOrganiCargo'],
-        		'fk_ubicacion' => $id_ubicacion_contacto[0][0]
+        		'id_info_contacto' => $matrizFuncionario[0][3]
         		
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarDatosResidenciaCont",$datosResidenciaContactos);
-        $id_datos_residencia = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosResidenciaContactos);//********************************
+        $cadenaSql = $this->miSql->getCadenaSql("modificarDatosResidenciaCont",$datosResidenciaContactos);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        
         
 //*****************************************************************************************************************
-        
+        //--------------------------------------------------
+        //--------------------------------------------------
+        //--------------------------------------------------
         
         
         $datosUbicacionFormacionBasica = array(
         		'paisFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaPais'],
         		'departamentoFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaDepartamento'],
-        		'ciudadFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaCiudad']
+        		'ciudadFormacionBasica' => $_REQUEST['funcionarioFormacionBasicaCiudad'],
+        		'id_ubicacion_basica' => $matrizFormacionBasica[0][1]
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionFormacionBasica",$datosUbicacionFormacionBasica);
-        $id_ubicacion_formacion_basica = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionFormacionBasica, "insertarUbicacionFormacionBasica");
+        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionFormacionBasica",$datosUbicacionFormacionBasica);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
         
         $datosFormacionAcademicaBasica = array(
         		'modalidadBasica' => $_REQUEST['funcionarioFormacionBasicaModalidad'],
@@ -396,11 +412,11 @@ class FormProcessor {
         		'tituloBasica' => $_REQUEST['funcionarioFormacionBasicaTitul'],
         		'fechaGradoBasica' => $_REQUEST['funcionarioFechaFormacionBasica'],
         		'soporteBasica' => $_REQUEST['funcionarioSoporteFormacionBasica'],
-        		'fk_ubicacion' => $id_ubicacion_formacion_basica[0][0]
+        		'id_formacion_basica' => $matrizFormacion[0][0]
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionBasica",$datosFormacionAcademicaBasica);
-        $id_formacion_basica = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosFormacionAcademicaBasica);//********************************
+        $cadenaSql = $this->miSql->getCadenaSql("modificarFormacionBasica",$datosFormacionAcademicaBasica);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
         
  //**************************************************************************************************************
  
@@ -408,11 +424,12 @@ class FormProcessor {
         $datosUbicacionFormacionMedia = array(
         		'paisFormacionMedia' => $_REQUEST['funcionarioFormacionMediaPais'],
         		'departamentoFormacionMedia' => $_REQUEST['funcionarioFormacionMediaDepartamento'],
-        		'ciudadFormacionMedia' => $_REQUEST['funcionarioFormacionMediaCiudad']
+        		'ciudadFormacionMedia' => $_REQUEST['funcionarioFormacionMediaCiudad'],
+        		'id_ubicacion_media' => $matrizFormacionMedia[0][1]
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionFormacionMedia",$datosUbicacionFormacionMedia);
-        $id_ubicacion_formacion_media = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionFormacionMedia, "insertarUbicacionFormacionMedia");
+        $cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionFormacionMedia",$datosUbicacionFormacionMedia);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
         
         
         $datosFormacionAcademicaMedia = array(
@@ -421,21 +438,11 @@ class FormProcessor {
         		'tituloMedia' => $_REQUEST['funcionarioFormacionMediaTitul'],
         		'fechaGradoMedia' => $_REQUEST['funcionarioFechaFormacionMedia'],
         		'soporteMedia' => $_REQUEST['funcionarioSoporteFormacionMedia'],
-        		'fk_ubicacion' => $id_ubicacion_formacion_media[0][0]
+        		'id_formacion_media' => $matrizFormacion[0][1]
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionMedia",$datosFormacionAcademicaMedia);
-        $id_formacion_media = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda",$datosFormacionAcademicaMedia);//********************************
-        
- //***************************************************************************************************************
-        
-        $datosFormacionAcademicaFuncionario = array(
-        		'fk_id_formacion_basica' => $id_formacion_basica[0][0],
-        		'fk_id_formacion_media' => $id_formacion_media[0][0]
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionFuncionario",$datosFormacionAcademicaFuncionario);
-        $id_datos_formacion_funcionario = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosFormacionAcademicaFuncionario, "insertarFormacionFuncionario");
+        $cadenaSql = $this->miSql->getCadenaSql("modificarFormacionMedia",$datosFormacionAcademicaMedia);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
         
  //***************************************************************************************************************       
         
@@ -444,29 +451,69 @@ class FormProcessor {
         		'tematicaInvestigacion' => $_REQUEST['funcionarioPublicacionesTematica'],
         		'tipoInvestigacion' => $_REQUEST['funcionarioPublicacionesTipo'],
         		'logrosInvestigacion' => $_REQUEST['funcionarioPublicacionesLogros'],
-        		'referenciasInvestigacion' => $_REQUEST['funcionarioPublicacionesReferencias']
+        		'referenciasInvestigacion' => $_REQUEST['funcionarioPublicacionesReferencias'],
+        		'id_mod_publicacion' => $matrizFuncionario[0][5]
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFormacionInvestigacion",$datosInvestigacion);
-        $id_publicacion = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosInvestigacion, "insertarFormacionInvestigacion");//********************************
+        $cadenaSql = $this->miSql->getCadenaSql("modificarFormacionInvestigacion",$datosInvestigacion);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
         
-//*******************************************************************************************************************        
-        
-        $datosFuncionario = array(
-        		'fk_id_datos_identificacion' => $id_datos_identificacion[0][0],
-        		'fk_id_informacion_personal_basica' => $id_informacion_personal_basica[0][0],
-        		'fk_id_datos_residencia' => $id_datos_residencia[0][0],
-        		'fk_id_datos_formacion_funcionario' => $id_datos_formacion_funcionario[0][0],
-        		'fk_id_publicacion' => $id_publicacion[0][0],
-        		'documento_fun' => $_REQUEST ['funcionarioDocumento']
-        );
-        
-        $cadenaSql = $this->miSql->getCadenaSql("insertarFuncionario",$datosFuncionario);
-        $id_funcionario = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosFuncionario, "insertarFuncionario");//********************************
-        
-
 //****************************************************************************************************************
         
+        
+        $cadenaSql13 = $this->miSql->getCadenaSql("consultarCantidadFormacionSuperior", $matrizFuncionario[0][4]);
+        $matrizCantFormacionSuperior = $primerRecursoDB->ejecutarAcceso($cadenaSql13, "busqueda");
+        
+        //var_dump(count($matrizCantFormacionSuperior)); //Obtengo los id x cada formacion superior
+        
+        $cadenaSql14 = $this->miSql->getCadenaSql("consultarCantidadFormacionInformal", $matrizFuncionario[0][4]);
+        $matrizCantFormacionInformal = $primerRecursoDB->ejecutarAcceso($cadenaSql14, "busqueda");
+        
+        //var_dump(count($matrizCantFormacionInformal)); //Obtengo los id x cada formacion informal
+        
+        $cadenaSql15 = $this->miSql->getCadenaSql("consultarCantidadFormacionIdiomas", $matrizFuncionario[0][0]);
+        $matrizCantFormacionIdioma = $primerRecursoDB->ejecutarAcceso($cadenaSql15, "busqueda");
+        
+        //var_dump(count($matrizCantFormacionIdioma)); //Obtengo los id x cada formacion idioma
+        //var_dump(array_reverse($matrizCantFormacionIdioma)); //array_reverse ordenar id
+        
+        $cadenaSql16 = $this->miSql->getCadenaSql("consultarCantidadExperiencia", $matrizFuncionario[0][0]);
+        $matrizCantExperiencia = $primerRecursoDB->ejecutarAcceso($cadenaSql16, "busqueda");
+        
+        //var_dump(count($matrizCantExperiencia)); //Obtengo los id x cada experiencia laboral
+        
+        $cadenaSql17 = $this->miSql->getCadenaSql("consultarCantidadReferencia", $matrizFuncionario[0][0]);
+        $matrizCantReferencia = $primerRecursoDB->ejecutarAcceso($cadenaSql17, "busqueda");
+        
+        //var_dump(count($matrizCantReferencia)); //Obtengo los id x cada experiencia laboral
+        
+        
+        //--
+        //************************************************************************************************************
+        //************************************************************************************************************
+        
+        $cadenaSql18 = $this->miSql->getCadenaSql("consultarReferenciasPersonales", $matrizFuncionario[0][0]);
+        $matrizReferencia = $primerRecursoDB->ejecutarAcceso($cadenaSql18, "busqueda");
+        
+        $cadenaSql19 = $this->miSql->getCadenaSql("consultarExperienciaLaboral", $matrizFuncionario[0][0]);
+        $matrizExperiencia = $primerRecursoDB->ejecutarAcceso($cadenaSql19, "busqueda");
+        
+        $cadenaSql21 = $this->miSql->getCadenaSql("consultarFormacionIdiomas", $matrizFuncionario[0][0]);
+        $matrizIdiomas = $primerRecursoDB->ejecutarAcceso($cadenaSql21, "busqueda");
+        
+        $cadenaSql22 = $this->miSql->getCadenaSql("consultarFormacionInformal", $matrizFuncionario[0][4]);
+        $matrizInformal = $primerRecursoDB->ejecutarAcceso($cadenaSql22, "busqueda");
+        
+        $cadenaSql23 = $this->miSql->getCadenaSql("consultarFormacionSuperior", $matrizFuncionario[0][4]);
+        $matrizSuperior = $primerRecursoDB->ejecutarAcceso($cadenaSql23, "busqueda");
+        
+        
+        //************************************************************************************************************
+        
+        
+        
+        
+//****************************************************************************************************************        
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
         $cantidadFormacionSuperior = $_REQUEST['funcionarioRegistrosSuperior'];
@@ -517,60 +564,146 @@ class FormProcessor {
         		}
         	}
         	
-        	
-        	$datosUbicacionFormacionSuperior = array(
-        			'paisFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorPais_'.$count],
-        			'departamentoFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorDepartamento_'.$count],
-        			'ciudadFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorCiudad_'.$count]
-        	);
-        	
-        	$cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionFormacionSuperior",$datosUbicacionFormacionSuperior);
-        	$id_ubicacion_formacion_superior = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionFormacionSuperior, "insertarUbicacionFormacionSuperior");
-        	
-
-        	$datosFormacionAcademicaSuperior = array(
-        			'modalidadAcademica' => $_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count],
-        			'semestresCursados' => $_REQUEST['funcionarioFormacionSuperiorSemestres_'.$count],
-        			'esGraduado' => $_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count],
-        			'resolucionConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorResolucionConvali_'.$count],
-        			'fechaConvalidacion' => $_REQUEST['funcionarioFechaConvalidaSuperior_'.$count],
-        			'entidadConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorEntidadConvali_'.$count],
-        			'universidadSuperior' => $_REQUEST['funcionarioFormacionSuperiorUniversidad_'.$count],
-        			'tituloSuperior' => $_REQUEST['funcionarioFormacionSuperiorTituloObtenido_'.$count],
-        			'fechaGraduacionSuperior' => $_REQUEST['funcionarioFechaTituloSuperior_'.$count],
-        			'numeroTarjetaProfesional' => $_REQUEST['funcionarioFormacionSuperiorNumeroTarjeta_'.$count],
-        			'fechaExpedicionTarjeta' => $_REQUEST['funcionarioFechaTarjetaSuperior_'.$count],
-        			'soporteSuperior' => $_REQUEST['funcionarioSoporteFormacionSuperior_'.$count],
-        			'fk_ubicacion' => $id_ubicacion_formacion_superior[0][0],
-        			'fk_formacion_academica_funcionario' => $id_datos_formacion_funcionario[0][0]
-        	);
-        	
-        	$cadenaSql = $this->miSql->getCadenaSql("insertarFormacionSuperior",$datosFormacionAcademicaSuperior);
-        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
-        	
+        	if(isset($_REQUEST['funcionarioFormacionSuperiorNuevo_'.$count])){
+        		
+        		$datosUbicacionFormacionSuperior = array(
+        				'paisFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorPais_'.$count],
+        				'departamentoFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorDepartamento_'.$count],
+        				'ciudadFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorCiudad_'.$count]
+        		);
+        		 
+        		$cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionFormacionSuperior",$datosUbicacionFormacionSuperior);
+        		$id_ubicacion_formacion_superior = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionFormacionSuperior, "insertarUbicacionFormacionSuperior");
+        		 
+        		
+        		$datosFormacionAcademicaSuperior = array(
+        				'modalidadAcademica' => $_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count],
+        				'semestresCursados' => $_REQUEST['funcionarioFormacionSuperiorSemestres_'.$count],
+        				'esGraduado' => $_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count],
+        				'resolucionConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorResolucionConvali_'.$count],
+        				'fechaConvalidacion' => $_REQUEST['funcionarioFechaConvalidaSuperior_'.$count],
+        				'entidadConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorEntidadConvali_'.$count],
+        				'universidadSuperior' => $_REQUEST['funcionarioFormacionSuperiorUniversidad_'.$count],
+        				'tituloSuperior' => $_REQUEST['funcionarioFormacionSuperiorTituloObtenido_'.$count],
+        				'fechaGraduacionSuperior' => $_REQUEST['funcionarioFechaTituloSuperior_'.$count],
+        				'numeroTarjetaProfesional' => $_REQUEST['funcionarioFormacionSuperiorNumeroTarjeta_'.$count],
+        				'fechaExpedicionTarjeta' => $_REQUEST['funcionarioFechaTarjetaSuperior_'.$count],
+        				'soporteSuperior' => $_REQUEST['funcionarioSoporteFormacionSuperior_'.$count],
+        				'fk_ubicacion' => $id_ubicacion_formacion_superior[0][0],
+        				'fk_formacion_academica_funcionario' => $matrizFuncionario[0][4]
+        		);
+        		 
+        		$cadenaSql = $this->miSql->getCadenaSql("insertarFormacionSuperior",$datosFormacionAcademicaSuperior);
+        		$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        		
+        		//Agregar
+        	}else{
+        		
+        		if(isset($_REQUEST['funcionarioFormacionSuperiorEliminar_'.$count]) && isset($matrizCantFormacionSuperior[$count][0])){
+     
+        			$datosFormacionAcademicaSuperior = array(
+        					'id_formacion_superior' => $matrizCantFormacionSuperior[$count][0]
+        			);
+        			
+        			$cadenaSql = $this->miSql->getCadenaSql("eliminarFormacionSuperior",$datosFormacionAcademicaSuperior);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        			
+        			
+        			//Eliminar -- 
+        		}else{
+        			
+        			$datosUbicacionFormacionSuperior = array(
+        					'paisFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorPais_'.$count],
+        					'departamentoFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorDepartamento_'.$count],
+        					'ciudadFormacionSuperior' => $_REQUEST['funcionarioFormacionSuperiorCiudad_'.$count],
+        					'id_ubicacion_superior' => $matrizSuperior[$count][4]
+        			);
+        			
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionFormacionSuperior",$datosUbicacionFormacionSuperior);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        			
+        			$datosFormacionAcademicaSuperior = array(
+        					'modalidadAcademica' => $_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$count],
+        					'semestresCursados' => $_REQUEST['funcionarioFormacionSuperiorSemestres_'.$count],
+        					'esGraduado' => $_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$count],
+        					'resolucionConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorResolucionConvali_'.$count],
+        					'fechaConvalidacion' => $_REQUEST['funcionarioFechaConvalidaSuperior_'.$count],
+        					'entidadConvalidacion' => $_REQUEST['funcionarioFormacionSuperiorEntidadConvali_'.$count],
+        					'universidadSuperior' => $_REQUEST['funcionarioFormacionSuperiorUniversidad_'.$count],
+        					'tituloSuperior' => $_REQUEST['funcionarioFormacionSuperiorTituloObtenido_'.$count],
+        					'fechaGraduacionSuperior' => $_REQUEST['funcionarioFechaTituloSuperior_'.$count],
+        					'numeroTarjetaProfesional' => $_REQUEST['funcionarioFormacionSuperiorNumeroTarjeta_'.$count],
+        					'fechaExpedicionTarjeta' => $_REQUEST['funcionarioFechaTarjetaSuperior_'.$count],
+        					'soporteSuperior' => $_REQUEST['funcionarioSoporteFormacionSuperior_'.$count],
+        					'id_formacion_superior' => $matrizCantFormacionSuperior[$count][0]
+        			);
+        			 
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarFormacionSuperior",$datosFormacionAcademicaSuperior);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        			
+        			//Modificar
+        		}
+        	}
         	$count++;
         }
         
 //****************************************************************************************************************        
+      
+        
         
         $count = 0;
         
         while($count < $cantidadFormacionInformal){
         	
-        	$datosFormacionAcademicaInformal = array(
-        			'cursoInformal' => $_REQUEST['funcionarioFormacionInformalCurso_'.$count],
-        			'entidadCurso' => $_REQUEST['funcionarioFormacionInformalCursoLugar_'.$count],
-        			'intensidadHoraria' => $_REQUEST['funcionarioFormacionInformalCursoIntensidad_'.$count],
-        			'fechaTerminacion' => $_REQUEST['funcionarioFechaInformal_'.$count],
-        			'soporteInformal' => $_REQUEST['funcionarioSoporteFormacionInformal_'.$count],
-        			'fk_formacion_academica_funcionario' => $id_datos_formacion_funcionario[0][0]
-        	);
+        	if(isset($_REQUEST['funcionarioFormacionInformalNuevo_'.$count])){
         	
-        	$cadenaSql = $this->miSql->getCadenaSql("insertarFormacionInformal",$datosFormacionAcademicaInformal);
-        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
-        	
+        		$datosFormacionAcademicaInformal = array(
+        				'cursoInformal' => $_REQUEST['funcionarioFormacionInformalCurso_'.$count],
+        				'entidadCurso' => $_REQUEST['funcionarioFormacionInformalCursoLugar_'.$count],
+        				'intensidadHoraria' => $_REQUEST['funcionarioFormacionInformalCursoIntensidad_'.$count],
+        				'fechaTerminacion' => $_REQUEST['funcionarioFechaInformal_'.$count],
+        				'soporteInformal' => $_REQUEST['funcionarioSoporteFormacionInformal_'.$count],
+        				'fk_formacion_academica_funcionario' => $matrizFuncionario[0][4]
+        		);
+        		 
+        		$cadenaSql = $this->miSql->getCadenaSql("insertarFormacionInformal",$datosFormacionAcademicaInformal);
+        		$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        		     
+        		
+        		//Agregar
+        	}else{
+        		if(isset($_REQUEST['funcionarioFormacionInformalEliminar_'.$count]) && isset($matrizCantFormacionInformal[$count][0])){
+        			
+        			$datosFormacionAcademicaInformal = array(
+        					'id_formacion_informal' => $matrizCantFormacionInformal[$count][0]
+        			);
+        			 
+        			$cadenaSql = $this->miSql->getCadenaSql("eliminarFormacionInformal",$datosFormacionAcademicaInformal);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        			
+        			//Eliminar --
+        		}else{
+        			
+        			$datosFormacionAcademicaInformal = array(
+        					'cursoInformal' => $_REQUEST['funcionarioFormacionInformalCurso_'.$count],
+        					'entidadCurso' => $_REQUEST['funcionarioFormacionInformalCursoLugar_'.$count],
+        					'intensidadHoraria' => $_REQUEST['funcionarioFormacionInformalCursoIntensidad_'.$count],
+        					'fechaTerminacion' => $_REQUEST['funcionarioFechaInformal_'.$count],
+        					'soporteInformal' => $_REQUEST['funcionarioSoporteFormacionInformal_'.$count],
+        					'id_formacion_informal' => $matrizCantFormacionInformal[$count][0]
+        			);
+        			 
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarFormacionInformal",$datosFormacionAcademicaInformal);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			        
+        			
+        			//Modificar
+        		}
+        	}
+
         	$count++;
         } 
+        
         
 //****************************************************************************************************************
 
@@ -696,24 +829,63 @@ class FormProcessor {
         		}
         	}
         	
-        	$datosFormacionAcademicaIdiomas = array(
-        			'fk_funcionario' => $id_funcionario[0][0],
-        			'idioma' => $_REQUEST ['funcionarioFormacionIdioma_'.$count],
-        			'universidadIdioma' => $_REQUEST['funcionarioFormacionIdiomaUniversidad_'.$count],
-        			'nivel' => $_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count],
-        			'habla' => $_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count],
-        			'lee' => $_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count],
-        			'escribe' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count],
-        			'escucha' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count],
-        			'soporteIdioma' => $_REQUEST['funcionarioSoporteIdioma_'.$count],
-        			'observacionIdioma' => $_REQUEST['funcionarioIdiomaObservacion_'.$count]
-        	);
         	
-        	$cadenaSql = $this->miSql->getCadenaSql("insertarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
-        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	if(isset($_REQUEST['funcionarioFormacionIdiomasNuevo_'.$count])){
+        		 
+        		$datosFormacionAcademicaIdiomas = array(
+        				'fk_funcionario' => $matrizFuncionario[0][0],
+        				'idioma' => $_REQUEST ['funcionarioFormacionIdioma_'.$count],
+        				'universidadIdioma' => $_REQUEST['funcionarioFormacionIdiomaUniversidad_'.$count],
+        				'nivel' => $_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count],
+        				'habla' => $_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count],
+        				'lee' => $_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count],
+        				'escribe' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count],
+        				'escucha' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count],
+        				'soporteIdioma' => $_REQUEST['funcionarioSoporteIdioma_'.$count],
+        				'observacionIdioma' => $_REQUEST['funcionarioIdiomaObservacion_'.$count]
+        		);
+        		 
+        		$cadenaSql = $this->miSql->getCadenaSql("insertarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
+        		$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        		
+        		//Agregar
+        	}else{
+        		if(isset($_REQUEST['funcionarioFormacionIdiomasEliminar_'.$count]) && isset($matrizCantFormacionIdioma[$count][0])){
+        			
+        			$datosFormacionAcademicaIdiomas = array(
+        					'id_formacion_idioma' => $matrizCantFormacionIdioma[$count][0]
+        			);
+        			
+        			$cadenaSql = $this->miSql->getCadenaSql("eliminarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//******************************** 
+        			
+        			//Eliminar --
+        		}else{
+        			 
+        			$datosFormacionAcademicaIdiomas = array(
+        					'idioma' => $_REQUEST ['funcionarioFormacionIdioma_'.$count],
+        					'universidadIdioma' => $_REQUEST['funcionarioFormacionIdiomaUniversidad_'.$count],
+        					'nivel' => $_REQUEST ['funcionarioFormacionIdiomaNivel_'.$count],
+        					'habla' => $_REQUEST ['funcionarioFormacionIdiomaNivelHabla_'.$count],
+        					'lee' => $_REQUEST ['funcionarioFormacionIdiomaNivelLee_'.$count],
+        					'escribe' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscribe_'.$count],
+        					'escucha' => $_REQUEST ['funcionarioFormacionIdiomaNivelEscucha_'.$count],
+        					'soporteIdioma' => $_REQUEST['funcionarioSoporteIdioma_'.$count],
+        					'observacionIdioma' => $_REQUEST['funcionarioIdiomaObservacion_'.$count],
+        					'id_formacion_idioma' => $matrizCantFormacionIdioma[$count][0]
+        			);
+        			 
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarFormacionIdiomas",$datosFormacionAcademicaIdiomas);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
+        			
+        			//Modificar
+        		}
+        	}
         	
         	$count++;
         }
+        
         
 //**********************************************************************************************************************        
         
@@ -731,34 +903,84 @@ class FormProcessor {
         				break;
         		}
         	}
-        	     
-        	$datosUbicacionExperiencia = array(
-        			'paisExperiencia' => $_REQUEST ['funcionarioExperienciaPais_'.$count],
-        			'departamentoExperiencia' => $_REQUEST ['funcionarioExperienciaDepartamento_'.$count],
-        			'ciudadExperiencia' => $_REQUEST ['funcionarioExperienciaCiudad_'.$count]
-        	);
-        	 
-        	$cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionExperiencia",$datosUbicacionExperiencia);
-        	$id_ubicacion_experiencia = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionExperiencia, "insertarUbicacionExperiencia");
-        	 
         	
-        	$datosExperiencia = array(
-        			'fk_funcionario' => $id_funcionario[0][0],
-        			'nombreEmpresa' => $_REQUEST['funcionarioExperienciaEmpresa_'.$count],
-        			'nitEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaNIT_'.$count],
-        			'tipoEntidad' => $_REQUEST ['funcionarioExperienciaTipo_'.$count],
-        			'fk_ubicacion' => $id_ubicacion_experiencia[0][0],
-        			'emailEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCorreo_'.$count],
-        			'telefonoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaTelefono_'.$count],
-        			'fechaIngreso' => $_REQUEST['funcionarioFechaEntradaExperiencia_'.$count],
-        			'fechaRetiro' => $_REQUEST['funcionarioFechaSalidaExperiencia_'.$count],
-        			'dependenciaEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaDependencia_'.$count],
-        			'cargoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCargo_'.$count],
-        			'horasTrabajo' => $_REQUEST['funcionarioExperienciaEmpresaHoras_'.$count],
-        			'soporteExperiencia' => $_REQUEST['funcionarioSoporteExperiencia_'.$count]
-        	);
-        	$cadenaSql = $this->miSql->getCadenaSql("insertarExperienciaLaboral",$datosExperiencia);
-        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	
+        	if(isset($_REQUEST['funcionarioExperienciaNuevo_'.$count])){
+        		 
+        		$datosUbicacionExperiencia = array(
+        				'paisExperiencia' => $_REQUEST ['funcionarioExperienciaPais_'.$count],
+        				'departamentoExperiencia' => $_REQUEST ['funcionarioExperienciaDepartamento_'.$count],
+        				'ciudadExperiencia' => $_REQUEST ['funcionarioExperienciaCiudad_'.$count]
+        		);
+        		
+        		$cadenaSql = $this->miSql->getCadenaSql("insertarUbicacionExperiencia",$datosUbicacionExperiencia);
+        		$id_ubicacion_experiencia = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionExperiencia, "insertarUbicacionExperiencia");
+        		
+        		 
+        		$datosExperiencia = array(
+        				'fk_funcionario' => $matrizFuncionario[0][0],
+        				'nombreEmpresa' => $_REQUEST['funcionarioExperienciaEmpresa_'.$count],
+        				'nitEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaNIT_'.$count],
+        				'tipoEntidad' => $_REQUEST ['funcionarioExperienciaTipo_'.$count],
+        				'fk_ubicacion' => $id_ubicacion_experiencia[0][0],
+        				'emailEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCorreo_'.$count],
+        				'telefonoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaTelefono_'.$count],
+        				'fechaIngreso' => $_REQUEST['funcionarioFechaEntradaExperiencia_'.$count],
+        				'fechaRetiro' => $_REQUEST['funcionarioFechaSalidaExperiencia_'.$count],
+        				'dependenciaEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaDependencia_'.$count],
+        				'cargoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCargo_'.$count],
+        				'horasTrabajo' => $_REQUEST['funcionarioExperienciaEmpresaHoras_'.$count],
+        				'soporteExperiencia' => $_REQUEST['funcionarioSoporteExperiencia_'.$count]
+        		);
+        		$cadenaSql = $this->miSql->getCadenaSql("insertarExperienciaLaboral",$datosExperiencia);
+        		$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        		
+        		
+        		//Agregar
+        	}else{
+        		if(isset($_REQUEST['funcionarioExperienciaEliminar_'.$count]) && isset($matrizCantExperiencia[$count][0])){
+        			 
+        			$datosExperiencia = array(
+        					'id_experiencia' => $matrizCantExperiencia[$count][0]
+        			);
+        			 
+        			$cadenaSql = $this->miSql->getCadenaSql("eliminarExperienciaLaboral",$datosExperiencia);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
+        			//Eliminar --
+        		}else{
+        			 
+        			$datosUbicacionExperiencia = array(
+        					'paisExperiencia' => $_REQUEST ['funcionarioExperienciaPais_'.$count],
+        					'departamentoExperiencia' => $_REQUEST ['funcionarioExperienciaDepartamento_'.$count],
+        					'ciudadExperiencia' => $_REQUEST ['funcionarioExperienciaCiudad_'.$count],
+        					'id_ubicacion_experiencia' => $matrizExperiencia[$count][4]
+        			);
+        			
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarUbicacionExperiencia",$datosUbicacionExperiencia);
+        			$id_ubicacion_experiencia = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosUbicacionExperiencia, "insertarUbicacionExperiencia");
+        			
+        			
+        			$datosExperiencia = array(
+        					'nombreEmpresa' => $_REQUEST['funcionarioExperienciaEmpresa_'.$count],
+        					'nitEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaNIT_'.$count],
+        					'tipoEntidad' => $_REQUEST ['funcionarioExperienciaTipo_'.$count],
+        					'emailEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCorreo_'.$count],
+        					'telefonoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaTelefono_'.$count],
+        					'fechaIngreso' => $_REQUEST['funcionarioFechaEntradaExperiencia_'.$count],
+        					'fechaRetiro' => $_REQUEST['funcionarioFechaSalidaExperiencia_'.$count],
+        					'dependenciaEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaDependencia_'.$count],
+        					'cargoEmpresa' => $_REQUEST['funcionarioExperienciaEmpresaCargo_'.$count],
+        					'horasTrabajo' => $_REQUEST['funcionarioExperienciaEmpresaHoras_'.$count],
+        					'soporteExperiencia' => $_REQUEST['funcionarioSoporteExperiencia_'.$count],
+        					'id_experiencia' => $matrizCantExperiencia[$count][0]
+        			);
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarExperienciaLaboral",$datosExperiencia);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
+        			//Modificar
+        		}
+        	}
         	
         	$count++;
         }
@@ -784,18 +1006,52 @@ class FormProcessor {
         		}
         	}
         	
-        	$datosReferencias = array(
-        			'fk_funcionario' => $id_funcionario[0][0],
-        			'nombresReferencia' => $_REQUEST['funcionarioReferenciaNombres_'.$count],
-        			'tipoReferencia' => $_REQUEST ['funcionarioReferenciaTipo_'.$count],
-        			'apellidosReferencia' => $_REQUEST['funcionarioReferenciaApellidos_'.$count],
-        			'telefonoReferencia' => $_REQUEST['funcionarioReferenciaTelefono_'.$count],
-        			'relacionReferencia' => $_REQUEST['funcionarioReferenciaRelacion_'.$count],
-        			'soporteReferencia' => $_REQUEST['funcionarioSoporteReferencia_'.$count]
-        	);
         	
-        	$cadenaSql = $this->miSql->getCadenaSql("insertarReferenciasPersonales",$datosReferencias);
-        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	if(isset($_REQUEST['funcionarioReferenciasNuevo_'.$count])){
+        		 
+        		$datosReferencias = array(
+        				'fk_funcionario' => $matrizFuncionario[0][0],
+        				'nombresReferencia' => $_REQUEST['funcionarioReferenciaNombres_'.$count],
+        				'tipoReferencia' => $_REQUEST ['funcionarioReferenciaTipo_'.$count],
+        				'apellidosReferencia' => $_REQUEST['funcionarioReferenciaApellidos_'.$count],
+        				'telefonoReferencia' => $_REQUEST['funcionarioReferenciaTelefono_'.$count],
+        				'relacionReferencia' => $_REQUEST['funcionarioReferenciaRelacion_'.$count],
+        				'soporteReferencia' => $_REQUEST['funcionarioSoporteReferencia_'.$count]
+        		);
+        		 
+        		$cadenaSql = $this->miSql->getCadenaSql("insertarReferenciasPersonales",$datosReferencias);
+        		$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        		
+        		//Agregar
+        	}else{
+        		if(isset($_REQUEST['funcionarioReferenciasEliminar_'.$count]) && isset($matrizCantReferencia[$count][0])){
+        			
+        			$datosReferencias = array(
+        					'id_referencia' => $matrizCantReferencia[$count][0]
+        			);
+        			
+        			$cadenaSql = $this->miSql->getCadenaSql("eliminarReferenciasPersonales",$datosReferencias);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
+        			//Eliminar --
+        		}else{
+        			
+        			$datosReferencias = array(
+        					'nombresReferencia' => $_REQUEST['funcionarioReferenciaNombres_'.$count],
+        					'tipoReferencia' => $_REQUEST ['funcionarioReferenciaTipo_'.$count],
+        					'apellidosReferencia' => $_REQUEST['funcionarioReferenciaApellidos_'.$count],
+        					'telefonoReferencia' => $_REQUEST['funcionarioReferenciaTelefono_'.$count],
+        					'relacionReferencia' => $_REQUEST['funcionarioReferenciaRelacion_'.$count],
+        					'soporteReferencia' => $_REQUEST['funcionarioSoporteReferencia_'.$count],
+        					'id_referencia' => $matrizCantReferencia[$count][0]
+        			);
+        			 
+        			$cadenaSql = $this->miSql->getCadenaSql("modificarReferenciasPersonales",$datosReferencias);
+        			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        			
+        			//Modificar
+        		}
+        	}
         	
         	$count++;
         	 
@@ -804,6 +1060,52 @@ class FormProcessor {
         
 //*****************************************************************************************************************
 
+        
+
+
+
+
+
+
+        //var_dump($cadenaSql);
+        
+        
+        
+        /*if (isset($matrizInfoExpe[0][0])) {
+         //var_dump("ENTRO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('inserto', $datosPersonaNatural);
+         exit();
+         } else {
+         //var_dump("ENTRO NO INSERTAR");exit;
+         $this->miConfigurador->setVariableConfiguracion("cache", true);
+         Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
+         exit();
+         }*/
+        /*
+        var_dump("
+        		Modificar - Datos de Identificación 	<Completo>
+        		Modificar - Datos Personales Basicos	<Completo>
+        		Modificar - Datos Residencia		<Completo>
+        		Modificar - Datos Formacion Basica	<Completo>
+        		Modificar - Datos Formacion Media	<Completo>
+        		Modificar - Datos Investigaciones	<Completo>
+        		Modificar - n Formacion Superior	<Completo>
+        		Modificar - n Formacion Informal	<Completo>
+        		Modificar - n Formacion Idioma	<Completo>
+        		Modificar - n Experiencia Laboral	<Completo>
+        		Modificar - n Referencia Laboral	<Completo>
+        
+        		Desarrollando...
+				");
+        
+        var_dump($_REQUEST);
+        
+        exit; //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        
+        */
+        
+        
         /*var_dump($cadenaSql);
         //var_dump("El ID es..... ".$id_salida[0][0]);
         //exit;
@@ -855,7 +1157,7 @@ class FormProcessor {
         	//var_dump("NO INSERTO");exit;
         }*/
         
-        if (isset($id_funcionario[0][0]) && isset($id_datos_formacion_funcionario[0][0])) {
+        if (isset($matrizFuncionario[0][0]) && isset($matrizFuncionario[0][4])) {
         	//var_dump("ENTRO INSERTAR");exit;
         	$this->miConfigurador->setVariableConfiguracion("cache", true);
         	Redireccionador::redireccionar('inserto', $datosPersonaNatural);

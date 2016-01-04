@@ -307,15 +307,17 @@ $( "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>" ).datepicker
 
 $(document).ready(function(){
 
+	$("#bloqueFuncionario").validationEngine();
+
 	$("#bloqueFuncionario").validationEngine({
-		promptPosition : "centerRight",
-		scroll: false,
-		autoHidePrompt: true,
-		autoHideDelay: 2000,
 		validateNonVisibleFields: true,
 	    updatePromptsPosition:true
 	});
 
+	$("#novedadesDatosCantidadEduacionSuperior"+"1").hide("fast");
+	$("#novedadesDatosCantidadEduacionSuperior"+"2").hide("fast");
+	$("#novedadesDatosCantidadEduacionSuperior"+"3").hide("fast");
+	
 	$("#novedadesDatosPersonales").hide("fast");
 	$("#novedadesDatosCiudadania").hide("fast");
 	$("#novedadesDatosFormacionAcademica").hide("fast");
@@ -324,7 +326,6 @@ $(document).ready(function(){
 	$("#ocultarb1").click(function(){
 		$("#novedadesIdentificacion").hide("fast");
 		$("#novedadesDatosPersonales").show("fast");
-		
 	});
 
 	$("#mostrarb2").click(function(){
