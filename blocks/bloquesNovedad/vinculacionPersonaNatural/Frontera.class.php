@@ -1,6 +1,6 @@
 <?
 
- namespace bloquesParametro\parametroArl;
+ namespace bloquesParametro\vinculacionPersonaNatural;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("../index.php");
@@ -43,22 +43,21 @@ class Frontera {
 		
 		
         $this->ruta=$this->miConfigurador->getVariableConfiguracion("rutaBloque");
+    
        
-
-		
         if(isset($_REQUEST['opcion'])){
                           
                            switch ($_REQUEST ['opcion']) {
 				
 				case "registrar" :
                                     
-					include_once ($this->ruta . "/formulario/registrar.php");
+					include_once ($this->ruta . "/formulario/form2.php");
 					break;
 				case "mensaje" :
-                                    echo "mensaje";
+                               
 					include_once ($this->ruta . "/formulario/mensaje.php");
 					break;
-				case "modificar":
+				case "fmodificar":
 					include_once($this->ruta."/formulario/modificar.php");
 					break;	
                                
@@ -66,7 +65,10 @@ class Frontera {
                                    
 					include_once ($this->ruta . "/formulario/form.php");
 					break;
-                                 
+                                 case "form2":
+                                   
+					include_once ($this->ruta . "/formulario/form2.php");
+					break;
                                  case "inactivar":
 					include_once ($this->ruta . "/formulario/inactivar.php");
 					break;	 
@@ -74,9 +76,16 @@ class Frontera {
 					include_once ($this->ruta . "/formulario/detalle.php");
 					break;	
                                     
-                                     case "verdetalle":
+                                case "verdetalle":
                                         include_once ($this->ruta . "/formulario/verdetalle.php");
 					break;
+                                    
+                                    
+                                      case "vincular":
+                                                                              
+                                        include_once ($this->ruta . "/formulario/registrar.php");
+					break;
+                                
         		}
 		}else{
                     

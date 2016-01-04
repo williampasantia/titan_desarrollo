@@ -41,10 +41,18 @@ class FormProcessor {
 			   break;
                     }
                 }
-                
-                
-        
-        $datos = array(
+                if (isset($_REQUEST ['naturaleza']))
+                {
+                    if($_REQUEST ['naturaleza']==1){
+                        $_REQUEST ['naturaleza']='Temporal';
+                        
+                    }else{
+                        
+                         $_REQUEST ['naturaleza']='Indefinido';
+                    }
+                   
+                   
+                    $datos = array(
             'id' => $_REQUEST ['id'],
             'nombre' => $_REQUEST ['nombre'],
             'descripcion' => $_REQUEST ['descripcion'],
@@ -53,18 +61,44 @@ class FormProcessor {
            
             
         );
+                    
+                }else
+                {
+                      $datos = array(
+            'id' => $_REQUEST ['id'],
+            'nombre' => $_REQUEST ['nombre'],
+            'descripcion' => $_REQUEST ['descripcion'],
+            
+            'reglamentacion' => $_REQUEST ['reglamentacion'],
+           
+            
+        );
+                    
+                }
+             
+               
+        
+        
 //       
         
-                
+             
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
+             
         
-       
         
-        
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+     $resultado =   $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
+    
        
-        Redireccionador::redireccionar('form');
+        if (!empty($resultado)) {
+            
+            Redireccionador::redireccionar('modifico');
+            exit();
+        } else {
+          
+           Redireccionador::redireccionar('nomodifico');
+            exit();
+        }
     	        
     }
     

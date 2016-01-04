@@ -1,5 +1,5 @@
 <?php
-namespace bloquesParametro\parametroArl\funcion;
+namespace bloquesParametro\vinculacionPersonaNatural\funcion;
 
 include_once('Redireccionador.php');
 class FormProcessor {
@@ -25,21 +25,27 @@ class FormProcessor {
         
         //Al final se ejecuta la redirección la cual pasará el control a otra página
         
-        
          $i=0;
             while($i<$_REQUEST['tamaño']){
-                if($_REQUEST['botonModificar'.$i] == 'true'){
-                 Redireccionador::redireccionar('modificar',$i); 
+                if(isset($_REQUEST['botonVincular'.$i])&& $_REQUEST['botonVincular'.$i] == 'true'){
+                 
+                 Redireccionador::redireccionar('vincular',$i); 
+                // var_dump($_REQUEST['botonModificar'.$i]);
                   break; 
+                   
                 }
+               
                 if($_REQUEST['botonVerDetalle'.$i] == 'true'){
-                  Redireccionador::redireccionar('verdetalle',$i);
-                  break;
+                 Redireccionador::redireccionar('verdetalle',$i); 
+                // var_dump($_REQUEST['botonModificar'.$i]);
+                  break; 
+                   
                 }
-                if($_REQUEST['botonInactivar'.$i] == 'true'){
-                    
-                  Redireccionador::redireccionar('inactivar',$i);
-                  break;
+                  if($_REQUEST['botonModificar'.$i] == 'true'){
+                 Redireccionador::redireccionar('modificar',$i); 
+                // var_dump($_REQUEST['botonModificar'.$i]);
+                  break; 
+                   
                 }
                 
                 $i+=1;

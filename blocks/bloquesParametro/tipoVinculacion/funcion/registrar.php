@@ -40,12 +40,12 @@ class FormProcessor {
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB ($conexion );
         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarTipoVinculacion");
-       
+
    
     $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
  
-   if ($resultado) {
+   if (!empty($resultado)) {
             Redireccionador::redireccionar('inserto');
             exit();
         } else {

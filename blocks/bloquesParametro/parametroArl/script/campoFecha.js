@@ -9,6 +9,7 @@ $( document ).ready(function() {
 	campoFecha[indiceA++] = "#<?php echo $this->campoSeguro('fechaRegistroConsulta')?>";
 	campoFechaInput[indiceB++] = "input#<?php echo $this->campoSeguro('fechaRegistroConsulta')?>";
 	
+       
 	//campoFecha[indiceA++] = "#<?php echo $this->campoSeguro('fechaActa')?>";
 	//campoFechaInput[indiceB++] = "input#<?php echo $this->campoSeguro('fechaActa')?>";
 	

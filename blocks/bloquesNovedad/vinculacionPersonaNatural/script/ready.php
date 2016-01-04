@@ -1,6 +1,6 @@
 
 
-$("#parametroArl").validationEngine({
+$("#vinculacionPersonaNatural").validationEngine({
 	promptPosition : "centerRight",
 	scroll: false,
 	autoHidePrompt: true,

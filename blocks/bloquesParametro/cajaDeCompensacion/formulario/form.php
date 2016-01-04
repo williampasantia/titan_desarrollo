@@ -144,16 +144,9 @@ class Formulario {
         $i=0;
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DIRECCION".'</th> <th>'."TELEFONO".'</th> <th>'."EXTENCION_TELEFONO".'</th><th>'."ESTADO".'</th><th>'."OPCIONES POR REGISTRO".'</th></tr></thead>
+                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DIRECCION".'</th> <th>'."TELEFONO".'</th> <th>'."EXTENCION_TELEFONO".'</th><th>'."ESTADO".'</th><th>'."ver detalle".'</th><th>'."modificar".'</th><th>'."inactivar".'</th></tr></thead>
                        <tfoot  style="display: table-header-group">
-            <tr>
-                <th>NIT</th>
-                <th>NOMBRE</th>
-                <th>DIRECCION</th>
-                <th>TELEFONO</th>
-                <th>EXTENCION_TELEFONO</th>
-                <th>ESTADO</th>
-            </tr>
+            
         </tfoot>  
                     <tbody>'; 
         
@@ -166,7 +159,7 @@ class Formulario {
                     echo "<td>".$matrizItems[$i][4]."</td>";
                     echo "<td>".$matrizItems[$i][5]."</td>";
                    
-                    $esteCampo = 'botonVerDetalle'.$i;
+ $esteCampo = 'botonVerDetalle'.$i;
                         $baseCampo = 'botonVerDetalle';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
@@ -186,7 +179,7 @@ class Formulario {
                        
                                
                         
-                     echo "<td>".$this->miFormulario->campoBoton ( $atributos );
+                     echo "<td>".$this->miFormulario->campoBoton ( $atributos )."</td>";
                        
                         $esteCampo = 'botonModificar'.$i;
                         $baseCampo = 'botonModificar';
@@ -205,7 +198,7 @@ class Formulario {
                         $tab ++;
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales );
-                     echo $this->miFormulario->campoBoton ( $atributos );
+                     echo "<td>".$this->miFormulario->campoBoton ( $atributos )."</td>";
                      
                         $esteCampo = 'botonInactivar'.$i;
                         if($matrizItems[$i][5]=='Activo'){
@@ -230,12 +223,10 @@ class Formulario {
                         $tab ++;
                         // Aplica atributos globales al control
                         $atributos = array_merge ( $atributos, $atributosGlobales ); 
-                       echo $this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
+                       echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
                      
                      
-                        
-                            
-                    
+                                         
                      $i+=1;
         }  
            echo '</tbody></table>';

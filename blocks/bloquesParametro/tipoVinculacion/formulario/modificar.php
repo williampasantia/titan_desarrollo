@@ -212,10 +212,14 @@ class Formulario {
     array(2,'Indefinido'), 
    
 ); 
+                if( $_REQUEST [$esteCampo]=='Temporal')
+                { $n=1;}
+                else
+                {$n=2;}
         $atributos['matrizItems'] =  $naturaleza;
         
         if (isset ( $_REQUEST [$esteCampo] )) {
-        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+        	$atributos ['seleccion'] = $n;
         } else {
         	$atributos ['valor'] = '';
         }
@@ -307,6 +311,7 @@ class Formulario {
         $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
         $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
+        $valorCodificado .= "&numero=" . $n;
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&opcion=modificar";
         /**

@@ -106,7 +106,7 @@ class Formulario {
                         echo $this->miFormulario->division ( "inicio", $atributos );
 
                         // -----------------CONTROL: Botón ----------------------------------------------------------------
-                        $esteCampo = 'botonRegistrarCargo';
+                        $esteCampo = 'botonRegistrar';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -145,16 +145,9 @@ class Formulario {
         $i=0;
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DESCRIPCION".'</th> <th>'."NATURALEZA".'</th> <th>'."REGLAENTACION".'</th><th>'."ESTADO".'</th><th>'."OPCIONES POR REGISTRO".'</th></tr></thead>
+                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DESCRIPCION".'</th> <th>'."NATURALEZA".'</th> <th>'."REGLAMENTACION".'</th><th>'."ESTADO".'</th><th>'."OPCIONES POR REGISTRO".'</th></tr></thead>
                        <tfoot  style="display: table-header-group">
-            <tr>
-                <th>NIT</th>
-                <th>NOMBRE</th>
-                <th>DESCRIPCION</th>
-                <th>NATURALEZA</th>
-                <th>REGLAMENTACION</th>
-                <th>ESTADO</th>
-            </tr>
+          
         </tfoot>  
                     <tbody>'; 
         

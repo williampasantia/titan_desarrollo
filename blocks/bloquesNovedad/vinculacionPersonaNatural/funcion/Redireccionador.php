@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl\funcion;
+namespace bloquesParametro\vinculacionPersonaNatural\funcion;
                         
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("index.php");
@@ -45,7 +45,7 @@ class Redireccionador {
                             
                             case "modificar" :
 				$variable = 'pagina='.$miPaginaActual;                                
-				$variable .= "&opcion=modificar";
+				$variable .= "&opcion=fmodificar";
                                 $variable .= '&variable=' . $valor;
                                 break;	
 			case "form" :
@@ -59,6 +59,14 @@ class Redireccionador {
 				$variable .= "&opcion=inactivar";
                                 $variable .= '&variable=' . $valor;
                             break;    
+                        
+                         case "vincular" :
+                                
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=vincular";
+                                $variable .= '&variable=' . $valor;
+                               
+                            break; 
 			
 		}
 		foreach ( $_REQUEST as $clave => $valor ) {
