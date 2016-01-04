@@ -280,7 +280,31 @@ class Formulario {
         while($i<$longitud){
             //          ---------------- CONTROL: Select --------------------------------------------------------
 //          
-        echo'<input type="checkbox" id="ldn'.$i.'" name="ldn'.$i.'" value="Si"/> '.$matrizLeyes[$i][0].' ,'.$matrizLeyes[$i][1]. ' <br/>';
+//          
+                                                                        $esteCampo = 'item' . $i;
+									$atributos ['id'] = $esteCampo;
+									$atributos ['nombre'] = $esteCampo;
+									$atributos ['marco'] = true;
+									$atributos ['estiloMarco'] = true;
+									$atributos ["etiquetaObligatorio"] = true;
+									$atributos ['columnas'] = 1;
+									$atributos ['dobleLinea'] = 1;
+									$atributos ['tabIndex'] = $tab;
+									$atributos ['etiqueta'] = '';
+									if (isset ( $_REQUEST [$esteCampo] )) {
+										$atributos ['valor'] = $_REQUEST [$esteCampo];
+									} else {
+										$atributos ['valor'] = 'defecto';
+									}
+									
+									$atributos ['deshabilitado'] = false;
+									$tab ++;
+									
+									// Aplica atributos globales al control
+									$atributos = array_merge ( $atributos, $atributosGlobales );
+                                                                        echo $this->miFormulario->campoCuadroSeleccion ( $atributos ) . $matrizLeyes[$i][0].' ,'.$matrizLeyes[$i][1]  ;
+            
+//        echo'<input type="checkbox" id="ldn'.$i.'" name="ldn'.$i.'" value="Si"/> '.$matrizLeyes[$i][0].' ,'.$matrizLeyes[$i][1]. ' <br/>';
          
         // --------------- FIN CONTROL : Select --------------------------------------------------
         

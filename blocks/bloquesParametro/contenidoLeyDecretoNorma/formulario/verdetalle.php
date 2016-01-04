@@ -156,7 +156,7 @@ class Formulario {
         unset($atributos);
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         
-        $esteCampo = 'fechaExp';
+        $esteCampo = 'fechaExpedicion';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -180,7 +180,7 @@ class Formulario {
         unset($atributos);
         
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-        $esteCampo = 'fechaVen';
+        $esteCampo = 'fechaVencimiento';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';

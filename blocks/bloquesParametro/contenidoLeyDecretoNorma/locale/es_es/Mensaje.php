@@ -29,6 +29,10 @@ $this->idioma["fechaExp"]="Fecha Exp:";
 $this->idioma["fechaExpTitulo"]="Fecha Expedicion";
 $this->idioma["fechaVen"]="Fecha Ven:";
 $this->idioma["fechaVenTitulo"]="fechaVencimiento";
+$this->idioma["fechaExpedicion"]="Fecha Exp:";
+$this->idioma["fechaExpedicionTitulo"]="Fecha Expedicion";
+$this->idioma["fechaVencimiento"]="Fecha Ven:";
+$this->idioma["fechaVencimientoTitulo"]="fechaVencimiento";
 
 $this->idioma["mensajeRegistro"]="Mensaje";
 $this->idioma["nombreRegistro"]="Nombre :";

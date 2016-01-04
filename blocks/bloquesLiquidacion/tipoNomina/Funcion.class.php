@@ -58,13 +58,14 @@ class Funcion {
         } else{
             
            
-
+         
             
             
         	
         	switch ($_REQUEST['opcion']){
         		case "mostrar":
-                           
+                            var_dump($_REQUEST);
+                            exit;
                             include_once ($this->ruta."funcion/registrar.php");
         		 break;
                          case "opcion":
@@ -78,6 +79,7 @@ class Funcion {
         	         break; 
                          case "form":
                          include_once ($this->ruta."funcion/opciones.php");
+                             
         	         break;     
 
                      }
