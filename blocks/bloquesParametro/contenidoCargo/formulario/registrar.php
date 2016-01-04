@@ -100,6 +100,8 @@ class Formulario {
 	$atributos ["leyenda"] = "Registro Cargo";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
+         
+                                                                                
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         $esteCampo = 'nivelRegistro';
         $atributos ['id'] = $esteCampo;

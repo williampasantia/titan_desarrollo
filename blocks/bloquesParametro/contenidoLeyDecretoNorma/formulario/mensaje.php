@@ -113,7 +113,7 @@ class registrarForm {
 					$mensaje = "Registro Ley Decreto o Norma Satisfactorio <br> Entidad: <h4>" . $_REQUEST ['entidad'] . "</h4>".
 					"<br>Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Nueva Ley, Decreto o norma insertado!";
+					$mensaje .= "<br> Nueva Ley, Decreto o Norma Registrado!";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;

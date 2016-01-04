@@ -23,6 +23,9 @@ $this->idioma["modificarRegistro"]="Guardar Cambios";
 $this->idioma["verdetalleRegistro"]="Aceptar";
 
 //REGISTRO
+
+$this->idioma["item"]="Item  :";
+$this->idioma["itemTitulo"]="Item";
 $this->idioma["codigoRegistro"]="Codigo  :";
 $this->idioma["codigoRegistroTitulo"]="Código";
 $this->idioma["nivelRegistro"]="Nivel  :";

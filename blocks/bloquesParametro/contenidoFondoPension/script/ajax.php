@@ -24,6 +24,7 @@ $urlFinal17 = $url . $cadena17;
 $("#<?php echo $this->campoSeguro('fdpDepartamento')?>").select2();
 $('#<?php echo $this->campoSeguro('fdpCiudad')?>').width(250);
 $("#<?php echo $this->campoSeguro('fdpCiudad')?>").select2();
+
     function consultarCiudad(elem, request, response){
 		  $.ajax({
 		    url: "<?php echo $urlFinal17?>",

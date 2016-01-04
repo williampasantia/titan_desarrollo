@@ -113,7 +113,7 @@ class registrarForm {
 					$mensaje = "Registro Actividad Económica Satisfactorio <br> Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
 					"<br>Estado: <h4>" . $_REQUEST ['estadoRegistro'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Nueva Actividad Económica insertada!";
+					$mensaje .= "<br> Nueva Actividad Económica Registrada!";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
