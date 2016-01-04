@@ -126,6 +126,7 @@ class Formulario {
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         
@@ -224,7 +225,7 @@ class Formulario {
         echo $this->miFormulario->campoCuadroTexto ( $atributos );
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-        $esteCampo = 'extencionTelefono';
+        $esteCampo = 'extensionTelefono';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';

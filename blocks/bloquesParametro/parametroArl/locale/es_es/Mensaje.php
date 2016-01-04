@@ -24,12 +24,12 @@ $this->idioma["direccion"]="Dirección: ";
 $this->idioma["direccionTitulo"]="";
 $this->idioma["telefono"]="Telefono: ";
 $this->idioma["telefonoTitulo"]="";
-$this->idioma["extencionTelefono"]="Extención tel:";
+$this->idioma["extencionTelefono"]="Extensión tel:";
 $this->idioma["extencionTelefonoTitulo"]="";
 $this->idioma["fax"]="Fax: ";
 $this->idioma["lugar"]="Ubicación: ";
 $this->idioma["faxTitulo"]="";
-$this->idioma["extencionFax"]="Extención fax:";
+$this->idioma["extencionFax"]="Extensión fax:";
 $this->idioma["extencionFaxTitulo"]="";
 $this->idioma["nombreRegistro"]="Nombre cargo :";
 
