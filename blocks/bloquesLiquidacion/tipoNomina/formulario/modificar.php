@@ -420,7 +420,7 @@ class Formulario {
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&variable=" .$_REQUEST['variable'];
         $valorCodificado .= "&vinculacion=" . $_REQUEST ['vinculacion'];
-        $valorCodificado .= "&per=" . $matrizItems[$_REQUEST['variablei']][4];
+        $valorCodificado .= "&per=" . $matrizItems[$_REQUEST['variablei']][3];
         $valorCodificado .= "&opcion=modificarRegistro";
         /**
          * SARA permite que los nombres de los campos sean dinámicos.

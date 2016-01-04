@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesLiquidacion\tipoNomina\formulario;
+namespace bloquesParametro\contenidoCargo\formulario;
 
 
 
@@ -54,7 +54,7 @@ class Formulario {
         $tiempo=$_REQUEST['tiempo'];
         
         $conexion = 'estructura';
-        $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
+        $primerRecurso = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
         
         //var_dump($primerRecursoDB);
         //exit;
@@ -270,7 +270,9 @@ class Formulario {
         echo $this->miFormulario->division ( "inicio", $atributos );
         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxLEY");
-        $matrizLeyes=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+        
+        $matrizLeyes=$primerRecurso->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+        
         $longitud = count($matrizLeyes);
         $i=0;
         
@@ -278,7 +280,7 @@ class Formulario {
         while($i<$longitud){
             //          ---------------- CONTROL: Select --------------------------------------------------------
 //          
-        echo'<input type="checkbox" name="ldn'.$i.'" value="ldn'.$i.'"/> '.$matrizLeyes[0][0].'<br/>';
+        echo'<input type="checkbox" id="ldn'.$i.'" name="ldn'.$i.'" value="Si"/> '.$matrizLeyes[$i][0].' ,'.$matrizLeyes[$i][1]. ' <br/>';
          
         // --------------- FIN CONTROL : Select --------------------------------------------------
         

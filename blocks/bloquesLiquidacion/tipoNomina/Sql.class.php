@@ -141,7 +141,7 @@ class Sql extends \Sql {
                 
                 	$cadenaSql = 'SELECT ';
                         $cadenaSql .= 'id_ldn as ID_LDN, ';
-                        $cadenaSql .= 'nombre as NOMBRE, ';
+                        $cadenaSql .= 'nombre as NOMBRE ';
                         $cadenaSql .= 'FROM ';
                         $cadenaSql .= 'parametro.ley_decreto_norma ';
 //                        $cadenaSql .= 'WHERE ';
