@@ -53,12 +53,4 @@ $( document ).ready(function() {
 	$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad')?>").select2();
 
 
-
-	$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_0')?>").width(250); 
-	$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_0')?>").select2();
-	$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").width(250); 
-	$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").select2();
-	$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").width(250); 
-	$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").select2();
-
 });

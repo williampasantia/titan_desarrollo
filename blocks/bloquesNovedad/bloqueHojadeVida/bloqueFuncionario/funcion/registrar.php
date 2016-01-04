@@ -28,6 +28,8 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
+        //var_dump($_REQUEST);exit;
+        
         /*Datos de PERSONA NATURAL ------------------------------------------------------------------------*/
         /*
         if(isset($_REQUEST['funcionarioIdentificacion'])){

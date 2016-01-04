@@ -307,11 +307,9 @@ $( "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>" ).datepicker
 
 $(document).ready(function(){
 
+	$("#bloqueFuncionario").validationEngine();
+
 	$("#bloqueFuncionario").validationEngine({
-		promptPosition : "centerRight",
-		scroll: false,
-		autoHidePrompt: true,
-		autoHideDelay: 2000,
 		validateNonVisibleFields: true,
 	    updatePromptsPosition:true
 	});
@@ -328,7 +326,6 @@ $(document).ready(function(){
 	$("#ocultarb1").click(function(){
 		$("#novedadesIdentificacion").hide("fast");
 		$("#novedadesDatosPersonales").show("fast");
-		
 	});
 
 	$("#mostrarb2").click(function(){

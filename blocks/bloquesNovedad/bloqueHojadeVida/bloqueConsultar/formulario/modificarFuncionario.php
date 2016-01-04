@@ -372,16 +372,17 @@ class Formulario {
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 					
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					unset($atributos);
 					$esteCampo = 'funcionarioSoporteIden';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['nombre'] = $esteCampo;
-					$atributos ['tipo'] = 'file';
+					$atributos ['tipo'] = 'hidden';
 					$atributos ['estilo'] = 'jqueryui';
 					$atributos ['marco'] = true;
 					$atributos ['columnas'] = 1;
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
-					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					 
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
@@ -1289,16 +1290,17 @@ class Formulario {
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 					 
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					unset($atributos);
 					$esteCampo = 'funcionarioSoporteLibreta';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['nombre'] = $esteCampo;
-					$atributos ['tipo'] = 'file';
+					$atributos ['tipo'] = 'hidden';
 					$atributos ['estilo'] = 'jqueryui';
 					$atributos ['marco'] = true;
 					$atributos ['columnas'] = 1;
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
-					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					 
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
@@ -1518,16 +1520,17 @@ class Formulario {
 					// --------------- FIN CONTROL : Select --------------------------------------------------
 					 
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					unset($atributos);
 					$esteCampo = 'funcionarioSoporteCaracterizacion';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['nombre'] = $esteCampo;
-					$atributos ['tipo'] = 'file';
+					$atributos ['tipo'] = 'hidden';
 					$atributos ['estilo'] = 'jqueryui';
 					$atributos ['marco'] = true;
 					$atributos ['columnas'] = 1;
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
-					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					 
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
@@ -1903,16 +1906,17 @@ class Formulario {
 					// --------------- FIN CONTROL : Select --------------------------------------------------
 					 
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					unset($atributos);
 					$esteCampo = 'funcionarioSoporteEstrato';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['nombre'] = $esteCampo;
-					$atributos ['tipo'] = 'file';
+					$atributos ['tipo'] = 'hidden';
 					$atributos ['estilo'] = 'jqueryui';
 					$atributos ['marco'] = true;
 					$atributos ['columnas'] = 1;
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
-					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					 
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
@@ -1935,16 +1939,17 @@ class Formulario {
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 					 
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					unset($atributos);
 					$esteCampo = 'funcionarioSoporteResidencia';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['nombre'] = $esteCampo;
-					$atributos ['tipo'] = 'file';
+					$atributos ['tipo'] = 'hidden';
 					$atributos ['estilo'] = 'jqueryui';
 					$atributos ['marco'] = true;
 					$atributos ['columnas'] = 1;
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
-					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					 
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
@@ -2498,16 +2503,17 @@ class Formulario {
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 					 
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					unset($atributos);
 					$esteCampo = 'funcionarioSoporteFormacionBasica';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['nombre'] = $esteCampo;
-					$atributos ['tipo'] = 'file';
+					$atributos ['tipo'] = 'hidden';
 					$atributos ['estilo'] = 'jqueryui';
 					$atributos ['marco'] = true;
 					$atributos ['columnas'] = 1;
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
-					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					 
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
@@ -2787,16 +2793,17 @@ class Formulario {
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 					 
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					unset($atributos);
 					$esteCampo = 'funcionarioSoporteFormacionMedia';
 					$atributos ['id'] = $esteCampo;
 					$atributos ['nombre'] = $esteCampo;
-					$atributos ['tipo'] = 'file';
+					$atributos ['tipo'] = 'hidden';
 					$atributos ['estilo'] = 'jqueryui';
 					$atributos ['marco'] = true;
 					$atributos ['columnas'] = 1;
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
-					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 					 
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
@@ -3382,17 +3389,18 @@ class Formulario {
 							// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 			
 							// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+							unset($atributos);
 							$esteCampo = 'funcionarioSoporteFormacionSuperior_'.$i;
 							$baseCampo = 'funcionarioSoporteFormacionSuperior';
 							$atributos ['id'] = $esteCampo;
 							$atributos ['nombre'] = $esteCampo;
-							$atributos ['tipo'] = 'file';
+							$atributos ['tipo'] = 'hidden';
 							$atributos ['estilo'] = 'jqueryui';
 							$atributos ['marco'] = true;
 							$atributos ['columnas'] = 1;
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
-							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 							 
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
@@ -3584,17 +3592,18 @@ class Formulario {
 							// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 							 
 							// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+							unset($atributos);
 							$esteCampo = 'funcionarioSoporteFormacionInformal_'.$i;
 							$baseCampo = 'funcionarioSoporteFormacionInformal';
 							$atributos ['id'] = $esteCampo;
 							$atributos ['nombre'] = $esteCampo;
-							$atributos ['tipo'] = 'file';
+							$atributos ['tipo'] = 'hidden';
 							$atributos ['estilo'] = 'jqueryui';
 							$atributos ['marco'] = true;
 							$atributos ['columnas'] = 1;
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
-							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							//s$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 			
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
@@ -4004,17 +4013,18 @@ class Formulario {
 							// --------------- FIN CONTROL : Select --------------------------------------------------
 			
 							// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+							unset($atributos);
 							$esteCampo = 'funcionarioSoporteIdioma_'.$i;
 							$baseCampo = 'funcionarioSoporteIdioma';
 							$atributos ['id'] = $esteCampo;
 							$atributos ['nombre'] = $esteCampo;
-							$atributos ['tipo'] = 'file';
+							$atributos ['tipo'] = 'hidden';
 							$atributos ['estilo'] = 'jqueryui';
 							$atributos ['marco'] = true;
 							$atributos ['columnas'] = 1;
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
-							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 			
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
@@ -4740,17 +4750,18 @@ class Formulario {
 							// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 			
 							// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+							unset($atributos);
 							$esteCampo = 'funcionarioSoporteExperiencia_'.$i;
 							$baseCampo = 'funcionarioSoporteExperiencia';
 							$atributos ['id'] = $esteCampo;
 							$atributos ['nombre'] = $esteCampo;
-							$atributos ['tipo'] = 'file';
+							$atributos ['tipo'] = 'hidden';
 							$atributos ['estilo'] = 'jqueryui';
 							$atributos ['marco'] = true;
 							$atributos ['columnas'] = 1;
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
-							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 			
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
@@ -4987,17 +4998,18 @@ class Formulario {
 							// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 			
 							// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+							unset($atributos);
 							$esteCampo = 'funcionarioSoporteReferencia_'.$i;
 							$baseCampo = 'funcionarioSoporteReferencia';
 							$atributos ['id'] = $esteCampo;
 							$atributos ['nombre'] = $esteCampo;
-							$atributos ['tipo'] = 'file';
+							$atributos ['tipo'] = 'hidden';
 							$atributos ['estilo'] = 'jqueryui';
 							$atributos ['marco'] = true;
 							$atributos ['columnas'] = 1;
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
-							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							//$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 			
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
