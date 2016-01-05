@@ -303,6 +303,31 @@ class Formulario {
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
+        $esteCampo = 'personaNaturalRegimen';
+        $atributos ['id'] = $esteCampo;
+        $atributos ['nombre'] = $esteCampo;
+        $atributos ['tipo'] = 'text';
+        $atributos ['estilo'] = 'jqueryui';
+        $atributos ['columnas'] = 1;
+        $atributos ['dobleLinea'] = false;
+        $atributos ['tabIndex'] = $tab;
+        $atributos ['marco'] = true;
+        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][9];
+        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+        $atributos ['deshabilitado'] = true;
+        $atributos ['tamanno'] = 20;
+        $atributos ['maximoTamanno'] = '';
+        
+        $tab ++;
+        
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        unset($atributos);
+        // --------------- FIN CONTROL : Select --------------------------------------------------
+        
+        // ---------------- CONTROL: Select --------------------------------------------------------
         $esteCampo = 'personaNaturalEstado';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
@@ -313,7 +338,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][9];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][10];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
