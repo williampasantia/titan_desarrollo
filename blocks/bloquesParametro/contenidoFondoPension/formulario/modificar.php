@@ -96,7 +96,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Modificar Cargo";
+	$atributos ["leyenda"] = "Modificar Fondo de Pensión";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
        
@@ -118,6 +118,7 @@ class Formulario {
         $atributos ['columnas'] = 1;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][0];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
@@ -142,7 +143,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required, minSize[4], maxSize[25]';
@@ -152,10 +153,10 @@ class Formulario {
         } else {
         	$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][2];
         }
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         
@@ -176,11 +177,11 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required, minSize[6], maxSize[30]';
-        
+        $atributos ['anchoEtiqueta'] = 200;
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
@@ -208,7 +209,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required, minSize[7], maxSize[10],custom[onlyNumberSp]';
@@ -241,7 +242,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
         $atributos ['validar'] = 'minSize[1], maxSize[4],custom[onlyNumberSp]';
@@ -277,7 +278,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
         $atributos ['validar'] = 'minSize[5], maxSize[10],custom[onlyNumberSp]';
@@ -311,7 +312,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
         $atributos ['validar'] = 'minSize[1], maxSize[4],custom[onlyNumberSp]';
@@ -348,7 +349,7 @@ class Formulario {
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
-	        
+	        $atributos ['anchoEtiqueta'] = 200;
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
@@ -383,7 +384,7 @@ class Formulario {
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
-	        
+	        $atributos ['anchoEtiqueta'] = 200;
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
 	        $atributos ['validar'] = '';
@@ -417,7 +418,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required, minSize[5], maxSize[40]';
@@ -429,7 +430,7 @@ class Formulario {
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         
@@ -449,7 +450,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required, minSize[6],maxSize[30], custom[email]';
@@ -461,7 +462,7 @@ class Formulario {
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         

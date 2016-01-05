@@ -46,6 +46,9 @@ $(document).ready(function() {
  
     // DataTable
 //    var table = $('#tablaReporte').DataTable({
+
+
+
         $('#tablaReporte').DataTable({ 
     "language": {
         "sProcessing":     "Procesando...",

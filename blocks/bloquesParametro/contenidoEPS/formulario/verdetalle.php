@@ -96,7 +96,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Ver detalle";
+	$atributos ["leyenda"] = "Ver Detalle EPS";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
        
@@ -114,6 +114,7 @@ class Formulario {
         $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['columnas'] = 1;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['marco'] = true;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
@@ -140,11 +141,12 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][2];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         
         $tab ++;
@@ -164,6 +166,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][3];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
@@ -194,7 +197,7 @@ class Formulario {
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $tab ++;
         
         // Aplica atributos globales al control
@@ -213,6 +216,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         if($matrizItems[$_REQUEST['variable']][5]==0){
            $atributos ['valor'] = '';     
@@ -242,6 +246,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         if($matrizItems[$_REQUEST['variable']][6] == 0){
             $atributos ['valor'] = '';
@@ -272,6 +277,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         if($matrizItems[$_REQUEST['variable']][7] == 0){
            $atributos ['valor'] = ''; 
@@ -310,6 +316,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizCiudadUbicacion[0][1];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
@@ -335,6 +342,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizCiudadUbicacion[0][0];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
@@ -360,11 +368,12 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][8];   
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         
         $tab ++;
@@ -385,11 +394,12 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][9];   
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         
         $tab ++;
@@ -416,6 +426,8 @@ class Formulario {
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][10];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
+
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
         
@@ -443,6 +455,7 @@ class Formulario {
         $atributos ["estiloMarco"] = '';
         $atributos ["estiloBoton"] = 'jqueryui';
         // verificar: true para verificar el formulario antes de pasarlo al servidor.
+        
         $atributos ["verificar"] = true;
         $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
         $atributos ["valor"] = $this->lenguaje->getCadena ( $esteCampo );
