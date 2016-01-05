@@ -36,7 +36,7 @@ $(function() {
 
 $(document).ready(function() {
     // Setup - add a text input to each footer cell
-    
+    $('#tablaReporte').DataTable().fnDestroy();
  
     // DataTable
      $('#tablaReporte').DataTable({

@@ -126,7 +126,7 @@ class Formulario {
        
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
-        $atributos ['anchoEtiqueta'] = 200;
+        $atributos ['anchoEtiqueta']=200;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         
@@ -408,7 +408,6 @@ class Formulario {
        
         $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 20;
-        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         
