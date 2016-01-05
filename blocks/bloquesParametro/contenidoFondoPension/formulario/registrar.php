@@ -92,7 +92,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Registro Fondo de Pension";
+	$atributos ["leyenda"] = "Registro Fondo de Pensión";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
         
@@ -110,7 +110,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required, minSize[5], maxSize[15],custom[onlyNumberSp]';
@@ -154,7 +154,7 @@ class Formulario {
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         
@@ -419,7 +419,7 @@ class Formulario {
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         
@@ -451,7 +451,7 @@ class Formulario {
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         

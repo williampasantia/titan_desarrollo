@@ -44,6 +44,12 @@ $(document).ready(function() {
  
     // DataTable
 //    var table = 
+
+
+
+
+
+
         $('#tablaReporte').DataTable({
     
         

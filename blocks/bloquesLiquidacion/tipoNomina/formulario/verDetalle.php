@@ -82,7 +82,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Ver detalle tipo de vinculacion";
+	$atributos ["leyenda"] = "Ver Detalle Tipo de Vinculación";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
        
@@ -280,7 +280,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Nomina, Tipo Vinculacion ".$matrizItems[$_REQUEST['variable']][1];
+	$atributos ["leyenda"] = "Nomina, Tipo Vinculación ".$matrizItems[$_REQUEST['variable']][1];
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
          // ------------------Division para los botones-------------------------
