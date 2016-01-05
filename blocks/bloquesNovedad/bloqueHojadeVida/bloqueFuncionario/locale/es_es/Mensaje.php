@@ -111,7 +111,7 @@ $this->idioma["funcionarioSoporteLibretaTitulo"]="Adjunte Soporte de Libreta Mil
 
 $this->idioma["novedadesDatosCaracterizacion"]="Datos Caracterización Especial";
 $this->idioma["funcionarioGrupoEtnico"]="Grupo Étnico";
-$this->idioma["funcionarioGrupoLGBT"]="¿ Pertenece a la <br/> Comunidad LGBT ?";
+$this->idioma["funcionarioGrupoLGBT"]="¿ Pertenece a la Comunidad LGBT ?";
 $this->idioma["funcionarioCabezaFamilia"]="¿ Es Cabeza de Familia ?";
 $this->idioma["funcionarioPersonasCargo"]="¿ Tiene Personas a Cargo ?";
 $this->idioma["funcionarioSoporteCaracterizacion"]="Soporte Caracterización";
