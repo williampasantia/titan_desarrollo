@@ -227,6 +227,45 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable ['codigoRegistro']  . '\'';
                 break;
                 
+             case 'modificarRegistroBasico' :
+                	$cadenaSql = 'UPDATE ';
+                	$cadenaSql .= 'persona.persona_natural ';
+                	$cadenaSql .= 'SET ';
+//                 	$cadenaSql .= 'documento,';
+//                 	$cadenaSql .= 'tipo_documento,';
+//                 	$cadenaSql .= 'consecutivo,';
+                	$cadenaSql .= 'primer_nombre = ';
+                	$cadenaSql .= '\'' . $variable ['primerNombre']  . '\', ';
+                	$cadenaSql .= 'segundo_nombre = ';
+                	$cadenaSql .= '\'' . $variable ['segundoNombre']  . '\', ';
+                	$cadenaSql .= 'primer_apellido = ';
+                	$cadenaSql .= '\'' . $variable ['primerApellido']  . '\', ';
+                	$cadenaSql .= 'segundo_apellido = ';
+                	$cadenaSql .= '\'' . $variable ['segundoApellido']  . '\', ';
+                	$cadenaSql .= 'gran_contribuyente = ';
+                	$cadenaSql .= '\'' . $variable ['contribuyente']  . '\', ';
+                	$cadenaSql .= 'autorretenedor = ';
+                	$cadenaSql .= '\'' . $variable ['autorretenedor']  . '\', ';
+                	$cadenaSql .= 'regimen_tributario = ';
+                	$cadenaSql .= '\'' . $variable ['regimen']  . '\' ';
+                	$cadenaSql .= 'WHERE ';
+                	$cadenaSql .= 'documento = ';
+                	$cadenaSql .= '\'' . $variable ['numeroDocumento']  . '\'';                	
+                	break;
+                	
+              	case 'modificarRegistroComercial' :
+                		$cadenaSql = 'UPDATE ';
+                		$cadenaSql .= 'persona.persona_natural ';
+                		$cadenaSql .= 'SET ';
+                		$cadenaSql .= 'tipo_pago = ';
+                		$cadenaSql .= '\'' . $variable ['tipoPago']  . '\', ';
+                		$cadenaSql .= 'estado = ';
+                		$cadenaSql .= '\'' . $variable ['estado']  . '\' ';
+                		$cadenaSql .= 'WHERE ';
+                		$cadenaSql .= 'numero_cuenta = ';
+                		$cadenaSql .= '\'' . $variable ['numeroCuenta']  . '\'';
+                		break;
+                		
                 case 'buscarPais' :
                 
                 	$cadenaSql = 'SELECT ';

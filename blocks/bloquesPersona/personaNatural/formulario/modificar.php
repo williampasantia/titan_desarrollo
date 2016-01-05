@@ -752,7 +752,7 @@ class Formulario {
         	$atributos ['etiquetaObligatorio'] = true;
         	$atributos ['validar'] = 'required, minSize[1]';
         
-//         	$atributos ['valor'] = $matrizItems3[$_REQUEST['variable']][3];
+	    	$atributos ['valor'] = $matrizItems3[$_REQUEST['variable']][3];
         	$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         	$atributos ['deshabilitado'] = true;
         	$atributos ['tamanno'] = 30;
