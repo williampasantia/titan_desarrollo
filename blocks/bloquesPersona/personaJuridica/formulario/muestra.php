@@ -1,5 +1,5 @@
 <?php
-namespace bloquesModelo\bloqueContenido\formulario;
+namespace bloquesPersona\personaJuridica\formulario;
 
 if(!isset($GLOBALS["autorizado"])) {
 	include("../index.php");

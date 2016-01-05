@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido;
+namespace bloquesPersona\personaJuridica;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -42,7 +42,7 @@ class Sql extends \Sql {
                 $cadenaSql .= 'persona.persona_juridica ';
                 $cadenaSql .= '( ';
                 $cadenaSql .= 'documento,';                
-                $cadenaSql .= 'consecutivo,';
+//              $cadenaSql .= 'consecutivo,';
                 $cadenaSql .= 'tipodocumento,';
                 $cadenaSql .= 'razon_social,';
                 $cadenaSql .= 'compuesto,';
@@ -54,18 +54,16 @@ class Sql extends \Sql {
             	$cadenaSql .= ') ';
             	$cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-            	$cadenaSql .= $_REQUEST ['personaJuridicaDocumento']. ', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['consecutivo'].'\''. ', ';
-            	$cadenaSql .= $_REQUEST ['personaJuridicaIdentificacion'] . ', ';
-            	$cadenaSql .= '2' . ', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalPrimerNombre'] . '\''.', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalSegundoNombre'].'\''. ', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalPrimerApellido'] . '\''. ', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalSegundoApellido'] .'\''. ', ';
-            	$cadenaSql .= $_REQUEST ['personaNaturalContribuyente'] .  ', ';
-            	$cadenaSql .= $_REQUEST ['personaNaturalAutorretenedor'] . ', ';
-            	$cadenaSql .= '\'' .$_REQUEST ['personaNaturalRegimen'] .'\''. ', ';
-//             	$cadenaSql .= '\'' . $_REQUEST ['emailRegistro'] . '\''. ', ';
+            	$cadenaSql .= $variable ['numeroDocumento']. ', ';
+//             	$cadenaSql .= '\'' .$_REQUEST ['consecutivo'].'\''. ', ';
+            	$cadenaSql .= $variable ['tipoDocumento'] . ', ';
+//             	$cadenaSql .= '2' . ', ';
+            	$cadenaSql .= '\'' .$variable ['razonSocial'] . '\''.', ';
+            	$cadenaSql .= '\'' .$variable ['compuesto'].'\''. ', ';
+            	$cadenaSql .= '\'' .$variable ['contribuyente'] .'\''.  ', ';
+            	$cadenaSql .= '\'' .$variable ['autorretenedor'] .'\''. ', ';
+            	$cadenaSql .= '\'' .'Aún no funciona'.'\''. ', ';
+            	$cadenaSql .= '\'' .'Aún no funciona'.'\''. ', ';
             	$cadenaSql .= '\'' . 'Modificable' . '\' ';
             	$cadenaSql .= ') ';
                 break;
