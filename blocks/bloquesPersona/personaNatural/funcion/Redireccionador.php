@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesPersona\personaNatural\funcion;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("index.php");
@@ -26,18 +26,18 @@ class Redireccionador {
                         case "modificar" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=modificar";
-                                $variable .= '&variable=' . $valor;
-				break; 
+                $variable .= '&variable=' . $valor;
+                break; 
                         case "verdetalle" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=verdetalle";
-                                $variable .= '&variable=' . $valor;
+                $variable .= '&variable=' . $valor;
                                 break;
                        
                         case "inactivar" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=inactivar";
-                                $variable .= '&variable=' . $valor;
+                $variable .= '&variable=' . $valor;
                             break;    
 			default:
 			    $variable='';

@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido;
+namespace bloquesPersona\personaNatural;
 
 // Evitar un acceso directo a este archivo
 if (! isset ( $GLOBALS ["autorizado"] )) {

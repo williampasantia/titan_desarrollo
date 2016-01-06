@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesPersona\personaNatural\funcion;
 
 
 include_once('Redireccionador.php');
@@ -30,18 +30,10 @@ class FormProcessor {
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
         
-        if($_REQUEST['enviarInactivar'] =='true'){
-            if($_REQUEST ['estadoRegistro']=='Inactivo'){
-                      $opcion='Activo';
-        }
-        else{
-            $opcion='Inactivo';
-        }
-        
-            
+                    
             $datos = array(
             'codigoRegistro' => $_REQUEST ['codigoRegistro'],
-            'estadoRegistro' => $opcion       
+            'estadoRegistro' => $_REQUEST ['estadoRegistro']      
         );
 //       
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("inactivarRegistro",$datos);
@@ -51,13 +43,9 @@ class FormProcessor {
                   Redireccionador::redireccionar('form');      
 
         
-       }
+       
                 
-      if($_REQUEST['cancelarInactivar'] =='true'){
-                    
-                     Redireccionador::redireccionar('form'); 
-                }
-        
+         
        
         //Al final se ejecuta la redirección la cual pasará el control a otra página
         

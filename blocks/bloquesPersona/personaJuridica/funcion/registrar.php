@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesPersona\personaJuridica\funcion;
 
 
 include_once('Redireccionador.php');
@@ -29,85 +29,71 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
-        if(isset($_REQUEST['codTipoCargoRegistro'])){
-                    switch($_REQUEST ['codTipoCargoRegistro']){
+        if(isset($_REQUEST['personaJuridicaIdentificacion'])){
+                    switch($_REQUEST ['personaJuridicaIdentificacion']){
                            case 1 :
-					$_REQUEST ['codTipoCargoRegistro']='DI';
+					$_REQUEST ['personaJuridicaIdentificacion']='4';
 			   break;
                        
                            case 2 :
-					$_REQUEST ['codTipoCargoRegistro']='AS';
-			   break;
-                       
-                           case 3 :
-					$_REQUEST ['codTipoCargoRegistro']='EJ';
-			   break;
-                       
-                           case 4 :
-					$_REQUEST ['codTipoCargoRegistro']='TE';
-			   break;
-			   
-                           case 5 :
-					$_REQUEST ['codTipoCargoRegistro']='AI';
-			   break;
-                       
-                           case 6 :
-					$_REQUEST ['codTipoCargoRegistro']='TO';
-			   break;
-		           		
-                           case 7 :
-					$_REQUEST ['codTipoCargoRegistro']='DC';
+					$_REQUEST ['personaJuridicaIdentificacion']='5';
 			   break;
                            
-                           case 8 :
-					$_REQUEST ['codTipoCargoRegistro']='DP';
-			   break;
-                    
-                    
                     }
                 }
                 
-                if(isset($_REQUEST['tipoSueldoRegistro'])){
-                    switch($_REQUEST ['tipoSueldoRegistro']){
+                if(isset($_REQUEST['compuesto'])){
+                    switch($_REQUEST ['compuesto']){
                            case 1 :
-					$_REQUEST ['tipoSueldoRegistro']='M';
+					$_REQUEST ['compuesto']='SI';
 			   break;
                        
                            case 2 :
-					$_REQUEST ['tipoSueldoRegistro']='H';
+					$_REQUEST ['compuesto']='NO';
 			   break;
                     }
                 }
                 
-                if(isset($_REQUEST['estadoRegistro'])){
-                    switch($_REQUEST ['estadoRegistro']){
+                if(isset($_REQUEST['autorretenedor'])){
+                    switch($_REQUEST ['autorretenedor']){
                            case 1 :
-					$_REQUEST ['estadoRegistro']='Activo';
+					$_REQUEST ['autorretenedor']='Si';
 			   break;
                        
                            case 2 :
-					$_REQUEST ['estadoRegistro']='Inactivo';
+					$_REQUEST ['autorretenedor']='No';
 			   break;
                     }
                 }
+                
+                if(isset($_REQUEST['GranContribuyente'])){
+                	switch($_REQUEST ['GranContribuyente']){
+                		case 1 :
+                			$_REQUEST ['GranContribuyente']='Si';
+                			break;
+                			 
+                		case 2 :
+                			$_REQUEST ['GranContribuyente']='No';
+                			break;
+                	}
+                }
+                
                 $datos = array(
-                		'tipoDocumento' => $_REQUEST['personaNaturalIdentificacion'],
-                		'numeroDocumento' => $_REQUEST['personaNaturalDocumento'],
-                		'primerNombre' => $_REQUEST['personaNaturalPrimerNombre'],
-                		'segundoNombre' => $_REQUEST['personaNaturalSegundoNombre'],
-                		'primerApellido' => $_REQUEST['personaNaturalPrimerApellido'],
-                		'segundoApellido' => $_REQUEST['personaNaturalSegundoApellido'],
-                		'contribuyente' => $_REQUEST['personaNaturalContribuyente'],
-                		'autorretenedor' => $_REQUEST['personaNaturalAutorretenedor'],
-                		'regimen' => $_REQUEST['personaNaturalRegimen'],
+                		'tipoDocumento' => $_REQUEST['personaJuridicaIdentificacion'],
+                		'numeroDocumento' => $_REQUEST['personaJuridicaDocumento'],
+                		'razonSocial' => $_REQUEST['razonSocial'],
+                		'compuesto' => $_REQUEST['compuesto'],
+                		'contribuyente' => $_REQUEST['GranContribuyente'],
+                		'autorretenedor' => $_REQUEST['autorretenedor']
+                		
                 );
          
           
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroBasico",$datos);
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroComercial",$datos);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+//         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroComercial",$datos);
+//         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
         
         Redireccionador::redireccionar('form');

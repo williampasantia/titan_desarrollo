@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesParametro\contenidoCargo\formulario;
+namespace bloquesPersona\personaJuridica\formulario;
 
 
 

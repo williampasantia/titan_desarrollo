@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesPersona\personaNatural\funcion;
 
 
 include_once('Redireccionador.php');
@@ -32,15 +32,15 @@ class FormProcessor {
         
          $i=0;
             while($i<$_REQUEST['tamaño']){
-                if($_REQUEST['botonModificar'.$i] == 'true'){
+                if(isset($_REQUEST['botonModificar'.$i]) && $_REQUEST['botonModificar'.$i] == 'true'){
                  Redireccionador::redireccionar('modificar',$i); 
                   break; 
                 }
-                if($_REQUEST['botonVerDetalle'.$i] == 'true'){
+                if(isset($_REQUEST['botonVerDetalle'.$i]) && $_REQUEST['botonVerDetalle'.$i] == 'true'){
                   Redireccionador::redireccionar('verdetalle',$i);
                   break;
                 }
-                if($_REQUEST['botonInactivar'.$i] == 'true'){
+                if(isset($_REQUEST['botonInactivar'.$i]) && $_REQUEST['botonInactivar'.$i] == 'true'){
                   Redireccionador::redireccionar('inactivar',$i);
                   break;
                 }

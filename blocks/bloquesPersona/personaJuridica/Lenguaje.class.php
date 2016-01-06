@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido;
+namespace bloquesPersona\personaJuridica;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");

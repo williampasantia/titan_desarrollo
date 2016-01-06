@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesParametro\contenidoCargo\formulario;
+namespace bloquesPersona\personaJuridica\formulario;
 
 
 
@@ -150,14 +150,15 @@ class Formulario {
         $longitud = count($matrizItems);
         
         $i=0;
+        // <tfoot  style="display: table-header-group">
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."RAZÓN SOCIAL".'</th> <th>'."REGIMEN".'</th> <th>'."COMPUESTO".'</th> <th>'."ESTADO".'</th><th>'."GESTION".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
+                 . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."RAZÓN SOCIAL".'</th> <th>'."AUTORRETENEDOR".'</th> <th>'."COMPUESTO".'</th> <th>'."ESTADO".'</th><th>'."GESTION".'</th></tr></thead>
+                       <tfoot  style="display: none">
             <tr>
                 <th>DOCUMENTO</th>
                 <th>RAZÓN SOCIAL</th>
-                <th>REGIMEN</th>
+                <th>AUTORRETENEDOR</th>
                 <th>COMPUESTO</th>
                 <th>ESTADO</th>
                
