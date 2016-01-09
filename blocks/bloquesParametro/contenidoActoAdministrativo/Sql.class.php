@@ -64,21 +64,27 @@ class Sql extends \Sql {
                 break;
             
             
-            
-          
-                
-             case 'buscarRegistroxCargo' :
+            case 'buscarRegistroxtipoActo' :
                 
                 	$cadenaSql = 'SELECT ';
-                        $cadenaSql .= 'codigo_cargo as COD_CARGO, ';
-                        $cadenaSql .= 'nivel as NIVEL, ';
-                        $cadenaSql .= 'codigo_alternativo as COD_ALTERNATIVO,';
-                        $cadenaSql .= 'grado as GRADO,';
-                        $cadenaSql .= 'nombre as NOMBRE,';
-                        $cadenaSql .= 'cod_tipo_cargo as COD_TIPO, ';
+                        $cadenaSql .= 'nombre as NOMBRE ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'parametro.tipo_acto ';
+                        $cadenaSql .= 'WHERE ';
+                        $cadenaSql .= 'id_tipo_acto = ';
+                        $cadenaSql .= '\'' . $variable  . '\'';
+                        
+                break;
+          
+                
+             case 'buscarRegistroxAA' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'nit as NIT, ';
+                        $cadenaSql .= 'id_tipo_acto as ID_TIPO_ACTO, ';
                         $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
-                        $cadenaSql .= 'parametro.cargo';
+                        $cadenaSql .= 'parametro.acto_administrativo';
 //                        $cadenaSql .= 'WHERE ';
 //                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
 //                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';

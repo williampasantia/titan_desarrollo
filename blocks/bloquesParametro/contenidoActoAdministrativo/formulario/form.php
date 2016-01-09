@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesParametro\contenidoCargo\formulario;
+namespace bloquesParametro\contenidoActoAdministrativo\formulario;
 
 
 
@@ -103,7 +103,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "CARGO";
+	$atributos ["leyenda"] = "ACTO ADMINISTRATIVO";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         // --------------------------------------------------------------------------------------------------
         
@@ -113,7 +113,7 @@ class Formulario {
                         echo $this->miFormulario->division ( "inicio", $atributos );
 
                         // -----------------CONTROL: Botón ----------------------------------------------------------------
-                        $esteCampo = 'botonRegistrarCargo';
+                        $esteCampo = 'botonRegistrarAA';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -147,8 +147,9 @@ class Formulario {
                         
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxCargo");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxAA");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+        
         $longitud = count($matrizItems);
         
         $i=0;
@@ -156,18 +157,17 @@ class Formulario {
             
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."COD CARGO".'</th><th>'."NIVEL".'</th> <th>'."COD ALTERNATIVO".'</th> <th>'."GRADO".'</th> <th>'."NOMBRE".'</th><th>'."COD TIPO".'</th><th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."ACTIVAR".'</th></tr></thead>
+                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."TIPO ACTO".'</th><th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."ACTIVAR".'</th></tr></thead>
  
                     <tbody>'; 
         if(!empty($matrizItems)){
         while($i<$longitud){
+                    $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxtipoActo",$matrizItems[$i][1]);
+                    $matrizTipo=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+                    
                     echo "<tr><td>".$matrizItems[$i][0]."</td>";
-                    echo "<td>".$matrizItems[$i][1]."</td>";
+                    echo "<td>".$matrizTipo[0][0]."</td>";
                     echo "<td>".$matrizItems[$i][2]."</td>";
-                    echo "<td>".$matrizItems[$i][3]."</td>";
-                    echo "<td>".$matrizItems[$i][4]."</td>";
-                    echo "<td>".$matrizItems[$i][5]."</td>";
-                    echo "<td>".$matrizItems[$i][6]."</td>";
                          $variableVD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
                           $variableVD .= "&opcion=verdetalle";
                           $variableVD .= "&bloque=" . $esteBloque ['nombre'];
@@ -201,7 +201,7 @@ class Formulario {
                           $variableACT = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variableACT, $directorio );
 
                          echo "<td><center><a href='" . $variableACT . "'>";
-                         if($matrizItems[$i][6]=='Activo'){
+                         if($matrizItems[$i][2]=='Activo'){
                             echo "<img src='" . $rutaBloque . "/css/images/desactivacion.png' width='25px'>";
                          }
                          else{

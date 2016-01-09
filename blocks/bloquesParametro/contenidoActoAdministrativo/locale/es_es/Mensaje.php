@@ -2,7 +2,7 @@
 $this->idioma["bloqueContenido"]="Cargo";
 $this->idioma["noDefinido"]="No definido";
 
-$this->idioma["botonRegistrarCargo"]="Registrar Cargo";
+$this->idioma["botonRegistrarAA"]="Registrar Acto Administrativo";
 $this->idioma["botonGuardar"]="Aceptar";
 $this->idioma["botonModificar"]="Modificar";
 $this->idioma["botonInactivar"]="Inactivar";
