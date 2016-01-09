@@ -1,6 +1,6 @@
 
 
-$("#contenidoCargo").validationEngine({
+$("#contenidoActoAdministrativo").validationEngine({
 	promptPosition : "centerRight",
 	scroll: false,
 	autoHidePrompt: true,

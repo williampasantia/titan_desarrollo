@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesParametro\contenidoActoAdministrativo\funcion;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("index.php");
@@ -37,8 +37,8 @@ class Redireccionador {
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=mensaje";
                                 $variable .= "&mensaje=inserto";
-                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
-                                $variable .= "&estadoRegistro=" . $valor ['estadoRegistro'];
+                                $variable .= "&nombreRegistro=" . $valor ['nit'];
+                                $variable .= "&estadoRegistro=" . $valor ['tipo_acto'];
 				break;
                         case "noInserto" :
 				$variable = 'pagina='.$miPaginaActual;                                

@@ -39,27 +39,35 @@ class Sql extends \Sql {
              */
             case 'insertarRegistro' :
                 $cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'parametro.cargo ';
+                $cadenaSql .= 'parametro.acto_administrativo ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= 'nivel,';
-                $cadenaSql .= 'codigo_alternativo,';
-                $cadenaSql .= 'grado,';
-                $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'cod_tipo_cargo,';
-                $cadenaSql .= 'sueldo,';
-                $cadenaSql .= 'tipo_sueldo,';
+                $cadenaSql .= 'nit,';
+                $cadenaSql .= 'id_tipo_acto,';
+                $cadenaSql .= 'fecha,';
+                $cadenaSql .= 'tipo_documento,';
+                if($variable ['fechaExp']!='NULL'){
+                  $cadenaSql .= 'fecha_efectividad,';
+                }
+                if($variable ['fechaVen']!='NULL'){
+                  $cadenaSql .= 'fecha_caducidad,';
+                }
+                $cadenaSql .= 'justificacion,';
                 $cadenaSql .= 'estado';
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= $variable ['nivelRegistro'] . ', ';
-                $cadenaSql .= $variable ['codAlternativoRegistro'] . ', ';
-                $cadenaSql .= $variable ['gradoRegistro'] . ', ';
-                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
-                $cadenaSql .= '\'' . $variable ['codTipoCargoRegistro'] . '\', ';
-                $cadenaSql .= $variable ['sueldoRegistro'] . ', ';
-                $cadenaSql .= '\'' . $variable['tipoSueldoRegistro'] . '\', ';
-                $cadenaSql .= '\'' . $variable['estadoRegistro'] . '\' ';
+                $cadenaSql .= $variable ['nit'] . ', ';
+                $cadenaSql .= $variable ['tipo_acto'] . ', ';
+                $cadenaSql .= '\'' . $variable ['fecha']  . '\', ';
+                $cadenaSql .= '\'' . $variable ['tipoDocumento'] . '\', ';
+                if($variable ['fechaExp']!='NULL'){
+                  $cadenaSql .= '\'' . $variable ['fechaExp']  . '\', ';
+                }
+                if($variable ['fechaVen']!='NULL'){
+                  $cadenaSql .= '\'' . $variable ['fechaVen']  . '\', ';
+                }
+                $cadenaSql .= '\'' . $variable ['justificacion']  . '\', ';
+                $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';
                 break;
             
@@ -73,6 +81,16 @@ class Sql extends \Sql {
                         $cadenaSql .= 'WHERE ';
                         $cadenaSql .= 'id_tipo_acto = ';
                         $cadenaSql .= '\'' . $variable  . '\'';
+                        
+                break;
+            
+            case 'buscarRegistroxtipoActoTotal' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'id_tipo_acto as ID_TIPO_ACTO, ';
+                        $cadenaSql .= 'nombre as NOMBRE ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'parametro.tipo_acto ';
                         
                 break;
           

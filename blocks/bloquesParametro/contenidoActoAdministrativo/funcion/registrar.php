@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesParametro\contenidoActoAdministrativo\funcion;
 
 
 include_once('Redireccionador.php');
@@ -29,80 +29,44 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
-        if(isset($_REQUEST['codTipoCargoRegistro'])){
-                    switch($_REQUEST ['codTipoCargoRegistro']){
+        if(isset($_REQUEST['tipoDocumento'])){
+                    switch($_REQUEST ['tipoDocumento']){
                            case 1 :
-					$_REQUEST ['codTipoCargoRegistro']='DI';
+					$_REQUEST ['tipoDocumento']='Resolucion';
 			   break;
                        
                            case 2 :
-					$_REQUEST ['codTipoCargoRegistro']='AS';
+					$_REQUEST ['tipoDocumento']='Decreto';
 			   break;
                        
                            case 3 :
-					$_REQUEST ['codTipoCargoRegistro']='EJ';
-			   break;
-                       
-                           case 4 :
-					$_REQUEST ['codTipoCargoRegistro']='TE';
-			   break;
-			   
-                           case 5 :
-					$_REQUEST ['codTipoCargoRegistro']='AI';
-			   break;
-                       
-                           case 6 :
-					$_REQUEST ['codTipoCargoRegistro']='TO';
-			   break;
-		           		
-                           case 7 :
-					$_REQUEST ['codTipoCargoRegistro']='DC';
-			   break;
-                           
-                           case 8 :
-					$_REQUEST ['codTipoCargoRegistro']='DP';
+					$_REQUEST ['tipoDocumento']='Planilla';
 			   break;
                     
                     
                     }
                 }
-                
-                if(isset($_REQUEST['tipoSueldoRegistro'])){
-                    switch($_REQUEST ['tipoSueldoRegistro']){
-                           case 1 :
-					$_REQUEST ['tipoSueldoRegistro']='M';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['tipoSueldoRegistro']='H';
-			   break;
-                    }
-                }
-                
-                if(isset($_REQUEST['estadoRegistro'])){
-                    switch($_REQUEST ['estadoRegistro']){
-                           case 1 :
-					$_REQUEST ['estadoRegistro']='Activo';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['estadoRegistro']='Inactivo';
-			   break;
-                    }
-                }
+   
+       $fechaexp='NULL'; 
+          if($_REQUEST ['fechaExp'] != ''){
+              $fechaexp=$_REQUEST ['fechaExp'];
+          }
+          $fechaven='NULL'; 
+          if($_REQUEST ['fechaVen'] != ''){
+              $fechaven=$_REQUEST ['fechaVen'];
+          }
         
         $datos = array(
-            'nivelRegistro' => $_REQUEST ['nivelRegistro'],
-            'codAlternativoRegistro' => $_REQUEST ['codAlternativoRegistro'],
-            'gradoRegistro' => $_REQUEST ['gradoRegistro'],
-            'nombreRegistro' => $_REQUEST ['nombreRegistro'],
-            'codTipoCargoRegistro' => $_REQUEST ['codTipoCargoRegistro'],
-            'sueldoRegistro' => $_REQUEST ['sueldoRegistro'],
-            'tipoSueldoRegistro' => $_REQUEST ['tipoSueldoRegistro'],
-            'estadoRegistro' => $_REQUEST ['estadoRegistro'] 
+            'nit' => $_REQUEST ['nit'],
+            'tipo_acto' => $_REQUEST['tipoActo'],
+            'fecha' => $_REQUEST ['fecha'],
+            'tipoDocumento' => $_REQUEST ['tipoDocumento'],
+            'fechaExp' => $fechaexp,
+            'fechaVen' => $fechaven,
+            'justificacion' => $_REQUEST ['justificacion']
         );
 //       
-        
+       
                 
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistro",$datos);
         $resultado=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
