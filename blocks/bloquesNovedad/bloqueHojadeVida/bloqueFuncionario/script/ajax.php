@@ -2324,5 +2324,97 @@ function consultarDepartamento(elem, request, response){
 				      });
 		//****************************************************************
 		
+		//Bloque Experiencia Laboral # 1
+		function consultarDepartamentoE1(elem, request, response){
+			  $.ajax({
+			    url: "<?php echo $urlFinalE[0]?>",
+			    dataType: "json",
+			    data: { valor:$("#<?php echo $this->campoSeguro('funcionarioExperienciaPais_0')?>").val()},
+			    success: function(data){ 
+
+
+
+			        if(data[0]!=" "){
+
+			            $("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>").html('');
+			            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>");
+			            $.each(data , function(indice,valor){
+
+			            	$("<option value='"+data[ indice ].id_departamento+"'>"+data[ indice ].nombre+"</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>");
+			            	
+			            });
+			            
+			            $("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>").removeAttr('disabled');
+			            
+			            //$('#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>').width(250);
+			            $("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>").select2();
+			            
+			            $("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>").removeClass("validate[required]");
+			            
+				        }
+			    			
+
+			    }
+				                    
+			   });
+			};
+
+
+			function consultarCiudadE1(elem, request, response){
+				  $.ajax({
+				    url: "<?php echo $urlFinalE[1]?>",
+				    dataType: "json",
+				    data: { valor:$("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>").val()},
+				    success: function(data){ 
+
+
+
+				        if(data[0]!=" "){
+
+				            $("#<?php echo $this->campoSeguro('funcionarioExperienciaCiudad_0')?>").html('');
+				            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioExperienciaCiudad_0')?>");
+				            $.each(data , function(indice,valor){
+
+				            	$("<option value='"+data[ indice ].id_ciudad+"'>"+data[ indice ].nombreciudad+"</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioExperienciaCiudad_0')?>");
+				            	
+				            });
+				            
+				            $("#<?php echo $this->campoSeguro('funcionarioExperienciaCiudad_0')?>").removeAttr('disabled');
+				            
+				            //$('#<?php echo $this->campoSeguro('funcionarioExperienciaCiudad_0')?>').width(250);
+				            $("#<?php echo $this->campoSeguro('funcionarioExperienciaCiudad_0')?>").select2();
+				            
+				            $("#<?php echo $this->campoSeguro('funcionarioExperienciaCiudad_0')?>").removeClass("validate[required]");
+				            
+					        }
+				    			
+
+				    }
+					                    
+				   });
+				};
+
+				$("#<?php echo $this->campoSeguro('funcionarioExperienciaPais_0')?>").change(function(){
+
+				    
+					if($("#<?php echo $this->campoSeguro('funcionarioExperienciaPais_0')?>").val()!=''){
+				    	consultarDepartamentoE1();
+					}else{
+						$("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>").attr('disabled','');
+						}
+
+				      });
+
+
+				$("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>").change(function(){
+					if($("#<?php echo $this->campoSeguro('funcionarioExperienciaDepartamento_0')?>").val()!=''){
+				    	consultarCiudadE1();
+					}else{
+						$("#<?php echo $this->campoSeguro('funcionarioExperienciaCiudad_0')?>").attr('disabled','');
+						}
+
+				      });
+		//****************************************************************
+		
 //---------------------------------------------------------------------------------------------------------
 </script>
