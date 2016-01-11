@@ -2870,12 +2870,13 @@ class Formulario {
 					for($i = 0; $i < $cantidad_referencias; $i++){
 			
 						 
-						$esteCampo = "novedadesDatosCantidadEduacionSuperior";
-						$atributos ['id'] = $esteCampo;
+						$esteCampo = "novedadesDatosCantidadEduacionSuperior_";
+						$baseCampo = "novedadesDatosCantidadEduacionSuperior";
+						$atributos ['id'] = $esteCampo.$i;
 						$atributos ["estilo"] = "jqueryui";
 						$atributos ['tipoEtiqueta'] = 'inicio';
 						$numero_estudio = $i+1;
-						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo ).$numero_estudio;
+						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
 			
@@ -3463,6 +3464,15 @@ class Formulario {
 						echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 			
 					}
+					unset($atributos);
+					$atributos ["id"] = "mainSuperior";
+					$atributos ["estilo"] = "botonDinamico";
+					echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+					{
+						echo "<input type=\"button\" id=\"btAdd\" value=\"Agregar\" class=\"btn btn-success\"/> &nbsp;";
+						echo "<input type=\"button\" id=\"btRemove\" value=\"Eliminar\" class=\"btn btn-danger\" /> &nbsp;";
+					}
+					echo $this->miFormulario->agrupacion ( "fin" );
 					 
 					// ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 					 
@@ -3487,12 +3497,13 @@ class Formulario {
 					for($i = 0; $i < $cantidad_referencias_info; $i++){
 						 
 						 
-						$esteCampo = "novedadesDatosCantidadEduacionInformal";
-						$atributos ['id'] = $esteCampo;
+						$esteCampo = "novedadesDatosCantidadEduacionInformal_";
+						$baseCampo = "novedadesDatosCantidadEduacionInformal";
+						$atributos ['id'] = $esteCampo.$i;
 						$atributos ["estilo"] = "jqueryui";
 						$atributos ['tipoEtiqueta'] = 'inicio';
 						$numero_estudio = $i+1;
-						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo ).$numero_estudio;
+						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
 							 
@@ -3668,6 +3679,17 @@ class Formulario {
 						echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 			
 					}
+					unset($atributos);
+					$atributos ["id"] = "mainInformal";
+					$atributos ["estilo"] = "botonDinamico";
+					echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+					{
+						echo "<input type=\"button\" id=\"btAddIn\" value=\"Agregar\" class=\"btn btn-success\"/> &nbsp;";
+						echo "<input type=\"button\" id=\"btRemoveIn\" value=\"Eliminar\" class=\"btn btn-danger\" /> &nbsp;";
+					}
+					echo $this->miFormulario->agrupacion ( "fin" );
+					
+//*******************************************************************************************************					
 					 
 					// ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 			
@@ -3691,12 +3713,13 @@ class Formulario {
 					for($i = 0; $i < $cantidad_idiomas; $i++){
 						 
 						 
-						$esteCampo = "novedadesDatosCantidadEduacionIdiomas";
-						$atributos ['id'] = $esteCampo;
+						$esteCampo = "novedadesDatosCantidadEduacionIdiomas_";
+						$baseCampo = "novedadesDatosCantidadEduacionIdiomas";
+						$atributos ['id'] = $esteCampo.$i;
 						$atributos ["estilo"] = "jqueryui";
 						$atributos ['tipoEtiqueta'] = 'inicio';
 						$numero_estudio = $i+1;
-						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo ).$numero_estudio;
+						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
 							 
@@ -4116,6 +4139,15 @@ class Formulario {
 						echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 						 
 					}
+					unset($atributos);
+					$atributos ["id"] = "mainIdioma";
+					$atributos ["estilo"] = "botonDinamico";
+					echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+					{
+						echo "<input type=\"button\" id=\"btAddId\" value=\"Agregar\" class=\"btn btn-success\"/> &nbsp;";
+						echo "<input type=\"button\" id=\"btRemoveId\" value=\"Eliminar\" class=\"btn btn-danger\" /> &nbsp;";
+					}
+					echo $this->miFormulario->agrupacion ( "fin" );
 					 
 					// ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 					 
@@ -4314,12 +4346,13 @@ class Formulario {
 					for($i = 0; $i < $cantidad_experiencia; $i++){
 			
 			
-						$esteCampo = "novedadesDatosCantidadExperiencia";
-						$atributos ['id'] = $esteCampo;
+						$esteCampo = "novedadesDatosCantidadExperiencia_";
+						$baseCampo = "novedadesDatosCantidadExperiencia";
+						$atributos ['id'] = $esteCampo.$i;
 						$atributos ["estilo"] = "jqueryui";
 						$atributos ['tipoEtiqueta'] = 'inicio';
 						$numero_estudio = $i+1;
-						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo ).$numero_estudio;
+						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
 				    
@@ -4828,7 +4861,17 @@ class Formulario {
 						}
 						echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 					}
+					unset($atributos);
+					$atributos ["id"] = "mainExperiencia";
+					$atributos ["estilo"] = "botonDinamico";
+					echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+					{
+						echo "<input type=\"button\" id=\"btAddEx\" value=\"Agregar\" class=\"btn btn-success\"/> &nbsp;";
+						echo "<input type=\"button\" id=\"btRemoveEx\" value=\"Eliminar\" class=\"btn btn-danger\" /> &nbsp;";
+					}
+					echo $this->miFormulario->agrupacion ( "fin" );
 			
+//*******************************************************************************************************					
 			
 					// ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 					 
@@ -4849,12 +4892,13 @@ class Formulario {
 					for($i = 0; $i < $cantidad_referencias_per; $i++){
 			
 			
-						$esteCampo = "novedadesDatosCantidadReferencia";
-						$atributos ['id'] = $esteCampo;
+						$esteCampo = "novedadesDatosCantidadReferencia_";
+						$baseCampo = "novedadesDatosCantidadReferencia";
+						$atributos ['id'] = $esteCampo.$i;
 						$atributos ["estilo"] = "jqueryui";
 						$atributos ['tipoEtiqueta'] = 'inicio';
 						$numero_estudio = $i+1;
-						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo ).$numero_estudio;
+						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
 			
@@ -5075,6 +5119,15 @@ class Formulario {
 						}
 						echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 					}
+					unset($atributos);
+					$atributos ["id"] = "mainReferencias";
+					$atributos ["estilo"] = "botonDinamico";
+					echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+					{
+						echo "<input type=\"button\" id=\"btAddRe\" value=\"Agregar\" class=\"btn btn-success\"/> &nbsp;";
+						echo "<input type=\"button\" id=\"btRemoveRe\" value=\"Eliminar\" class=\"btn btn-danger\" /> &nbsp;";
+					}
+					echo $this->miFormulario->agrupacion ( "fin" );
 			
 				}
 				echo $this->miFormulario->agrupacion ( "fin" );
