@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesParametro\contenidoCargo\formulario;
+namespace bloquesParametro\contenidoActoAdministrativo\formulario;
 
 
 
@@ -103,11 +103,11 @@ class Formulario {
         
         
         
-       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexCargo");
+      $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexAA");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
         
-        if($matrizItems[$_REQUEST['variable']][8]=='Inactivo'){
+        if($matrizItems[$_REQUEST['variable']][7]=='Inactivo'){
             $opcion='Activo';
         }
         else{
@@ -118,7 +118,7 @@ class Formulario {
        
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         
-        $esteCampo = 'codigoRegistro';
+        $esteCampo = 'nit';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -141,7 +141,7 @@ class Formulario {
         echo $this->miFormulario->campoCuadroTexto ( $atributos );
         unset($atributos);
          // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'estadoRegistro';
+        $esteCampo = 'estado';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -151,7 +151,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][8];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][7];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;

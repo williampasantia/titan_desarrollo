@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesParametro\contenidoActoAdministrativo\funcion;
 
 
 include_once('Redireccionador.php');
@@ -31,7 +31,7 @@ class FormProcessor {
        
         
         if($_REQUEST['enviarInactivar'] =='true'){
-            if($_REQUEST ['estadoRegistro']=='Inactivo'){
+            if($_REQUEST ['estado']=='Inactivo'){
                       $opcion='Activo';
         }
         else{
@@ -40,8 +40,8 @@ class FormProcessor {
         
             
             $datos = array(
-            'codigoRegistro' => $_REQUEST ['codigoRegistro'],
-            'estadoRegistro' => $opcion       
+            'nit' => $_REQUEST ['nit'],
+            'estado' => $opcion       
         );
 //       
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("inactivarRegistro",$datos);

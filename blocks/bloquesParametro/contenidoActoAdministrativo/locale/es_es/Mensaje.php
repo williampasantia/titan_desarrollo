@@ -49,7 +49,7 @@ $this->idioma["justificacionTitulo"]="Justificación";
 
 $this->idioma["tipoDocumento"]="Tipo Documento:";
 $this->idioma["tipoSueldoRegistroMod"]="Tipo sueldo  :";
-$this->idioma["estadoRegistro"]="Estado  :";
+$this->idioma["estado"]="Estado  :";
 
 
 ?>

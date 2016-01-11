@@ -164,13 +164,13 @@ class Sql extends \Sql {
                 
              case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.cargo ';
+                $cadenaSql .= 'parametro.acto_administrativo ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'estado = ';
-                $cadenaSql .= '\'' . $variable ['estadoRegistro']  . '\' ';
+                $cadenaSql .= '\'' . $variable ['estado']  . '\' ';
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'codigo_cargo = ';
-                $cadenaSql .= '\'' . $variable ['codigoRegistro']  . '\'';
+                $cadenaSql .= 'nit = ';
+                $cadenaSql .= '\'' . $variable ['nit']  . '\'';
                 break;
         
         }
