@@ -85,14 +85,16 @@ class Formulario {
         // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
         
         //Establecimiento Limite de Campos y Referencias Dinamicas **************************************************
-        
+        //***********************************************************************************************************
         $cantidad_referencias = 8;
         $cantidad_referencias_info = 10;
         $cantidad_idiomas = 7;
-        $cantidad_experiencia = 1;
-        $cantidad_referencias_per = 1;
+        $cantidad_experiencia = 10;
+        $cantidad_referencias_per = 20;
         
         //Para cambiar revisar el archivo ajax.php para ajustar los limites de los campos y las funciones AJAX
+        //***********************************************************************************************************
+        //***********************************************************************************************************
         
         // ---------------- FIN: Lista Variables Control--------------------------------------------------------
 
@@ -1800,6 +1802,7 @@ class Formulario {
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
 	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos ['anchoEtiqueta'] = 280;
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -1832,6 +1835,7 @@ class Formulario {
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
 	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos ['anchoEtiqueta'] = 280;
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -1864,6 +1868,7 @@ class Formulario {
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
 	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos ['anchoEtiqueta'] = 280;
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -1896,6 +1901,7 @@ class Formulario {
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
 	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos ['anchoEtiqueta'] = 280;
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -2554,7 +2560,7 @@ class Formulario {
 	        	 
 	        	$atributos ['obligatorio'] = true;
 	        	$atributos ['etiquetaObligatorio'] = true;
-	        	$atributos ['validar'] = 'required';
+	        	$atributos ['validar'] = '';
 	        	 
 	        	$matrizItems=array(
 	        			array(1,'Técnica'),
@@ -2597,7 +2603,7 @@ class Formulario {
 	        	 
 	        	$atributos ['obligatorio'] = true;
 	        	$atributos ['etiquetaObligatorio'] = true;
-	        	$atributos ['validar'] = 'required, custom[onlyNumberSp]';
+	        	$atributos ['validar'] = 'custom[onlyNumberSp]';
 	        	 
 	        	if (isset ( $_REQUEST [$esteCampo] )) {
 	        		$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -2632,7 +2638,7 @@ class Formulario {
 	        	 
 	        	$atributos ['obligatorio'] = true;
 	        	$atributos ['etiquetaObligatorio'] = true;
-	        	$atributos ['validar'] = 'required';
+	        	$atributos ['validar'] = '';
 	        	 
 	        	$matrizItems=array(
 	        			array(1,'Si'),
@@ -2670,7 +2676,7 @@ class Formulario {
 	        	 
 	        	$atributos ['obligatorio'] = true;
 	        	$atributos ['etiquetaObligatorio'] = true;
-	        	$atributos ['validar'] = 'required';
+	        	$atributos ['validar'] = '';
 	        	 
 	        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
 	        	$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
@@ -2706,7 +2712,7 @@ class Formulario {
 	        	 
 	        	$atributos ['obligatorio'] = true;
 	        	$atributos ['etiquetaObligatorio'] = true;
-	        	$atributos ['validar'] = 'required';
+	        	$atributos ['validar'] = '';
 	        	 
 	        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
 	        	$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
@@ -2742,7 +2748,7 @@ class Formulario {
 	        	 
 	        	$atributos ['obligatorio'] = true;
 	        	$atributos ['etiquetaObligatorio'] = true;
-	        	$atributos ['validar'] = 'required';
+	        	$atributos ['validar'] = '';
 	        	 
 	        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
 	        	$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
@@ -2879,7 +2885,7 @@ class Formulario {
 	        	 
 	        	$atributos ['obligatorio'] = true;
 	        	$atributos ['etiquetaObligatorio'] = true;
-	        	$atributos ['validar'] = 'required, custom[onlyLetterSp]';
+	        	$atributos ['validar'] = 'custom[onlyLetterSp]';
 	        	 
 	        	if (isset ( $_REQUEST [$esteCampo] )) {
 	        		$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -2913,7 +2919,7 @@ class Formulario {
 	        	 
 	        	$atributos ['obligatorio'] = true;
 	        	$atributos ['etiquetaObligatorio'] = true;
-	        	$atributos ['validar'] = 'required, custom[onlyLetterSp]';
+	        	$atributos ['validar'] = 'custom[onlyLetterSp]';
 	        	 
 	        	if (isset ( $_REQUEST [$esteCampo] )) {
 	        		$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -2981,7 +2987,7 @@ class Formulario {
 	        	 
 	        	$atributos ['obligatorio'] = true;
 	        	$atributos ['etiquetaObligatorio'] = true;
-	        	$atributos ['validar'] = 'required';
+	        	$atributos ['validar'] = '';
 	        	 
 	        	if (isset ( $_REQUEST [$esteCampo] )) {
 	        		$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -3343,7 +3349,7 @@ class Formulario {
 			        	 
 			        	$atributos ['obligatorio'] = true;
 			        	$atributos ['etiquetaObligatorio'] = true;
-			        	$atributos ['validar'] = 'required';
+			        	$atributos ['validar'] = '';
 			        	 
 			        	$matrizItems=array(
 			        			array(1,'Inglés'),
@@ -3384,7 +3390,7 @@ class Formulario {
 			        	 
 			        	$atributos ['obligatorio'] = true;
 			        	$atributos ['etiquetaObligatorio'] = true;
-			        	$atributos ['validar'] = 'required, custom[onlyLetterSp]';
+			        	$atributos ['validar'] = 'custom[onlyLetterSp]';
 			        	 
 			        	if (isset ( $_REQUEST [$esteCampo] )) {
 			        		$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -3418,7 +3424,7 @@ class Formulario {
 			        	 
 			        	$atributos ['obligatorio'] = true;
 			        	$atributos ['etiquetaObligatorio'] = true;
-			        	$atributos ['validar'] = 'required';
+			        	$atributos ['validar'] = '';
 			        	 
 			        	$matrizItems=array(
 			        			array(1,'(A1) Básico'),
@@ -3697,6 +3703,7 @@ class Formulario {
 	        $atributos ['filas'] = 3;
 	        $atributos ['tabIndex'] = $tab;
 	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos ['anchoEtiqueta'] = 300;
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -3726,6 +3733,7 @@ class Formulario {
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
 	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos ['anchoEtiqueta'] = 300;
 	         
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -3758,6 +3766,7 @@ class Formulario {
 	        $atributos ['dobleLinea'] = false;
 	        $atributos ['tabIndex'] = $tab;
 	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos ['anchoEtiqueta'] = 300;
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -3789,6 +3798,7 @@ class Formulario {
 	        $atributos ['filas'] = 3;
 	        $atributos ['tabIndex'] = $tab;
 	        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+	        $atributos ['anchoEtiqueta'] = 300;
 	         
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
@@ -3856,17 +3866,16 @@ class Formulario {
 	    	 
 	    	// --------------------------------------------------------------------------------------------------
 	    	 
-	    	//$cantidad_experiencia = 3;//---------------------------------------------
-	    	 
 	    	for($i = 0; $i < $cantidad_experiencia; $i++){
 	    		 
 	    		 
-	    		$esteCampo = "novedadesDatosCantidadExperiencia";
-	    		$atributos ['id'] = $esteCampo;
+	    		$esteCampo = "novedadesDatosCantidadExperiencia_";
+	    		$baseCampo = "novedadesDatosCantidadExperiencia";
+	    		$atributos ['id'] = $esteCampo.$i;
 	    		$atributos ["estilo"] = "jqueryui";
 	    		$atributos ['tipoEtiqueta'] = 'inicio';
 	    		$numero_estudio = $i+1;
-	    		$atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo ).$numero_estudio;
+	    		$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 	    		echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 	    		{
 	    			 
@@ -4017,7 +4026,7 @@ class Formulario {
 	    			$atributos['tab'] = $tab;
 	    			$atributos['seleccion'] = -1;
 	    			$atributos['evento'] = ' ';
-	    			$atributos['deshabilitado'] = false;
+	    			$atributos['deshabilitado'] = true;
 	    			$atributos['limitar']= 50;
 	    			$atributos['tamanno']= 1;
 	    			$atributos['columnas']= 1;
@@ -4052,7 +4061,7 @@ class Formulario {
 	    			$atributos['tab'] = $tab;
 	    			$atributos['seleccion'] = -1;
 	    			$atributos['evento'] = ' ';
-	    			$atributos['deshabilitado'] = false;
+	    			$atributos['deshabilitado'] = true;
 	    			$atributos['limitar']= 50;
 	    			$atributos['tamanno']= 1;
 	    			$atributos['columnas']= 1;
@@ -4347,7 +4356,17 @@ class Formulario {
 	    		}
 	    		echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 	    	}
+	    	unset($atributos);
+	    	$atributos ["id"] = "mainExperiencia";
+	    	$atributos ["estilo"] = "botonDinamico";
+	    	echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+	    	{
+	    		echo "<input type=\"button\" id=\"btAddEx\" value=\"Agregar\" class=\"btn btn-success\"/> &nbsp;";
+	    		echo "<input type=\"button\" id=\"btRemoveEx\" value=\"Eliminar\" class=\"btn btn-danger\" /> &nbsp;";
+	    	}
+	    	echo $this->miFormulario->agrupacion ( "fin" );
 	    	
+//*********************************************************************************************************************	    	
 	    	
 	    	// ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 	    	 
@@ -4362,12 +4381,13 @@ class Formulario {
 	    	echo $this->miFormulario->campoTexto( $atributos );
 	    	 
 	    	// --------------------------------------------------------------------------------------------------
-	    	 
-	    	//$cantidad_referencias_per = 4;//---------------------------------------------
+
+	  
 	    	 
 	    	for($i = 0; $i < $cantidad_referencias_per; $i++){
 	    	
 	    	
+	    		$esteCampo = "novedadesDatosCantidadReferencia";
 	    		$esteCampo = "novedadesDatosCantidadReferencia";
 	    		$atributos ['id'] = $esteCampo;
 	    		$atributos ["estilo"] = "jqueryui";
