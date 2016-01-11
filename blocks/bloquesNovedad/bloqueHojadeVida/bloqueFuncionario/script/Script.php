@@ -54,5 +54,6 @@ foreach ($funcion as $clave=>$nombre){
 }
 
 include_once('ajax.php');
+include_once('ajaxSup.php');
 
 ?>

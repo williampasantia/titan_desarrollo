@@ -5,6 +5,44 @@
  * Los datos del bloque se encuentran en el arreglo $esteBloque.
  */
 
+// Campos Superior DEPENDIENTE Limite Campos
+
+$LimiteCamposSuperior = 5; //Tener Pendiente
+
+$i = 0; $control = $LimiteCamposSuperior * 2;
+while($i < $control){
+	
+	// URL base
+	$url = $this->miConfigurador->getVariableConfiguracion ( "host" );
+	$url .= $this->miConfigurador->getVariableConfiguracion ( "site" );
+	$url .= "/index.php?";
+	
+	//Variables
+	$cadenaACodificarS[$i] = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( "pagina" );
+	$cadenaACodificarS[$i] .= "&procesarAjax=true";
+	$cadenaACodificarS[$i] .= "&action=index.php";
+	$cadenaACodificarS[$i] .= "&bloqueNombre=" . $esteBloque ["nombre"];
+	$cadenaACodificarS[$i] .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+	
+	if ($i%2==0){
+		$cadenaACodificarS[$i] .= $cadenaACodificarS[$i] . "&funcion=consultarDepartamentoAjax";
+	}else{
+		$cadenaACodificarS[$i] .= $cadenaACodificarS[$i] . "&funcion=consultarCiudadAjax";
+	}
+	$cadenaACodificarS[$i] .= "&tiempo=" . $_REQUEST ['tiempo'];
+	
+	// Codificar las variables
+	$enlace = $this->miConfigurador->getVariableConfiguracion ( "enlace" );
+	
+	$cadenaS[$i] = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $cadenaACodificarS[$i], $enlace );
+	
+	// URL definitiva
+	$urlFinalS[$i] = $url . $cadenaS[$i];
+	
+	$i++;
+}
+
+
 // URL base
 $url = $this->miConfigurador->getVariableConfiguracion ( "host" );
 $url .= $this->miConfigurador->getVariableConfiguracion ( "site" );
@@ -412,6 +450,109 @@ $(document).ready(function(){
 		    updatePromptsPosition:true
 		});
 	});
+
+
+	//*****************************EDUCACION SUPERIOR**********************************************
+
+    var iCntSup = 0;
+    var LimiteSuperior = 5;//Tener Presente
+
+    while(iCntSup < LimiteSuperior){
+        $("#novedadesDatosCantidadEduacionSuperior_"+iCntSup).hide("fast");
+        iCntSup = iCntSup + 1;
+    }
+
+    iCntSup = 0;
+     
+    $('#btAdd').click(function() {
+
+        if (iCntSup < LimiteSuperior) {
+
+            $("#novedadesDatosCantidadEduacionSuperior_"+iCntSup).show("fast");
+     
+            iCntSup = iCntSup + 1;
+        }
+        else {
+            $('#btAdd').attr('disabled', 'disabled');
+        }
+
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosSuperior') ?>").val(iCntSup);
+    });
+     
+    $('#btRemove').click(function() { // Elimina un elemento por click
+        if (iCntSup != 0) {
+            iCntSup = iCntSup - 1;  
+            $("#novedadesDatosCantidadEduacionSuperior_"+iCntSup).hide("fast");
+            $('#btAdd').removeAttr('disabled');
+        }
+     
+        if (iCntSup == 0) { 
+
+            $('#btAdd').removeAttr('disabled');
+     
+        }
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosSuperior') ?>").val(iCntSup);
+    });
+
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_0')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_1')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_1')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_2')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_2')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_3')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_3')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_4')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad_4')?>").select2();
+
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_0')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_1')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_1')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_2')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_2')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_3')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_3')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_4')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorGraduado_4')?>").select2();
+
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_0')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_1')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_1')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_2')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_2')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_3')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_3')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_4')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_4')?>").select2();
+
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_2')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_2')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_3')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_3')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_4')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_4')?>").select2();
+
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_2')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_2')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_3')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_3')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_4')?>").width(250); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_4')?>").select2();
+
+
+    //***********************************************************************************************
+
+	
 
 	$("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").width(250); 
 	$("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").select2();
@@ -986,5 +1127,193 @@ function consultarDepartamento(elem, request, response){
 			validateNonVisibleFields: true,
 		    updatePromptsPosition:true
 		});
+
+		//Bloque Eduación Superior # 1
+		function consultarDepartamentoS1(elem, request, response){
+			  $.ajax({
+			    url: "<?php echo $urlFinalS[0]?>",
+			    dataType: "json",
+			    data: { valor:$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_0')?>").val()},
+			    success: function(data){ 
+
+
+
+			        if(data[0]!=" "){
+
+			            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").html('');
+			            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>");
+			            $.each(data , function(indice,valor){
+
+			            	$("<option value='"+data[ indice ].id_departamento+"'>"+data[ indice ].nombre+"</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>");
+			            	
+			            });
+			            
+			            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").removeAttr('disabled');
+			            
+			            //$('#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>').width(250);
+			            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").select2();
+			            
+			            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").removeClass("validate[required]");
+			            
+				        }
+			    			
+
+			    }
+				                    
+			   });
+			};
+
+
+			function consultarCiudadS1(elem, request, response){
+				  $.ajax({
+				    url: "<?php echo $urlFinalS[1]?>",
+				    dataType: "json",
+				    data: { valor:$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").val()},
+				    success: function(data){ 
+
+
+
+				        if(data[0]!=" "){
+
+				            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").html('');
+				            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>");
+				            $.each(data , function(indice,valor){
+
+				            	$("<option value='"+data[ indice ].id_ciudad+"'>"+data[ indice ].nombreciudad+"</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>");
+				            	
+				            });
+				            
+				            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").removeAttr('disabled');
+				            
+				            //$('#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>').width(250);
+				            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").select2();
+				            
+				            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").removeClass("validate[required]");
+				            
+					        }
+				    			
+
+				    }
+					                    
+				   });
+				};
+
+				$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_0')?>").change(function(){
+
+				    
+					if($("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_0')?>").val()!=''){
+				    	consultarDepartamentoS1();
+					}else{
+						$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").attr('disabled','');
+						}
+
+				      });
+
+
+				$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").change(function(){
+					if($("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_0')?>").val()!=''){
+				    	consultarCiudadS1();
+					}else{
+						$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_0')?>").attr('disabled','');
+						}
+
+				      });
+		//****************************************************************
+		
+		//Bloque Educación Superior # 2
+		function consultarDepartamentoS2(elem, request, response){
+			  $.ajax({
+			    url: "<?php echo $urlFinalS[2]?>",
+			    dataType: "json",
+			    data: { valor:$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_1')?>").val()},
+			    success: function(data){ 
+
+
+
+			        if(data[0]!=" "){
+
+			            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").html('');
+			            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>");
+			            $.each(data , function(indice,valor){
+
+			            	$("<option value='"+data[ indice ].id_departamento+"'>"+data[ indice ].nombre+"</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>");
+			            	
+			            });
+			            
+			            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").removeAttr('disabled');
+			            
+			            //$('#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>').width(250);
+			            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").select2();
+			            
+			            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").removeClass("validate[required]");
+			            
+				        }
+			    			
+
+			    }
+				                    
+			   });
+			};
+
+
+			function consultarCiudadS2(elem, request, response){
+				  $.ajax({
+				    url: "<?php echo $urlFinalS[3]?>",
+				    dataType: "json",
+				    data: { valor:$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").val()},
+				    success: function(data){ 
+
+
+
+				        if(data[0]!=" "){
+
+				            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>").html('');
+				            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>");
+				            $.each(data , function(indice,valor){
+
+				            	$("<option value='"+data[ indice ].id_ciudad+"'>"+data[ indice ].nombreciudad+"</option>").appendTo("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>");
+				            	
+				            });
+				            
+				            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>").removeAttr('disabled');
+				            
+				            //$('#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>').width(250);
+				            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>").select2();
+				            
+				            $("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>").removeClass("validate[required]");
+				            
+					        }
+				    			
+
+				    }
+					                    
+				   });
+				};
+
+				$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_1')?>").change(function(){
+
+				    
+					if($("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorPais_1')?>").val()!=''){
+				    	consultarDepartamentoS2();
+					}else{
+						$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").attr('disabled','');
+						}
+
+				      });
+
+
+				$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").change(function(){
+					if($("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorDepartamento_1')?>").val()!=''){
+				    	consultarCiudadS2();
+					}else{
+						$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorCiudad_1')?>").attr('disabled','');
+						}
+
+				      });
+		//****************************************************************
+		
+		
+		
+		
 //---------------------------------------------------------------------------------------------------------
 </script>
