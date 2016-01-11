@@ -600,45 +600,84 @@ $(document).ready(function(){
 	
   //*****************************EDUCACION IDIOMAS**********************************************
 
-    var iCntInf = 0;
+    var iCntIdi = 0;
     var LimiteIdioma = 7;//Tener Presente
 
-    while(iCntInf < LimiteIdioma){
-        $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
-        iCntInf = iCntInf + 1;
+    while(iCntIdi < LimiteIdioma){
+        $("#novedadesDatosCantidadEduacionInformal_"+iCntIdi).hide("fast");
+        iCntIdi = iCntIdi + 1;
     }
 
-    iCntInf = 0;
+    iCntIdi = 0;
      
-    $('#btAddIn').click(function() {
+    $('#btAddId').click(function() {
 
-        if (iCntInf < LimiteIdioma) {
+        if (iCntIdi < LimiteIdioma) {
 
-            $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).show("fast");
+            $("#novedadesDatosCantidadEduacionIdiomas_"+iCntIdi).show("fast");
      
-            iCntInf = iCntInf + 1;
+            iCntIdi = iCntIdi + 1;
         }
         else {
-            $('#btAddIn').attr('disabled', 'disabled');
+            $('#btAddId').attr('disabled', 'disabled');
         }
 
-        $("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val(iCntInf);
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosIdioma') ?>").val(iCntIdi);
     });
      
-    $('#btRemoveIn').click(function() { // Elimina un elemento por click
-        if (iCntInf != 0) {
-            iCntInf = iCntInf - 1;  
-            $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
-            $('#btAddIn').removeAttr('disabled');
+    $('#btRemoveId').click(function() { // Elimina un elemento por click
+        if (iCntIdi != 0) {
+            iCntIdi = iCntIdi - 1;  
+            $("#novedadesDatosCantidadEduacionIdiomas_"+iCntIdi).hide("fast");
+            $('#btAddId').removeAttr('disabled');
         }
      
-        if (iCntInf == 0) { 
+        if (iCntIdi == 0) { 
 
-            $('#btAddIn').removeAttr('disabled');
+            $('#btAddId').removeAttr('disabled');
      
         }
-        $("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val(iCntInf);
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosIdioma') ?>").val(iCntIdi);
     });
+
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_0')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_1')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_1')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_2')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_2')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_3')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_3')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_4')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_4')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_5')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_5')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_6')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdioma_6')?>").select2();
+
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_0')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_1')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_1')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_2')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_2')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_3')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_3')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_4')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_4')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_5')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_5')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_6')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivel_6')?>").select2();
+
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivelHabla_0')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivelHabla_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivelLee_0')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivelLee_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivelEscribe_0')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivelEscribe_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivelEscucha_0')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomaNivelEscucha_0')?>").select2();
 
     //*************************************************************************************************************
 

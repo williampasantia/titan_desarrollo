@@ -3296,6 +3296,7 @@ class Formulario {
 	        }
 	        echo $this->miFormulario->agrupacion ( "fin" );
 	        
+//**********************************************************************************************************************
 	        
 	        // ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 	         
@@ -3311,20 +3312,18 @@ class Formulario {
 	         
 	        // --------------------------------------------------------------------------------------------------
 	        
-	        
-	        
-	        
-	        //$cantidad_idiomas = 3;//---------------------------------------------
+	       
 	        
 	        for($i = 0; $i < $cantidad_idiomas; $i++){
 	        	 
 	        	 
-		        	$esteCampo = "novedadesDatosCantidadEduacionIdiomas";
-		        	$atributos ['id'] = $esteCampo;
+		        	$esteCampo = "novedadesDatosCantidadEduacionIdiomas_";
+		        	$baseCampo = "novedadesDatosCantidadEduacionIdiomas";
+		        	$atributos ['id'] = $esteCampo.$i;
 		        	$atributos ["estilo"] = "jqueryui";
 		        	$atributos ['tipoEtiqueta'] = 'inicio';
 		        	$numero_estudio = $i+1;
-		        	$atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo ).$numero_estudio;
+		        	$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 		        	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 		        	{
 		        		 
@@ -3663,6 +3662,16 @@ class Formulario {
 	        	echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 	        		
 	        }
+	        unset($atributos);
+	        $atributos ["id"] = "mainIdioma";
+	        $atributos ["estilo"] = "botonDinamico";
+	        echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+	        {
+	        	echo "<input type=\"button\" id=\"btAddId\" value=\"Agregar\" class=\"btn btn-success\"/> &nbsp;";
+	        	echo "<input type=\"button\" id=\"btRemoveId\" value=\"Eliminar\" class=\"btn btn-danger\" /> &nbsp;";
+	        }
+	        echo $this->miFormulario->agrupacion ( "fin" );
+	         
 	        
 	        // ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 	        
