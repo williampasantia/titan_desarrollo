@@ -86,7 +86,7 @@ class Formulario {
         
         //Establecimiento Limite de Campos y Referencias Dinamicas **************************************************
         
-        $cantidad_referencias = 5;
+        $cantidad_referencias = 8;
         $cantidad_referencias_info = 10;
         $cantidad_idiomas = 7;
         $cantidad_experiencia = 1;
