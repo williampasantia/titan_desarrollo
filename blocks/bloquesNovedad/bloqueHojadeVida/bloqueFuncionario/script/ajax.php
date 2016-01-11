@@ -929,45 +929,86 @@ $(document).ready(function(){
 	
   //*********************************************REFERENCIAS*******************************************************
 
-    var iCntInf = 0;
+    var iCntRef = 0;
     var LimiteReferencias = 20//Tener Presente
 
-    while(iCntInf < LimiteReferencias){
-        $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
-        iCntInf = iCntInf + 1;
+    while(iCntRef < LimiteReferencias){
+        $("#novedadesDatosCantidadReferencia_"+iCntRef).hide("fast");
+        iCntRef = iCntRef + 1;
     }
 
-    iCntInf = 0;
+    iCntRef = 0;
      
-    $('#btAddIn').click(function() {
+    $('#btAddRe').click(function() {
 
-        if (iCntInf < LimiteReferencias) {
+        if (iCntRef < LimiteReferencias) {
 
-            $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).show("fast");
+            $("#novedadesDatosCantidadReferencia_"+iCntRef).show("fast");
      
-            iCntInf = iCntInf + 1;
+            iCntRef = iCntRef + 1;
         }
         else {
-            $('#btAddIn').attr('disabled', 'disabled');
+            $('#btAddRe').attr('disabled', 'disabled');
         }
 
-        $("#<?php echo $this->campoSeguro('funcionarioRegistrosReferencia') ?>").val(iCntInf);
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosReferencia') ?>").val(iCntRef);
     });
      
-    $('#btRemoveIn').click(function() { // Elimina un elemento por click
-        if (iCntInf != 0) {
-            iCntInf = iCntInf - 1;  
-            $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
-            $('#btAddIn').removeAttr('disabled');
+    $('#btRemoveRe').click(function() { // Elimina un elemento por click
+        if (iCntRef != 0) {
+        	iCntRef = iCntRef - 1;  
+            $("#novedadesDatosCantidadReferencia_"+iCntRef).hide("fast");
+            $('#btAddRe').removeAttr('disabled');
         }
      
-        if (iCntInf == 0) { 
+        if (iCntRef == 0) { 
 
-            $('#btAddIn').removeAttr('disabled');
+            $('#btAddRe').removeAttr('disabled');
      
         }
-        $("#<?php echo $this->campoSeguro('funcionarioRegistrosReferencia') ?>").val(iCntInf);
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosReferencia') ?>").val(iCntRef);
     });
+
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_0')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_0')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_1')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_1')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_2')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_2')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_3')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_3')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_4')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_4')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_5')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_5')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_6')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_6')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_7')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_7')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_8')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_8')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_9')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_9')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_10')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_10')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_11')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_11')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_12')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_12')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_13')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_13')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_14')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_14')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_15')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_15')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_16')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_16')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_17')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_17')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_18')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_18')?>").select2();
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_19')?>").width(200); 
+    $("#<?php echo $this->campoSeguro('funcionarioReferenciaTipo_19')?>").select2();
 
     //*************************************************************************************************************
 	
