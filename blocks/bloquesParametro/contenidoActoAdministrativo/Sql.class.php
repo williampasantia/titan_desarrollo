@@ -125,20 +125,19 @@ class Sql extends \Sql {
                 break;
             
             
-            case 'buscarVerdetallexCargo' :
+            case 'buscarVerdetallexAA' :
                 
                 	$cadenaSql = 'SELECT ';
-                        $cadenaSql .= 'codigo_cargo as COD_CARGO, ';
-                        $cadenaSql .= 'nivel as NIVEL, ';
-                        $cadenaSql .= 'codigo_alternativo as COD_ALTERNATIVO,';
-                        $cadenaSql .= 'grado as GRADO,';
-                        $cadenaSql .= 'nombre as NOMBRE,';
-                        $cadenaSql .= 'cod_tipo_cargo as COD_TIPO, ';
-                        $cadenaSql .= 'sueldo as SUELDO, ';
-                        $cadenaSql .= 'tipo_sueldo as TIPO_SUELDO, ';
+                        $cadenaSql .= 'nit as NIT, ';
+                        $cadenaSql .= 'id_tipo_acto as ID_TIPO_ACTO, ';
+                        $cadenaSql .= 'fecha as FECHA,';
+                        $cadenaSql .= 'tipo_documento as TIPO_DOCUMENTO,';
+                        $cadenaSql .= 'fecha_efectividad as FECHA_EFECTIVIDAD,';
+                        $cadenaSql .= 'fecha_caducidad as FECHA_CADUCIDAD, ';
+                        $cadenaSql .= 'justificacion as JUSTIFICACION, ';
                         $cadenaSql .= 'estado as ESTADO ';
                         $cadenaSql .= 'FROM ';
-                        $cadenaSql .= 'parametro.cargo';
+                        $cadenaSql .= 'parametro.acto_administrativo';
                         
                 break;
 
