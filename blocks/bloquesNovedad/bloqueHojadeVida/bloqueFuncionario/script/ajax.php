@@ -552,7 +552,95 @@ $(document).ready(function(){
 
     //***********************************************************************************************
 
+    
+  	//*****************************EDUCACION INFORMAL**********************************************
+
+    var iCntInf = 0;
+    var LimiteInformal = 10;//Tener Presente
+
+    while(iCntInf < LimiteInformal){
+        $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
+        iCntInf = iCntInf + 1;
+    }
+
+    iCntInf = 0;
+     
+    $('#btAddIn').click(function() {
+
+        if (iCntInf < LimiteInformal) {
+
+            $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).show("fast");
+     
+            iCntInf = iCntInf + 1;
+        }
+        else {
+            $('#btAddIn').attr('disabled', 'disabled');
+        }
+
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val(iCntInf);
+    });
+     
+    $('#btRemoveIn').click(function() { // Elimina un elemento por click
+        if (iCntInf != 0) {
+            iCntInf = iCntInf - 1;  
+            $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
+            $('#btAddIn').removeAttr('disabled');
+        }
+     
+        if (iCntInf == 0) { 
+
+            $('#btAddIn').removeAttr('disabled');
+     
+        }
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val(iCntInf);
+    });
+
+    //*************************************************************************************************************
 	
+	
+  //*****************************EDUCACION IDIOMAS**********************************************
+
+    var iCntInf = 0;
+    var LimiteIdioma = 7;//Tener Presente
+
+    while(iCntInf < LimiteIdioma){
+        $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
+        iCntInf = iCntInf + 1;
+    }
+
+    iCntInf = 0;
+     
+    $('#btAddIn').click(function() {
+
+        if (iCntInf < LimiteIdioma) {
+
+            $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).show("fast");
+     
+            iCntInf = iCntInf + 1;
+        }
+        else {
+            $('#btAddIn').attr('disabled', 'disabled');
+        }
+
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val(iCntInf);
+    });
+     
+    $('#btRemoveIn').click(function() { // Elimina un elemento por click
+        if (iCntInf != 0) {
+            iCntInf = iCntInf - 1;  
+            $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
+            $('#btAddIn').removeAttr('disabled');
+        }
+     
+        if (iCntInf == 0) { 
+
+            $('#btAddIn').removeAttr('disabled');
+     
+        }
+        $("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val(iCntInf);
+    });
+
+    //*************************************************************************************************************
 
 	$("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").width(250); 
 	$("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").select2();

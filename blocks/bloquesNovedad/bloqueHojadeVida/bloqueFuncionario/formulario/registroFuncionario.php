@@ -87,10 +87,12 @@ class Formulario {
         //Establecimiento Limite de Campos y Referencias Dinamicas **************************************************
         
         $cantidad_referencias = 5;
-        $cantidad_referencias_info = 1;
+        $cantidad_referencias_info = 10;
         $cantidad_idiomas = 1;
         $cantidad_experiencia = 1;
         $cantidad_referencias_per = 1;
+        
+        //Para cambiar revisar el archivo ajax.php para ajustar los limites de los campos y las funciones AJAX
         
         // ---------------- FIN: Lista Variables Control--------------------------------------------------------
 
@@ -2519,8 +2521,7 @@ class Formulario {
 	        
 //***************************************************************************************************************
 //***************************************************************************************************************
-	        
-	        //$cantidad_referencias = 3;//---------------------------------------------
+
 	        
 	        for($i = 0; $i < $cantidad_referencias; $i++){
 	        	
@@ -3099,19 +3100,17 @@ class Formulario {
 	         
 //**************************************************************************************************************
 //**************************************************************************************************************
-	         
-	         
-	        //$cantidad_referencias_info = 4;//---------------------------------------------
+
 	         
 	        for($i = 0; $i < $cantidad_referencias_info; $i++){
 	        
-	        	 
-	        	$esteCampo = "novedadesDatosCantidadEduacionInformal";
-	        	$atributos ['id'] = $esteCampo;
+	        	$esteCampo = "novedadesDatosCantidadEduacionInformal_";
+	        	$baseCampo = "novedadesDatosCantidadEduacionInformal";
+	        	$atributos ['id'] = $esteCampo.$i;
 	        	$atributos ["estilo"] = "jqueryui";
 	        	$atributos ['tipoEtiqueta'] = 'inicio';
 	        	$numero_estudio = $i+1;
-	        	$atributos ["leyenda"] = $this->lenguaje->getCadena ( $esteCampo ).$numero_estudio;
+	        	$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 	        	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 	        	{
 	        		
@@ -3287,6 +3286,16 @@ class Formulario {
 	        	echo $this->miFormulario->marcoAgrupacion ( 'fin' );
 	        	
 	        }
+	        unset($atributos);
+	        $atributos ["id"] = "mainInformal";
+	        $atributos ["estilo"] = "botonDinamico";
+	        echo $this->miFormulario->agrupacion ( "inicio", $atributos );
+	        {
+	        	echo "<input type=\"button\" id=\"btAddIn\" value=\"Agregar\" class=\"btn btn-success\"/> &nbsp;";
+	        	echo "<input type=\"button\" id=\"btRemoveIn\" value=\"Eliminar\" class=\"btn btn-danger\" /> &nbsp;";
+	        }
+	        echo $this->miFormulario->agrupacion ( "fin" );
+	        
 	        
 	        // ---------------- CONTROL: Cuadro Mensaje SubTitulo -----------------------------------------------
 	         
