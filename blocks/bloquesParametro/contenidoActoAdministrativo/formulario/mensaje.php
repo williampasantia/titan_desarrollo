@@ -110,10 +110,10 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Registro Cargo Satisfactorio <br> Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
-					"<br>Estado: <h4>" . $_REQUEST ['estadoRegistro'] . "</h4>".
+					$mensaje = "Registro Acto Administrativo Satisfactorio <br> Nit: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
+					"<br>Tipo Acto: <h4>" . $_REQUEST ['estadoRegistro'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Nuevo Cargo Registrado!";
+					$mensaje .= "<br> Nuevo Acto Administrativo Registrado!";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
@@ -133,10 +133,10 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Modificacion Cargo Satisfactorio <br> Nombre: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
-					"<br>Codigo Registro: <h4>" . $_REQUEST ['codigoRegistro'] . "</h4>".
+					$mensaje = "Modificacion Acto Administrativo Satisfactorio <br> Nit: <h4>" . $_REQUEST ['nombreRegistro'] . "</h4>".
+					"<br>Tipo Acto: <h4>" . $_REQUEST ['estadoRegistro'] . "</h4>".
 					"<br>Fecha Registro: " . date ( 'Y-m-d' );
-					$mensaje .= "<br> Modificado Cargo!";
+					$mensaje .= "<br> Modificado Acto Administrativo!";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;

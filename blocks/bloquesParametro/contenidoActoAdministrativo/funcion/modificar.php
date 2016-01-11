@@ -28,32 +28,41 @@ class FormProcessor {
         
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
-       
-        if(isset($_REQUEST['codTipoCargoRegistro'])){
-                    
-                }
-                
-                if(isset($_REQUEST['tipoSueldoRegistro'])){
-                    switch($_REQUEST ['tipoSueldoRegistro']){
+        if(isset($_REQUEST['tipoDocumento'])){
+                    switch($_REQUEST ['tipoDocumento']){
                            case 1 :
-					$_REQUEST ['tipoSueldoRegistro']='M';
+					$_REQUEST ['tipoDocumento']='Resolucion';
 			   break;
                        
                            case 2 :
-					$_REQUEST ['tipoSueldoRegistro']='H';
+					$_REQUEST ['tipoDocumento']='Decreto';
 			   break;
+                       
+                           case 3 :
+					$_REQUEST ['tipoDocumento']='Planilla';
+			   break;
+                    
+                    
                     }
                 }
-                
-                
+   
+       $fechaexp='NULL'; 
+          if($_REQUEST ['fechaExp'] != ''){
+              $fechaexp=$_REQUEST ['fechaExp'];
+          }
+          $fechaven='NULL'; 
+          if($_REQUEST ['fechaVen'] != ''){
+              $fechaven=$_REQUEST ['fechaVen'];
+          }
         
         $datos = array(
-            'codigoRegistro' => $_REQUEST ['codigoRegistro'],
-            'nivelRegistro' => $_REQUEST ['nivelRegistro'],
-            'gradoRegistro' => $_REQUEST ['gradoRegistro'],
-            'nombreRegistro' => $_REQUEST ['nombreRegistro'],
-            'sueldoRegistro' => $_REQUEST ['sueldoRegistro'],
-            'tipoSueldoRegistro' => $_REQUEST ['tipoSueldoRegistro']
+            'nit' => $_REQUEST ['nit'],
+            'tipo_acto' => $_REQUEST['tipoActo'],
+            'fecha' => $_REQUEST ['fecha'],
+            'tipoDocumento' => $_REQUEST ['tipoDocumento'],
+            'fechaExp' => $fechaexp,
+            'fechaVen' => $fechaven,
+            'justificacion' => $_REQUEST ['justificacion']
         );
 //       
         

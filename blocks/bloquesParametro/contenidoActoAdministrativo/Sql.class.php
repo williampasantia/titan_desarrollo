@@ -144,21 +144,23 @@ class Sql extends \Sql {
 
             case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.cargo ';
+                $cadenaSql .= 'parametro.acto_administrativo ';
                 $cadenaSql .= 'SET ';
-                $cadenaSql .= 'nivel = ';
-                $cadenaSql .= $variable ['nivelRegistro'] . ', ';
-                $cadenaSql .= 'grado = ';
-                $cadenaSql .= $variable ['gradoRegistro'] . ', ';
-                $cadenaSql .= 'nombre = ';
-                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
-                $cadenaSql .= 'sueldo = ';
-                $cadenaSql .= $variable ['sueldoRegistro'] . ', ';
-                $cadenaSql .= 'tipo_sueldo = ';
-                $cadenaSql .= '\'' . $variable['tipoSueldoRegistro'] . '\' ';
-                $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'codigo_cargo = ';
-                $cadenaSql .= '\'' . $variable ['codigoRegistro']  . '\'';
+                $cadenaSql .= 'id_tipo_acto = ';
+                $cadenaSql .= $variable ['tipo_acto'] . ', ';
+                $cadenaSql .= 'fecha = ';
+                $cadenaSql .= '\'' . $variable ['fecha']  . '\', ';
+                $cadenaSql .= 'tipo_documento = ';
+                $cadenaSql .= '\'' . $variable ['tipoDocumento']  . '\', ';
+                $cadenaSql .= 'fecha_efectividad = ';
+                $cadenaSql .= '\'' . $variable['fechaExp'] . '\', ';
+                $cadenaSql .= 'fecha_caducidad = ';
+                $cadenaSql .= '\'' . $variable['fechaVen'] . '\', ';
+                $cadenaSql .= 'justificacion = ';
+                $cadenaSql .= '\'' . $variable['justificacion'] . '\' ';
+                $cadenaSql .= ' WHERE ';
+                $cadenaSql .= 'nit = ';
+                $cadenaSql .= '\'' . $variable ['nit']  . '\'';
                 break;
                 
              case 'inactivarRegistro' :
