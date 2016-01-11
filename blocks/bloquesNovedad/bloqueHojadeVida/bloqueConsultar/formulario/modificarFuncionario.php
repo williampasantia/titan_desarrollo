@@ -80,6 +80,24 @@ class Formulario {
 		$tab = 1;
 		// ---------------- FIN SECCION: de Parámetros Generales del Formulario ----------------------------
 
+		// ---------------- INICIO: Lista Variables Control--------------------------------------------------------
+		
+		//Establecimiento Limite de Campos y Referencias Dinamicas **************************************************
+		//***********************************************************************************************************
+		//$cantidad_referencias = 8;
+		//$cantidad_referencias_info = 10;
+		//$cantidad_idiomas = 7;
+		//$cantidad_experiencia = 10;
+		//$cantidad_referencias_per = 20;
+		
+		//Para cambiar revisar el archivo ajax.php para ajustar los limites de los campos y las funciones AJAX
+		//***********************************************************************************************************
+		//***********************************************************************************************************
+		
+		// ---------------- FIN: Lista Variables Control--------------------------------------------------------
+		
+		
+		
 		// ----------------INICIAR EL FORMULARIO ------------------------------------------------------------
 		$atributos ['tipoEtiqueta'] = 'inicio';
 		echo $this->miFormulario->formulario ( $atributos );
@@ -1341,6 +1359,7 @@ class Formulario {
 					$atributos['nombre'] = $esteCampo;
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					$atributos['anchoEtiqueta'] = 300;
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
@@ -2092,7 +2111,8 @@ class Formulario {
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
 					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-					 
+					$atributos ['anchoEtiqueta'] = 280;
+					
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = 'custom[phone]';
@@ -2124,7 +2144,8 @@ class Formulario {
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
 					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-					 
+					$atributos ['anchoEtiqueta'] = 280;
+					
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = 'custom[email]';
@@ -2156,7 +2177,8 @@ class Formulario {
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
 					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-					 
+					$atributos ['anchoEtiqueta'] = 280;
+					
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = ' ';
@@ -2188,7 +2210,8 @@ class Formulario {
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
 					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-					 
+					$atributos ['anchoEtiqueta'] = 280;
+					
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = 'custom[onlyLetterSp]';
@@ -2863,6 +2886,7 @@ class Formulario {
 							$atributos['nombre'] = $esteCampo;
 							$atributos['id'] = $esteCampo;
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							$atributos['anchoEtiqueta'] = 300;
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
@@ -2932,7 +2956,8 @@ class Formulario {
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
 							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
-							 
+							$atributos['anchoEtiqueta'] = 300;
+							
 							$atributos ['obligatorio'] = true;
 							$atributos ['etiquetaObligatorio'] = true;
 							$atributos ['validar'] = 'required, custom[onlyNumberSp]';
@@ -2959,6 +2984,7 @@ class Formulario {
 							$atributos['nombre'] = $esteCampo;
 							$atributos['id'] = $esteCampo;
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							$atributos['anchoEtiqueta'] = 300;
 							$atributos['tab'] = $tab;
 						    $atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
@@ -3006,6 +3032,7 @@ class Formulario {
 							$atributos['nombre'] = $esteCampo;
 							$atributos['id'] = $esteCampo;
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							$atributos['anchoEtiqueta'] = 300;
 							$atributos['tab'] = $tab;
 							
 							$cadenaSql30 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizSuperior[$i][4]);
@@ -3048,6 +3075,7 @@ class Formulario {
 							$atributos['nombre'] = $esteCampo;
 							$atributos['id'] = $esteCampo;
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							$atributos['anchoEtiqueta'] = 300;
 							$atributos['tab'] = $tab;
 							
 							$cadenaSql30 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizSuperior[$i][4]);
@@ -3089,6 +3117,7 @@ class Formulario {
 							$atributos['nombre'] = $esteCampo;
 							$atributos['id'] = $esteCampo;
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
+							$atributos['anchoEtiqueta'] = 300;
 							$atributos['tab'] = $tab;
 							
 							$cadenaSql30 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizSuperior[$i][4]);
@@ -3136,7 +3165,8 @@ class Formulario {
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
 							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
-							 
+							$atributos['anchoEtiqueta'] = 300;
+							
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
 							$atributos ['validar'] = '';
@@ -3169,7 +3199,8 @@ class Formulario {
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
 							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
-							 
+							$atributos['anchoEtiqueta'] = 300;
+							
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
 							$atributos ['validar'] = 'custom[date]';
@@ -3202,7 +3233,8 @@ class Formulario {
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
 							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
-							 
+							$atributos['anchoEtiqueta'] = 300;
+							
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
 							$atributos ['validar'] = '';
@@ -3235,7 +3267,8 @@ class Formulario {
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
 							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
-							 
+							$atributos['anchoEtiqueta'] = 300;
+							
 							$atributos ['obligatorio'] = true;
 							$atributos ['etiquetaObligatorio'] = true;
 							$atributos ['validar'] = 'required, custom[onlyLetterSp]';
@@ -3247,7 +3280,7 @@ class Formulario {
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
-							$atributos ['tamanno'] = 20;
+							$atributos ['tamanno'] = 80;
 							$atributos ['maximoTamanno'] = '';
 							$tab ++;
 							 
@@ -3268,7 +3301,8 @@ class Formulario {
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
 							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
-							 
+							$atributos ['anchoEtiqueta'] = 300;
+							
 							$atributos ['obligatorio'] = true;
 							$atributos ['etiquetaObligatorio'] = true;
 							$atributos ['validar'] = 'required, custom[onlyLetterSp]';
@@ -3301,7 +3335,8 @@ class Formulario {
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
 							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
-							 
+							$atributos['anchoEtiqueta'] = 300;
+							
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
 							$atributos ['validar'] = 'custom[date]';
@@ -3334,7 +3369,8 @@ class Formulario {
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
 							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
-							 
+							$atributos['anchoEtiqueta'] = 300;
+							
 							$atributos ['obligatorio'] = true;
 							$atributos ['etiquetaObligatorio'] = true;
 							$atributos ['validar'] = 'required';
@@ -3367,7 +3403,8 @@ class Formulario {
 							$atributos ['dobleLinea'] = false;
 							$atributos ['tabIndex'] = $tab;
 							$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
-							 
+							$atributos['anchoEtiqueta'] = 300;
+							
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
 							$atributos ['validar'] = 'custom[date]';
@@ -4104,7 +4141,8 @@ class Formulario {
 					$atributos ['filas'] = 3;
 					$atributos ['tabIndex'] = $tab;
 					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-					 
+					$atributos ['anchoEtiqueta'] = 300;
+					
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = '';
@@ -4133,7 +4171,8 @@ class Formulario {
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
 					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-			
+					$atributos ['anchoEtiqueta'] = 300;
+					
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = 'custom[onlyLetterSp]';
@@ -4165,7 +4204,8 @@ class Formulario {
 					$atributos ['dobleLinea'] = false;
 					$atributos ['tabIndex'] = $tab;
 					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-					 
+					$atributos ['anchoEtiqueta'] = 300;
+					
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = 'custom[onlyLetterSp]';
@@ -4196,7 +4236,8 @@ class Formulario {
 					$atributos ['filas'] = 3;
 					$atributos ['tabIndex'] = $tab;
 					$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-			
+					$atributos ['anchoEtiqueta'] = 300;
+					
 					$atributos ['obligatorio'] = false;
 					$atributos ['etiquetaObligatorio'] = false;
 					$atributos ['validar'] = '';
