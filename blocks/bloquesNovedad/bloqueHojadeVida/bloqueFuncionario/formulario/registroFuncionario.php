@@ -88,7 +88,7 @@ class Formulario {
         
         $cantidad_referencias = 5;
         $cantidad_referencias_info = 10;
-        $cantidad_idiomas = 1;
+        $cantidad_idiomas = 7;
         $cantidad_experiencia = 1;
         $cantidad_referencias_per = 1;
         
