@@ -27,8 +27,6 @@ class FormProcessor {
         
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
-       
-        //var_dump($_REQUEST);exit;
         
         /*Datos de PERSONA NATURAL ------------------------------------------------------------------------*/
         /*
@@ -56,6 +54,71 @@ class FormProcessor {
         		'segundoApellido' => $_REQUEST['funcionarioSegundoApellido'],
         		'otrosNombres' => $_REQUEST['funcionarioOtrosNombres'],
         );
+        
+        
+        //Validación Campos Dinamicos
+        
+        $cantidadFormacionSuperiorC = $_REQUEST['funcionarioRegistrosSuperior'];
+        $cantidadFormacionInformalC = $_REQUEST['funcionarioRegistrosInformal'];
+        $cantidadIdiomasC = $_REQUEST['funcionarioRegistrosIdioma'];
+        $cantidadExperienciaC = $_REQUEST['funcionarioRegistrosExperiencia'];
+        $cantidadReferenciasPerC = $_REQUEST['funcionarioRegistrosReferencia'];
+        
+        $cont = 0;
+        
+        while($cont < $cantidadFormacionSuperiorC){
+        	 
+        	if(	$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$cont] == -1 ||
+        		$_REQUEST ['funcionarioFormacionSuperiorSemestres_'.$cont] == NULL  ||
+        	    $_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$cont] == -1  ||
+        		$_REQUEST ['funcionarioFormacionSuperiorPais_'.$cont] == -1  ||
+       			$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$cont] == -1  ||
+       			$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$cont] == -1  ||
+       			$_REQUEST ['funcionarioFormacionSuperiorUniversidad_'.$cont] == NULL  ||
+       			$_REQUEST ['funcionarioFormacionSuperiorTituloObtenido_'.$cont] == NULL  ||
+       			$_REQUEST ['funcionarioFormacionSuperiorNumeroTarjeta_'.$cont] == NULL ){
+        		Redireccionador::redireccionar('noInsertoVal', $datosPersonaNatural);
+        		exit();
+        	}
+        	$cont++;
+        	 
+        }
+        
+        $cont = 0;
+        
+        while($cont < $cantidadIdiomasC){
+        
+        	if(	$_REQUEST ['funcionarioFormacionIdioma_'.$cont] == -1 ||
+        		$_REQUEST ['funcionarioFormacionIdiomaUniversidad_'.$cont] == NULL  ||
+        		$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$cont] == -1 ){
+        		Redireccionador::redireccionar('noInsertoVal', $datosPersonaNatural);
+        		exit();
+        	}
+        	$cont++;
+        
+        }
+        
+        $cont = 0;
+        
+        while($cont < $cantidadExperienciaC){
+        
+        	if(	$_REQUEST ['funcionarioExperienciaEmpresa_'.$cont] == NULL ||
+        		$_REQUEST ['funcionarioExperienciaTipo_'.$cont] == -1 ||
+        		$_REQUEST ['funcionarioExperienciaPais_'.$cont] == -1 ||
+        		$_REQUEST ['funcionarioExperienciaDepartamento_'.$cont] == -1 ||
+        		$_REQUEST ['funcionarioExperienciaCiudad_'.$cont] == -1 ||
+        		$_REQUEST ['funcionarioExperienciaEmpresaCorreo_'.$cont] == NULL ||
+        		$_REQUEST ['funcionarioExperienciaEmpresaTelefono_'.$cont] == NULL ||
+       			$_REQUEST ['funcionarioFechaEntradaExperiencia_'.$cont] == NULL ||
+       			$_REQUEST ['funcionarioFechaSalidaExperiencia_'.$cont] == NULL ||
+       			$_REQUEST ['funcionarioExperienciaEmpresaCargo_'.$cont] == NULL ){
+       			Redireccionador::redireccionar('noInsertoVal', $datosPersonaNatural);
+  				exit();
+        	}
+        	$cont++;
+        
+        }
+        
         /*-------------------------------------------------------------------------------------------------*/
         
         $datosUbicacionExpedicion = array(
@@ -798,7 +861,7 @@ class FormProcessor {
         	//var_dump("ENTRO NO INSERTAR");exit;
         	//$this->miConfigurador->setVariableConfiguracion("cache", true);
         	Redireccionador::redireccionar('noInserto', $datosPersonaNatural);
-        	var_dump("TEXTO NO INS");exit;
+        	//var_dump("TEXTO NO INS");exit;
         	exit();
         }
         

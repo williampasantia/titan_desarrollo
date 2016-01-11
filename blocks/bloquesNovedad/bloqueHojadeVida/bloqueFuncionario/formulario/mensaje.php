@@ -151,6 +151,29 @@ class registrarForm {
 					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 				}
 				
+				if ($_REQUEST ['mensaje'] == 'noInsertoVal') {
+						
+					$mensaje = "No Se Pudo Hacer Registro Funcionario <br> Nombres: " . $_REQUEST ['primerNombre'] . " ".$_REQUEST ['segundoNombre'].
+					"<br>Apellidos:" . $_REQUEST ['primerApellido'] . " ".$_REQUEST ['segundoApellido'].
+					"<br>Fecha Registro:" . date ( 'Y-m-d' ).
+					"<br>".
+					"<br>El Registro No se Pudo Completar Debido a que no se Completo algun Campo Requerido en los Campos Dinamicos";
+						
+					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+					$esteCampo = 'mensajeRegistro';
+					$atributos ['id'] = $esteCampo;
+					$atributos ['tipo'] = 'error';
+					$atributos ['estilo'] = 'textoCentrar';
+					$atributos ['mensaje'] = $mensaje;
+						
+					$tab ++;
+						
+					// Aplica atributos globales al control
+					$atributos = array_merge ( $atributos, $atributosGlobales );
+					echo $this->miFormulario->cuadroMensaje ( $atributos );
+					// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+				}
+				
 				
 			}
 			

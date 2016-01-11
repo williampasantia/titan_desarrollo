@@ -4643,7 +4643,7 @@ class Formulario {
 	    if (isset ( $_REQUEST [$esteCampo] )) {
 	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	    } else {
-	    	$atributos ['valor'] = $cantidad_referencias;
+	    	$atributos ['valor'] = 0;
 	    }
 	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
 	    $atributos ['deshabilitado'] = false;
@@ -4675,7 +4675,7 @@ class Formulario {
 	    if (isset ( $_REQUEST [$esteCampo] )) {
 	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	    } else {
-	    	$atributos ['valor'] = $cantidad_referencias_info;
+	    	$atributos ['valor'] = 0;
 	    }
 	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
 	    $atributos ['deshabilitado'] = false;
@@ -4707,7 +4707,7 @@ class Formulario {
 	    if (isset ( $_REQUEST [$esteCampo] )) {
 	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	    } else {
-	    	$atributos ['valor'] = $cantidad_idiomas;
+	    	$atributos ['valor'] = 0;
 	    }
 	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
 	    $atributos ['deshabilitado'] = false;
@@ -4739,7 +4739,7 @@ class Formulario {
 	    if (isset ( $_REQUEST [$esteCampo] )) {
 	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	    } else {
-	    	$atributos ['valor'] = $cantidad_experiencia;
+	    	$atributos ['valor'] = 0;
 	    }
 	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
 	    $atributos ['deshabilitado'] = false;
@@ -4772,7 +4772,7 @@ class Formulario {
 	    if (isset ( $_REQUEST [$esteCampo] )) {
 	    	$atributos ['valor'] = $_REQUEST [$esteCampo];
 	    } else {
-	    	$atributos ['valor'] = $cantidad_referencias_per;
+	    	$atributos ['valor'] = 0;
 	    }
 	    $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
 	    $atributos ['deshabilitado'] = false;

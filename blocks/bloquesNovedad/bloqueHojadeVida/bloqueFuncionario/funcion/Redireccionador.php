@@ -38,6 +38,17 @@ class Redireccionador {
 	    		$variable .= "&segundoApellido=" . $valor ['segundoApellido'];
 	    
 	    		break;
+	    		
+			case "noInsertoVal" :
+				$variable = "pagina=" . $miPaginaActual;
+				$variable .= "&opcion=mensaje";
+				$variable .= "&mensaje=noInsertoVal";
+				$variable .= "&primerNombre=" . $valor ['primerNombre'];
+				$variable .= "&segundoNombre=" . $valor ['segundoNombre'];
+				$variable .= "&primerApellido=" . $valor ['primerApellido'];
+				$variable .= "&segundoApellido=" . $valor ['segundoApellido'];
+				
+				break;
 	    			
 	    	case "regresar" :
 	    		$variable = "pagina=" . $miPaginaActual;
