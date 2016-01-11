@@ -498,16 +498,16 @@ $(document).ready(function(){
 	});
 
 	//*****************************EDUCACION SUPERIOR**********************************************
-
-    var iCntSup = 0;
+	var stopSup = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosSuperior') ?>").val());
+    var iCntSup = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosSuperior') ?>").val());
     var LimiteSuperior = 8;//Tener Presente
 
     while(iCntSup < LimiteSuperior){
-        //$("#novedadesDatosCantidadEduacionSuperior_"+iCntSup).hide("fast");
+        $("#novedadesDatosCantidadEduacionSuperior_"+iCntSup).hide("fast");
         iCntSup = iCntSup + 1;
     }
 
-    iCntSup = 0;
+    iCntSup = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosSuperior') ?>").val());
      
     $('#btAdd').click(function() {
 
@@ -525,13 +525,13 @@ $(document).ready(function(){
     });
      
     $('#btRemove').click(function() { // Elimina un elemento por click
-        if (iCntSup != 0) {
+        if (iCntSup != stopSup) {
             iCntSup = iCntSup - 1;  
             $("#novedadesDatosCantidadEduacionSuperior_"+iCntSup).hide("fast");
             $('#btAdd').removeAttr('disabled');
         }
      
-        if (iCntSup == 0) { 
+        if (iCntSup == stopSup) { 
 
             $('#btAdd').removeAttr('disabled');
      
