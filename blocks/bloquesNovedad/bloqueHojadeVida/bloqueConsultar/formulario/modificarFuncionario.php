@@ -3551,7 +3551,7 @@ class Formulario {
 			
 					//$cantidad_referencias_info = 4;//---------------------------------------------
 			
-					for($i = 0; $i < $cantidad_referencias_info; $i++){
+					for($i = 0; $i < $cantidad_referencias_infoLimite; $i++){
 						 
 						 
 						$esteCampo = "novedadesDatosCantidadEduacionInformal_";
@@ -3790,7 +3790,7 @@ class Formulario {
 					 
 					//$cantidad_idiomas = 3;//---------------------------------------------
 					 
-					for($i = 0; $i < $cantidad_idiomas; $i++){
+					for($i = 0; $i < $cantidad_idiomasLimite; $i++){
 						 
 						 
 						$esteCampo = "novedadesDatosCantidadEduacionIdiomas_";
@@ -4442,7 +4442,7 @@ class Formulario {
 					 
 					//$cantidad_experiencia = 3;//---------------------------------------------
 					 
-					for($i = 0; $i < $cantidad_experiencia; $i++){
+					for($i = 0; $i < $cantidad_experienciaLimite; $i++){
 			
 			
 						$esteCampo = "novedadesDatosCantidadExperiencia_";
@@ -4487,8 +4487,10 @@ class Formulario {
 				    
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][1] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][1];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4520,8 +4522,10 @@ class Formulario {
 				    
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][2] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][2];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4589,12 +4593,17 @@ class Formulario {
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 							$atributos['tab'] = $tab;
 							
-							$cadenaSql30 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizExperiencia[$i][4]);
-							$matrizUbicacionExpe = $primerRecursoDB->ejecutarAcceso($cadenaSql30, "busqueda");
-							$cadenaSql = $this->miSql->getCadenaSql ( "consultarPais", $matrizUbicacionExpe[0][0] );
-							$matrizSelect = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda" );
-												
-							$atributos['seleccion'] = $matrizSelect[0][0];
+							if (isset ( $matrizExperiencia[$i][4] )){
+								$cadenaSql30 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizExperiencia[$i][4]);
+								$matrizUbicacionExpe = $primerRecursoDB->ejecutarAcceso($cadenaSql30, "busqueda");
+								$cadenaSql = $this->miSql->getCadenaSql ( "consultarPais", $matrizUbicacionExpe[0][0] );
+								$matrizSelect = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda" );
+									
+								$atributos['seleccion'] = $matrizSelect[0][0];
+							} else{
+								$atributos['seleccion'] = -1;
+							}
+
 							$atributos['evento'] = ' ';
 							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
@@ -4630,14 +4639,26 @@ class Formulario {
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 							$atributos['tab'] = $tab;
 							
-							$cadenaSql30 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizExperiencia[$i][4]);
-							$matrizUbicacionExpe = $primerRecursoDB->ejecutarAcceso($cadenaSql30, "busqueda");
-							$cadenaSql = $this->miSql->getCadenaSql ( "consultarDepartamento", $matrizUbicacionExpe[0][1] );
-							$matrizSelect = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda" );
+							if (isset ( $matrizExperiencia[$i][4] )){
+								$cadenaSql30 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizExperiencia[$i][4]);
+								$matrizUbicacionExpe = $primerRecursoDB->ejecutarAcceso($cadenaSql30, "busqueda");
+								$cadenaSql = $this->miSql->getCadenaSql ( "consultarDepartamento", $matrizUbicacionExpe[0][1] );
+								$matrizSelect = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda" );
+									
+								$atributos['seleccion'] = $matrizSelect[0][0];
+								$atributos['deshabilitado'] = false;
 							
-							$atributos['seleccion'] = $matrizSelect[0][0];
+								$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamentoAjax", $matrizUbicacionExpe[0][0]);
+								$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+							} else{
+								$atributos['seleccion'] = -1;
+								$atributos['deshabilitado'] = true;
+							
+								$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
+								$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+							}
+							
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -4645,9 +4666,6 @@ class Formulario {
 							$atributos ['obligatorio'] = true;
 							$atributos ['etiquetaObligatorio'] = true;
 							$atributos ['validar'] = 'required';
-				    
-							$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamentoAjax", $matrizUbicacionExpe[0][0]);
-							$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 							
 							$atributos['matrizItems'] = $matrizItems;
 				    
@@ -4671,14 +4689,26 @@ class Formulario {
 							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $baseCampo );
 							$atributos['tab'] = $tab;
 							
-							$cadenaSql30 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizExperiencia[$i][4]);
-							$matrizUbicacionExpe = $primerRecursoDB->ejecutarAcceso($cadenaSql30, "busqueda");
-							$cadenaSql = $this->miSql->getCadenaSql ( "consultarCiudad", $matrizUbicacionExpe[0][2] );
-							$matrizSelect = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda" );
-							
-							$atributos['seleccion'] = $matrizSelect[0][0];
+							if (isset ( $matrizExperiencia[$i][4] )){
+								$cadenaSql30 = $this->miSql->getCadenaSql("consultarUbicacion", $matrizExperiencia[$i][4]);
+								$matrizUbicacionExpe = $primerRecursoDB->ejecutarAcceso($cadenaSql30, "busqueda");
+								$cadenaSql = $this->miSql->getCadenaSql ( "consultarCiudad", $matrizUbicacionExpe[0][2] );
+								$matrizSelect = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda" );
+									
+								$atributos['seleccion'] = $matrizSelect[0][0];
+								$atributos['deshabilitado'] = false;
+									
+								$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudadAjax", $matrizUbicacionExpe[0][1]);
+								$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+							} else{
+								$atributos['seleccion'] = -1;
+								$atributos['deshabilitado'] = true;
+									
+								$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+								$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+							}
+						
 							$atributos['evento'] = ' ';
-							$atributos['deshabilitado'] = false;
 							$atributos['limitar']= 50;
 							$atributos['tamanno']= 1;
 							$atributos['columnas']= 1;
@@ -4686,9 +4716,7 @@ class Formulario {
 							$atributos ['obligatorio'] = true;
 							$atributos ['etiquetaObligatorio'] = true;
 							$atributos ['validar'] = 'required';
-				    		
-							$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudadAjax", $matrizUbicacionExpe[0][1]);
-							$matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+
 							
 							$atributos['matrizItems'] = $matrizItems;
 				    
@@ -4723,8 +4751,10 @@ class Formulario {
 				    
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][5] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][5];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4756,8 +4786,10 @@ class Formulario {
 				    
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][6] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][6];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4789,8 +4821,10 @@ class Formulario {
 			
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][7] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][7];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4822,8 +4856,10 @@ class Formulario {
 			
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][8] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][8];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4855,8 +4891,10 @@ class Formulario {
 				    
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][9] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][9];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4888,8 +4926,10 @@ class Formulario {
 				    
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][10] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][10];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4921,8 +4961,10 @@ class Formulario {
 				    
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][11] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][11];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4955,8 +4997,10 @@ class Formulario {
 			
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizExperiencia[$i][12] )){
 								$atributos ['valor'] = $matrizExperiencia[$i][12];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
