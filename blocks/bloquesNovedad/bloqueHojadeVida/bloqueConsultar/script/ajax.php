@@ -506,6 +506,7 @@ $(document).ready(function(){
         $("#novedadesDatosCantidadEduacionSuperior_"+iCntSup).hide("fast");
         iCntSup = iCntSup + 1;
     }
+    $('#btRemove').attr('disabled', 'disabled');
 
     iCntSup = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosSuperior') ?>").val());
      
@@ -520,7 +521,7 @@ $(document).ready(function(){
         else {
             $('#btAdd').attr('disabled', 'disabled');
         }
-
+        $('#btRemove').removeAttr('disabled');
         $("#<?php echo $this->campoSeguro('funcionarioRegistrosSuperior') ?>").val(iCntSup);
     });
      

@@ -2879,8 +2879,19 @@ class Formulario {
 						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
-			
-			
+							if($i < $cantidad_referencias){
+								unset($atributos);
+								$atributos ["id"] = "botonDatos";
+								$atributos ["estilo"] = "botonDatos";
+								echo $this->miFormulario->division ( "inicio", $atributos );
+								{
+									echo "<button id=\"btDelete_".$i."\" ALIGN=RIGHT>
+											<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueConsultar/css/images/deleteReg.png\" width=\"40\" height=\"40\">
+	        		  					 </button>";
+								}
+								echo $this->miFormulario->division ( "fin" );
+							}
+
 							// ---------------- CONTROL: Select --------------------------------------------------------
 							$esteCampo = 'funcionarioFormacionSuperiorModalidad_'.$i;
 							$baseCampo = 'funcionarioFormacionSuperiorModalidad';
@@ -3552,6 +3563,19 @@ class Formulario {
 						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
+							
+							if($i < $cantidad_referencias_info){
+								unset($atributos);
+								$atributos ["id"] = "botonDatos";
+								$atributos ["estilo"] = "botonDatos";
+								echo $this->miFormulario->division ( "inicio", $atributos );
+								{
+									echo "<button id=\"btDeleteInf_".$i."\" ALIGN=RIGHT>
+											<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueConsultar/css/images/deleteReg.png\" width=\"40\" height=\"40\">
+	        		  					 </button>";
+								}
+								echo $this->miFormulario->division ( "fin" );
+							}
 							 
 							// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 							$esteCampo = 'funcionarioFormacionInformalCurso_'.$i;
@@ -3769,6 +3793,19 @@ class Formulario {
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
 							 
+							if($i < $cantidad_idiomas){
+								unset($atributos);
+								$atributos ["id"] = "botonDatos";
+								$atributos ["estilo"] = "botonDatos";
+								echo $this->miFormulario->division ( "inicio", $atributos );
+								{
+									echo "<button id=\"btDeleteIdi_".$i."\" ALIGN=RIGHT>
+											<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueConsultar/css/images/deleteReg.png\" width=\"40\" height=\"40\">
+	        		  					 </button>";
+								}
+								echo $this->miFormulario->division ( "fin" );
+							}
+							
 							// ---------------- CONTROL: Select --------------------------------------------------------
 							$esteCampo = 'funcionarioFormacionIdioma_'.$i;
 							$baseCampo = 'funcionarioFormacionIdioma';
@@ -4401,6 +4438,19 @@ class Formulario {
 						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
+							
+							if($i < $cantidad_experiencia){
+								unset($atributos);
+								$atributos ["id"] = "botonDatos";
+								$atributos ["estilo"] = "botonDatos";
+								echo $this->miFormulario->division ( "inicio", $atributos );
+								{
+									echo "<button id=\"btDeleteExp_".$i."\" ALIGN=RIGHT>
+											<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueConsultar/css/images/deleteReg.png\" width=\"40\" height=\"40\">
+	        		  					 </button>";
+								}
+								echo $this->miFormulario->division ( "fin" );
+							}
 				    
 							// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 							$esteCampo = 'funcionarioExperienciaEmpresa_'.$i;
@@ -4947,6 +4997,19 @@ class Formulario {
 						$atributos ["leyenda"] = $this->lenguaje->getCadena ( $baseCampo ).$numero_estudio;
 						echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 						{
+							
+							if($i < $cantidad_referencias_per){
+								unset($atributos);
+								$atributos ["id"] = "botonDatos";
+								$atributos ["estilo"] = "botonDatos";
+								echo $this->miFormulario->division ( "inicio", $atributos );
+								{
+									echo "<button id=\"btDeleteRef_".$i."\" ALIGN=RIGHT>
+											<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueConsultar/css/images/deleteReg.png\" width=\"40\" height=\"40\">
+	        		  					 </button>";
+								}
+								echo $this->miFormulario->division ( "fin" );
+							}
 			
 							// ---------------- CONTROL: Select --------------------------------------------------------
 							$esteCampo = 'funcionarioReferenciaTipo_'.$i;
