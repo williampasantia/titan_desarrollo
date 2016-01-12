@@ -80,11 +80,11 @@ class Formulario {
         
         
         
-       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarArl");
+       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarParametroLiquidacion1");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
         
-        if($matrizItems[$_REQUEST['variable']][5]=='Inactivo'){
+        if($matrizItems[$_REQUEST['variable']][2]=='Inactivo'){
             $opcion='Activo';
         }
         else{
@@ -95,7 +95,7 @@ class Formulario {
        
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         
-        $esteCampo = 'nit';
+        $esteCampo = 'id';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -118,6 +118,30 @@ class Formulario {
         echo $this->miFormulario->campoCuadroTexto ( $atributos );
         unset($atributos);
          // ---------------- CONTROL: Select --------------------------------------------------------
+           $esteCampo = 'nombre';
+        $atributos ['id'] = $esteCampo;
+        $atributos ['nombre'] = $esteCampo;
+        $atributos ['tipo'] = 'text';
+        $atributos ['estilo'] = 'jqueryui';
+        $atributos ['columnas'] = 1;
+        $atributos ['marco'] = true;
+        $atributos ['dobleLinea'] = false;
+        $atributos ['tabIndex'] = $tab;
+        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][1];       
+        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+        $atributos ['deshabilitado'] = true;
+        $atributos ['tamanno'] = 20;
+        $atributos ['maximoTamanno'] = '';
+        
+        $tab ++;
+        
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        unset($atributos);
+         // ---------------- CONTROL: Select --------------------------------------------------------
+        
         $esteCampo = 'estado';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
@@ -128,7 +152,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][5];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][2];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;

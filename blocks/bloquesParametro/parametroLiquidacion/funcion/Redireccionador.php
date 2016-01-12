@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl\funcion;
+namespace bloquesParametro\parametroLiquidacion\funcion;
                         
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("index.php");

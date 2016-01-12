@@ -24,6 +24,8 @@ $this->idioma["valor"]="Valor: " ;
 $this->idioma["valorTitulo"]="" ;
 $this->idioma["ley"]="Ley: " ;
 $this->idioma["leyTitulo"]="" ;
+$this->idioma["ley1"]="Ley: " ;
+$this->idioma["ley1Titulo"]="" ;
 $this->idioma["nombre"]="Nombre: ";
 
 $this->idioma["nombreTitulo"]="";

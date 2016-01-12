@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl\funcion;
+namespace bloquesParametro\parametroLiquidacion\funcion;
 
 
 include_once('Redireccionador.php');

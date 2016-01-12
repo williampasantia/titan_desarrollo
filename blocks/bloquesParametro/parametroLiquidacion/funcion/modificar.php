@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl\funcion;
+namespace bloquesParametro\parametroLiquidacion\funcion;
     
 include_once('Redireccionador.php');
 class FormProcessor {
@@ -23,55 +23,31 @@ class FormProcessor {
     function procesarFormulario() {    
         //Aquí va la lógica de procesamiento
         
-        $conexion = 'estructura';
+        
+       $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
-       if($_REQUEST ['fdpDepartamento']){
-          $datosubicacion = array(
-            'fdpDepartamento' => $_REQUEST ['fdpDepartamento'],
-            'fdpCiudad' => $_REQUEST ['ciudad']
-     );
-       
-     
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
-   
+        
+          if($_REQUEST ['ley']){
               
-        $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-    
-          if(!empty($ubicacion)){
-              $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarUbicacion",$datosubicacion);
-              $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "insertar");
-           
-              $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
-              
-              $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
               $datos = array(
-            'nit' => $_REQUEST ['nit'],
+            'id' => $_REQUEST ['id'],
             'nombre' => $_REQUEST ['nombre'],
-            'direccion' => $_REQUEST ['direccion'],
-            'telefono' => $_REQUEST ['telefono'],
-            'extencionTelefono' => $_REQUEST ['extencionTelefono'],
-            'fax' => $_REQUEST ['fax'],
-            'extencionFax' => $_REQUEST ['extencionFax'],
-            'lugar' => $ubicacion[0][0],
-            'nombreRepresentante' => $_REQUEST ['nombreRepresentante'],
-            'email' => $_REQUEST ['email']
+            'descripcion' => $_REQUEST ['descripcion'],
+            'ley' => $_REQUEST ['ley'],
+            'valor' => $_REQUEST ['valor'],
+            
             
         );
-          }   
+             
           
        }else 
        {
         $datos = array(
-            'nit' => $_REQUEST ['nit'],
+            'id' => $_REQUEST ['id'],
             'nombre' => $_REQUEST ['nombre'],
-            'direccion' => $_REQUEST ['direccion'],
-            'telefono' => $_REQUEST ['telefono'],
-            'extencionTelefono' => $_REQUEST ['extencionTelefono'],
-            'fax' => $_REQUEST ['fax'],
-            'extencionFax' => $_REQUEST ['extencionFax'],
-           'lugar' => "",
-            'nombreRepresentante' => $_REQUEST ['nombreRepresentante'],
-            'email' => $_REQUEST ['email']
+            'descripcion' => $_REQUEST ['descripcion'],
+              'ley' => '',
+            'valor' => $_REQUEST ['valor'],
             
         );
 //       
@@ -81,8 +57,7 @@ class FormProcessor {
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
        
                 
-    
-        
+  
         
         
         $resultado=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");

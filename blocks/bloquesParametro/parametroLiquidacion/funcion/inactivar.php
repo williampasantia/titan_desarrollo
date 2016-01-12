@@ -1,5 +1,5 @@
 <?php
-namespace bloquesParametro\parametroArl\funcion;
+namespace bloquesParametro\parametroLiquidacion\funcion;
 include_once('Redireccionador.php');
 class FormProcessor {
     
@@ -35,7 +35,7 @@ class FormProcessor {
         
             
             $datos = array(
-            'codigoRegistro' => $_REQUEST ['nit'],
+            'codigoRegistro' => $_REQUEST ['id'],
             'estadoRegistro' => $opcion       
         );
 //       
@@ -43,13 +43,13 @@ class FormProcessor {
         
         
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
-                
+               
         
                   Redireccionador::redireccionar('form');      
         
        }
                 
-      if($_REQUEST['cancelarInactivar'] =='true'){
+      if(isset($_REQUEST['cancelarInactivar'])&&$_REQUEST['cancelarInactivar'] =='true'){
                     
                      Redireccionador::redireccionar('form'); 
                 }

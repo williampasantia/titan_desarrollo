@@ -52,6 +52,51 @@ class Sql extends \Sql {
               
                 
                 break;
+            case 'buscarParametroLiquidacion2':
+                $cadenaSql = 'SELECT ';
+                 $cadenaSql .= 'b.id as ID, ';
+                $cadenaSql .= 'b.nombre as NOMBRE, ';
+                $cadenaSql .= 'simbolo as SIMBOLO, ';
+                 $cadenaSql .= 'descripcion as DESCRIPCION   , ';
+                $cadenaSql .= 'a.nombre as LEY, ';
+                $cadenaSql .= 'valor as VALOR, ';
+                $cadenaSql .= 'b.estado as ESTADO ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.liquidacion b, ';
+                $cadenaSql .= 'parametro.ley_decreto_norma a ';
+               
+                
+                break;
+            case 'buscarParametroLiquidacion3':
+                $cadenaSql = 'SELECT ';
+                 $cadenaSql .= 'b.id as ID, ';
+                $cadenaSql .= 'b.nombre as NOMBRE, ';
+                $cadenaSql .= 'simbolo as SIMBOLO, ';
+                 $cadenaSql .= 'descripcion as DESCRIPCION   , ';
+                $cadenaSql .= 'a.nombre as LEY, ';
+                $cadenaSql .= 'valor as VALOR, ';
+                $cadenaSql .= 'b.estado as ESTADO ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.liquidacion b, ';
+                $cadenaSql .= 'parametro.ley_decreto_norma a ';
+                $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'b.id = ';
+                $cadenaSql .= $variable ['id'].";";
+                
+                break;
+             case 'buscarParametroLiquidacion1':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'id as ID, ';
+                $cadenaSql .= 'b.nombre as NOMBRE, ';
+                
+                
+                $cadenaSql .= 'b.estado as ESTADO ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.liquidacion b ';
+                
+              
+                
+                break;
          case 'buscarArl1':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'nit as NIT, ';
@@ -71,54 +116,37 @@ class Sql extends \Sql {
             
               case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.arl ';
+                $cadenaSql .= 'parametro.liquidacion ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'nombre = ';
                 $cadenaSql .= "'".$variable ['nombre'] . "',";
-                $cadenaSql .= 'direccion = ';
-                $cadenaSql .= "'".$variable ['direccion']  . "',";
-                $cadenaSql .= 'telefono = ';
-                $cadenaSql .= $variable ['telefono']  . ', ';
-                if($variable ['extencionTelefono']!='')
+                $cadenaSql .= 'descripcion = ';
+                $cadenaSql .= "'".$variable ['descripcion']  . "', ";
+               
+                if($variable ['ley']!='')
                 {
-                 $cadenaSql .= 'extencion_telefono= '; 
-                 $cadenaSql .= $variable ['extencionTelefono'] . ', ';   
+                 $cadenaSql .= 'ley= '; 
+                 $cadenaSql .= "'".$variable ['ley'] . "',";   
                  
                 }
-                 if($variable ['fax']!='')
-                {
-                   $cadenaSql .= 'fax= '; 
-                   $cadenaSql .= $variable ['fax'] . ', ';
-                }
-                 if($variable ['extencionFax']!='')
-                {
-                   $cadenaSql .= 'extencion_fax=';
-                   $cadenaSql .= $variable ['extencionFax'] . ', ';
-                }
+                
                
-                if($variable ['lugar']!='')
-                {
-                     $cadenaSql .= 'lugar = ';
-                     $cadenaSql .= $variable ['lugar']  . ",";
-                }
+                $cadenaSql .= 'valor = ';
+                $cadenaSql .= $variable ['valor']  ;
                
-                $cadenaSql .= 'nombre_representante_legal = ';
-                $cadenaSql .= "'".$variable ['nombreRepresentante']  . "',";
-                $cadenaSql .= 'email = ';
-                $cadenaSql .= "'".$variable ['email']."'";
                 $cadenaSql .= ' WHERE ';
-                $cadenaSql .= 'nit = ';
-                $cadenaSql .= $variable ['nit']  .';';
+                $cadenaSql .= 'id = ';
+                $cadenaSql .= $variable ['id']  .';';
                 break;
                 
             case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.arl ';
+                $cadenaSql .= 'parametro.liquidacion ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'estado = ';
                 $cadenaSql .= "'". $variable ['estadoRegistro']  ."' ";
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'nit = ';
+                $cadenaSql .= 'id = ';
                 $cadenaSql .= $variable ['codigoRegistro'].";";
                 break;
         
