@@ -630,16 +630,17 @@ $(document).ready(function(){
 
     
   	//*****************************EDUCACION INFORMAL**********************************************
-
-    var iCntInf = 0;
+	var stopInf = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val());
+    var iCntInf = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val());
     var LimiteInformal = 10;//Tener Presente
 
     while(iCntInf < LimiteInformal){
-        //$("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
+        $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
         iCntInf = iCntInf + 1;
     }
+    $('#btRemoveIn').attr('disabled', 'disabled');
 
-    iCntInf = 0;
+    iCntInf = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val());
      
     $('#btAddIn').click(function() {
 
@@ -652,18 +653,18 @@ $(document).ready(function(){
         else {
             $('#btAddIn').attr('disabled', 'disabled');
         }
-
+        $('#btRemoveIn').removeAttr('disabled');
         $("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val(iCntInf);
     });
      
     $('#btRemoveIn').click(function() { // Elimina un elemento por click
-        if (iCntInf != 0) {
+        if (iCntInf != stopInf) {
             iCntInf = iCntInf - 1;  
             $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
             $('#btAddIn').removeAttr('disabled');
         }
      
-        if (iCntInf == 0) { 
+        if (iCntInf == stopInf) { 
 
             $('#btAddIn').removeAttr('disabled');
      
@@ -675,16 +676,17 @@ $(document).ready(function(){
 	
 	
   	//*****************************EDUCACION IDIOMAS**********************************************
-
-    var iCntIdi = 0;
+	var stopIdi = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosIdioma') ?>").val());
+    var iCntIdi = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosIdioma') ?>").val());
     var LimiteIdioma = 7;//Tener Presente
 
     while(iCntIdi < LimiteIdioma){
-        //$("#novedadesDatosCantidadEduacionIdiomas_"+iCntIdi).hide("fast");
+        $("#novedadesDatosCantidadEduacionIdiomas_"+iCntIdi).hide("fast");
         iCntIdi = iCntIdi + 1;
     }
+    $('#btRemoveId').attr('disabled', 'disabled');
 
-    iCntIdi = 0;
+    iCntIdi = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosIdioma') ?>").val());
      
     $('#btAddId').click(function() {
 
@@ -697,18 +699,18 @@ $(document).ready(function(){
         else {
             $('#btAddId').attr('disabled', 'disabled');
         }
-
+        $('#btRemoveId').removeAttr('disabled');
         $("#<?php echo $this->campoSeguro('funcionarioRegistrosIdioma') ?>").val(iCntIdi);
     });
      
     $('#btRemoveId').click(function() { // Elimina un elemento por click
-        if (iCntIdi != 0) {
+        if (iCntIdi != stopIdi) {
             iCntIdi = iCntIdi - 1;  
             $("#novedadesDatosCantidadEduacionIdiomas_"+iCntIdi).hide("fast");
             $('#btAddId').removeAttr('disabled');
         }
      
-        if (iCntIdi == 0) { 
+        if (iCntIdi == stopIdi) { 
 
             $('#btAddId').removeAttr('disabled');
      
@@ -806,16 +808,17 @@ $(document).ready(function(){
     //*************************************************************************************************************
 
   	//*******************************************EXPERIENCIA LABORAL**********************************************
-
-    var iCntExp = 0;
+	var stopExp = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosExperiencia') ?>").val());
+    var iCntExp = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosExperiencia') ?>").val());
     var LimiteExperiencia = 10;//Tener Presente
 
     while(iCntExp < LimiteExperiencia ){
-        //$("#novedadesDatosCantidadExperiencia_"+iCntExp).hide("fast");
+        $("#novedadesDatosCantidadExperiencia_"+iCntExp).hide("fast");
         iCntExp = iCntExp + 1;
     }
+    $('#btRemoveEx').attr('disabled', 'disabled');
 
-    iCntExp = 0;
+    iCntExp = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosExperiencia') ?>").val());
      
     $('#btAddEx').click(function() {
 
@@ -828,18 +831,18 @@ $(document).ready(function(){
         else {
             $('#btAddEx').attr('disabled', 'disabled');
         }
-
+        $('#btRemoveEx').removeAttr('disabled');
         $("#<?php echo $this->campoSeguro('funcionarioRegistrosExperiencia') ?>").val(iCntExp);
     });
      
     $('#btRemoveEx').click(function() { // Elimina un elemento por click
-        if (iCntExp != 0) {
+        if (iCntExp != stopExp) {
         	iCntExp = iCntExp - 1;  
             $("#novedadesDatosCantidadExperiencia_"+iCntExp).hide("fast");
             $('#btAddEx').removeAttr('disabled');
         }
      
-        if (iCntExp == 0) { 
+        if (iCntExp == stopExp) { 
 
             $('#btAddEx').removeAttr('disabled');
      
@@ -935,16 +938,17 @@ $(document).ready(function(){
 	
 	
   //*********************************************REFERENCIAS*******************************************************
-
-    var iCntRef = 0;
+	var stopRef = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosReferencia') ?>").val());
+    var iCntRef = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosReferencia') ?>").val());
     var LimiteReferencias = 20//Tener Presente
 
     while(iCntRef < LimiteReferencias){
-        //$("#novedadesDatosCantidadReferencia_"+iCntRef).hide("fast");
+        $("#novedadesDatosCantidadReferencia_"+iCntRef).hide("fast");
         iCntRef = iCntRef + 1;
     }
+    $('#btRemoveRe').attr('disabled', 'disabled');
 
-    iCntRef = 0;
+    iCntRef = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosReferencia') ?>").val());
      
     $('#btAddRe').click(function() {
 
@@ -957,18 +961,18 @@ $(document).ready(function(){
         else {
             $('#btAddRe').attr('disabled', 'disabled');
         }
-
+        $('#btRemoveRe').removeAttr('disabled');
         $("#<?php echo $this->campoSeguro('funcionarioRegistrosReferencia') ?>").val(iCntRef);
     });
      
     $('#btRemoveRe').click(function() { // Elimina un elemento por click
-        if (iCntRef != 0) {
+        if (iCntRef != stopRef) {
         	iCntRef = iCntRef - 1;  
             $("#novedadesDatosCantidadReferencia_"+iCntRef).hide("fast");
             $('#btAddRe').removeAttr('disabled');
         }
      
-        if (iCntRef == 0) { 
+        if (iCntRef == stopRef) { 
 
             $('#btAddRe').removeAttr('disabled');
      

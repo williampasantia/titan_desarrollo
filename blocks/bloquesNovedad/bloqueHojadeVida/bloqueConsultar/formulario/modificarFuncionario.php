@@ -85,10 +85,10 @@ class Formulario {
 		//Establecimiento Limite de Campos y Referencias Dinamicas **************************************************
 		//***********************************************************************************************************
 		$cantidad_referenciasLimite = 8;
-		//$cantidad_referencias_info = 10;
-		//$cantidad_idiomas = 7;
-		//$cantidad_experiencia = 10;
-		//$cantidad_referencias_per = 20;
+		$cantidad_referencias_infoLimite = 10;
+		$cantidad_idiomasLimite = 7;
+		$cantidad_experienciaLimite = 10;
+		$cantidad_referencias_perLimite = 20;
 		
 		//Para cambiar revisar el archivo ajax.php para ajustar los limites de los campos y las funciones AJAX
 		//***********************************************************************************************************
@@ -3593,11 +3593,13 @@ class Formulario {
 							$atributos ['obligatorio'] = false;
 							$atributos ['etiquetaObligatorio'] = false;
 							$atributos ['validar'] = 'custom[onlyLetterSp]';
-			
+							
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizInformal[$i][1] )){
 								$atributos ['valor'] = $matrizInformal[$i][1];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -3629,8 +3631,10 @@ class Formulario {
 							 
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizInformal[$i][2] )){
 								$atributos ['valor'] = $matrizInformal[$i][2];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -3662,8 +3666,10 @@ class Formulario {
 			
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizInformal[$i][3] )){
 								$atributos ['valor'] = $matrizInformal[$i][3];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -3695,8 +3701,10 @@ class Formulario {
 			
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizInformal[$i][4] )){
 								$atributos ['valor'] = $matrizInformal[$i][4];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -3729,8 +3737,10 @@ class Formulario {
 			
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizInformal[$i][5] )){
 								$atributos ['valor'] = $matrizInformal[$i][5];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
