@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl;
+namespace bloquesParametro\parametroLiquidacion;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -38,16 +38,20 @@ class Sql extends \Sql {
              * Clausulas específicas
              */
             
-            case 'buscarArl':
+            case 'buscarParametroLiquidacion':
                 $cadenaSql = 'SELECT ';
-                $cadenaSql .= 'nit as NIT, ';
-                $cadenaSql .= 'nombre as NOMBRE, ';
-                $cadenaSql .= 'direccion as DIRECCION, ';
-                $cadenaSql .= 'telefono as TELEFONO, ';
-                $cadenaSql .= 'extencion_telefono as EXTENCION_TELEFONO, ';
-                $cadenaSql .= 'estado as ESTADO ';
+                $cadenaSql .= 'b.nombre as NOMBRE, ';
+                $cadenaSql .= 'simbolo as SIMBOLO, ';
+                 $cadenaSql .= 'descripcion as DESCRIPCION   , ';
+                $cadenaSql .= 'a.nombre as LEY, ';
+                $cadenaSql .= 'valor as VALOR, ';
+                $cadenaSql .= 'b.estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'parametro.arl';
+                $cadenaSql .= 'parametro.liquidacion b, ';
+                $cadenaSql .= 'parametro.ley_decreto_norma a ';
+                $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'id = id_ldn;';
+                
                 break;
          case 'buscarArl1':
                 $cadenaSql = 'SELECT ';
