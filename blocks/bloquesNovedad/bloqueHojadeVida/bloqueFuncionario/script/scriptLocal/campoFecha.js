@@ -38,19 +38,4 @@ $( document ).ready(function() {
 				}
 		})
 	});
-	
-	
-	$("#<?php echo $this->campoSeguro('funcionarioContactoPais')?>").width(250); 
-	$("#<?php echo $this->campoSeguro('funcionarioContactoPais')?>").select2();
-	$("#<?php echo $this->campoSeguro('funcionarioContactoDepartamento')?>").width(250); 
-	$("#<?php echo $this->campoSeguro('funcionarioContactoDepartamento')?>").select2();
-	$("#<?php echo $this->campoSeguro('funcionarioContactoCiudad')?>").width(250); 
-	$("#<?php echo $this->campoSeguro('funcionarioContactoCiudad')?>").select2();
-	$("#<?php echo $this->campoSeguro('funcionarioContactoEstrato')?>").select2();
-
-
-	$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad')?>").width(250); 
-	$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorModalidad')?>").select2();
-
-
 });

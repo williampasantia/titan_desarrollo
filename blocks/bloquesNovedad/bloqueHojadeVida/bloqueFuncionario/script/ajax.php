@@ -1012,7 +1012,24 @@ $(document).ready(function(){
 
     //*************************************************************************************************************
 	
-    
+    $("#<?php echo $this->campoSeguro('funcionarioIdentificacion')?>").width(250); 
+	$("#<?php echo $this->campoSeguro('funcionarioIdentificacion')?>").select2();
+
+	$("#<?php echo $this->campoSeguro('funcionarioPais')?>").width(250); 
+	$("#<?php echo $this->campoSeguro('funcionarioPais')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioDepartamento')?>").width(250); 
+	$("#<?php echo $this->campoSeguro('funcionarioDepartamento')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioCiudad')?>").width(250); 
+	$("#<?php echo $this->campoSeguro('funcionarioCiudad')?>").select2();
+
+	$("#<?php echo $this->campoSeguro('funcionarioContactoPais')?>").width(250); 
+	$("#<?php echo $this->campoSeguro('funcionarioContactoPais')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioContactoDepartamento')?>").width(250); 
+	$("#<?php echo $this->campoSeguro('funcionarioContactoDepartamento')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioContactoCiudad')?>").width(250); 
+	$("#<?php echo $this->campoSeguro('funcionarioContactoCiudad')?>").select2();
+	$("#<?php echo $this->campoSeguro('funcionarioContactoEstrato')?>").width(200); 
+	$("#<?php echo $this->campoSeguro('funcionarioContactoEstrato')?>").select2();
     
 	$("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").width(250); 
 	$("#<?php echo $this->campoSeguro('funcionarioPaisNacimiento')?>").select2();
