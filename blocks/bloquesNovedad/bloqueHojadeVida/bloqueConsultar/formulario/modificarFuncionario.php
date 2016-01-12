@@ -3897,8 +3897,10 @@ class Formulario {
 							 
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizIdiomas[$i][2] )){
 								$atributos ['valor'] = $matrizIdiomas[$i][2];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4185,8 +4187,10 @@ class Formulario {
 			
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizIdiomas[$i][8] )){
 								$atributos ['valor'] = $matrizIdiomas[$i][8];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$atributos ['deshabilitado'] = false;
@@ -4217,8 +4221,10 @@ class Formulario {
 			
 							if (isset ( $_REQUEST [$esteCampo] )) {
 								$atributos ['valor'] = $_REQUEST [$esteCampo];
-							} else {
+							} else if (isset ( $matrizIdiomas[$i][9] )){
 								$atributos ['valor'] = $matrizIdiomas[$i][9];
+							} else{
+								$atributos ['valor'] = '';
 							}
 							$atributos ['titulo'] = $this->lenguaje->getCadena ( $baseCampo . 'Titulo' );
 							$tab ++;
