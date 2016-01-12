@@ -147,10 +147,8 @@ class Formulario {
         $i=0;
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DESCRIPCION".'</th> <th>'."NATURALEZA".'</th> <th>'."REGLAMENTACION".'</th><th>'."ESTADO".'</th><th>'."OPCIONES POR REGISTRO".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
-          
-        </tfoot>  
+                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DESCRIPCION".'</th> <th>'."NATURALEZA".'</th> <th>'."REGLAMENTACION".'</th><th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."CAMBIAR ESTADO".'</th></tr></thead>
+                      
                     <tbody>'; 
         
         while($i<$longitud){
@@ -237,8 +235,8 @@ class Formulario {
 
         // Paso 1: crear el listado de variables
         //$valorCodificado  = "action=" . $esteBloque ["nombre"];
-        $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
-        $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
+       // $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
+        $valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
          $valorCodificado .= "&tamaño=".$longitud;
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];

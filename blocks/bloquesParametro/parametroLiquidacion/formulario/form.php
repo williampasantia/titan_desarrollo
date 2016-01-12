@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesParametro\parametroArl\formulario;
+ namespace bloquesParametro\parametroLiquidacion\formulario;
 
 
 
@@ -137,9 +137,9 @@ class Formulario {
                         echo $this->miFormulario->division("fin"); 
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarArl");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarParametroLiquidacion");
         
-      
+       
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
        $longitud = count($matrizItems);
