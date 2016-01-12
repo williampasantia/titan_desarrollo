@@ -662,7 +662,7 @@ class FormProcessor {
         		//Agregar
         	}else{
         		
-        		if(isset($_REQUEST['funcionarioFormacionSuperiorEliminar_'.$count]) && isset($matrizCantFormacionSuperior[$count][0])){
+        		if(isset($_REQUEST['funcionarioFormacionSuperiorEliminar_'.$count]) && isset($matrizCantFormacionSuperior[$count][0]) && $_REQUEST['funcionarioFormacionSuperiorEliminar_'.$count] == 'true'){
      
         			$datosFormacionAcademicaSuperior = array(
         					'id_formacion_superior' => $matrizCantFormacionSuperior[$count][0]
@@ -735,7 +735,7 @@ class FormProcessor {
         		
         		//Agregar
         	}else{
-        		if(isset($_REQUEST['funcionarioFormacionInformalEliminar_'.$count]) && isset($matrizCantFormacionInformal[$count][0])){
+        		if(isset($_REQUEST['funcionarioFormacionInformalEliminar_'.$count]) && isset($matrizCantFormacionInformal[$count][0]) && $_REQUEST['funcionarioFormacionInformalEliminar_'.$count] == 'true'){
         			
         			$datosFormacionAcademicaInformal = array(
         					'id_formacion_informal' => $matrizCantFormacionInformal[$count][0]
@@ -913,7 +913,7 @@ class FormProcessor {
         		
         		//Agregar
         	}else{
-        		if(isset($_REQUEST['funcionarioFormacionIdiomasEliminar_'.$count]) && isset($matrizCantFormacionIdioma[$count][0])){
+        		if(isset($_REQUEST['funcionarioFormacionIdiomasEliminar_'.$count]) && isset($matrizCantFormacionIdioma[$count][0]) && $_REQUEST['funcionarioFormacionIdiomasEliminar_'.$count] == 'true'){
         			
         			$datosFormacionAcademicaIdiomas = array(
         					'id_formacion_idioma' => $matrizCantFormacionIdioma[$count][0]
@@ -1001,7 +1001,7 @@ class FormProcessor {
         		
         		//Agregar
         	}else{
-        		if(isset($_REQUEST['funcionarioExperienciaEliminar_'.$count]) && isset($matrizCantExperiencia[$count][0])){
+        		if(isset($_REQUEST['funcionarioExperienciaEliminar_'.$count]) && isset($matrizCantExperiencia[$count][0]) && $_REQUEST['funcionarioExperienciaEliminar_'.$count] == 'true'){
         			 
         			$datosExperiencia = array(
         					'id_experiencia' => $matrizCantExperiencia[$count][0]

@@ -341,21 +341,18 @@ function seleccionApe(apellido){
 
 function seleccionDeleteRef(pos){
 	var control = parseInt(pos);
-	switch (control) {
+	switch (control) {//Dependiente LIMITE Campos Dinamicos
 	case 0 :
 		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_0') ?>").val(true);
 		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
-		alert("cLICK EN EL bOTON Prue "+pos);
 		break;
 	case 1 :
 		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_1') ?>").val(true);
 		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
-		alert("cLICK EN EL bOTON Prue "+pos);
 		break;
 	case 2 :
 		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_2') ?>").val(true);
 		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
-		alert("cLICK EN EL bOTON Prue "+pos);
 		break;
 	case 3 :
 		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_3') ?>").val(true);
@@ -424,6 +421,54 @@ function seleccionDeleteRef(pos){
 	case 19 :
 		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_19') ?>").val(true);
 		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	
+	}
+	
+}
+
+function seleccionDeleteExp(pos){
+	var control = parseInt(pos);
+	switch (control) {//Dependiente LIMITE Campos Dinamicos
+	case 0 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_0') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
+		break;
+	case 1 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_1') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
+		break;
+	case 2 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_2') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
+		break;
+	case 3 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_3') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
+		break;
+	case 4 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_4') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
+		break;
+	case 5 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_5') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
+		break;
+	case 6 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_6') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
+		break;
+	case 7 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_7') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
+		break;
+	case 8 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_8') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
+		break;
+	case 9 :
+		$("#<?php echo $this->campoSeguro('funcionarioExperienciaEliminar_9') ?>").val(true);
+		$("#novedadesDatosCantidadExperiencia_"+pos).hide("fast");
 		break;
 	
 	}
