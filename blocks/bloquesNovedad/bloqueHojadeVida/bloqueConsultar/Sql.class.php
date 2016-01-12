@@ -1250,7 +1250,7 @@ class Sql extends \Sql {
 				
 			case 'eliminarFormacionSuperior' :
 				$cadenaSql = 'DELETE ';
-				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'novedad.formacion_superior ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id_formacion_superior = ' . $variable ['id_formacion_superior'] . ';';
@@ -1278,7 +1278,7 @@ class Sql extends \Sql {
 				
 			case 'eliminarFormacionInformal' :
 				$cadenaSql = 'DELETE ';
-				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'novedad.formacion_informal ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id_formacion_informal = ' . $variable ['id_formacion_informal'] . ';';
@@ -1320,7 +1320,7 @@ class Sql extends \Sql {
 				
 			case 'eliminarFormacionIdiomas' :
 				$cadenaSql = 'DELETE ';
-				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'novedad.formacion_idioma ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id_formacion_idioma = ' . $variable ['id_formacion_idioma'] . ';';
@@ -1374,7 +1374,7 @@ class Sql extends \Sql {
 				
 			case 'eliminarExperienciaLaboral' :
 				$cadenaSql = 'DELETE ';
-				$cadenaSql = 'FROM ';
+				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'novedad.experiencia_laboral ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id_experiencia_laboral = ' . $variable ['id_experiencia'] . ';';
@@ -1400,6 +1400,14 @@ class Sql extends \Sql {
 				$cadenaSql .= '\'' . $variable ['relacionReferencia'] . '\', ';
 				$cadenaSql .= 'soporte_referencia = ';
 				$cadenaSql .= '\'' . $variable ['soporteReferencia'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_referencia_laboral = ' . $variable ['id_referencia'] . ';';
+				break;
+				
+			case 'eliminarReferenciasPersonales' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'novedad.referencia_laboral ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id_referencia_laboral = ' . $variable ['id_referencia'] . ';';
 				break;

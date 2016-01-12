@@ -137,7 +137,6 @@ class FormProcessor {
         $cont = 0;
         
         while($cont < $cantidadFormacionSuperiorC){
-        	var_dump($_REQUEST['funcionarioFormacionSuperiorPais_'.$cont]);
         
         	if(	$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$cont] == NULL ||
         			$_REQUEST ['funcionarioFormacionSuperiorSemestres_'.$cont] == NULL  ||
@@ -1088,15 +1087,13 @@ class FormProcessor {
         		
         		//Agregar
         	}else{
-        		if(isset($_REQUEST['funcionarioReferenciasEliminar_'.$count]) && isset($matrizCantReferencia[$count][0])){
+        		if(isset($_REQUEST['funcionarioReferenciasEliminar_'.$count]) && isset($matrizCantReferencia[$count][0]) && $_REQUEST['funcionarioReferenciasEliminar_'.$count] == 'true'){
         			
         			$datosReferencias = array(
         					'id_referencia' => $matrizCantReferencia[$count][0]
         			);
-        			
         			$cadenaSql = $this->miSql->getCadenaSql("eliminarReferenciasPersonales",$datosReferencias);
         			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
-        			
         			//Eliminar --
         		}else{
         			
@@ -1123,13 +1120,6 @@ class FormProcessor {
         
         
 //*****************************************************************************************************************
-
-        
-
-
-
-
-
 
         //var_dump($cadenaSql);
         

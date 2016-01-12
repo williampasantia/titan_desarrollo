@@ -5192,11 +5192,44 @@ class Formulario {
 								$atributos ["estilo"] = "botonDatos";
 								echo $this->miFormulario->division ( "inicio", $atributos );
 								{
-									echo "<button id=\"btDeleteRef_".$i."\" ALIGN=RIGHT>
+									echo "<button id=\"btDeleteRef_".$i."\" ALIGN=RIGHT onclick=\"seleccionDeleteRef('$i')\">
 											<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueConsultar/css/images/deleteReg.png\" width=\"40\" height=\"40\">
 	        		  					 </button>";
 								}
 								echo $this->miFormulario->division ( "fin" );
+								
+								// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+								$esteCampo = 'funcionarioReferenciasEliminar_'.$i;
+								$atributos ['id'] = $esteCampo;
+								$atributos ['nombre'] = $esteCampo;
+								$atributos ['tipo'] = 'hidden';
+								$atributos ['estilo'] = 'jqueryui';
+								$atributos ['marco'] = true;
+								$atributos ['columnas'] = 1;
+								$atributos ['dobleLinea'] = false;
+								$atributos ['tabIndex'] = $tab;
+								$atributos ['etiqueta'] = '';
+									
+								$atributos ['obligatorio'] = false;
+								$atributos ['etiquetaObligatorio'] = false;
+								$atributos ['validar'] = '';
+									
+								if (isset ( $_REQUEST [$esteCampo] )) {
+									$atributos ['valor'] = $_REQUEST [$esteCampo];
+								} else {
+									$atributos ['valor'] = false;
+								}
+								$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+								$atributos ['deshabilitado'] = false;
+								$atributos ['tamanno'] = 30;
+								$atributos ['maximoTamanno'] = '';
+								$tab ++;
+									
+								// Aplica atributos globales al control
+								$atributos = array_merge ( $atributos, $atributosGlobales );
+								echo $this->miFormulario->campoCuadroTexto ( $atributos );
+								// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+												
 							}else{
 								// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 								$esteCampo = 'funcionarioReferenciasNuevo_'.$i;

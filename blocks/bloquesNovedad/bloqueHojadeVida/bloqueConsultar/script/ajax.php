@@ -339,6 +339,97 @@ function seleccionApe(apellido){
 	$("#<?php echo $this->campoSeguro('funcionarioApellido') ?>").val(apellido);
 }
 
+function seleccionDeleteRef(pos){
+	var control = parseInt(pos);
+	switch (control) {
+	case 0 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_0') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		alert("cLICK EN EL bOTON Prue "+pos);
+		break;
+	case 1 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_1') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		alert("cLICK EN EL bOTON Prue "+pos);
+		break;
+	case 2 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_2') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		alert("cLICK EN EL bOTON Prue "+pos);
+		break;
+	case 3 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_3') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 4 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_4') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 5 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_5') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 6 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_6') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 7 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_7') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 8 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_8') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 9 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_9') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 10 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_10') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 11 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_11') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 12 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_12') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 13 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_13') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 14 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_14') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 15 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_15') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 16 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_16') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 17 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_17') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 18 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_18') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	case 19 :
+		$("#<?php echo $this->campoSeguro('funcionarioReferenciasEliminar_19') ?>").val(true);
+		$("#novedadesDatosCantidadReferencia_"+pos).hide("fast");
+		break;
+	
+	}
+	
+}
+
 $( "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>" ).datepicker({
 	showButtonPanel: true,  /*added by oussama*/
     changeMonth: true, /*added by oussama*/
