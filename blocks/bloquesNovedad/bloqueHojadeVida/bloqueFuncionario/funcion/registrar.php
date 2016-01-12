@@ -68,12 +68,12 @@ class FormProcessor {
         
         while($cont < $cantidadFormacionSuperiorC){
         	 
-        	if(	$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$cont] == -1 ||
+        	if(	$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$cont] == NULL ||
         		$_REQUEST ['funcionarioFormacionSuperiorSemestres_'.$cont] == NULL  ||
-        	    $_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$cont] == -1  ||
-        		$_REQUEST ['funcionarioFormacionSuperiorPais_'.$cont] == -1  ||
-       			$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$cont] == -1  ||
-       			$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$cont] == -1  ||
+        	    $_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$cont] == NULL  ||
+        		$_REQUEST ['funcionarioFormacionSuperiorPais_'.$cont] == NULL  ||
+       			$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$cont] == NULL  ||
+       			$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$cont] == NULL  ||
        			$_REQUEST ['funcionarioFormacionSuperiorUniversidad_'.$cont] == NULL  ||
        			$_REQUEST ['funcionarioFormacionSuperiorTituloObtenido_'.$cont] == NULL  ||
        			$_REQUEST ['funcionarioFormacionSuperiorNumeroTarjeta_'.$cont] == NULL ){
@@ -88,9 +88,9 @@ class FormProcessor {
         
         while($cont < $cantidadIdiomasC){
         
-        	if(	$_REQUEST ['funcionarioFormacionIdioma_'.$cont] == -1 ||
+        	if(	$_REQUEST ['funcionarioFormacionIdioma_'.$cont] == NULL ||
         		$_REQUEST ['funcionarioFormacionIdiomaUniversidad_'.$cont] == NULL  ||
-        		$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$cont] == -1 ){
+        		$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$cont] == NULL ){
         		Redireccionador::redireccionar('noInsertoVal', $datosPersonaNatural);
         		exit();
         	}
@@ -103,10 +103,10 @@ class FormProcessor {
         while($cont < $cantidadExperienciaC){
         
         	if(	$_REQUEST ['funcionarioExperienciaEmpresa_'.$cont] == NULL ||
-        		$_REQUEST ['funcionarioExperienciaTipo_'.$cont] == -1 ||
-        		$_REQUEST ['funcionarioExperienciaPais_'.$cont] == -1 ||
-        		$_REQUEST ['funcionarioExperienciaDepartamento_'.$cont] == -1 ||
-        		$_REQUEST ['funcionarioExperienciaCiudad_'.$cont] == -1 ||
+        		$_REQUEST ['funcionarioExperienciaTipo_'.$cont] == NULL ||
+        		$_REQUEST ['funcionarioExperienciaPais_'.$cont] == NULL ||
+        		$_REQUEST ['funcionarioExperienciaDepartamento_'.$cont] == NULL ||
+        		$_REQUEST ['funcionarioExperienciaCiudad_'.$cont] == NULL ||
         		$_REQUEST ['funcionarioExperienciaEmpresaCorreo_'.$cont] == NULL ||
         		$_REQUEST ['funcionarioExperienciaEmpresaTelefono_'.$cont] == NULL ||
        			$_REQUEST ['funcionarioFechaEntradaExperiencia_'.$cont] == NULL ||
