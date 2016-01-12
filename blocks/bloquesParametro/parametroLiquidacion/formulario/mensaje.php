@@ -99,7 +99,7 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "Registro de arl Satisfactorio";
+					$mensaje = "Registro de parametro de liquidación Satisfactorio";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';
 					$atributos ['id'] = $esteCampo;
@@ -120,7 +120,7 @@ class registrarForm {
 					//$cadenaSql = $this->miSql->getCadenaSql ( 'actualizar_entrada', $arreglo );
 					//$inserto = $esteRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 					
-					$mensaje = "no se ha registrado la arl <br>";
+					$mensaje = "no se ha registrado el parametro de liquidación <br>";
                                         $mensaje .= "revise la informacion suministrada";
 					// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 					$esteCampo = 'mensajeRegistro';

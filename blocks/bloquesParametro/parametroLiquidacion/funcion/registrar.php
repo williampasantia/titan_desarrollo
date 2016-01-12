@@ -29,40 +29,18 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB ($conexion );
        
-         $datosubicacion = array(
-            'fdpDepartamento' => $_REQUEST ['fdpDepartamento'],
-            'fdpCiudad' => $_REQUEST ['fdpCiudad']
-     );
-                   
-     
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
-   
-              
-        $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-    
-          if(empty($ubicacion)){
-              $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarUbicacion",$datosubicacion);
-              $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "insertar");
-           
-              $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
-             
-              $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-          }   
-          
-       $datos = array(
-            'nitRegistro' => $_REQUEST ['nit'],
-            'nombreRegistro' => $_REQUEST ['nombre'],
-            'direccionRegistro' => $_REQUEST ['direccion'],
-            'telefonoRegistro' => $_REQUEST ['telefono'],
-            'extTelefonoRegistro' => $_REQUEST ['extencionTelefono'],
-            'faxRegistro' => $_REQUEST ['fax'],
-            'extFaxRegistro' => $_REQUEST ['extencionFax'],
-            'id_ubicacion' => $ubicacion[0][0],
-            'nomRepreRegistro' => $_REQUEST ['nombreRepresentante'],
-            'emailRegistro' => $_REQUEST ['email']
-        );
        
-   $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarArl", $datos);
+    
+       $datos = array(
+            'nombre' => $_REQUEST ['nombre'],
+            'simbolo' => $_REQUEST ['simbolo'],
+            'descripcion' => $_REQUEST ['descripcion'],
+            'ley' => $_REQUEST ['ley'],
+            'valor' => $_REQUEST ['valor'],
+           
+        );
+      
+   $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarParametroLiquidacion", $datos);
   
     $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         

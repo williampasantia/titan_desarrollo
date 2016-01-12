@@ -49,8 +49,7 @@ class Sql extends \Sql {
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'parametro.liquidacion b, ';
                 $cadenaSql .= 'parametro.ley_decreto_norma a ';
-                $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'id = id_ldn;';
+              
                 
                 break;
          case 'buscarArl1':
@@ -124,62 +123,38 @@ class Sql extends \Sql {
                 break;
         
         
-             case "registrarArl" :
+             case "registrarParametroLiquidacion" :
 				$cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'parametro.arl ';
+                $cadenaSql .= 'parametro.liquidacion ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= 'nit,';                
+                             
              
                 $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'direccion,';
-                $cadenaSql .= 'telefono,';
-                if($variable ['extTelefonoRegistro']!='')
-                {
-                 $cadenaSql .= 'extencion_telefono,';    
-                }
-                 if($variable ['faxRegistro']!='')
-                {
-                   $cadenaSql .= 'fax,';  
-                }
-                 if($variable ['extFaxRegistro']!='')
-                {
-                   $cadenaSql .= 'extencion_fax,';
-                }
+                $cadenaSql .= 'simbolo,';
+                $cadenaSql .= 'descripcion,';
                
+               $cadenaSql .= 'ley,';
                 
                
-                $cadenaSql .= 'lugar,';
-                $cadenaSql .= 'nombre_representante_legal,';
-                $cadenaSql .= 'email,';
+                $cadenaSql .= 'valor,';
+                
                 $cadenaSql .= 'estado';
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= $variable ['nitRegistro'] . ', ';
+                $cadenaSql .= '\'' .$variable ['nombre'] . '\', ';
                 
-                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
-                $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
-                $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
-                  if($variable ['extTelefonoRegistro']!='')
-                {
-                  $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';   
-                }
-                 if($variable ['faxRegistro']!='')
-                {
-                  $cadenaSql .= $variable ['faxRegistro'] . ', ';
-                }
-                 if($variable ['extFaxRegistro']!='')
-                {
-                  $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
-                }
+                $cadenaSql .= '\'' . $variable ['simbolo']  . '\', ';
+                $cadenaSql .= '\'' . $variable ['descripcion']  . '\', ';
+                $cadenaSql .= $variable ['ley'] . ', ';
+                $cadenaSql .= $variable ['valor'] . ', ';
+                 
                
                 
              
                 
                
-                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
-                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
-                $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
+               
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';
 		
@@ -305,15 +280,14 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $_REQUEST ['parametroPagina'] . '\'';
                 $cadenaSql .= ') ';
                 break;
-         case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia
+         case 'buscarLey' ://Provisionalmente solo Departamentos de Colombia
 				
 				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'id_ldn as ID, ';
 				$cadenaSql .= 'nombre as NOMBRE ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.departamento ';
-				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'id_pais = 112;';
+				$cadenaSql .= 'parametro.ley_decreto_norma ';
+				
 				break;
                		
 			case 'buscarDepartamentoAjax' :

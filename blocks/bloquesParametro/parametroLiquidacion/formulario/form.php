@@ -98,7 +98,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "ARL";
+	$atributos ["leyenda"] = "PARAMETROS DE LIQUIDACION";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         // --------------------------------------------------------------------------------------------------
         
@@ -139,7 +139,7 @@ class Formulario {
                         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarParametroLiquidacion");
         
-       
+    
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
        $longitud = count($matrizItems);
@@ -235,8 +235,8 @@ class Formulario {
 
         // Paso 1: crear el listado de variables
 
-        $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
-        $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
+        //$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
+        $valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
         $valorCodificado .= "&tamaño=".$longitud;
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
