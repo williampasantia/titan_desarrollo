@@ -475,6 +475,66 @@ function seleccionDeleteExp(pos){
 	
 }
 
+function seleccionDeleteIdi(pos){
+	var control = parseInt(pos);
+	switch (control) {//Dependiente LIMITE Campos Dinamicos
+	case 0 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_0') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		break;
+	case 1 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_1') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		break;
+	case 2 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_2') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		break;
+	case 3 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_3') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		break;
+	case 4 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_4') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		break;
+	case 5 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_5') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		break;
+	case 6 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_6') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		break;
+	
+	}
+	
+}
+
+function seleccionDeleteInf(pos){
+	var control = parseInt(pos);
+	switch (control) {//Dependiente LIMITE Campos Dinamicos
+	case 0 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_0') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		break;
+	
+	}
+	
+}
+
+function seleccionDeleteSup(pos){
+	var control = parseInt(pos);
+	switch (control) {//Dependiente LIMITE Campos Dinamicos
+	case 0 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_0') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		break;
+	
+	}
+	
+}
+
 $( "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>" ).datepicker({
 	showButtonPanel: true,  /*added by oussama*/
     changeMonth: true, /*added by oussama*/
