@@ -515,8 +515,44 @@ function seleccionDeleteInf(pos){
 	var control = parseInt(pos);
 	switch (control) {//Dependiente LIMITE Campos Dinamicos
 	case 0 :
-		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_0') ?>").val(true);
-		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_0') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 1 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_1') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 2 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_2') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 3 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_3') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 4 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_4') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 5 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_5') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 6 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_6') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 7 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_7') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 8 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_8') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 9 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_9') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
 		break;
 	
 	}
