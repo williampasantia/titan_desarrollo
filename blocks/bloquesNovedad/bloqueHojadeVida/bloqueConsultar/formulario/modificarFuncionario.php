@@ -85,7 +85,7 @@ class Formulario {
 		//Establecimiento Limite de Campos y Referencias Dinamicas **************************************************
 		//***********************************************************************************************************
 		$cantidad_referenciasLimite = 8;
-		$cantidad_referencias_infoLimite = 10;
+		$cantidad_referencias_infoLimite = 20;
 		$cantidad_idiomasLimite = 7;
 		$cantidad_experienciaLimite = 10;
 		$cantidad_referencias_perLimite = 20;
@@ -2885,11 +2885,44 @@ class Formulario {
 								$atributos ["estilo"] = "botonDatos";
 								echo $this->miFormulario->division ( "inicio", $atributos );
 								{
-									echo "<button id=\"btDelete_".$i."\" ALIGN=RIGHT>
+									echo "<button id=\"btDelete_".$i."\" ALIGN=RIGHT onclick=\"seleccionDeleteSup('$i')\">
 											<input type=image src=\"/titan/blocks/bloquesNovedad/bloqueHojadeVida/bloqueConsultar/css/images/deleteReg.png\" width=\"40\" height=\"40\">
 	        		  					 </button>";
 								}
 								echo $this->miFormulario->division ( "fin" );
+								
+								// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+								$esteCampo = 'funcionarioFormacionSuperiorEliminar_'.$i;
+								$atributos ['id'] = $esteCampo;
+								$atributos ['nombre'] = $esteCampo;
+								$atributos ['tipo'] = 'hidden';
+								$atributos ['estilo'] = 'jqueryui';
+								$atributos ['marco'] = true;
+								$atributos ['columnas'] = 1;
+								$atributos ['dobleLinea'] = false;
+								$atributos ['tabIndex'] = $tab;
+								$atributos ['etiqueta'] = '';
+									
+								$atributos ['obligatorio'] = false;
+								$atributos ['etiquetaObligatorio'] = false;
+								$atributos ['validar'] = '';
+									
+								if (isset ( $_REQUEST [$esteCampo] )) {
+									$atributos ['valor'] = $_REQUEST [$esteCampo];
+								} else {
+									$atributos ['valor'] = false;
+								}
+								$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+								$atributos ['deshabilitado'] = false;
+								$atributos ['tamanno'] = 30;
+								$atributos ['maximoTamanno'] = '';
+								$tab ++;
+									
+								// Aplica atributos globales al control
+								$atributos = array_merge ( $atributos, $atributosGlobales );
+								echo $this->miFormulario->campoCuadroTexto ( $atributos );
+								// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+								
 							}else{
 								// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 								$esteCampo = 'funcionarioFormacionSuperiorNuevo_'.$i;

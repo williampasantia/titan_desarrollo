@@ -625,7 +625,7 @@ $(document).ready(function(){
   	//*****************************EDUCACION INFORMAL**********************************************
 
     var iCntInf = 0;
-    var LimiteInformal = 10;//Tener Presente
+    var LimiteInformal = 20;//Tener Presente
 
     while(iCntInf < LimiteInformal){
         $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");

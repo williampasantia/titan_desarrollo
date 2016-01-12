@@ -554,6 +554,46 @@ function seleccionDeleteInf(pos){
 		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_9') ?>").val(true);
 		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
 		break;
+	case 10 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_10') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 11 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_11') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 12 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_12') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 13 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_13') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 14 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_14') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 15 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_15') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 16 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_16') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 17 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_17') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 18 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_18') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
+	case 19 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionInformalEliminar_19') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionInformal_"+pos).hide("fast");
+		break;
 	
 	}
 	
@@ -563,8 +603,36 @@ function seleccionDeleteSup(pos){
 	var control = parseInt(pos);
 	switch (control) {//Dependiente LIMITE Campos Dinamicos
 	case 0 :
-		$("#<?php echo $this->campoSeguro('funcionarioFormacionIdiomasEliminar_0') ?>").val(true);
-		$("#novedadesDatosCantidadEduacionIdiomas_"+pos).hide("fast");
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorEliminar_0') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionSuperior_"+pos).hide("fast");
+		break;
+	case 1 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorEliminar_1') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionSuperior_"+pos).hide("fast");
+		break;
+	case 2 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorEliminar_2') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionSuperior_"+pos).hide("fast");
+		break;
+	case 3 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorEliminar_3') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionSuperior_"+pos).hide("fast");
+		break;
+	case 4 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorEliminar_4') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionSuperior_"+pos).hide("fast");
+		break;
+	case 5 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorEliminar_5') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionSuperior_"+pos).hide("fast");
+		break;
+	case 6 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorEliminar_6') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionSuperior_"+pos).hide("fast");
+		break;
+	case 7 :
+		$("#<?php echo $this->campoSeguro('funcionarioFormacionSuperiorEliminar_7') ?>").val(true);
+		$("#novedadesDatosCantidadEduacionSuperior_"+pos).hide("fast");
 		break;
 	
 	}
@@ -864,7 +932,7 @@ $(document).ready(function(){
   	//*****************************EDUCACION INFORMAL**********************************************
 	var stopInf = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val());
     var iCntInf = parseInt($("#<?php echo $this->campoSeguro('funcionarioRegistrosInformal') ?>").val());
-    var LimiteInformal = 10;//Tener Presente
+    var LimiteInformal = 20;//Tener Presente
 
     while(iCntInf < LimiteInformal){
         $("#novedadesDatosCantidadEduacionInformal_"+iCntInf).hide("fast");
