@@ -36,7 +36,9 @@ class Formulario {
          * Por tanto en el archivo ready.php se delaran algunas funciones js
          * que lo complementan.
          */
-
+  $directorio = $this->miConfigurador->getVariableConfiguracion ( "host" );
+       $directorio .= $this->miConfigurador->getVariableConfiguracion ( "site" ) . "/index.php?";
+       $directorio .= $this->miConfigurador->getVariableConfiguracion ( "enlace" );
         // Rescatar los datos de este bloque
         $esteBloque = $this->miConfigurador->getVariableConfiguracion ( "esteBloque" );
         $rutaBloque = $this->miConfigurador->getVariableConfiguracion("host");
@@ -145,9 +147,7 @@ class Formulario {
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
                  . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DIRECCION".'</th> <th>'."TELEFONO".'</th> <th>'."EXTENCION_TELEFONO".'</th><th>'."ESTADO".'</th><th>'."ver detalle".'</th><th>'."modificar".'</th><th>'."inactivar".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
-            
-        </tfoot>  
+                       
                     <tbody>'; 
         
         while($i<$longitud){
@@ -158,75 +158,46 @@ class Formulario {
                     echo "<td>".$matrizItems[$i][3]."</td>";
                     echo "<td>".$matrizItems[$i][4]."</td>";
                     echo "<td>".$matrizItems[$i][5]."</td>";
-                   
- $esteCampo = 'botonVerDetalle'.$i;
-                        $baseCampo = 'botonVerDetalle';
-                        $atributos ["id"] = $esteCampo;
-                        $atributos ["tabIndex"] = $tab;
-                        $atributos ["tipo"] = 'boton';
-                        // submit: no se coloca si se desea un tipo button genérico
-                        $atributos ['submit'] = true;
-                        $atributos ["estiloMarco"] = '';
-                        $atributos ["estiloBoton"] = 'jqueryui';
-                        // verificar: true para verificar el formulario antes de pasarlo al servidor.
-                        $atributos ["verificar"] = '';
-                        $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
-                        $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
-                        $tab ++;
-                        // Aplica atributos globales al control
-                        $atributos = array_merge ( $atributos, $atributosGlobales );
+                    $variableVD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
+                          $variableVD .= "&opcion=verdetalle";
+                          $variableVD .= "&bloque=" . $esteBloque ['nombre'];
+                          $variableVD .="&tamaño=".$longitud;
+                          $variableVD .= "&variable=" . $i;
+                          $variableVD .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+                          $variableVD = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variableVD, $directorio );
+                         echo "<td><center><a href='" . $variableVD . "'>
+                          <img src='" . $rutaBloque . "/css/images/verDetalle.png' width='25px'>
+                          </a></center> </td>";
                        
-                               
+                       $variableMOD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
+                          $variableMOD .= "&opcion=modificar";
+                          $variableMOD .= "&bloque=" . $esteBloque ['nombre'];
+                          $variableMOD .="&tamaño=".$longitud;
+                          $variableMOD .= "&variable=" . $i;
+                          $variableMOD .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+                          $variableMOD = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variableMOD, $directorio );
+                         echo "<td><center><a href='" . $variableMOD . "'>
+                          <img src='" . $rutaBloque . "/css/images/modificar.png' width='25px'>
+                          </a></center> </td>";
+                         
+                        $variableACT = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
+                          $variableACT .= "&opcion=inactivar";
+                          $variableACT .= "&bloque=" . $esteBloque ['nombre'];
+                          $variableACT .="&tamaño=".$longitud;
+                          $variableACT .= "&variable=" . $i;
+                          $variableACT .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+                          $variableACT = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variableACT, $directorio );
+                         echo "<td><center><a href='" . $variableACT . "'>";
+                         if($matrizItems[$i][5]=='Activo'){
+                            echo "<img src='" . $rutaBloque . "/css/images/desactivacion.png' width='25px'>";
+                         }
+                         else{
+                             echo "<img src='" . $rutaBloque . "/css/images/activacion.png' width='25px'>";
+                         }
+                          
+                          echo "</a></center> </td></tr>"; 
                         
-                     echo "<td>".$this->miFormulario->campoBoton ( $atributos )."</td>";
-                       
-                        $esteCampo = 'botonModificar'.$i;
-                        $baseCampo = 'botonModificar';
-                        $atributos ["id"] = $esteCampo;
-                        $atributos ["tabIndex"] = $tab;
-                        $atributos ["tipo"] = 'boton';
-                        // submit: no se coloca si se desea un tipo button genérico
-                        $atributos ['submit'] = true;
-                        $atributos ["estiloMarco"] = '';
-                        $atributos ["estiloBoton"] = 'jqueryui';
-                        // verificar: true para verificar el formulario antes de pasarlo al servidor.
-                        $atributos ["verificar"] = '';
-                        $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
-                        $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
-                        $tab ++;
-                        // Aplica atributos globales al control
-                        $atributos = array_merge ( $atributos, $atributosGlobales );
-                     echo "<td>".$this->miFormulario->campoBoton ( $atributos )."</td>";
-                     
-                        $esteCampo = 'botonInactivar'.$i;
-                        if($matrizItems[$i][5]=='Activo'){
-                            $baseCampo = 'botonInactivar';
-                        }
-                        else{
-                            $baseCampo = 'botonActivar';
-                        }
-                        
-                        $atributos ["id"] = $esteCampo;
-                        $atributos ["tabIndex"] = $tab;
-                        $atributos ["tipo"] = 'boton';
-                        // submit: no se coloca si se desea un tipo button genérico
-                        $atributos ['submit'] = true;
-                        $atributos ["estiloMarco"] = '';
-                        $atributos ["estiloBoton"] = 'jqueryui';
-                        // verificar: true para verificar el formulario antes de pasarlo al servidor.
-                        $atributos ["verificar"] = '';
-                        $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js
-                        $atributos ["valor"] = $this->lenguaje->getCadena ( $baseCampo );
-                        $atributos ['nombreFormulario'] = $esteBloque ['nombre'];
-                        $tab ++;
-                        // Aplica atributos globales al control
-                        $atributos = array_merge ( $atributos, $atributosGlobales ); 
-                       echo "<td>".$this->miFormulario->campoBoton ( $atributos ). "</td></tr>";  
-                     
-                     
-                                         
+                            
                      $i+=1;
         }  
            echo '</tbody></table>';
@@ -262,8 +233,8 @@ class Formulario {
 
         // Paso 1: crear el listado de variables
 
-        $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
-        $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
+        //$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
+        $valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
         $valorCodificado .= "&tamaño=".$longitud;
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];

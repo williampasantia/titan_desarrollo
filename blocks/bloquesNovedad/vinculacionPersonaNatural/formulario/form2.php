@@ -122,10 +122,8 @@ class Formulario {
         $i=0;
         
          echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."NOMBRE".'</th> <th>'."APELLIDO".'</th> <th>'."Vincular".'</th></tr></thead>
-                       <tfoot  style="display: table-header-group">
-            
-        </tfoot>  
+                 . '<thead style="display: table-row-group"><tr><th>'."DOCUMENTO".'</th><th>'."NOMBRE".'</th> <th>'."APELLIDO".'</th> <th>'."VINCULAR".'</th></tr></thead>
+                      
                     <tbody>'; 
         
         while($i<$longitud){

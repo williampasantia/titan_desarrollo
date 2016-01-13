@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesParametro\cajaDeCompensacion\formulario;
+ namespace bloquesParametro\parametroLiquidacion\formulario;
 
 
 
@@ -98,7 +98,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "TIPO VINCULACION";
+	$atributos ["leyenda"] = "PARAMETROS DE LIQUIDACION";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         // --------------------------------------------------------------------------------------------------
         
@@ -137,18 +137,17 @@ class Formulario {
                         echo $this->miFormulario->division("fin"); 
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarTipoVinculacion");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarParametroLiquidacion");
         
-      
-       
+    
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-        
+     
        $longitud = count($matrizItems);
         $i=0;
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DESCRIPCION".'</th> <th>'."NATURALEZA".'</th> <th>'."REGLAMENTACION".'</th><th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."CAMBIAR ESTADO".'</th></tr></thead>
-                      
+                 . '<thead style="display: table-row-group"><tr><th>'."NOMBRE".'</th> <th>'."SIMBOLO".'</th> <th>'."DESCRIPCION".'</th> <th>'."LEY".'</th><th>'."VALOR".'</th><th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."CAMBIAR ESTADO".'</th></tr></thead>
+                       
                     <tbody>'; 
         
         while($i<$longitud){
@@ -159,7 +158,8 @@ class Formulario {
                     echo "<td>".$matrizItems[$i][3]."</td>";
                     echo "<td>".$matrizItems[$i][4]."</td>";
                     echo "<td>".$matrizItems[$i][5]."</td>";
-                   $variableVD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
+                   
+                     $variableVD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
                           $variableVD .= "&opcion=verdetalle";
                           $variableVD .= "&bloque=" . $esteBloque ['nombre'];
                           $variableVD .="&tamaño=".$longitud;
@@ -199,7 +199,7 @@ class Formulario {
                           echo "</a></center> </td></tr>"; 
                         
                             
-                     
+                    
                      $i+=1;
         }  
            echo '</tbody></table>';
@@ -234,11 +234,11 @@ class Formulario {
         // En este formulario se utiliza el mecanismo (b) para pasar las siguientes variables:
 
         // Paso 1: crear el listado de variables
-        //$valorCodificado  = "action=" . $esteBloque ["nombre"];
-       // $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
+
+        //$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
         $valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
-         $valorCodificado .= "&tamaño=".$longitud;
+        $valorCodificado .= "&tamaño=".$longitud;
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&opcion=registrar";
         /**
