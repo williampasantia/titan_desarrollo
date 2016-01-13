@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesParametro\parametroArl\formulario;
+ namespace bloquesNovedad\vinculacionPersonaNatural\formulario;;
 
 
 
