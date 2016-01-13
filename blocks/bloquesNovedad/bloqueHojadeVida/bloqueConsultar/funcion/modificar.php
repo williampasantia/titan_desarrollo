@@ -125,6 +125,69 @@ class FormProcessor {
         		'segundoApellido' => $_REQUEST['funcionarioSegundoApellido'],
         		'otrosNombres' => $_REQUEST['funcionarioOtrosNombres'],
         );
+        
+        //Validación Campos Dinamicos
+        
+        $cantidadFormacionSuperiorC = $_REQUEST['funcionarioRegistrosSuperior'];
+        $cantidadFormacionInformalC = $_REQUEST['funcionarioRegistrosInformal'];
+        $cantidadIdiomasC = $_REQUEST['funcionarioRegistrosIdioma'];
+        $cantidadExperienciaC = $_REQUEST['funcionarioRegistrosExperiencia'];
+        $cantidadReferenciasPerC = $_REQUEST['funcionarioRegistrosReferencia'];
+        
+        $cont = 0;
+        
+        while($cont < $cantidadFormacionSuperiorC){
+        
+        	if(	$_REQUEST ['funcionarioFormacionSuperiorModalidad_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioFormacionSuperiorSemestres_'.$cont] == NULL  ||
+        			$_REQUEST ['funcionarioFormacionSuperiorGraduado_'.$cont] == NULL  ||
+        			$_REQUEST ['funcionarioFormacionSuperiorPais_'.$cont] == NULL  ||
+        			$_REQUEST ['funcionarioFormacionSuperiorDepartamento_'.$cont] == NULL  ||
+        			$_REQUEST ['funcionarioFormacionSuperiorCiudad_'.$cont] == NULL  ||
+        			$_REQUEST ['funcionarioFormacionSuperiorUniversidad_'.$cont] == NULL  ||
+        			$_REQUEST ['funcionarioFormacionSuperiorTituloObtenido_'.$cont] == NULL  ||
+        			$_REQUEST ['funcionarioFormacionSuperiorNumeroTarjeta_'.$cont] == NULL ){
+        				Redireccionador::redireccionar('noInsertoVal', $datosPersonaNatural);
+        				exit();
+        	}
+        	$cont++;
+        
+        }
+        
+        $cont = 0;
+        
+        while($cont < $cantidadIdiomasC){
+        	if(	$_REQUEST ['funcionarioFormacionIdioma_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioFormacionIdiomaUniversidad_'.$cont] == NULL  ||
+        			$_REQUEST ['funcionarioFormacionIdiomaNivel_'.$cont] == NULL ){
+        				Redireccionador::redireccionar('noInsertoVal', $datosPersonaNatural);
+        				exit();
+        	}
+        	$cont++;
+        
+        }
+        
+        $cont = 0;
+        
+        while($cont < $cantidadExperienciaC){
+        
+        	if(	$_REQUEST ['funcionarioExperienciaEmpresa_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioExperienciaTipo_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioExperienciaPais_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioExperienciaDepartamento_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioExperienciaCiudad_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioExperienciaEmpresaCorreo_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioExperienciaEmpresaTelefono_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioFechaEntradaExperiencia_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioFechaSalidaExperiencia_'.$cont] == NULL ||
+        			$_REQUEST ['funcionarioExperienciaEmpresaCargo_'.$cont] == NULL ){
+        				Redireccionador::redireccionar('noInsertoVal', $datosPersonaNatural);
+        				exit();
+        	}
+        	$cont++;
+        
+        }
+        
         /*-------------------------------------------------------------------------------------------------*/
         
         if (isset($_REQUEST['funcionarioDepartamento']) && isset($_REQUEST['funcionarioCiudad'])) {
@@ -599,7 +662,7 @@ class FormProcessor {
         		//Agregar
         	}else{
         		
-        		if(isset($_REQUEST['funcionarioFormacionSuperiorEliminar_'.$count]) && isset($matrizCantFormacionSuperior[$count][0])){
+        		if(isset($_REQUEST['funcionarioFormacionSuperiorEliminar_'.$count]) && isset($matrizCantFormacionSuperior[$count][0]) && $_REQUEST['funcionarioFormacionSuperiorEliminar_'.$count] == 'true'){
      
         			$datosFormacionAcademicaSuperior = array(
         					'id_formacion_superior' => $matrizCantFormacionSuperior[$count][0]
@@ -672,7 +735,7 @@ class FormProcessor {
         		
         		//Agregar
         	}else{
-        		if(isset($_REQUEST['funcionarioFormacionInformalEliminar_'.$count]) && isset($matrizCantFormacionInformal[$count][0])){
+        		if(isset($_REQUEST['funcionarioFormacionInformalEliminar_'.$count]) && isset($matrizCantFormacionInformal[$count][0]) && $_REQUEST['funcionarioFormacionInformalEliminar_'.$count] == 'true'){
         			
         			$datosFormacionAcademicaInformal = array(
         					'id_formacion_informal' => $matrizCantFormacionInformal[$count][0]
@@ -850,7 +913,7 @@ class FormProcessor {
         		
         		//Agregar
         	}else{
-        		if(isset($_REQUEST['funcionarioFormacionIdiomasEliminar_'.$count]) && isset($matrizCantFormacionIdioma[$count][0])){
+        		if(isset($_REQUEST['funcionarioFormacionIdiomasEliminar_'.$count]) && isset($matrizCantFormacionIdioma[$count][0]) && $_REQUEST['funcionarioFormacionIdiomasEliminar_'.$count] == 'true'){
         			
         			$datosFormacionAcademicaIdiomas = array(
         					'id_formacion_idioma' => $matrizCantFormacionIdioma[$count][0]
@@ -938,7 +1001,7 @@ class FormProcessor {
         		
         		//Agregar
         	}else{
-        		if(isset($_REQUEST['funcionarioExperienciaEliminar_'.$count]) && isset($matrizCantExperiencia[$count][0])){
+        		if(isset($_REQUEST['funcionarioExperienciaEliminar_'.$count]) && isset($matrizCantExperiencia[$count][0]) && $_REQUEST['funcionarioExperienciaEliminar_'.$count] == 'true'){
         			 
         			$datosExperiencia = array(
         					'id_experiencia' => $matrizCantExperiencia[$count][0]
@@ -1024,15 +1087,13 @@ class FormProcessor {
         		
         		//Agregar
         	}else{
-        		if(isset($_REQUEST['funcionarioReferenciasEliminar_'.$count]) && isset($matrizCantReferencia[$count][0])){
+        		if(isset($_REQUEST['funcionarioReferenciasEliminar_'.$count]) && isset($matrizCantReferencia[$count][0]) && $_REQUEST['funcionarioReferenciasEliminar_'.$count] == 'true'){
         			
         			$datosReferencias = array(
         					'id_referencia' => $matrizCantReferencia[$count][0]
         			);
-        			
         			$cadenaSql = $this->miSql->getCadenaSql("eliminarReferenciasPersonales",$datosReferencias);
         			$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
-        			
         			//Eliminar --
         		}else{
         			
@@ -1059,13 +1120,6 @@ class FormProcessor {
         
         
 //*****************************************************************************************************************
-
-        
-
-
-
-
-
 
         //var_dump($cadenaSql);
         
