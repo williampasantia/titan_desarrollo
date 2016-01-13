@@ -151,10 +151,14 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable ['fecha']  . '\', ';
                 $cadenaSql .= 'tipo_documento = ';
                 $cadenaSql .= '\'' . $variable ['tipoDocumento']  . '\', ';
+                if($variable ['fechaExp']!='NULL'){
                 $cadenaSql .= 'fecha_efectividad = ';
-                $cadenaSql .= '\'' . $variable['fechaExp'] . '\', ';
+                $cadenaSql .= '\'' . $variable['fechaExp'] . '\', ';   
+                }
+                if($variable ['fechaVen']!='NULL'){
                 $cadenaSql .= 'fecha_caducidad = ';
-                $cadenaSql .= '\'' . $variable['fechaVen'] . '\', ';
+                $cadenaSql .= '\'' . $variable['fechaVen'] . '\', ';    
+                }
                 $cadenaSql .= 'justificacion = ';
                 $cadenaSql .= '\'' . $variable['justificacion'] . '\' ';
                 $cadenaSql .= ' WHERE ';
