@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesParametro\parametroArl\formulario;
+ namespace bloquesNovedad\vinculacionPersonaNatural\formulario;;
 if(!isset($GLOBALS["autorizado"])) {
 	include("../index.php");
 	exit;

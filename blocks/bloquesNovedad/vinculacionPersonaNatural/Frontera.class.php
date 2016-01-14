@@ -1,6 +1,6 @@
 <?
 
- namespace bloquesParametro\vinculacionPersonaNatural;
+ namespace bloquesNovedad\vinculacionPersonaNatural;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("../index.php");
