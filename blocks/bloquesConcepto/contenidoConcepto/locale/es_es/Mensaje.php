@@ -18,7 +18,7 @@ $this->idioma["botonRegresarConsulta"]="Regresar";
 
 
 
-$this->idioma["enviarRegistro"]="Guardar";
+$this->idioma["enviarRegistro"]="Guardar Concepto";
 $this->idioma["modificarRegistro"]="Guardar Cambios";
 $this->idioma["verdetalleRegistro"]="Aceptar";
 
