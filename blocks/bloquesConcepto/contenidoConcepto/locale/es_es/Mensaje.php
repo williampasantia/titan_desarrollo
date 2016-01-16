@@ -22,5 +22,9 @@ $this->idioma["enviarRegistro"]="Guardar";
 $this->idioma["modificarRegistro"]="Guardar Cambios";
 $this->idioma["verdetalleRegistro"]="Aceptar";
 
+//INFORMACION BASICA
+
+$this->idioma["nombreConcepto"]="Nombre de Concepto";
+
 
 ?>
