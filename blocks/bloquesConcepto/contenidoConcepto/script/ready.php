@@ -1,6 +1,6 @@
 
 
-$("#contenidoCargo").validationEngine({
+$("#contenidoConcepto").validationEngine({
 	promptPosition : "centerRight",
 	scroll: false,
 	autoHidePrompt: true,
@@ -13,6 +13,14 @@ $("#contenidoCargo").validationEngine({
 $('#datepicker').datepicker({
 	autoHidePrompt: true
 });
+
+
+ $('#<?php echo $this->campoSeguro('seccionParametros')?>').width(400);
+ $("#<?php echo $this->campoSeguro('seccionParametros')?>").select2(); 
+
+
+ $('#<?php echo $this->campoSeguro('seccionConceptos')?>').width(400);
+ $("#<?php echo $this->campoSeguro('seccionConceptos')?>").select2();
 
 
  
