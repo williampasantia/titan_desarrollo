@@ -73,7 +73,7 @@ class Frontera {
                        
                        
 		}else{
-			include_once ($this->ruta . "/formulario/form.php");
+			include_once ($this->ruta . "/formulario/condicion.php");
 		}
 	}
 }

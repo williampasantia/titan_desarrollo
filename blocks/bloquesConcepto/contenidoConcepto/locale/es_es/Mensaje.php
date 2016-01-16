@@ -16,6 +16,11 @@ $this->idioma["botonRegresarConsulta"]="Regresar";
 
 
 
+$this->idioma["condicionSi"]="Si  ";
+$this->idioma["condicionEntonces"]="Entonces  ";
+
+$this->idioma["botonRegistrarCargo"]="Registrar Condición";
+$this->idioma["agregarCondicion"]="Agregar Condición";
 
 
 $this->idioma["enviarRegistro"]="Guardar";
