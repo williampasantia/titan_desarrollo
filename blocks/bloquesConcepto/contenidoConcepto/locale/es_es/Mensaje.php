@@ -18,6 +18,9 @@ $this->idioma["botonRegresarConsulta"]="Regresar";
 
 $this->idioma["condicionSi"]="Si  ";
 $this->idioma["condicionEntonces"]="Entonces  ";
+$this->idioma["variable"]="";
+$this->idioma["listaSignos"]="";
+$this->idioma["TitulolistaSignos"]="";
 
 $this->idioma["botonRegistrarCargo"]="Registrar Condición";
 $this->idioma["agregarCondicion"]="Agregar Condición";

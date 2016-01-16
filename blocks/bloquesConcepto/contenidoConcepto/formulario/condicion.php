@@ -125,7 +125,7 @@ class Formulario {
         $atributos ['columnas'] = 1;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
-        $atributos ['anchoEtiqueta'] = 24;
+        $atributos ['anchoEtiqueta'] = 25;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 //        $atributos ['obligatorio'] = true;
 //        $atributos ['etiquetaObligatorio'] = true;
@@ -138,7 +138,7 @@ class Formulario {
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
-        $atributos ['tamanno'] = 16;
+        $atributos ['tamanno'] = 12;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
         
@@ -153,12 +153,12 @@ class Formulario {
         $atributos ["id"] = "variable";
         $atributos ["estilo"] = "col-md-2";
         echo $this->miFormulario->division ( "inicio", $atributos );
-        $esteCampo = 'listaSignos';
         
+        $esteCampo = 'listaSignos';
         $atributos['nombre'] = $esteCampo;
         $atributos['id'] = $esteCampo;
-        $atributos['tab'] = '';
-        $atributos ['etiqueta'] = '';
+        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+        $atributos['tab'] = $tab;
         $atributos['seleccion'] = -2;
         $atributos['evento'] = ' ';
         $atributos['deshabilitado'] = false;
@@ -169,9 +169,8 @@ class Formulario {
         $atributos ['ajax_function'] = "";
         $atributos ['ajax_control'] = $esteCampo;
         
-      
-        $atributos ['validar'] = 'required';
         
+        $atributos ['validar'] = 'required';
                  $matrizItems=array(
                  		array(1,'signo'),
                  		array(2,'<'),
