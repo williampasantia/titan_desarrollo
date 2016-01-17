@@ -62,6 +62,19 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable['estadoRegistro'] . '\' ';
                 $cadenaSql .= ') ';
                 break;
+            
+             case 'buscarRegistroxParametro' :
+                
+                	$cadenaSql = 'SELECT ';
+                        $cadenaSql .= 'id as ID, ';
+                        $cadenaSql .= 'simbolo as SIMBOLO ';
+                        $cadenaSql .= 'FROM ';
+                        $cadenaSql .= 'parametro.parametro_liquidacion';
+//                        $cadenaSql .= 'WHERE ';
+//                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
+//                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
+                        
+                break;
         
         }
         

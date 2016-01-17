@@ -21,8 +21,8 @@ $funcion[$indice++]="datepicker.js";
 $funcion[$indice++]="timepicker.js";
 
 $funcion[$indice++]="select2.js";
-//$funcion[$indice++]="select2.min.js";
-//$funcion[$indice++]="select2_locale_es.js";
+$funcion[$indice++]="select2.min.js";
+$funcion[$indice++]="select2_locale_es.js";
 
 $funcion[$indice++]="bootstrap.js";
 $funcion[$indice++]="bootstrap.min.js";
