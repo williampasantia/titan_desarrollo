@@ -35,12 +35,11 @@ class FormProcessor {
         
             
             $datos = array(
-            'codigoRegistro' => $_REQUEST ['nit'],
+            'id' => $_REQUEST ['id'],
             'estadoRegistro' => $opcion       
         );
 //       
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("inactivarRegistro",$datos);
-      
         
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
                 
@@ -49,7 +48,7 @@ class FormProcessor {
         
        }
                 
-      if($_REQUEST['cancelarInactivar'] =='true'){
+      if(isset ( $_REQUEST ['cancelarInactivar'] ) && $_REQUEST ['cancelarInactivar'] == "true"){
                     
                      Redireccionador::redireccionar('form'); 
                 }

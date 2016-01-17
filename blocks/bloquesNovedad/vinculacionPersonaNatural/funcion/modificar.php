@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\vinculacionPersonaNatural\funcion;
+namespace bloquesNovedad\vinculacionPersonaNatural\funcion;
     
 include_once('Redireccionador.php');
 class FormProcessor {

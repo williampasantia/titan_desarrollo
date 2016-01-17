@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\vinculacionPersonaNatural\funcion;
+namespace bloquesNovedad\vinculacionPersonaNatural\funcion;
                         
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("index.php");
@@ -49,6 +49,7 @@ class Redireccionador {
                                 $variable .= '&variable=' . $valor;
                                 break;	
 			case "form" :
+                          
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=form";
                                 

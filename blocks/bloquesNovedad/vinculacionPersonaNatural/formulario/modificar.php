@@ -80,10 +80,10 @@ class Formulario {
        
         
         
-        
+       
          $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarPersonaVinculadaDetalle");
     
-     
+  
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
        
@@ -182,15 +182,16 @@ class Formulario {
 	        $atributos['matrizItems'] = $matrizItems1;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+	        	$atributos ['seleccion'] =$matrizItems[$_REQUEST['variable']][6]; 
 	        } else {
-	        	$atributos ['seleccion'] =$matrizItems[$_REQUEST['variable']][2]; 
+	        	$atributos ['seleccion'] =$matrizItems[$_REQUEST['variable']][6]; ; 
 	        }
 	        $tab ++;
 	        
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );  
+                echo $matrizItems[$_REQUEST['variable']][5];
         
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         $esteCampo = 'fechaInicio';
