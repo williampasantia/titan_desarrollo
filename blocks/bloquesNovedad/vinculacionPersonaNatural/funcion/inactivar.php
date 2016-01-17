@@ -1,5 +1,5 @@
 <?php
-namespace bloquesParametro\parametroArl\funcion;
+namespace bloquesNovedad\vinculacionPersonaNatural\funcion;
 include_once('Redireccionador.php');
 class FormProcessor {
     
@@ -40,7 +40,7 @@ class FormProcessor {
         );
 //       
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("inactivarRegistro",$datos);
-        echo$atributos ['cadena_sql'];
+      
         
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
                 

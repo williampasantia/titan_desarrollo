@@ -49,7 +49,7 @@ class FormProcessor {
         
        }
                 
-      if($_REQUEST['cancelarInactivar'] =='true'){
+      if(isset ( $_REQUEST ['cancelarInactivar'] ) && $_REQUEST ['cancelarInactivar'] == "true"){
                     
                      Redireccionador::redireccionar('form'); 
                 }
