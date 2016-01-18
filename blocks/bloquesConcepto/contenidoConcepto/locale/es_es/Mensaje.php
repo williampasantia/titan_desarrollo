@@ -30,8 +30,11 @@ $this->idioma["nombreConcepto"]="Nombre de Concepto";
 //FORMULA
 
 $this->idioma["formula"]="Fórmula =";
-$this->idioma["seccionParametros"]="Parámetros :";
-$this->idioma["seccionConceptos"]="Conceptos :";
+$this->idioma["seccionParametros"]="Parámetros:";
+$this->idioma["seccionConceptos"]="Conceptos:";
+
+$this->idioma["valorParametro"]="Valor =";
+$this->idioma["valorConcepto"]="Contenido =";
 
 $this->idioma["seccionParametrosTitulo"]="Arrastre los Parámetros que requiera para la Fórmula";
 $this->idioma["seccionConceptosTitulo"]="Arrastre los Conceptos que requiera para la Fórmula";

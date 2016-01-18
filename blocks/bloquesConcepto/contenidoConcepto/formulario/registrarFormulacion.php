@@ -185,6 +185,40 @@ class Formulario {
 				echo $this->miFormulario->campoCuadroLista ( $atributos );
 				// --------------- FIN CONTROL : Select --------------------------------------------------
 				
+				
+				// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+				unset($atributos);
+				$esteCampo = 'valorParametro';
+				$atributos ['id'] = $esteCampo;
+				$atributos ['nombre'] = $esteCampo;
+				$atributos ['estilo'] = '';
+				$atributos ['marco'] = false;
+				$atributos ['columnas'] = 50;
+				$atributos ['filas'] = 4;
+				$atributos ['tabIndex'] = $tab;
+				$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+				$atributos ['anchoEtiqueta'] = 90;
+				$atributos['deshabilitado'] =true;
+					
+				$atributos ['obligatorio'] = false;
+				$atributos ['etiquetaObligatorio'] = false;
+				$atributos ['validar'] = '';
+					
+				if (isset ( $_REQUEST [$esteCampo] )) {
+					$atributos ['valor'] = $_REQUEST [$esteCampo];
+				} else {
+					$atributos ['valor'] = '';
+				}
+				$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+				$tab ++;
+					
+				// Aplica atributos globales al control
+				$atributos = array_merge ( $atributos, $atributosGlobales );
+				echo $this->miFormulario->campoTextArea ( $atributos );
+				// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+				
+				
+				
 				// ---------------- CONTROL: Select --------------------------------------------------------
 				$esteCampo = 'seccionConceptos';
 				$atributos['nombre'] = $esteCampo;
@@ -226,6 +260,40 @@ class Formulario {
 				$atributos = array_merge ( $atributos, $atributosGlobales );
 				echo $this->miFormulario->campoCuadroLista ( $atributos );
 				// --------------- FIN CONTROL : Select --------------------------------------------------
+				
+				
+				// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+				unset($atributos);
+				$esteCampo = 'valorConcepto';
+				$atributos ['id'] = $esteCampo;
+				$atributos ['nombre'] = $esteCampo;
+				$atributos ['estilo'] = '';
+				$atributos ['marco'] = false;
+				$atributos ['columnas'] = 50;
+				$atributos ['filas'] = 6;
+				$atributos ['tabIndex'] = $tab;
+				$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+				$atributos ['anchoEtiqueta'] = 90;
+				$atributos['deshabilitado'] =true;
+					
+				$atributos ['obligatorio'] = false;
+				$atributos ['etiquetaObligatorio'] = false;
+				$atributos ['validar'] = '';
+					
+				if (isset ( $_REQUEST [$esteCampo] )) {
+					$atributos ['valor'] = $_REQUEST [$esteCampo];
+				} else {
+					$atributos ['valor'] = '';
+				}
+				$atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+				$tab ++;
+					
+				// Aplica atributos globales al control
+				$atributos = array_merge ( $atributos, $atributosGlobales );
+				echo $this->miFormulario->campoTextArea ( $atributos );
+				// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+				
+				
 				
 				// ------------------Division para los botones-------------------------
 				$atributos ["id"] = "botones";
