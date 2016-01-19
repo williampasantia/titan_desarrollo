@@ -101,7 +101,30 @@ class Sql extends \Sql {
                 	$cadenaSql .= ') ';
                 	break;
             
-          
+               case 'insertarRegistroConsorcio' :
+                		$cadenaSql = 'INSERT INTO ';
+                		$cadenaSql .= 'persona.consorcio ';
+                		$cadenaSql .= '( ';
+                		$cadenaSql .= 'identificacion,';
+                		$cadenaSql .= 'tipo_tercero,';
+                		$cadenaSql .= 'entidad,';
+                		$cadenaSql .= 'dependencia,';
+                		$cadenaSql .= 'clasificacion_juridica,';
+                		$cadenaSql .= 'calsificacion_comercial,';
+                		$cadenaSql .= 'sector_economico';
+                		$cadenaSql .= ') ';
+                		$cadenaSql .= 'VALUES ';
+                		$cadenaSql .= '( ';
+                		$cadenaSql .= $variable ['identificacion']. ', ';
+                		$cadenaSql .= '\'' .$variable ['tipoTercero'].'\''. ', ';
+                		$cadenaSql .= '\'<' .$variable ['entidad'].'>\''. ', ';
+                		$cadenaSql .= '\'' .$_REQUEST ['dependencia'] .'\''.', ';
+                		$cadenaSql .= '\'' .'en espera'.'\''. ', ';
+                		$cadenaSql .= '\'' .'en espera'.'\''. ', ';
+                		$cadenaSql .= '\'' .'en espera'.'\'';
+                		$cadenaSql .= ') ';
+                		break;
+                		
                 
              case 'buscarRegistroxPersona' :
                 

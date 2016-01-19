@@ -43,7 +43,7 @@ class Sql extends \Sql {
                 $cadenaSql .= '( ';
                 $cadenaSql .= 'documento,';
                 $cadenaSql .= 'tipo_documento,';
-                $cadenaSql .= 'consecutivo,';
+                $cadenaSql .= 'id_ubicacion,';
                 $cadenaSql .= 'primer_nombre,';
                 $cadenaSql .= 'segundo_nombre,';
                 $cadenaSql .= 'primer_apellido,';
@@ -58,7 +58,7 @@ class Sql extends \Sql {
                 $cadenaSql .= '( ';
             	$cadenaSql .= $variable ['numeroDocumento']. ', ';
             	$cadenaSql .= $variable ['tipoDocumento'] . ', ';
-            	$cadenaSql .= '2' . ', ';
+            	$cadenaSql .= $variable ['fk_ubicacion']. ', ';
             	$cadenaSql .= '\'' .$variable ['primerNombre'] . '\''.', ';
             	$cadenaSql .= '\'' .$variable ['segundoNombre'].'\''. ', ';
             	$cadenaSql .= '\'' .$variable ['primerApellido'] . '\''. ', ';
@@ -109,7 +109,8 @@ class Sql extends \Sql {
                 		$cadenaSql .= 'estado,';
                 		$cadenaSql .= 'observacion,';
                 		$cadenaSql .= 'fecha_creacion,';
-                		$cadenaSql .= 'usuario_creo';
+                		$cadenaSql .= 'usuario_creo,';
+                		$cadenaSql .= 'id_ubicacion';
                 		$cadenaSql .= ') ';
                 		$cadenaSql .= 'VALUES ';
                 		$cadenaSql .= '( ';
@@ -119,11 +120,61 @@ class Sql extends \Sql {
                 		$cadenaSql .= '\'' .$variable ['estado'] . '\''. ', ';
                 		$cadenaSql .= '\'' .$variable ['observacion'] . '\''.', ';
                 		$cadenaSql .= '\'' .$variable ['fecha'].'\''. ', ';
-                		$cadenaSql .= '\'' .$variable ['creador'] . '\'';
+                		$cadenaSql .= '\'' .$variable ['creador'] . '\''.', ';
+                		$cadenaSql .= $variable ['fk_ubicacion'];
                 		$cadenaSql .= ')';
+                		$cadenaSql .= "RETURNING  consecutivo; ";
                 		break;
-          
-                
+ 
+              case 'insertarUbicacion' :
+				$cadenaSql = 'INSERT INTO ';
+				$cadenaSql .= 'otro.ubicacion ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= 'id_pais,';
+				$cadenaSql .= 'id_departamento,';
+				$cadenaSql .= 'id_ciudad';
+				$cadenaSql .= ') ';
+				$cadenaSql .= 'VALUES ';
+				$cadenaSql .= '( ';
+				$cadenaSql .= $variable ['pais'] . ', ';
+				$cadenaSql .= $variable ['departamento'] . ', ';
+				$cadenaSql .= $variable ['ciudad'] . ' ';
+				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id_ubicacion; ";
+				break;
+				
+		case 'insertarUbicacionContacto' :
+					$cadenaSql = 'INSERT INTO ';
+					$cadenaSql .= 'otro.ubicacion ';
+					$cadenaSql .= '( ';
+					$cadenaSql .= 'id_pais,';
+					$cadenaSql .= 'id_departamento,';
+					$cadenaSql .= 'id_ciudad';
+					$cadenaSql .= ') ';
+					$cadenaSql .= 'VALUES ';
+					$cadenaSql .= '( ';
+					$cadenaSql .= $variable ['paisExperiencia'] . ', ';
+					$cadenaSql .= $variable ['departamentoExperiencia'] . ', ';
+					$cadenaSql .= $variable ['ciudadExperiencia'] . ' ';
+					$cadenaSql .= ') ';
+					$cadenaSql .= "RETURNING  id_ubicacion; ";
+					break;
+					
+		case 'insertarPersonaContacto' :
+						$cadenaSql = 'INSERT INTO ';
+						$cadenaSql .= 'persona.contactoxpernatural ';
+						$cadenaSql .= '( ';
+						$cadenaSql .= 'documento,';
+						$cadenaSql .= 'consecutivo';
+						$cadenaSql .= ') ';
+						$cadenaSql .= 'VALUES ';
+						$cadenaSql .= '( ';
+						$cadenaSql .= $variable ['documento'] . ', ';
+						$cadenaSql .= $variable ['consecutivo'] . ' ';
+						$cadenaSql .= ') ';
+						
+						break;
+				
              case 'buscarRegistroxCargo' :
                 
                 	$cadenaSql = 'SELECT ';
@@ -197,25 +248,7 @@ class Sql extends \Sql {
                         
                 break;
 
-            case 'modificarRegistro' :
-                $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'persona.persona_natural ';
-                $cadenaSql .= 'SET ';
-                $cadenaSql .= 'nivel = ';
-                $cadenaSql .= $variable ['nivelRegistro'] . ', ';
-                $cadenaSql .= 'grado = ';
-                $cadenaSql .= $variable ['gradoRegistro'] . ', ';
-                $cadenaSql .= 'nombre = ';
-                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
-                $cadenaSql .= 'sueldo = ';
-                $cadenaSql .= $variable ['sueldoRegistro'] . ', ';
-                $cadenaSql .= 'tipo_sueldo = ';
-                $cadenaSql .= '\'' . $variable['tipoSueldoRegistro'] . '\' ';
-                $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'codigo_cargo = ';
-                $cadenaSql .= '\'' . $variable ['codigoRegistro']  . '\'';
-                break;
-                
+                            
              case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
                 $cadenaSql .= 'persona.persona_natural ';

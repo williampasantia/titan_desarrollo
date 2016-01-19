@@ -413,7 +413,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'personaJuridicaPais';
+        $esteCampo = 'personaNaturalPais';
         $atributos['nombre'] = $esteCampo;
         $atributos['id'] = $esteCampo;
         $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
@@ -429,13 +429,9 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required';
         
-        $matrizItems=array(
-        		array(1,'Argentina'),
-        		array(2,'Peru'),
-        		array(3,'Chile'),
-        		array(4,'Colombia')
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
+        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
         
-        );
         $atributos['matrizItems'] = $matrizItems;
         
         if (isset ( $_REQUEST [$esteCampo] )) {
@@ -451,14 +447,14 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'personaJuridicoDepartamento';
+        $esteCampo = 'personaNaturalDepartamento';
         $atributos['nombre'] = $esteCampo;
         $atributos['id'] = $esteCampo;
         $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos['tab'] = $tab;
         $atributos['seleccion'] = -1;
         $atributos['evento'] = ' ';
-        $atributos['deshabilitado'] = false;
+        $atributos['deshabilitado'] = true;
         $atributos['limitar']= 50;
         $atributos['tamanno']= 1;
         $atributos['columnas']= 1;
@@ -475,6 +471,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         		array(5,'Bogotá D.C.')
         
         );
+        
         $atributos['matrizItems'] = $matrizItems;
         
         if (isset ( $_REQUEST [$esteCampo] )) {
@@ -490,14 +487,14 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'personaJuridicaCiudad';
+        $esteCampo = 'personaNaturalCiudad';
         $atributos['nombre'] = $esteCampo;
         $atributos['id'] = $esteCampo;
         $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos['tab'] = $tab;
         $atributos['seleccion'] = -1;
         $atributos['evento'] = ' ';
-        $atributos['deshabilitado'] = false;
+        $atributos['deshabilitado'] = true;
         $atributos['limitar']= 50;
         $atributos['tamanno']= 1;
         $atributos['columnas']= 1;
@@ -585,7 +582,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         $matrizItems=array(
         		array(1,'Individual'),
         		array(2,'Consorcio'),
-                        array(3,'unionTemporal')
+                array(3,'unionTemporal')
         		
         
         );
@@ -639,7 +636,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         	$atributos ['valor'] = '';
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-        $atributos ['deshabilitado'] = true;
+        $atributos ['deshabilitado'] = false;
         $atributos ['tamanno'] = 4;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
@@ -775,7 +772,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         
-        $atributos ['obligatorio'] = true;
+        $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required, minSize[1]';
         
@@ -785,7 +782,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         	$atributos ['valor'] = '';
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-        $atributos ['deshabilitado'] = false;
+        $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 15;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
@@ -1099,7 +1096,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'personaJuridicaContactosPais';
+        $esteCampo = 'personaNaturalContactosPais';
         $atributos['nombre'] = $esteCampo;
         $atributos['id'] = $esteCampo;
         $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
@@ -1115,13 +1112,10 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required';
         
-        $matrizItems=array(
-        		array(1,'Argentina'),
-        		array(2,'Peru'),
-        		array(3,'Chile'),
-        		array(4,'Colombia')
+
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarPais" );
+        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
         
-        );
         $atributos['matrizItems'] = $matrizItems;
         
         if (isset ( $_REQUEST [$esteCampo] )) {
@@ -1137,14 +1131,14 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'personaJuridicaContactosDepartamento';
+        $esteCampo = 'personaNaturalContactosDepartamento';
         $atributos['nombre'] = $esteCampo;
         $atributos['id'] = $esteCampo;
         $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos['tab'] = $tab;
         $atributos['seleccion'] = -1;
         $atributos['evento'] = ' ';
-        $atributos['deshabilitado'] = false;
+        $atributos['deshabilitado'] = true;
         $atributos['limitar']= 50;
         $atributos['tamanno']= 1;
         $atributos['columnas']= 1;
@@ -1176,14 +1170,14 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'personaJuridicaContactosCiudad';
+        $esteCampo = 'personaNaturalContactosCiudad';
         $atributos['nombre'] = $esteCampo;
         $atributos['id'] = $esteCampo;
         $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos['tab'] = $tab;
         $atributos['seleccion'] = -1;
         $atributos['evento'] = ' ';
-        $atributos['deshabilitado'] = false;
+        $atributos['deshabilitado'] = true;
         $atributos['limitar']= 50;
         $atributos['tamanno']= 1;
         $atributos['columnas']= 1;
@@ -1254,7 +1248,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         $atributos['id'] = $esteCampo;
         $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos['tab'] = $tab;
-        $atributos['seleccion'] = 2;
+        $atributos['seleccion'] = -1;
         $atributos['evento'] = ' ';
         $atributos['deshabilitado'] = false;
         $atributos['limitar']= 50;
@@ -1552,7 +1546,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         $atributos['id'] = $esteCampo;
         $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos['tab'] = $tab;
-        $atributos['seleccion'] = 2;
+        $atributos['seleccion'] = -1;
         $atributos['evento'] = ' ';
         $atributos['deshabilitado'] = false;
         $atributos['limitar']= 50;

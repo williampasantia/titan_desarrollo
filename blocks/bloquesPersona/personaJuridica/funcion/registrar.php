@@ -88,9 +88,64 @@ class FormProcessor {
                 		
                 );
          
-          
+                         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroBasico",$datos);
         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+   
+             
+        
+        if(isset($_REQUEST['tipoDeTercero'])){
+        	switch($_REQUEST ['tipoDeTercero']){
+        		case 1 :
+        			$_REQUEST ['tipoDeTercero']='Individual';
+        			break;
+        
+        		case 2 :
+        			$_REQUEST ['tipoDeTercero']='Consorcio';
+        			break;
+        			
+        	    case 3 :
+        				$_REQUEST ['tipoDeTercero']='Union Temporal';
+        				break;
+        	}
+        }
+        
+        if(isset($_REQUEST['claseEntidad'])){
+        	switch($_REQUEST ['claseEntidad']){
+        		case 1 :
+        			$_REQUEST ['claseEntidad']='Pública';
+        			break;
+        
+        		case 2 :
+        			$_REQUEST ['claseEntidad']='Privada';
+        			break;
+        		       		
+        	}
+        }
+        
+        if(isset($_REQUEST['dependencia'])){
+        	switch($_REQUEST ['dependencia']){
+        		case 1 :
+        			$_REQUEST ['dependencia']='Dependiente';
+        			break;
+        
+        		case 2 :
+        			$_REQUEST ['dependencia']='No dependiente';
+        			break;
+        				
+        	}
+        }
+        $datosConsorcio = array(
+        		'identificacion' => $_REQUEST['tipoIdentifiacionConsorcio'],
+        		'tipoTercero' => $_REQUEST['tipoDeTercero'],
+        		'entidad' => $_REQUEST['claseEntidad'],
+        		'dependencia' => $_REQUEST['dependencia']
+        		       
+        );
+        
+        var_dump($atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroConsorcio",$datosConsorcio));exit;
+        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+        
         
 //         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistroComercial",$datos);
 //         $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
