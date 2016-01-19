@@ -21,20 +21,7 @@ class FormProcessor {
 		$conexion = 'estructura';
 		$primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB ( $conexion );
 		
-		if (isset ( $_REQUEST ['codTipoCargoRegistro'] )) {
-		}
 		
-		if (isset ( $_REQUEST ['tipoSueldoRegistro'] )) {
-			switch ($_REQUEST ['tipoSueldoRegistro']) {
-				case 1 :
-					$_REQUEST ['tipoSueldoRegistro'] = 'M';
-					break;
-				
-				case 2 :
-					$_REQUEST ['tipoSueldoRegistro'] = 'H';
-					break;
-			}
-		}
 		
 		if (isset ( $_REQUEST ['personaNaturalAutorretenedor'] )) {
 			switch ($_REQUEST ['personaNaturalAutorretenedor']) {
