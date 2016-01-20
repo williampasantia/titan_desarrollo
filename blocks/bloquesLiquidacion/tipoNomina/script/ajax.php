@@ -13,6 +13,9 @@
     $("#<?php echo $this->campoSeguro('reglamentacion')?>").select2();
     $('#<?php echo $this->campoSeguro('estadoRegistroNomina')?>').width(250);
     $("#<?php echo $this->campoSeguro('estadoRegistroNomina')?>").select2();
+    $('#<?php echo $this->campoSeguro('leyes')?>').width(250);
+    $("#<?php echo $this->campoSeguro('leyes')?>").select2();
+    
           $(function () {
 	        
 	        $("#<?php echo $this->campoSeguro('tipoNomina')?>").change(function(){

@@ -119,6 +119,12 @@ class Select extends HtmlBase {
 
     function armarSelect() {
         $this->cadena_html = "<select ";
+        
+           // Si se especifica que puede ser multiple
+        if (isset($this->atributos [self::MULTIPLE]) && $this->atributos [self::MULTIPLE]) {
+            $this->cadena_html .= " multiple \n";
+        }
+
 
         if (isset($this->atributos [self::DESHABILITADO]) && $this->atributos [self::DESHABILITADO]) {
             $this->cadena_html .= "disabled ";
@@ -456,11 +462,7 @@ class Select extends HtmlBase {
             $this->cadena_html .= "selectboxdiv ";
         }
 
-        // Si se especifica que puede ser multiple
-        if (isset($this->atributos [self::MULTIPLE]) && $this->atributos [self::MULTIPLE]) {
-            $this->cadena_html .= " multiple \n";
-        }
-
+     
         // Si se utiliza jQuery-Validation-Engine
         if (isset($this->atributos [self::VALIDAR])) {
             $this->cadena_html .= " validate[" . $this->atributos [self::VALIDAR] . "] ";

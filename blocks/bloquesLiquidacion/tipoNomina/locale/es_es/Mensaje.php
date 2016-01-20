@@ -41,10 +41,11 @@ $this->idioma["descripcionTitulo"]="Descripcion" ;
 $this->idioma["reglamentacion"]="Reglamentacion: ";
 $this->idioma["reglamentacionTitulo"]="Reglamentacion";
 $this->idioma["naturaleza"]="Naturaleza: ";
+$this->idioma["leyes"]="Leyes : ";
 $this->idioma["naturalezaTitulo"]="Naturaleza";
 
-$this->idioma["enviarRegistro"]="Guardar";
-$this->idioma["enviarRegistroNomina"]="Guardar";
+$this->idioma["enviarRegistro"]="Enviar";
+$this->idioma["enviarRegistroNomina"]="Enviar";
 $this->idioma["modificarRegistro"]="Guardar Cambios";
 $this->idioma["verdetalleRegistro"]="Aceptar";
 $this->idioma["estadoRegistro"]="Estado  :";
