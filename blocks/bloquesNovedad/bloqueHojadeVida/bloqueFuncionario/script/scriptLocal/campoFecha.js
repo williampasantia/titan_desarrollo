@@ -19,6 +19,66 @@ $( document ).ready(function() {
 	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaFormacionMedia')?>";
 	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaFormacionMedia')?>";
 	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_0')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_0')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_1')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_1')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_2')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_2')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_3')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_3')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_4')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_4')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_5')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_5')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_6')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_6')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_7')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_7')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_8')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_8')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_9')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_9')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_10')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_10')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_11')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_11')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_12')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_12')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_13')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_13')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_14')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_14')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_15')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_15')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_16')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_16')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_17')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_17')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_18')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_18')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaInformal_19')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_19')?>";
+	
 	$(campoFecha).each(function(){
 		$(this.valueOf()).datepicker({
 			dateFormat: 'yy-mm-dd',
