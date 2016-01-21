@@ -80,11 +80,67 @@ $( document ).ready(function() {
 	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaInformal_19')?>";
 	
 	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_0')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_0')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_0')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_0')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_0')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_0')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_1')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_1')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_1')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_1')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_1')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_1')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_2')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_2')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_2')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_2')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_2')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_2')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_3')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_3')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_3')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_3')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_3')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_3')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_4')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_4')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_4')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_4')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_4')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_4')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_5')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_5')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_5')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_5')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_5')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_5')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_6')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_6')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_6')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_6')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_6')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_6')?>";
+	
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_7')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaConvalidaSuperior_7')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_7')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTituloSuperior_7')?>";
+	campoFecha[IFechaA++] = "#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_7')?>";
+	campoFechaInput[IFechaB++] = "input#<?php echo $this->campoSeguro('funcionarioFechaTarjetaSuperior_7')?>";
+	
 	$(campoFecha).each(function(){
 		$(this.valueOf()).datepicker({
 			dateFormat: 'yy-mm-dd',
 			maxDate: 0,
-			yearRange: '-50:+0',
+			yearRange: '-80:+0',
 			changeYear: true,
 			changeMonth: true,
 			monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
