@@ -167,7 +167,7 @@ class Formulario {
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
-        $esteCampo = 'fechaExp';
+         $esteCampo = 'fechaExp';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -175,7 +175,6 @@ class Formulario {
         $atributos ['marco'] = true;
         $atributos ['columnas'] = 1;
         $atributos ['dobleLinea'] = false;
-        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         
@@ -186,7 +185,7 @@ class Formulario {
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
         } else {
-        	$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][2];   
+        	$atributos ['valor'] = $matrizItems[$_REQUEST['variable']][2];
         }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = false;
@@ -209,7 +208,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['anchoEtiqueta'] = 200;
+        
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
         $atributos ['validar'] = 'custom[date]';
