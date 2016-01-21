@@ -686,15 +686,12 @@ $( "#<?php echo $this->campoSeguro('funcionarioFechaNacimiento')?>" ).datepicker
 
 
 $(document).ready(function(){
-
-	$("#bloqueConsultar").validationEngine();
 	
-	$("#bloqueFuncionario").validationEngine({
+	$("#bloqueConsultar").validationEngine({
 		promptPosition : "centerRight",
 		scroll: false,
 		autoHidePrompt: true,
 		autoHideDelay: 2000,
-		validateNonVisibleFields: true,
 	    updatePromptsPosition:true
 	});
 
