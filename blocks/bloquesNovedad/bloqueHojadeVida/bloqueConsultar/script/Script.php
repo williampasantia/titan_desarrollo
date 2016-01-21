@@ -26,7 +26,6 @@ $funcion[$indice++]="select2_locale_es.js";
 
 $funcion[$indice++]="bootstrap.js";
 $funcion[$indice++]="bootstrap.min.js";
-$funcion[$indice++]="npm.js";
 
 $embebido [$indice] = true;
 $funcion [$indice ++] = "scriptLocal/campoFecha.js";
