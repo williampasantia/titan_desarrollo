@@ -75,6 +75,44 @@ $cadena19 = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $c
 // URL definitiva
 $urlFinal19 = $url . $cadena19;
 
+// --------------------------------------personaMod--------------------------------------------
+
+$url = $this->miConfigurador->getVariableConfiguracion ( "host" );
+$url .= $this->miConfigurador->getVariableConfiguracion ( "site" );
+$url .= "/index.php?data=pMu1CNlOV6DaV7xDJjbWcyaChUSyI1OiPDhh-jirt3hX73Ao65cjosCeekMd3z_j3ntmWHBRqIp6v4uEQnRftJTE3R3lGpCZySCiFJ0rRo6teiGqXrg5RKFVspaqA5drPTmy8ucyJfuPwdIwSRVbtubUuKjOSEr6hHcdzux_HGk";
+// Variables
+$cadenaACodificar20 = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( "pagina" );
+$cadenaACodificar20 .= "&procesarAjax=true";
+$cadenaACodificar20 .= "&action=index.php?data=pMu1CNlOV6DaV7xDJjbWcyaChUSyI1OiPDhh-jirt3hX73Ao65cjosCeekMd3z_j3ntmWHBRqIp6v4uEQnRftJTE3R3lGpCZySCiFJ0rRo6teiGqXrg5RKFVspaqA5drPTmy8ucyJfuPwdIwSRVbtubUuKjOSEr6hHcdzux_HGk";
+$cadenaACodificar20 .= "&bloqueNombre=" . $esteBloque ["nombre"];
+$cadenaACodificar20 .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+$cadenaACodificar20 .= $cadenaACodificar20 . "&funcion=consultarDepartamentoAjax";
+$cadenaACodificar20 .= "&tiempo=" . $_REQUEST ['tiempo'];
+// Codificar las variables
+$enlace = $this->miConfigurador->getVariableConfiguracion ( "enlace" );
+$cadena20 = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $cadenaACodificar20, $enlace );
+// URL definitiva
+$urlFinal20 = $url . $cadena20;
+
+
+// URL base
+$url = $this->miConfigurador->getVariableConfiguracion ( "host" );
+$url .= $this->miConfigurador->getVariableConfiguracion ( "site" );
+$url .= "/index.php?data=pMu1CNlOV6DaV7xDJjbWcyaChUSyI1OiPDhh-jirt3hX73Ao65cjosCeekMd3z_j3ntmWHBRqIp6v4uEQnRftJTE3R3lGpCZySCiFJ0rRo6teiGqXrg5RKFVspaqA5drPTmy8ucyJfuPwdIwSRVbtubUuKjOSEr6hHcdzux_HGk";
+// Variables
+$cadenaACodificar21 = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( "pagina" );
+$cadenaACodificar21 .= "&procesarAjax=true";
+$cadenaACodificar21 .= "&action=index.php?data=pMu1CNlOV6DaV7xDJjbWcyaChUSyI1OiPDhh-jirt3hX73Ao65cjosCeekMd3z_j3ntmWHBRqIp6v4uEQnRftJTE3R3lGpCZySCiFJ0rRo6teiGqXrg5RKFVspaqA5drPTmy8ucyJfuPwdIwSRVbtubUuKjOSEr6hHcdzux_HGk";
+$cadenaACodificar21 .= "&bloqueNombre=" . $esteBloque ["nombre"];
+$cadenaACodificar21 .= "&bloqueGrupo=" . $esteBloque ["grupo"];
+$cadenaACodificar21 .= $cadenaACodificar21 . "&funcion=consultarCiudadAjax";
+$cadenaACodificar21 .= "&tiempo=" . $_REQUEST ['tiempo'];
+// Codificar las variables
+$enlace = $this->miConfigurador->getVariableConfiguracion ( "enlace" );
+$cadena21 = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $cadenaACodificar21, $enlace );
+// URL definitiva
+$urlFinal21 = $url . $cadena21;
+
 ?>
 
 <script>
@@ -226,4 +264,62 @@ function consultarDepartamentoCon(elem, request, response){
 		    	      });
 	    	      
 		 });
+//---------------------------------personaMod--------------------------------------------------------
+
+function consultarDepartamentoMod(elem, request, response){
+	  $.ajax({
+	    url: "<?php echo $urlFinal20?>",
+	    dataType: "json",
+	    data: { valor:$("#<?php echo $this->campoSeguro('personaNaturalPaisMod')?>").val()},
+	    success: function(data){ 
+	        if(data[0]!=" "){
+	            $("#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>").html('');
+	            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>");
+	            $.each(data , function(indice,valor){
+	            	$("<option value='"+data[ indice ].id_departamento+"'>"+data[ indice ].nombre+"</option>").appendTo("#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>");
+	            	
+	            });
+	            
+	            $("#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>").removeAttr('disabled');
+	            
+	            //$('#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>').width(250);
+	            $("#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>").select2();
+	            
+	            $("#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>").removeClass("validate[required]");
+	            
+		        }
+	  			
+	    }
+		                    
+	   });
+	};
+
+	function consultarCiudadMod(elem, request, response){
+		  $.ajax({
+		    url: "<?php echo $urlFinal17?>",
+		    dataType: "json",
+		    data: { valor:$("#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>").val()},
+		    success: function(data){ 
+		        if(data[0]!=" "){
+		            $("#<?php echo $this->campoSeguro('personaNaturalCiudadMod')?>").html('');
+		            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('personaNaturalCiudadMod')?>");
+		            $.each(data , function(indice,valor){
+		            	$("<option value='"+data[ indice ].id_ciudad+"'>"+data[ indice ].nombreciudad+"</option>").appendTo("#<?php echo $this->campoSeguro('personaNaturalCiudadMod')?>");
+		            	
+		            });
+		            
+		            $("#<?php echo $this->campoSeguro('personaNaturalCiudadMod')?>").removeAttr('disabled');
+		            
+		            //$('#<?php echo $this->campoSeguro('personaNaturalCiudadMod')?>').width(250);
+		            $("#<?php echo $this->campoSeguro('personaNaturalCiudadMod')?>").select2();
+		            
+		            $("#<?php echo $this->campoSeguro('personaNaturalCiudadMod')?>").removeClass("validate[required]");
+		            
+			        }
+		    			
+		    }
+			                    
+		   });
+		};
+		 
 </script>

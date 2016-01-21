@@ -46,6 +46,11 @@ $this->idioma["personaNaturalProcedencia"]="Procedencia";
 $this->idioma["personaNaturalPais"]="País";
 $this->idioma["personaNaturalDepartamento"]="Departamento";
 $this->idioma["personaNaturalCiudad"]="Ciudad/Municipio";
+
+$this->idioma["personaNaturalPaisMod"]="País";
+$this->idioma["personaNaturalDepartamentoMod"]="Departamento";
+$this->idioma["personaNaturalCiudadMod"]="Ciudad/Municipio";
+
 $this->idioma["personaNaturalRegimen"]="Rágimen Tributario";
 
 $this->idioma["infoComercial"]="Información Comercial";

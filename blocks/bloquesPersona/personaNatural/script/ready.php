@@ -23,6 +23,15 @@ $("#<?php echo $this->campoSeguro('personaNaturalDepartamento')?>").select2();
 $('#<?php echo $this->campoSeguro('personaNaturalCiudad')?>').width(); 
 $("#<?php echo $this->campoSeguro('personaNaturalCiudad')?>").select2();
 
+$('#<?php echo $this->campoSeguro('personaNaturalPaisMod')?>').width(); 
+$("#<?php echo $this->campoSeguro('personaNaturalPaisMod')?>").select2();
+
+$('#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>').width(); 
+$("#<?php echo $this->campoSeguro('personaNaturalDepartamentoMod')?>").select2();
+
+$('#<?php echo $this->campoSeguro('personaNaturalCiudadMod')?>').width(); 
+$("#<?php echo $this->campoSeguro('personaNaturalCiudadMod')?>").select2();
+
 $('#<?php echo $this->campoSeguro('personaNaturalContactosPais')?>').width(); 
 $("#<?php echo $this->campoSeguro('personaNaturalContactosPais')?>").select2();
 

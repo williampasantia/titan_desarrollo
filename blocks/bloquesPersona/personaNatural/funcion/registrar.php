@@ -152,8 +152,21 @@ class FormProcessor {
 			);
 			
 			$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "insertarRegistroComercial", $datosCom );
+			$id_comercial = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda", $datosCom, "insertarRegistroComercial" );
+			
+			
+			$datosPersonaComercial = array (
+					'documento' => $_REQUEST ['personaNaturalDocumento'],
+					'consecutivo' => $id_comercial [0][0]
+			);
+			
+			$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "insertarPersonaComercial", $datosPersonaComercial );
 			$primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "acceso" );
+			
+			
 			// Al final se ejecuta la redirección la cual pasará el control a otra página
+			
+			
 			
 			if (isset ( $_REQUEST ['personaNaturalContactoTipo'] )) {
 				switch ($_REQUEST ['personaNaturalContactoTipo']) {
