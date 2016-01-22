@@ -52,6 +52,29 @@ $this->idioma["otrosDatos"]="Otros Datos";
 
 $this->idioma["personaNaturalProcedencia"]="Procedencia";
 
+$this->idioma["personaNaturalConsecutivo"]="Consecutivo";
+
+
+$this->idioma["personaNaturalConsecutivoTitulo"]="Consecutivo Automático";
+$this->idioma["personaNaturalBanco"]="Banco";
+$this->idioma["personaNaturalTipoCuenta"]="Tipo de Cuenta";
+$this->idioma["personaNaturalNumeroCuenta"]="Número de Cuenta";
+$this->idioma["personaNaturalTipoPago"]="Tipo de Pago";
+$this->idioma["personaNaturalEstado"]="Estado";
+$this->idioma["personaNaturalUsuarioCreo"]="Usuario que lo Creo";
+$this->idioma["fechaCreacionConsulta1"]="Fecha de Creación";
+$this->idioma["personaNaturalEconomicoEstado"]="Estado";
+$this->idioma["personaNaturalContactosConsecutivo"]="Consecutivo";
+$this->idioma["personaNaturalContactoTipo"]="Tipo";
+$this->idioma["personaNaturalContactosPais"]="País";
+$this->idioma["personaNaturalContactosDepartamento"]="Departamento";
+$this->idioma["personaNaturalContactosCiudad"]="Ciudad/Municipio";
+$this->idioma["personaNaturalContactosDescrip"]="Descripción";
+$this->idioma["personaNaturalContactosIndicativo"]="Indicativo";
+$this->idioma["personaNaturalContactosEstado"]="Estado";
+$this->idioma["personaNaturalContactosObserv"]="Observación";
+$this->idioma["personaNaturalContactosUsuarioCreo"]="Usuario que lo Creo";
+
 $this->idioma["personaNaturalPais"]="País";
 $this->idioma["regimenTributario"]="Regimen Tributario";
 $this->idioma["dependencia"]="dependencia";

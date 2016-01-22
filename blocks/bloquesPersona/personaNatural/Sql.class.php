@@ -148,9 +148,9 @@ class Sql extends \Sql {
 				$cadenaSql .= ') ';
 				$cadenaSql .= 'VALUES ';
 				$cadenaSql .= '( ';
-				$cadenaSql .= $variable ['paisExperiencia'] . ', ';
-				$cadenaSql .= $variable ['departamentoExperiencia'] . ', ';
-				$cadenaSql .= $variable ['ciudadExperiencia'] . ' ';
+				$cadenaSql .= $variable ['pais'] . ', ';
+				$cadenaSql .= $variable ['departamento'] . ', ';
+				$cadenaSql .= $variable ['ciudad'] . ' ';
 				$cadenaSql .= ') ';
 				$cadenaSql .= "RETURNING  id_ubicacion; ";
 				break;
@@ -350,7 +350,7 @@ class Sql extends \Sql {
 			
 			case 'modificarRegistroComercial' :
 				$cadenaSql = 'UPDATE ';
-				$cadenaSql .= 'persona.persona_natural ';
+				$cadenaSql .= 'persona.info_comercial ';
 				$cadenaSql .= 'SET ';
 				$cadenaSql .= 'tipo_pago = ';
 				$cadenaSql .= '\'' . $variable ['tipoPago'] . '\', ';
@@ -360,18 +360,17 @@ class Sql extends \Sql {
 				$cadenaSql .= 'numero_cuenta = ';
 				$cadenaSql .= '\'' . $variable ['numeroCuenta'] . '\'';
 				break;
-				
-				
-				case 'modificarRegistroContacto' :
-					$cadenaSql = 'UPDATE ';
-					$cadenaSql .= 'persona.contacto ';
-					$cadenaSql .= 'SET ';
-					$cadenaSql .= 'estado = ';
-					$cadenaSql .= '\'' . $variable ['estado'] . '\' ';
-					$cadenaSql .= 'WHERE ';
-					$cadenaSql .= 'consecutivo = ';
-					$cadenaSql .= '\'' . $variable ['consecutivo'] . '\'';
-					break;
+			
+			case 'modificarRegistroContacto' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'persona.contacto ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'estado = ';
+				$cadenaSql .= '\'' . $variable ['estado'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'consecutivo = ';
+				$cadenaSql .= '\'' . $variable ['consecutivo'] . '\'';
+				break;
 			
 			case 'buscarPais' :
 				

@@ -96,6 +96,10 @@ class Formulario {
         echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         unset ( $atributos );
         {
+        	
+        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarVerdetallexCargo" );
+        	$matrizItems2 = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+        	
         	$esteCampo = 'personaJuridicaIdentificacion';
         	$atributos['nombre'] = $esteCampo;
         	$atributos['id'] = $esteCampo;

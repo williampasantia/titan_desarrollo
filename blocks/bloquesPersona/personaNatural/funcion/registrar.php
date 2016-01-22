@@ -80,8 +80,8 @@ class FormProcessor {
 				'soporteDocumento' => $_REQUEST ['personaNaturalSoporteIden'] 
 		);
 		
-		var_dump ( $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "insertarRegistroBasico", $datos ) );
-		exit ();
+		$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "insertarRegistroBasico", $datos );
+		
 		$primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "acceso" );
 		
 		if (isset ( $_REQUEST ['personaNaturalBanco'] )) {
