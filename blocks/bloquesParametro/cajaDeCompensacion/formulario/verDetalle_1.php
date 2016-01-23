@@ -80,7 +80,7 @@ class Formulario {
         
         
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarArl1");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarCajaDeCompensacion1");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         
          // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
@@ -257,7 +257,7 @@ class Formulario {
         unset($atributos);
        
         // ---------------- CONTROL: Codigo Texto --------------------------------------------------------
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarUbicacion",$matrizItems[$_REQUEST['variable']][7]);
+         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarUbicacion",$matrizItems[$_REQUEST['variable']][7]);
         $matrizUbicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarCiudadUbicacion",$matrizUbicacion[0][0]);
@@ -273,7 +273,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = "".$matrizCiudadUbicacion[0][1].", ".$matrizCiudadUbicacion[0][0];      
+       $atributos ['valor'] = "".$matrizCiudadUbicacion[0][1].", ".$matrizCiudadUbicacion[0][0];     
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
@@ -331,14 +331,14 @@ class Formulario {
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
         $atributos ['maximoTamanno'] = '';
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        unset($atributos); 
+        
+        
         
         $tab ++;
-        
-          $atributos = array_merge ( $atributos, $atributosGlobales );
-        echo $this->miFormulario->campoCuadroTexto ( $atributos );
-        unset($atributos);
-        
-        
         $esteCampo = 'estado';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;

@@ -20,6 +20,13 @@
  $("#<?php echo $this->campoSeguro('tipoSueldoRegistroMod')?>").select2();  
  
  
+  $('#<?php echo $this->campoSeguro('ley')?>').width(400);
+ $("#<?php echo $this->campoSeguro('ley')?>").select2(); 
+
+
+ $('#<?php echo $this->campoSeguro('naturaleza')?>').width(400);
+ $("#<?php echo $this->campoSeguro('naturaleza')?>").select2();
+ 
  $('#<?php echo $this->campoSeguro('estadoRegistro')?>').width(200);
  $("#<?php echo $this->campoSeguro('estadoRegistro')?>").select2();  
     

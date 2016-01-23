@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl;
+namespace bloquesParametro\cajaDeCompensacion;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -38,7 +38,7 @@ class Sql extends \Sql {
              * Clausulas específicas
              */
             
-            case 'buscarArl':
+            case 'buscarCajaDeCompensacion':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'nit as NIT, ';
                 $cadenaSql .= 'nombre as NOMBRE, ';
@@ -47,28 +47,11 @@ class Sql extends \Sql {
                 $cadenaSql .= 'extencion_telefono as EXTENCION_TELEFONO, ';
                 $cadenaSql .= 'estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'parametro.arl';
+                $cadenaSql .= 'parametro.caja_compensacion';
                 break;
-         case 'buscarArl1':
-                $cadenaSql = 'SELECT ';
-                $cadenaSql .= 'nit as NIT, ';
-                $cadenaSql .= 'nombre as NOMBRE, ';
-                $cadenaSql .= 'direccion as DIRECCION, ';
-                $cadenaSql .= 'telefono as TELEFONO, ';
-                $cadenaSql .= 'extencion_telefono as EXTENCION_TELEFONO, ';
-                $cadenaSql .= 'fax as FAX, ';
-                $cadenaSql .= 'extencion_fax as EXTENCION_FAX, ';
-                $cadenaSql .= 'lugar as LUGAR,';
-                $cadenaSql .= 'nombre_representante_legal as NOMBRE_REPRESENTANTE_LEGAL, ';
-                $cadenaSql .= 'email as EMAIL, ';
-                $cadenaSql .= 'estado as ESTADO ';
-                $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'parametro.arl';
-                break;
-            
-              case 'modificarRegistro' :
+            case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.arl ';
+                $cadenaSql .= 'parametro.caja_compensacion ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'nombre = ';
                 $cadenaSql .= "'".$variable ['nombre'] . "',";
@@ -98,21 +81,36 @@ class Sql extends \Sql {
                      $cadenaSql .= 'lugar = ';
                      $cadenaSql .= $variable ['lugar']  . ",";
                 }
-               if($variable ['lugar']!='')
+               if($variable ['nombreRepresentante']!='')
                 {
                 $cadenaSql .= 'nombre_representante_legal = ';
                 $cadenaSql .= "'".$variable ['nombreRepresentante']  . "',";
-                
+                }
                 $cadenaSql .= 'email = ';
                 $cadenaSql .= "'".$variable ['email']."'";
                 $cadenaSql .= ' WHERE ';
                 $cadenaSql .= 'nit = ';
                 $cadenaSql .= $variable ['nit']  .';';
                 break;
-                
-            case 'inactivarRegistro' :
+        case 'buscarCajaDeCompensacion1':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'nit as NIT, ';
+                $cadenaSql .= 'nombre as NOMBRE, ';
+                $cadenaSql .= 'direccion as DIRECCION, ';
+                $cadenaSql .= 'telefono as TELEFONO, ';
+                $cadenaSql .= 'extencion_telefono as EXTENCION_TELEFONO, ';
+                $cadenaSql .= 'fax as FAX, ';
+                $cadenaSql .= 'extencion_fax as EXTENCION_FAX, ';
+                $cadenaSql .= 'lugar as LUGAR, ';
+                $cadenaSql .= 'nombre_representante_legal as NOMBRE_REPRESENTANTE_LEGAL, ';
+                $cadenaSql .= 'email as EMAIL, ';
+                $cadenaSql .= 'estado as ESTADO ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.caja_compensacion';
+                break;
+        case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.arl ';
+                $cadenaSql .= 'parametro.caja_compensacion ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'estado = ';
                 $cadenaSql .= "'". $variable ['estadoRegistro']  ."' ";
@@ -120,11 +118,9 @@ class Sql extends \Sql {
                 $cadenaSql .= 'nit = ';
                 $cadenaSql .= $variable ['codigoRegistro'].";";
                 break;
-        
-        
-             case "registrarArl" :
+             case "registrarCajaDeCompensacion" :
 				$cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'parametro.arl ';
+                $cadenaSql .= 'parametro.caja_compensacion ';
                 $cadenaSql .= '( ';
                 $cadenaSql .= 'nit,';                
              
@@ -147,7 +143,11 @@ class Sql extends \Sql {
                 
                
                 $cadenaSql .= 'lugar,';
-                $cadenaSql .= 'nombre_representante_legal,';
+                 if($variable ['nomRepreRegistro']!='')
+                {
+                   $cadenaSql .= 'nombre_representante_legal,';
+                }
+               
                 $cadenaSql .= 'email,';
                 $cadenaSql .= 'estado';
                 $cadenaSql .= ') ';
@@ -176,7 +176,11 @@ class Sql extends \Sql {
                 
                
                 $cadenaSql .= $variable ['id_ubicacion'] . ', ';
-                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
+                if($variable ['nomRepreRegistro']!='')
+                {
+                  $cadenaSql .= $variable ['nomRepreRegistro'] . ', ';
+                }
+             
                 $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';
@@ -346,25 +350,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id_departamento = ' . $variable . ';';
 				break;
-                            case 'buscarDepartamentoEspecifico' ://Provisionalmente solo Departamentos de Colombia
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'nombre as NOMBRE ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.departamento ';
-				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'id_pais = 112 and ';
-                                $cadenaSql .= 'id_departamento = '.$variable;
-				break;
-                            case 'buscarCiudadEspecifico' ://Provisionalmente solo Departamentos de Colombia
-				
-				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'nombre as NOMBRE ';
-				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.ciudad ';
-				$cadenaSql .= 'WHERE ';
-			        $cadenaSql .= 'id_ciudad = '.$variable;
-				break;
+                            
                         case 'buscarIdUbicacion' :
 				
 				$cadenaSql = 'SELECT ';
@@ -420,6 +406,7 @@ class Sql extends \Sql {
         }
         
         return $cadenaSql;
+        
     
     }
 }
