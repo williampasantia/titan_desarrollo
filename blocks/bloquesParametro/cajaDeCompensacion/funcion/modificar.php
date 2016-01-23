@@ -22,7 +22,11 @@ class FormProcessor {
     
     function procesarFormulario() {    
         //Aquí va la lógica de procesamiento
-        
+         if(isset ( $_REQUEST ['regresar'] ) && $_REQUEST ['regresar'] == "true"){
+                    
+                     Redireccionador::redireccionar('form'); 
+                     exit;
+                }
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        

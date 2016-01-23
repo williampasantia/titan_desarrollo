@@ -31,7 +31,11 @@ class FormProcessor {
             'fdpCiudad' => $_REQUEST ['ciudad']
      );
        
-     
+      if(isset ( $_REQUEST ['regresar'] ) && $_REQUEST ['regresar'] == "true"){
+                    
+                     Redireccionador::redireccionar('form'); 
+                     exit;
+                }
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
    
               

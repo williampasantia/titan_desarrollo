@@ -102,7 +102,7 @@ class Sql extends \Sql {
                 {
                 $cadenaSql .= 'nombre_representante_legal = ';
                 $cadenaSql .= "'".$variable ['nombreRepresentante']  . "',";
-                
+                }
                 $cadenaSql .= 'email = ';
                 $cadenaSql .= "'".$variable ['email']."'";
                 $cadenaSql .= ' WHERE ';
