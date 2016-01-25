@@ -3,3 +3,14 @@
  width: 90%;
  
 }
+.azul {
+    background-color: #33c;
+}
+.rojo {
+    background-color: #c33;
+}
+.azul, .rojo {
+    height: 20px;
+    position: absolute;
+    width: 25px;
+}

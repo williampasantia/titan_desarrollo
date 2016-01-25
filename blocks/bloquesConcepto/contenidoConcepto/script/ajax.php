@@ -4,9 +4,8 @@
 
 <script>
 
- 
-    
 
+$(".arrastrable").draggable();
 
 
  $('#<?php echo $this->campoSeguro('listaSignos')?>').width(100);
@@ -21,6 +20,7 @@
  $('#<?php echo $this->campoSeguro('parametro')?>').width(140);
  $("#<?php echo $this->campoSeguro('parametro')?>").select2();
  
+
  $('#<?php echo $this->campoSeguro('tipoSueldoRegistroMod')?>').width(200);
  $("#<?php echo $this->campoSeguro('tipoSueldoRegistroMod')?>").select2();  
  

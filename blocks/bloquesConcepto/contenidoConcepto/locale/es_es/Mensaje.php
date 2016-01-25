@@ -12,9 +12,13 @@ $this->idioma["enviarInactivar"]="Aceptar";
 $this->idioma["cancelarInactivar"]="Cancelar";
 $this->idioma["botonAceptarRegistro"]="Aceptar";
 $this->idioma["botonRegresarConsulta"]="Regresar";
+$this->idioma["parametrosLista"]="Parametro";
+$this->idioma["textArea"]="Parametro";
 
 
 
+$this->idioma["draggable"]="Fuente  ";
+$this->idioma["droppable"]="Destino  ";
 
 $this->idioma["condicionSi"]="Si  ";
 $this->idioma["condicionEntonces"]="Entonces  ";
