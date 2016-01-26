@@ -117,6 +117,7 @@ class Formulario {
 				$atributos ['tabIndex'] = $tab;
 				$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 				$atributos ['anchoEtiqueta'] = 80;
+				$atributos ['deshabilitado'] =true;
 				 
 				$atributos ['obligatorio'] = false;
 				$atributos ['etiquetaObligatorio'] = false;
@@ -144,47 +145,53 @@ class Formulario {
 			$atributos ["estilo"] = "col-md-6";
 			echo $this->miFormulario->division ( "inicio", $atributos );
 			{
-				// ---------------- CONTROL: Select --------------------------------------------------------
-				$esteCampo = 'seccionParametros';
-				$atributos['nombre'] = $esteCampo;
-				$atributos['id'] = $esteCampo;
-				$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-				$atributos ['anchoEtiqueta'] = 120;
-				$atributos['tab'] = $tab;
-				$atributos['seleccion'] = -1;
-				$atributos['evento'] = ' ';
-				$atributos['deshabilitado'] = false;
-				$atributos['limitar']= 50;
-				$atributos['tamanno']= 1;
-				$atributos['columnas']= 1;
-				 
-				$atributos ['obligatorio'] = false;
-				$atributos ['etiquetaObligatorio'] = false;
-				$atributos ['validar'] = '';
-				 
-				$matrizItems=array(
-						array(1,'SMLV'),
-						array(2,'IVA'),
-						array(3,'RTF'),
-						array(4,'HED'),
-						array(5,'HEN')
-						 
-				);
-				$atributos['matrizItems'] = $matrizItems;
-				 
-				if (isset ( $_REQUEST [$esteCampo] )) {
-					$atributos ['valor'] = $_REQUEST [$esteCampo];
-				} else {
-					$atributos ['valor'] = '';
-				}
-				$atributos ["titulo"] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-				$tab ++;
-				 
-				// Aplica atributos globales al control
-				$atributos = array_merge ( $atributos, $atributosGlobales );
-				echo $this->miFormulario->campoCuadroLista ( $atributos );
-				// --------------- FIN CONTROL : Select --------------------------------------------------
 				
+				$atributos ["id"] = "parametros";
+				$atributos ["estilo"] = "";
+				echo $this->miFormulario->division ( "inicio", $atributos );
+				{
+					// ---------------- CONTROL: Select --------------------------------------------------------
+					$esteCampo = 'seccionParametros';
+					$atributos['nombre'] = $esteCampo;
+					$atributos['id'] = $esteCampo;
+					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					$atributos ['anchoEtiqueta'] = 120;
+					$atributos['tab'] = $tab;
+					$atributos['seleccion'] = -1;
+					$atributos['evento'] = ' ';
+					$atributos['deshabilitado'] = false;
+					$atributos['limitar']= 50;
+					$atributos['tamanno']= 1;
+					$atributos['columnas']= 1;
+					 
+					$atributos ['obligatorio'] = false;
+					$atributos ['etiquetaObligatorio'] = false;
+					$atributos ['validar'] = '';
+					 
+					$matrizItems=array(
+							array(1,'SMLV'),
+							array(2,'IVA'),
+							array(3,'RTF'),
+							array(4,'HED'),
+							array(5,'HEN')
+							 
+					);
+					$atributos['matrizItems'] = $matrizItems;
+					 
+					if (isset ( $_REQUEST [$esteCampo] )) {
+						$atributos ['valor'] = $_REQUEST [$esteCampo];
+					} else {
+						$atributos ['valor'] = '';
+					}
+					$atributos ["titulo"] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+					$tab ++;
+					 
+					// Aplica atributos globales al control
+					$atributos = array_merge ( $atributos, $atributosGlobales );
+					echo $this->miFormulario->campoCuadroLista ( $atributos );
+					// --------------- FIN CONTROL : Select --------------------------------------------------
+				}
+				echo $this->miFormulario->division ( "fin" );
 				
 				// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 				unset($atributos);
@@ -216,51 +223,55 @@ class Formulario {
 				$atributos = array_merge ( $atributos, $atributosGlobales );
 				echo $this->miFormulario->campoTextArea ( $atributos );
 				// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+				unset($atributos);
 				
-				
-				
-				// ---------------- CONTROL: Select --------------------------------------------------------
-				$esteCampo = 'seccionConceptos';
-				$atributos['nombre'] = $esteCampo;
-				$atributos['id'] = $esteCampo;
-				$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-				$atributos ['anchoEtiqueta'] = 120;
-				$atributos['tab'] = $tab;
-				$atributos['seleccion'] = -1;
-				$atributos['evento'] = ' ';
-				$atributos['deshabilitado'] = false;
-				$atributos['limitar']= 50;
-				$atributos['tamanno']= 1;
-				$atributos['columnas']= 1;
+				$atributos ["id"] = "conceptos";
+				$atributos ["estilo"] = "";
+				echo $this->miFormulario->division ( "inicio", $atributos );
+				{
+					// ---------------- CONTROL: Select --------------------------------------------------------
+					$esteCampo = 'seccionConceptos';
+					$atributos['nombre'] = $esteCampo;
+					$atributos['id'] = $esteCampo;
+					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+					$atributos ['anchoEtiqueta'] = 120;
+					$atributos['tab'] = $tab;
+					$atributos['seleccion'] = -1;
+					$atributos['evento'] = ' ';
+					$atributos['deshabilitado'] = false;
+					$atributos['limitar']= 50;
+					$atributos['tamanno']= 1;
+					$atributos['columnas']= 1;
+						
+					$atributos ['obligatorio'] = false;
+					$atributos ['etiquetaObligatorio'] = false;
+					$atributos ['validar'] = '';
+						
+					$matrizItems=array(
+							array(1,'CP0001'),
+							array(2,'CP0002'),
+							array(3,'CP0003'),
+							array(4,'CP0004'),
+							array(5,'CP0005')
+								
+					);
+					$atributos['matrizItems'] = $matrizItems;
+						
+					if (isset ( $_REQUEST [$esteCampo] )) {
+						$atributos ['valor'] = $_REQUEST [$esteCampo];
+					} else {
+						$atributos ['valor'] = '';
+					}
 					
-				$atributos ['obligatorio'] = false;
-				$atributos ['etiquetaObligatorio'] = false;
-				$atributos ['validar'] = '';
-					
-				$matrizItems=array(
-						array(1,'CP0001'),
-						array(2,'CP0002'),
-						array(3,'CP0003'),
-						array(4,'CP0004'),
-						array(5,'CP0005')
-							
-				);
-				$atributos['matrizItems'] = $matrizItems;
-					
-				if (isset ( $_REQUEST [$esteCampo] )) {
-					$atributos ['valor'] = $_REQUEST [$esteCampo];
-				} else {
-					$atributos ['valor'] = '';
+					$atributos ["titulo"] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+					$tab ++;
+						
+					// Aplica atributos globales al control
+					$atributos = array_merge ( $atributos, $atributosGlobales );
+					echo $this->miFormulario->campoCuadroLista ( $atributos );
+					// --------------- FIN CONTROL : Select --------------------------------------------------
 				}
-				
-				$atributos ["titulo"] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
-				$tab ++;
-					
-				// Aplica atributos globales al control
-				$atributos = array_merge ( $atributos, $atributosGlobales );
-				echo $this->miFormulario->campoCuadroLista ( $atributos );
-				// --------------- FIN CONTROL : Select --------------------------------------------------
-				
+				echo $this->miFormulario->division ( "fin" );
 				
 				// ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
 				unset($atributos);
@@ -385,7 +396,7 @@ class Formulario {
 		$valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
 		$valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
 		$valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
-		$valorCodificado .= "&opcion=mostrar";
+		$valorCodificado .= "&opcion=opciones";
 		/**
 		 * SARA permite que los nombres de los campos sean dinámicos.
 		 * Para ello utiliza la hora en que es creado el formulario para

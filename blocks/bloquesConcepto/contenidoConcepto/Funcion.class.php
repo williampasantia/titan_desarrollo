@@ -60,7 +60,7 @@ class Funcion {
            
 
             
-            
+           
         	
         	switch ($_REQUEST['opcion']){
         		case "mostrar":
@@ -75,6 +75,11 @@ class Funcion {
                          case "inactivarRegistro":
         		      include_once ($this->ruta."funcion/inactivar.php");
         	         break; 
+                     
+                     case "opciones" :
+					include_once ($this->ruta . "/funcion/opciones.php");
+                             break;
+                     
         	}
             
 

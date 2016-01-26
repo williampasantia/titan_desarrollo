@@ -49,6 +49,9 @@ class Frontera {
 			switch ($_REQUEST ['opcion']) {
 				
 				case "registrar" :
+					include_once ($this->ruta . "/formulario/registrar.php");
+					break;
+                                    case "siguiente" :
 					include_once ($this->ruta . "/formulario/registrarFormulacion.php");
 					break;
 				case "modificar" :
@@ -69,6 +72,9 @@ class Frontera {
 				case "detalle" :
 					include_once ($this->ruta . "/formulario/detalle.php");
 					break;	
+                              case "condicion" :
+					include_once ($this->ruta . "/formulario/condicion.php");
+					break;	  
         		}
                        
                        
