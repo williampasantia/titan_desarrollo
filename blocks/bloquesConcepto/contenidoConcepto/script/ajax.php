@@ -30,7 +30,7 @@ $(function () {
 	        revert: true,
 	        helper: 'clone',
 	        start: function (event, ui) {
-	            $(this).fadeTo('fast', 0.5);
+	            $(this).fadeTo('fast', 1.5);
 	        },
 	        stop: function (event, ui) {
 	            $(this).fadeTo(0, 1);
@@ -50,7 +50,7 @@ $(function () {
         revert: true,
         helper: 'clone',
         start: function (event, ui) {
-            $(this).fadeTo('fast', 0.5);
+            $(this).fadeTo('fast', 1.5);
         },
         stop: function (event, ui) {
             $(this).fadeTo(0, 1);

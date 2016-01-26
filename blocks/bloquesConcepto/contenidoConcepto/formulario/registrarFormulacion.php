@@ -147,7 +147,7 @@ class Formulario {
 			{
 				
 				$atributos ["id"] = "parametros";
-				$atributos ["estilo"] = "";
+				$atributos ["estilo"] = "col-md-10";
 				echo $this->miFormulario->division ( "inicio", $atributos );
 				{
 					// ---------------- CONTROL: Select --------------------------------------------------------
@@ -226,7 +226,7 @@ class Formulario {
 				unset($atributos);
 				
 				$atributos ["id"] = "conceptos";
-				$atributos ["estilo"] = "";
+				$atributos ["estilo"] = "col-md-10";
 				echo $this->miFormulario->division ( "inicio", $atributos );
 				{
 					// ---------------- CONTROL: Select --------------------------------------------------------
