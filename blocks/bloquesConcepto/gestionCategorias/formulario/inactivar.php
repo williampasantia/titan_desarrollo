@@ -96,18 +96,25 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Modificar estado solicitud";
+	$atributos ["leyenda"] = "Modificar estado categoría";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
        
         
         
         
-       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexCargo");
+       	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexCargo");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-     
+     	
+        if (strcmp ( $matrizItems[$_REQUEST['variable']][4], 'Activo' ) == 0){
+        		
+        	$opcion='Inactivo';
+        	
+        } else {
+        	$opcion='Activo';
+        }
         
-        $opcion='aprobado';
+
       
         
        echo '<h3>Se realiza el cambio de estado del registro a: '.$opcion.'</h3>';
@@ -147,7 +154,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][10];       
+        $atributos ['valor'] = $opcion;       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;

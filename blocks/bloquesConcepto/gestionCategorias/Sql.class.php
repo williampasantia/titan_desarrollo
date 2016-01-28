@@ -45,7 +45,7 @@ class Sql extends \Sql {
 				$cadenaSql .= '\'' . $variable ['nombre'] . '\'' . ', ';
 				$cadenaSql .= '\'' . $variable ['descripcion'] . '\'' . ', ';
 				$cadenaSql .= $variable ['ley'] . ', ';
-				$cadenaSql .= '\''. 'Activo'.'\'';
+				$cadenaSql .= '\'' . 'Activo' . '\'';
 				$cadenaSql .= ') ';
 				break;
 			
@@ -176,8 +176,8 @@ class Sql extends \Sql {
 				$cadenaSql .= 'estado as ESTADO ';
 				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'liquidacion.categorias_conceptos ';
-			    $cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'ESTADO=\'' .'Activo'.'\'';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'ESTADO=\'' . 'Activo' . '\'';
 				// $cadenaSql .= 'ESTADO=\'' . 'rechazada' . '\' ';
 				
 				break;
@@ -276,30 +276,24 @@ class Sql extends \Sql {
 			case 'buscarVerdetallexCargo' :
 				
 				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'documento as	DOCUMENTO, ';
-				$cadenaSql .= 'tipo_documento as TIPO_DOCUMENTO, ';
-				$cadenaSql .= 'consecutivo as CONSECUTIVO, ';
-				$cadenaSql .= 'primer_nombre as PRIMER_NOMBRE, ';
-				$cadenaSql .= 'segundo_nombre as SEGUNDO_NOMBRE, ';
-				$cadenaSql .= 'primer_apellido as PRIMER_APELLIDO, ';
-				$cadenaSql .= 'segundo_apellido as SEGUNDO_APELLIDO, ';
-				$cadenaSql .= 'gran_contribuyente as CONTRIBUYENTE, ';
-				$cadenaSql .= 'autorretenedor as AUTORRETENEDOR, ';
-				$cadenaSql .= 'regimen_tributario as REGIMEN, ';
-				$cadenaSql .= 'estado_solicitud as ESTADO ';
+				$cadenaSql .= 'id as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE, ';
+				$cadenaSql .= 'descripcion as DESCRIPCION, ';
+				$cadenaSql .= 'ley as LEY, ';
+				$cadenaSql .= 'estado as ESTADO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'persona.persona_natural';
+				$cadenaSql .= 'liquidacion.categorias_conceptos';
 				
 				break;
 			
 			case 'inactivarRegistro' :
 				$cadenaSql = 'UPDATE ';
-				$cadenaSql .= 'persona.persona_natural ';
+				$cadenaSql .= 'liquidacion.categorias_conceptos ';
 				$cadenaSql .= 'SET ';
-				$cadenaSql .= 'estado_solicitud = ';
-				$cadenaSql .= '\'' . 'Aprobado' . '\' ';
+				$cadenaSql .= 'estado = ';
+				$cadenaSql .= '\'' .$variable ['estadoRegistro']. '\' ';
 				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'documento = ';
+				$cadenaSql .= 'id = ';
 				$cadenaSql .= '\'' . $variable ['codigoRegistro'] . '\'';
 				break;
 			
