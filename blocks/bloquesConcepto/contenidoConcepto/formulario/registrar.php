@@ -50,8 +50,7 @@ class Formulario {
         * $atributos= array_merge($atributos,$atributosGlobales);
         */
         $atributosGlobales ['campoSeguro'] = 'true';
-        $_REQUEST['tiempo']=time();
-        $tiempo=$_REQUEST['tiempo'];
+  
         
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
@@ -178,12 +177,13 @@ class Formulario {
 	        $atributos['evento'] = ' ';
 	        $atributos['deshabilitado'] = false;
 	        $atributos['limitar']= 50;
-	        $atributos['tamanno']= 1;
+	        $atributos['tamanno']= 4;
 	        $atributos['columnas']= 1;
 	        
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
+	        $atributos ['multiple'] = true;
 	        
 	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarLey" );
 	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
@@ -192,25 +192,26 @@ class Formulario {
 	        	$atributos['matrizItems'] = $matrizItems;
 	        } else {
 	        	
-	        	$matrizItems=array(
-	        			array(-1,'Por Favor Registre Ley')
+	        	$matrizItems = array(
+	        			array(1,'Ley 20 2014'),
+	        			array(2,'Compensar'),
+	        			array(3,'Ley 180'),
+	        			array(4,'Ley 80')
+	        			 
 	        	);
 	        	
 	        	$atributos['matrizItems'] = $matrizItems;
-	        	$atributos['deshabilitado'] = true;
+	        	$atributos['deshabilitado'] = false;//Cambiar
 	        }
-	        
-	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	        } else {
-	        	$atributos ['valor'] = '';
-	        }
+	  
 	        $tab ++;
 	        
 	        // Aplica atributos globales al control
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
+	        
+	        unset($atributos);
 	
         // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'naturaleza';
@@ -230,11 +231,12 @@ class Formulario {
 	        $atributos ['validar'] = 'required';
 	        
 	        $naturaleza = array( 
-    array(1,'Devenga'), 
-    array(2,'Deduce'), 
+    			array(1,'Devenga'), 
+    			array(2,'Deduce'), 
    
-); 
-        $atributos['matrizItems'] =  $naturaleza;
+			); 
+	        
+        	$atributos['matrizItems'] =  $naturaleza;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -279,6 +281,28 @@ class Formulario {
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoTextArea( $atributos );
         // --------------- FIN CONTROL : Cuadro de Texto ------------
+        
+        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+        $esteCampo = 'leyRegistros';
+        $atributos ['id'] = $esteCampo;
+        $atributos ['nombre'] = $esteCampo;
+        $atributos ['tipo'] = 'hidden';
+        $atributos ['estilo'] = 'jqueryui';
+        $atributos ['marco'] = true;
+        $atributos ['columnas'] = 1;
+        $atributos ['dobleLinea'] = false;
+        $atributos ['tabIndex'] = $tab;
+        	
+        $atributos ['valor'] = '';
+        $atributos ['deshabilitado'] = false;
+        $atributos ['tamanno'] = 30;
+        $atributos ['maximoTamanno'] = '';
+        $tab ++;
+        	
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
                 
         // ------------------Division para los botones-------------------------
         $atributos ["id"] = "botones";
@@ -342,7 +366,7 @@ class Formulario {
          * Para ello utiliza la hora en que es creado el formulario para
          * codificar el nombre de cada campo. 
          */
-        $valorCodificado .= "&campoSeguro=" . $_REQUEST['tiempo'];
+      	$valorCodificado .= "&campoSeguro=" . $_REQUEST['tiempo'];
         // Paso 2: codificar la cadena resultante
         $valorCodificado = $this->miConfigurador->fabricaConexiones->crypto->codificar ( $valorCodificado );
 

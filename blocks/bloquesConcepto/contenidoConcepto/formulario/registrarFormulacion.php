@@ -30,7 +30,7 @@ class Formulario {
 	}
 
 	function formulario() {
-
+	
 		/**
 		 * IMPORTANTE: Este formulario está utilizando jquery.
 		 * Por tanto en el archivo ready.php se delaran algunas funciones js
@@ -49,13 +49,13 @@ class Formulario {
 		* Si se utiliza esta técnica es necesario realizar un mezcla entre este arreglo y el específico en cada control:
 		* $atributos= array_merge($atributos,$atributosGlobales);
 		*/
-		$atributosGlobales ['campoSeguro'] = 'true';
-		$_REQUEST['tiempo']=time();
-		$tiempo=$_REQUEST['tiempo'];
+ 		$atributosGlobales ['campoSeguro'] = 'true';
+ 		$_REQUEST['tiempo']=time();
+ 		$tiempo=$_REQUEST['tiempo'];
 
 		$conexion = 'estructura';
 		$primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
-
+		
 		//var_dump($primerRecursoDB);
 		//exit;
 
@@ -87,6 +87,10 @@ class Formulario {
 		echo $this->miFormulario->formulario ( $atributos );
 
 		// ---------------- SECCION: Controles del Formulario -----------------------------------------------
+		
+		var_dump($_REQUEST);
+		
+		exit;
 
 		// --------------------------------------------------------------------------------------------------
         
@@ -117,7 +121,7 @@ class Formulario {
 				$atributos ['tabIndex'] = $tab;
 				$atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
 				$atributos ['anchoEtiqueta'] = 80;
-				$atributos ['deshabilitado'] =true;
+				$atributos ['deshabilitado'] =false;
 				 
 				$atributos ['obligatorio'] = false;
 				$atributos ['etiquetaObligatorio'] = false;

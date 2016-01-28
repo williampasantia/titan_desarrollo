@@ -16,14 +16,31 @@
  $('#<?php echo $this->campoSeguro('parametro')?>').width(140);
  $("#<?php echo $this->campoSeguro('parametro')?>").select2();
  
- $('#<?php echo $this->campoSeguro('tipoSueldoRegistroMod')?>').width(200);
- $("#<?php echo $this->campoSeguro('tipoSueldoRegistroMod')?>").select2();  
+ $('#<?php echo $this->campoSeguro('tipoSueldoRegistroMod')?>').width(250);
+ $('#<?php echo $this->campoSeguro('tipoSueldoRegistroMod')?>').select2(); 
+
+ $('#<?php echo $this->campoSeguro('ley')?>').width(250);
+ $('#<?php echo $this->campoSeguro('ley')?>').select2(); 
+
+ $('#<?php echo $this->campoSeguro('naturaleza')?>').width(200);
+ $('#<?php echo $this->campoSeguro('naturaleza')?>').select2();  
  
  
  $('#<?php echo $this->campoSeguro('estadoRegistro')?>').width(200);
- $("#<?php echo $this->campoSeguro('estadoRegistro')?>").select2();  
-    
+ $("#<?php echo $this->campoSeguro('estadoRegistro')?>").select2();
 
+ 
+
+ $( '#<?php echo $this->campoSeguro('ley')?>' ).change(function() {
+		$("#<?php echo $this->campoSeguro('leyRegistros') ?>").val($("#<?php echo $this->campoSeguro('ley') ?>").val());
+ });
+   
+    
+ $( '#<?php echo $this->campoSeguro('formula')?>' ).keypress(function(tecla) {
+	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
+	    tecla.charCode != 45 && tecla.charCode != 47 && 
+	    tecla.charCode != 40 && tecla.charCode != 41) return false;
+});
 
 $(function () {
 	    $("#parametros").draggable({
