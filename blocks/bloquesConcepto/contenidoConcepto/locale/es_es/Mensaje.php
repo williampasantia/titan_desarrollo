@@ -39,6 +39,9 @@ $this->idioma["simbolo"]="Simbolo: ";
 $this->idioma["seccionParametros"]="Parámetros:";
 $this->idioma["seccionConceptos"]="Conceptos:";
 
+$this->idioma["categoriaParametrosList"]="Categorias Parámetros:";
+$this->idioma["categoriaConceptosList"]="Categorias Conceptos:";
+
 $this->idioma["valorParametro"]="Valor =";
 $this->idioma["valorConcepto"]="Contenido =";
 

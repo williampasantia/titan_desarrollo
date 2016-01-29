@@ -29,14 +29,24 @@
  $('#<?php echo $this->campoSeguro('estadoRegistro')?>').width(200);
  $("#<?php echo $this->campoSeguro('estadoRegistro')?>").select2();
 
- 
+ $('#<?php echo $this->campoSeguro('categoriaConceptosList')?>').width(260);
+ $("#<?php echo $this->campoSeguro('categoriaConceptosList')?>").select2();
+
+ $('#<?php echo $this->campoSeguro('categoriaParametrosList')?>').width(260);
+ $("#<?php echo $this->campoSeguro('categoriaParametrosList')?>").select2();
 
  $( '#<?php echo $this->campoSeguro('ley')?>' ).change(function() {
 		$("#<?php echo $this->campoSeguro('leyRegistros') ?>").val($("#<?php echo $this->campoSeguro('ley') ?>").val());
  });
    
     
- $( '#<?php echo $this->campoSeguro('formula')?>' ).keypress(function(tecla) {
+$( '#<?php echo $this->campoSeguro('formula')?>' ).keypress(function(tecla) {
+	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
+	    tecla.charCode != 45 && tecla.charCode != 47 && 
+	    tecla.charCode != 40 && tecla.charCode != 41) return false;
+});
+
+$( '#<?php echo $this->campoSeguro('valorConcepto')?>' ).keypress(function(tecla) {
 	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
 	    tecla.charCode != 45 && tecla.charCode != 47 && 
 	    tecla.charCode != 40 && tecla.charCode != 41) return false;
@@ -80,6 +90,34 @@ $(function () {
             this.value += $(ui.draggable).find('select option:selected').text();
         }
     });
+});
+
+$( '#<?php echo $this->campoSeguro('categoriaConceptosList')?>' ).change(function() {
+	$('#<?php echo $this->campoSeguro('valorConcepto')?>').attr("readonly","readonly");
+	$('#<?php echo $this->campoSeguro('valorConcepto')?>').addClass("readOnly");
+	$('#<?php echo $this->campoSeguro('valorConcepto')?>').val("");
+
+	$("#editarBotonesConcepto").show("slow");
+	$("#ingresoBotonesConcepto").hide("fast");
+
+	$("#<?php echo $this->campoSeguro('seccionConceptos')?>").removeAttr('disabled');
+    $("#<?php echo $this->campoSeguro('seccionConceptos')?>").select2();
+});
+
+$( '#<?php echo $this->campoSeguro('seccionConceptos')?>' ).change(function() {
+	$('#<?php echo $this->campoSeguro('valorConcepto')?>').attr("readonly","readonly");
+	$('#<?php echo $this->campoSeguro('valorConcepto')?>').addClass("readOnly");
+	$('#<?php echo $this->campoSeguro('valorConcepto')?>').val("");
+
+	$("#editarBotonesConcepto").show("slow");
+	$("#ingresoBotonesConcepto").hide("fast");
+});
+
+
+$( '#<?php echo $this->campoSeguro('categoriaParametrosList')?>' ).change(function() {
+
+	$("#<?php echo $this->campoSeguro('seccionParametros')?>").removeAttr('disabled');
+    $("#<?php echo $this->campoSeguro('seccionParametros')?>").select2();
 });
 
 </script>

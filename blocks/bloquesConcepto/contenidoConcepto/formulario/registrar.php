@@ -281,7 +281,7 @@ class Formulario {
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoTextArea( $atributos );
         // --------------- FIN CONTROL : Cuadro de Texto ------------
-        
+        unset($atributos);
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         $esteCampo = 'leyRegistros';
         $atributos ['id'] = $esteCampo;
