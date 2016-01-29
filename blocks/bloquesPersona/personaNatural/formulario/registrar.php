@@ -658,12 +658,8 @@ class Formulario {
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
 	        $atributos ['validar'] = 'required, minSize[1]';
-	        
-	        if (isset ( $_REQUEST [$esteCampo] )) {
-	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-	        } else {
-	        	$atributos ['valor'] = '';
-	        }
+	        $atributos ['valor'] = '0';
+	      
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
 	        $atributos ['deshabilitado'] = true;
 	        $atributos ['tamanno'] = 4;
@@ -954,11 +950,7 @@ class Formulario {
         $atributos ['etiquetaObligatorio'] = false;
         $atributos ['validar'] = 'required, minSize[1]';
         
-        if (isset ( $_REQUEST [$esteCampo] )) {
-        	$atributos ['valor'] = $_REQUEST [$esteCampo];
-        } else {
-        	$atributos ['valor'] = '';
-        }
+      	$atributos ['valor'] = '0';
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 4;
