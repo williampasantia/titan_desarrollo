@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesParametro\parametroArl\formulario;
+ namespace bloquesConceto\asociacionConcepto\formulario;
 
 
 
@@ -137,7 +137,7 @@ class Formulario {
                         echo $this->miFormulario->division("fin"); 
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarArl");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarConcepto");
         
       
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");

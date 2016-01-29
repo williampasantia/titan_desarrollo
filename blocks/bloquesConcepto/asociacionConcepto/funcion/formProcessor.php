@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+namespace bloquesConceto\asociacionConcepto\funcion;
 
 
 include_once('Redireccionador.php');

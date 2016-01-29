@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\parametroArl;
+namespace bloquesConceto\asociacionConcepto;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -303,15 +303,14 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $_REQUEST ['parametroPagina'] . '\'';
                 $cadenaSql .= ') ';
                 break;
-         case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia
+         case 'buscarConcepto' ://Provisionalmente solo Departamentos de Colombia
 				
 				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'codigo as ID, ';
 				$cadenaSql .= 'nombre as NOMBRE ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.departamento ';
-				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'id_pais = 112;';
+				$cadenaSql .= 'concepto.concepto ';
+				
 				break;
                		
 			case 'buscarDepartamentoAjax' :

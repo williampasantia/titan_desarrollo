@@ -1,5 +1,5 @@
 <?php
-namespace bloquesParametro\parametroArl;
+namespace bloquesConceto\asociacionConcepto;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
