@@ -15,11 +15,11 @@ $('#datepicker').datepicker({
 });
 
 
- $('#<?php echo $this->campoSeguro('seccionParametros')?>').width(400);
+ $('#<?php echo $this->campoSeguro('seccionParametros')?>').width(300);
  $("#<?php echo $this->campoSeguro('seccionParametros')?>").select2(); 
 
 
- $('#<?php echo $this->campoSeguro('seccionConceptos')?>').width(400);
+ $('#<?php echo $this->campoSeguro('seccionConceptos')?>').width(300);
  $("#<?php echo $this->campoSeguro('seccionConceptos')?>").select2();
 
 

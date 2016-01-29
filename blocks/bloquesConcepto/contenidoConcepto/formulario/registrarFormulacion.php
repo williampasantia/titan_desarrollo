@@ -200,7 +200,7 @@ class Formulario {
 					$atributos['nombre'] = $esteCampo;
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-					$atributos ['anchoEtiqueta'] = 200;
+					$atributos ['anchoEtiqueta'] = 230;
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
@@ -249,7 +249,7 @@ class Formulario {
 					$atributos['nombre'] = $esteCampo;
 					$atributos['id'] = $esteCampo;
 					$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-					$atributos ['anchoEtiqueta'] = 120;
+					$atributos ['anchoEtiqueta'] = 180;
 					$atributos['tab'] = $tab;
 					$atributos['seleccion'] = -1;
 					$atributos['evento'] = ' ';
@@ -340,7 +340,7 @@ class Formulario {
 						$atributos['nombre'] = $esteCampo;
 						$atributos['id'] = $esteCampo;
 						$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-						$atributos ['anchoEtiqueta'] = 200;
+						$atributos ['anchoEtiqueta'] = 230;
 						$atributos['tab'] = $tab;
 						$atributos['seleccion'] = -1;
 						$atributos['evento'] = ' ';
@@ -390,7 +390,7 @@ class Formulario {
 						$atributos['nombre'] = $esteCampo;
 						$atributos['id'] = $esteCampo;
 						$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-						$atributos ['anchoEtiqueta'] = 120;
+						$atributos ['anchoEtiqueta'] = 180;
 						$atributos['tab'] = $tab;
 						$atributos['seleccion'] = -1;
 						$atributos['evento'] = ' ';
