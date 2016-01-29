@@ -103,7 +103,7 @@ class Formulario {
         
         
 // ---------------- CONTROL: Select --------------------------------------------------------
-	        $esteCampo = 'fdpDepartamento';
+	        $esteCampo = 'Concepto';
 	        $atributos['nombre'] = $esteCampo;
 	        $atributos['id'] = $esteCampo;
 	        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
@@ -119,7 +119,7 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarDepartamento" );
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarConcepto" );
 	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
 	        $atributos['matrizItems'] = $matrizItems;
@@ -138,7 +138,7 @@ class Formulario {
 	        
 	        
 	        // ---------------- CONTROL: Select --------------------------------------------------------
-	        $esteCampo = 'fdpCiudad';
+	        $esteCampo = 'tipoVinculacion';
 	        $atributos['nombre'] = $esteCampo;
 	        $atributos['id'] = $esteCampo;
 	        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
@@ -154,7 +154,7 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCiudad" );
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarTipoVinculacion" );
 	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        
 	        $atributos['matrizItems'] = $matrizItems;
