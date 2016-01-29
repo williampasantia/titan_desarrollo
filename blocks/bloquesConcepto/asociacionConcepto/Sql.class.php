@@ -315,15 +315,22 @@ class Sql extends \Sql {
       case 'buscarTipoVinculacion':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'id as ID, ';
-                $cadenaSql .= 'nombre as NOMBRE, ';
-                $cadenaSql .= 'descripcion as DESCRIPCION, ';
-                $cadenaSql .= 'naturaleza as NATURALEZA, ';
-                $cadenaSql .= 'reglamentacion as REGLAMENTACION ,';
+                $cadenaSql .= 'nombre as NOMBRE ';
+               
                 $cadenaSql .= 'estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'parametro.tipo_vinculacion';
                 break;
-                  		
+          case 'buscarNomina':
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'codigo_nomina as CODIGO_NOMINA, ';
+                $cadenaSql .= 'nombre as NOMBRE ';
+               
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'liquidacion.nomina ';
+                $cadenaSql .= 'WHERE ';
+           
+           break;         		
 			case 'buscarDepartamentoAjax' :
 				
 				$cadenaSql = 'SELECT ';

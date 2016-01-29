@@ -19,3 +19,9 @@ $("#<?php echo $this->campoSeguro('fdpDepartamento')?>").select2();
 
 $('#<?php echo $this->campoSeguro('fdpCiudad')?>').width(200); 
 $("#<?php echo $this->campoSeguro('fdpCiudad')?>").select2();
+
+$('#<?php echo $this->campoSeguro('concepto')?>').width(200); 
+$("#<?php echo $this->campoSeguro('concepto')?>").select2();
+
+$('#<?php echo $this->campoSeguro('tipoVinculacion')?>').width(200); 
+$("#<?php echo $this->campoSeguro('tipoVinculacion')?>").select2();
