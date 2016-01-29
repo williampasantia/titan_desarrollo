@@ -27,6 +27,7 @@ $this->idioma["personaNaturalIdentificacion"]="Tipo Identificación";
 $this->idioma["personaNaturalDocumento"]="Identificación";
 
 $this->idioma["nombre"]="Nombre categoría";
+$this->idioma["id"]="ID";
 $this->idioma["nombreTitulo"]="Digite correctamente el nombre de la categoria";
 $this->idioma["descripcion"]="Descripción";
 $this->idioma["descripcionTitulo"]="Digite correctamente la descripción de la categoría";

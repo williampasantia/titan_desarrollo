@@ -773,7 +773,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         
         $atributos ['obligatorio'] = false;
-        $atributos ['etiquetaObligatorio'] = true;
+        $atributos ['etiquetaObligatorio'] = false;
         $atributos ['validar'] = 'required, minSize[1]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {

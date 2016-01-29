@@ -292,7 +292,18 @@ class FormProcessor {
 				// $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
 				// Al final se ejecuta la redirección la cual pasará el control a otra página
 				
-				Redireccionador::redireccionar ( 'form' );
+				if ($datos[0][1] == $datosPersonaContacto[0][0]) {
+					 
+					$this->miConfigurador->setVariableConfiguracion("cache", true);
+					Redireccionador::redireccionar('inserto', $datos);
+					exit();
+				} else {
+					 
+					//$this->miConfigurador->setVariableConfiguracion("cache", true);
+					Redireccionador::redireccionar('noInserto', $datos);
+					//var_dump("TEXTO NO INS");exit;
+					exit();
+				}
 			}
 			function resetForm() {
 				foreach ( $_REQUEST as $clave => $valor ) {

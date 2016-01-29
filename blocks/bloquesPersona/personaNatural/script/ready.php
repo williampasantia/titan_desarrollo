@@ -1,6 +1,6 @@
 
 
-$("#contenidoCargo").validationEngine({
+$("#personaNatural").validationEngine({
 	promptPosition : "centerRight",
 	scroll: false,
 	autoHidePrompt: true,
