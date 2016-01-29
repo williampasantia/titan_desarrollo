@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesPersona\personaNatural\formulario;
+namespace bloquesConcepto\gestionCategorias\formulario;
 
 
 

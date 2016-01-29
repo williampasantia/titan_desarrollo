@@ -116,7 +116,7 @@ class Sql extends \Sql {
 				$cadenaSql .= '\'' . $variable ['observacion'] . '\'' . ', ';
 				$cadenaSql .= '\'' . $variable ['fecha'] . '\'' . ', ';
 				$cadenaSql .= '\'' . $variable ['creador'] . '\'' . ', ';
-				$cadenaSql .= $variable ['fk_ubicacion'];
+				$cadenaSql .= $variable ['ubicacion'];
 				$cadenaSql .= ')';
 				$cadenaSql .= "RETURNING  consecutivo; ";
 				break;

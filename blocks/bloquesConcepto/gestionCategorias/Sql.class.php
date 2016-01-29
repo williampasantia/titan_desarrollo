@@ -217,23 +217,15 @@ class Sql extends \Sql {
 				$cadenaSql .= '\'' . $variable ['consecutivo'] . '\'';
 				break;
 			
-			case 'buscardetalleECOxCargo' :
+			case 'buscarVerdetallexCategoria' :
 				
 				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'consecutivo as CONSECUTIVO, ';
-				$cadenaSql .= 'banco as BANCO, ';
-				$cadenaSql .= 'tipo_cuenta as TIPO_CUENTA, ';
-				$cadenaSql .= 'numero_cuenta as NUMERO_CUENTA, ';
-				$cadenaSql .= 'tipo_pago as TIPO_PAGO, ';
-				$cadenaSql .= 'estado as ESTADO, ';
-				$cadenaSql .= 'fecha_creacion as FECHA_CREACION, ';
-				$cadenaSql .= 'usuario_creo as USUARIO_CREO ';
+				$cadenaSql .= 'id as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE, ';
+				$cadenaSql .= 'descripcion as DESCRIPCION, ';
+				$cadenaSql .= 'ley as LEY ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'persona.info_comercial';
-				// $cadenaSql .= 'WHERE ';
-				// $cadenaSql .= 'ESTADO=\'' .'modificabl'. '\' OR ';
-				// $cadenaSql .= 'ESTADO=\'' . 'rechazada' . '\' ';
-				
+				$cadenaSql .= 'liquidacion.categorias_conceptos';
 				break;
 			
 			case 'buscarConsecutivoCom' :
@@ -291,7 +283,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'liquidacion.categorias_conceptos ';
 				$cadenaSql .= 'SET ';
 				$cadenaSql .= 'estado = ';
-				$cadenaSql .= '\'' .$variable ['estadoRegistro']. '\' ';
+				$cadenaSql .= '\'' . $variable ['estadoRegistro'] . '\' ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id = ';
 				$cadenaSql .= '\'' . $variable ['codigoRegistro'] . '\'';
