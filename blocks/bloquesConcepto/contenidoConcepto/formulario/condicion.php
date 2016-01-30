@@ -100,11 +100,11 @@ class Formulario {
        // --------------------------------------------------------------------------------------------------
         
         $esteCampo = "marcoDatosBasicos";
-	$atributos ['id'] = $esteCampo;
-	$atributos ["estilo"] = "jqueryui";
-	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "AGREGAR CONDICION";
-	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
+		$atributos ['id'] = $esteCampo;
+		$atributos ["estilo"] = "jqueryui";
+		$atributos ['tipoEtiqueta'] = 'inicio';
+		$atributos ["leyenda"] = "AGREGAR CONDICION";
+		echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         // --------------------------------------------------------------------------------------------------
         
         $atributos ["id"] = "condicion";
@@ -115,9 +115,9 @@ class Formulario {
         $atributos ["estilo"] = "col-md-2";
         echo $this->miFormulario->division ( "inicio", $atributos );
         
-         $esteCampo = 'condicionSi';        
-         $atributos ["estilo"] = "condicion";
-         $atributos ['id'] = $esteCampo;
+        $esteCampo = 'condicionSi';        
+        $atributos ["estilo"] = "condicion";
+        $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
@@ -451,7 +451,37 @@ class Formulario {
         echo '<br>';
         echo '<br>';
       
-                       
+        unset($atributos);
+        $esteCampo = "marcoDatosParametros";
+        $atributos ['id'] = $esteCampo;
+        $atributos ["estilo"] = "jqueryui";
+        $atributos ['tipoEtiqueta'] = 'inicio';
+        $atributos ["leyenda"] = "Panel Condiciones";
+        echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
+        {
+        	unset($atributos);
+        	$atributos ["id"] = "camposDinamicos";
+        	$atributos ["estilo"] = "col-md-8";
+        	echo $this->miFormulario->division ( "inicio", $atributos );
+        	{
+        		
+        	}
+        	echo $this->miFormulario->division("fin");
+        	
+        	unset($atributos);
+        	$atributos ["id"] = "opcionesCamposDinamicos";
+        	$atributos ["estilo"] = "col-md-4";
+        	echo $this->miFormulario->division ( "inicio", $atributos );
+        	{
+        		echo "<center>";
+        		echo "<input type=\"button\" id=\"btAdd\" value=\"Añadir Elemento\" class=\"btn btn-success\" />";
+				echo "<input type=\"button\" id=\"btRemove\" value=\"Eliminar Elemento\" class=\"btn btn-success\" />";
+				echo "<input type=\"button\" id=\"btRemoveAll\" value=\"Eliminar Todo\" class=\"btn btn-success\" /><br />";
+				echo "</center>";
+        	}
+        	echo $this->miFormulario->division("fin");
+        }
+        echo $this->miFormulario->marcoAgrupacion("fin");
                         
                         
                           
