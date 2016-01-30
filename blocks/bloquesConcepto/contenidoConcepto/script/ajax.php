@@ -43,4 +43,68 @@ $( "#<?php echo $this->campoSeguro('personaNaturalPrimerNombre')?>" ).change(fun
 });
 
 
+$(function () {
+    $("#conceptos").draggable({
+        revert: true,
+        helper: 'clone',
+        start: function (event, ui) {
+            $(this).fadeTo('fast', 1.5);
+        },
+        stop: function (event, ui) {
+            $(this).fadeTo(0, 1);
+        }
+    });
+   $('#<?php echo $this->campoSeguro('variable')?>').droppable({
+        hoverClass: 'active',
+        drop: function (event, ui) {
+            this.value += $(ui.draggable).find('select option:selected').text();
+        }
+    });
+      $('#<?php echo $this->campoSeguro('condicionSi[]')?>').droppable({
+        hoverClass: 'active',
+        drop: function (event, ui) {
+            this.value += $(ui.draggable).find('select option:selected').text();
+        }
+    });
+     $('#<?php echo $this->campoSeguro('condicionEntonces')?>').droppable({
+        hoverClass: 'active',
+        drop: function (event, ui) {
+            this.value += $(ui.draggable).find('select option:selected').text();
+        }
+    });
+});
+
+$(function () {
+    $("#parametros").draggable({
+        revert: true,
+        helper: 'clone',
+        start: function (event, ui) {
+            $(this).fadeTo('fast', 1.5);
+        },
+        stop: function (event, ui) {
+            $(this).fadeTo(0, 1);
+        }
+    });
+   $('#<?php echo $this->campoSeguro('variable')?>').droppable({
+        hoverClass: 'active',
+        drop: function (event, ui) {
+            this.value += $(ui.draggable).find('select option:selected').text();
+        }
+    });
+      $('#<?php echo $this->campoSeguro('condicionSi[]')?>').droppable({
+        hoverClass: 'active',
+        drop: function (event, ui) {
+            this.value += $(ui.draggable).find('select option:selected').text();
+        }
+    });
+     $('#<?php echo $this->campoSeguro('condicionEntonces')?>').droppable({
+        hoverClass: 'active',
+        drop: function (event, ui) {
+            this.value += $(ui.draggable).find('select option:selected').text();
+        }
+    });
+});
+ 
+
+
 </script>

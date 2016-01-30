@@ -107,7 +107,7 @@ class Formulario {
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         // --------------------------------------------------------------------------------------------------
         
-        $atributos ["id"] = "condicion";
+        $atributos ["id"] = "condicionGlobal";
         $atributos ["estilo"] = "row";
         echo $this->miFormulario->division ( "inicio", $atributos );
         
@@ -150,7 +150,7 @@ class Formulario {
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
-        $atributos ["id"] = "variable";
+        $atributos ["id"] = "ListasSignos";
         $atributos ["estilo"] = "col-md-2";
         echo $this->miFormulario->division ( "inicio", $atributos );
         
@@ -195,7 +195,7 @@ class Formulario {
         // --------------- FIN CONTROL : Select --------------------------------------------------
        
          // --------------------------------------------------------------------------------------------------
-        $atributos ["id"] = "condicion";
+        $atributos ["id"] = "condicion2Global";
         $atributos ["estilo"] = "col-md-2";
         echo $this->miFormulario->division ( "inicio", $atributos );
         
@@ -230,7 +230,7 @@ class Formulario {
        
           echo $this->miFormulario->division("fin"); 
           // ---------------- CONTROL: Select --------------------------------------------------------
-        $atributos ["id"] = "variable1";
+        $atributos ["id"] = "operadoresLista";
         $atributos ["estilo"] = "col-md-2";
         echo $this->miFormulario->division ( "inicio", $atributos );
         $esteCampo = 'operadores';
@@ -275,9 +275,9 @@ class Formulario {
         
         echo $this->miFormulario->campoCuadroLista ( $atributos );
         echo $this->miFormulario->division("fin");
-     
+        unset($atributos);
         // --------------- FIN CONTROL : Select --------------------------------------------------
-         $atributos ["id"] = "condicionPara";
+         $atributos ["id"] = "parametros";
         $atributos ["estilo"] = "col-md-4";
         echo $this->miFormulario->division ( "inicio", $atributos );
        
@@ -325,11 +325,11 @@ class Formulario {
         echo $this->miFormulario->division("fin"); 
           unset($atributos); 
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
-         $atributos ["id"] = "condicion";
+         $atributos ["id"] = "condicionGlobal";
         $atributos ["estilo"] = "row";
         echo $this->miFormulario->division ( "inicio", $atributos );
         
-        $atributos ["id"] = "condicionSi";
+        $atributos ["id"] = "condicionEntonces";
 //        $atributos['columnas'] = 5;
         $atributos ["estilo"] = "col-md-5";
         echo $this->miFormulario->division ( "inicio", $atributos );
@@ -380,7 +380,7 @@ class Formulario {
          echo $this->miFormulario->division("fin"); 
          
          
-         $atributos ["id"] = "condicionPara";
+         $atributos ["id"] = "conceptos";
         $atributos ["estilo"] = "col-md-4";
         echo $this->miFormulario->division ( "inicio", $atributos );
        
