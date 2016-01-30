@@ -215,3 +215,20 @@ $("#btOper10B").click(function(){
 	var post = actual + $('#<?php echo $this->campoSeguro('valorConcepto')?>').val();
 	$('#<?php echo $this->campoSeguro('formula')?>').val(post);
 });
+
+
+$("#confirmarDina").click(function(){
+	$("#confirmar").hide("fast");
+	$("#cancelar").show("fast");
+	$("#camposDinamicosCont").hide("slow");
+	$("#blocBotn").hide("slow");
+	$('#<?php echo $this->campoSeguro('botones')?>').show("fast");
+});
+
+$("#cancelarDina").click(function(){
+	$("#confirmar").show("fast");
+	$("#cancelar").hide("fast");
+	$("#camposDinamicosCont").show("slow");
+	$("#blocBotn").show("slow");
+	$('#<?php echo $this->campoSeguro('botones')?>').hide("fast");
+});

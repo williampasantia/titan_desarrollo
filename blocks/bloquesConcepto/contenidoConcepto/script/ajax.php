@@ -120,86 +120,143 @@ $( '#<?php echo $this->campoSeguro('categoriaParametrosList')?>' ).change(functi
     $("#<?php echo $this->campoSeguro('seccionParametros')?>").select2();
 });
 
+
+//***********************************************************************************************************
+//***********************************************************************************************************
+
+//Codigo AGREGAR y QUITAR Campos Dinamicos
+
+var limite = 20; //Se define el Limite de Paneles de Condiciones que se pueden Generar
+				 //No requiere que se cambie en otro lugar
+
 $(document).ready(function() {
+
+	$("#cancelar").hide("fast");
+	$('#<?php echo $this->campoSeguro('botones')?>').hide("fast");
+
+	
 	var iCnt = 0;
+	var numId = 0;
 	 
 	// Crear un elemento div añadiendo estilos CSS
 	var container = $(document.createElement('div')).css({
-		padding: '5px', margin: '20px', width: '170px', border: '1px dashed',
-		borderTopColor: '#999', borderBottomColor: '#999',
-		borderLeftColor: '#999', borderRightColor: '#999'
+		padding: '5px'
 	});
+
+	$(container).attr('class', 'col-md-12')
 	 
 	$('#btAdd').click(function() {
-		if (iCnt <= 19) {
+		if (iCnt < limite) {
 	 
 			iCnt = iCnt + 1;
 	 
-			// Añadir caja de texto.
-			$(container).append('<input type=text class="input" id=tb' + iCnt + ' ' +
-			'value="Elemento de Texto ' + iCnt + '" />');
-	 
-			if (iCnt == 1) {
-	 
-				var divSubmit = $(document.createElement('div'));
-				$(divSubmit).append('<input type=button class="bt" onclick="GetTextValue()"' +
-				'id=btSubmit value=Enviar />');
-	 
-			}
-	 
-			$('#camposDinamicos').after(container, divSubmit);
+			// Añadir elementos Dinamicos en el DOM
+			
+			$(container).append('<fieldset id=panel'+iCnt+' class="ui-widget ui-widget-content">'+
+					'<legend class="ui-state-default ui-corner-all"> CONDICIÓN #'+iCnt+'</legend>'+
+					'<div id=lab1'+iCnt+' class="col-md-2">'+
+						'<label> Si </label> ' + 
+					'</div>'+
+					'<input type=text class="input" id=tb1' + iCnt + ' value="Elemento de Texto tb1' + iCnt + '" />'+
+					'<select id=sel1'+iCnt+' tabindex="-1" size="1" style="width: 100px;">'+
+						'<option value="1">signo</option>' +
+						'<option value="2"><</option>'+
+						'<option value="3"><=</option>'+
+						'<option value="4">>=</option>'+
+						'<option value="5">></option>'+
+						'<option value="6">=</option>'+
+						'<option value="7">!=</option>'+
+					'</select>'+
+					'<input type=text class="input" id=tb2' + iCnt + ' value="Elemento de Texto tb2' + iCnt + '" />'+
+					'<select id=sel2'+iCnt+' tabindex="-1" size="1" style="width: 100px;">'+
+						'<option value="1">operador</option>' +
+						'<option value="2"><</option>'+
+						'<option value="3"><=</option>'+
+						'<option value="4">>=</option>'+
+						'<option value="5">></option>'+
+						'<option value="6">=</option>'+
+						'<option value="7">!=</option>'+
+					'</select>'+
+					'<div>'+
+						'<div id=lab2'+iCnt+' class="col-md-2">'+
+							'<label> Entonces </label> ' + 
+						'</div>'+
+						'<input type=text class="input" id=tb3' + iCnt + ' value="Elemento de Texto tb3' + iCnt + '" />'+
+					'</div>'+ 
+					'</fieldset>');
+			
+			$('#camposDinamicos').after(container);
+
+			$('#sel1'+iCnt).width(120);
+			$('#sel1'+iCnt).select2();
+			
+			$('#sel2'+iCnt).width(120);
+			$('#sel2'+iCnt).select2();
 		}
-		else { //se establece un limite para añadir elementos, 20 es el limite
+		else { //alerta y deshabilitar boton de agregar por alcanzar el limite
 	 
-			$(container).append('<label>Limite Alcanzado</label>');
-			$('#btAdd').attr('class', 'bt-disable');
+			alert('Limite Alcanzado');
 			$('#btAdd').attr('disabled', 'disabled');
 	 
 		}
 	});
 	 
-	$('#btRemove').click(function() { // Elimina un elemento por click
+	$('#btRemove').click(function() { // Elimina un panel de condiciones del DOM
 
-		if (iCnt != 0) { $('#tb' + iCnt).remove(); iCnt = iCnt - 1; }
+		if (iCnt != 0) {
+			$('#lab1' + iCnt).remove(); 
+			$('#tb1' + iCnt).remove();
+			$('#sel1' + iCnt).remove();
+			$('#tb2' + iCnt).remove();
+			$('#sel2' + iCnt).remove();
+			$('#lab2' + iCnt).remove(); 
+			$('#tb3' + iCnt).remove();
+			$('#panel' + iCnt).remove();    
+			iCnt = iCnt - 1; 
+
+			$('#btAdd').removeAttr('disabled');
+			$('#btAdd').attr('class', 'btn btn-success btn-block');
+		}
 	 
-		if (iCnt == 0) { $(container).empty();
+		if (iCnt == 0) { $(container).empty(); 
 	 
 			$(container).remove();
-			$('#btSubmit').remove();
 			$('#btAdd').removeAttr('disabled');
-			$('#btAdd').attr('class', 'bt')
+			$('#btAdd').attr('class', 'btn btn-success btn-block')
 	 
 		}
 	});
 	 
-	$('#btRemoveAll').click(function() { // Elimina todos los elementos del contenedor
+	$('#btRemoveAll').click(function() { //Quitar todos los paneles de condiciones Agregados
 	 
 		$(container).empty();
 		$(container).remove();
-		$('#btSubmit').remove(); iCnt = 0;
+		iCnt = 0;
 		$('#btAdd').removeAttr('disabled');
-		$('#btAdd').attr('class', 'bt');
+		$('#btAdd').attr('class', 'btn btn-success btn-block');
 	 
 	});
 });
 	 
-// Obtiene los valores de los textbox al dar click en el boton "Enviar"
-var divValue, values = '';
+// Funcion que Obtiene los valores de los textbox y los select
+var values = '', condiciones = '';
 	 
 function GetTextValue() {
 	 
-	$(divValue).empty();
-	$(divValue).remove(); values = '';
+	values = '';
 	 
 	$('.input').each(function() {
-		divValue = $(document.createElement('div')).css({
-			padding:'5px', width:'200px'
-		});
-		values += this.value + '<br />'
+		values += this.value + ',';
+		$("#<?php echo $this->campoSeguro('variablesRegistros') ?>").val(values);
 	});
-	 
-	$(divValue).append('<p><b>Tus valores añadidos</b></p>' + values);
-	$('body').append(divValue);
+
+	condiciones = '';
+
+	$( "select option:selected" ).each(function() {
+	   condiciones += '['+ this.value + ']';
+	   $("#<?php echo $this->campoSeguro('condicionesRegistros') ?>").val(condiciones);
+	});
+
 	 
 }
 
