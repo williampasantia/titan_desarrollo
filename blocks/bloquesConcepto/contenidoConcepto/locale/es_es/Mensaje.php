@@ -20,7 +20,8 @@ $this->idioma["textArea"]="Parametro";
 $this->idioma["draggable"]="Fuente  ";
 $this->idioma["droppable"]="Destino  ";
 
-$this->idioma["condicionSi"]="Si  ";
+$this->idioma["condicionSi[]"]="Si  ";
+$this->idioma["agregar"]="Agregar  ";
 $this->idioma["condicionEntonces"]="Entonces  ";
 $this->idioma["operadores"]="";
 $this->idioma["listaSignos"]="";

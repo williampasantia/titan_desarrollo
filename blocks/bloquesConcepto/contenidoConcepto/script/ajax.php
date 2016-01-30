@@ -1,11 +1,20 @@
 <?php
 
+if(isset($_POST['condicionSi'])){
+    $emails=$_POST['condicionSi'];
+    for ($i=0; $i<=count($emails); $i++) {
+    echo $emails[$i].'<br>';
+}
+}
+
 ?>
 
 <script>
 
-
-$(".arrastrable").draggable();
+function agregar() {
+	campo = '<li><label>Email:</label><input type="text" size="20" name="condicionSi[]" /></li>';
+	$("#condicionAg").append(campo);
+}
 
 
  $('#<?php echo $this->campoSeguro('listaSignos')?>').width(100);
