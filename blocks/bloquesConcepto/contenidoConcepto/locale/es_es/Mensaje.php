@@ -18,7 +18,7 @@ $this->idioma["botonRegresarConsulta"]="Regresar";
 
 
 
-$this->idioma["enviarRegistro"]="Guardar Concepto";
+$this->idioma["enviarRegistroCon"]="Guardar Concepto";
 $this->idioma["siguiente"]="Siguiente";
 $this->idioma["modificarRegistro"]="Guardar Cambios";
 $this->idioma["verdetalleRegistro"]="Aceptar";
@@ -41,6 +41,7 @@ $this->idioma["seccionConceptos"]="Conceptos:";
 
 $this->idioma["categoriaParametrosList"]="Categorias Parámetros:";
 $this->idioma["categoriaConceptosList"]="Categorias Conceptos:";
+$this->idioma["categoriaConceptos"]="Categoria:";
 
 $this->idioma["valorParametro"]="Valor =";
 $this->idioma["valorConcepto"]="Contenido =";

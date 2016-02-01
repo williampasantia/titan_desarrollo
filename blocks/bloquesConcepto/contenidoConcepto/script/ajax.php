@@ -29,6 +29,9 @@
  $('#<?php echo $this->campoSeguro('estadoRegistro')?>').width(200);
  $("#<?php echo $this->campoSeguro('estadoRegistro')?>").select2();
 
+ $('#<?php echo $this->campoSeguro('categoriaConceptos')?>').width(250);
+ $("#<?php echo $this->campoSeguro('categoriaConceptos')?>").select2();
+ 
  $('#<?php echo $this->campoSeguro('categoriaConceptosList')?>').width(260);
  $("#<?php echo $this->campoSeguro('categoriaConceptosList')?>").select2();
 
