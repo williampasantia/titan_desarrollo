@@ -23,27 +23,32 @@ class FormProcessor {
 		
 		$datos = array (
 				'nombre' => $_REQUEST ['nombre'],
-				'descripcion' => $_REQUEST ['descripcion'],
-				'ley' => $_REQUEST ['ley'] 
+				'descripcion' => $_REQUEST ['descripcion'] 
 		);
 		
 		$cadenaSql = $this->miSql->getCadenaSql ( "insertarCategoria", $datos );
-		$primerRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
+		$id_categoria = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda", $datos, "insertarCategoria" );
 		
+		$datosLey = array (
+				'ley' => $_REQUEST ['ley'],
+				'fk_categoria' => $id_categoria [0] [0]
+		);
 		
-				
-				Redireccionador::redireccionar ( 'form' );
-			}
-			function resetForm() {
-				foreach ( $_REQUEST as $clave => $valor ) {
-					
-					if ($clave != 'pagina' && $clave != 'development' && $clave != 'jquery' && $clave != 'tiempo') {
-						unset ( $_REQUEST [$clave] );
-					}
-				}
+		$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "insertarCategoriaxLey", $datos );
+		$primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "acceso" );
+		
+		Redireccionador::redireccionar ( 'form' );
+	}
+	function resetForm() {
+		foreach ( $_REQUEST as $clave => $valor ) {
+			
+			if ($clave != 'pagina' && $clave != 'development' && $clave != 'jquery' && $clave != 'tiempo') {
+				unset ( $_REQUEST [$clave] );
 			}
 		}
-	
+	}
+}
+
 $miProcesador = new FormProcessor ( $this->lenguaje, $this->sql );
 
 $resultado = $miProcesador->procesarFormulario ();

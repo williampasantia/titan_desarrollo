@@ -159,9 +159,26 @@ class Formulario {
                     <tbody>'; 
         
         while($i<$longitud){
-                    echo "<tr><td>".$matrizItems[$i][0]."</td>";
-                    echo "<td>".$matrizItems[$i][1]."</td>";
+                    echo "<tr><td>".$matrizItems[$i][1]."</td>";
                     echo "<td>".$matrizItems[$i][2]."</td>";
+                    
+                    $datosLey = array (
+                    		'id' => $matrizItems[$i][0]
+                    		
+                    );
+                    
+                    $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIDley", $datosLey);
+                    $id_ldn=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+                    
+                    $datosNLey = array (
+                    		'id' => $id_ldn[0][0]
+                    
+                    );
+                    
+                    $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarley", $datosNLey);
+                    $nombreLey=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+                    
+                    echo "<td>".$nombreLey[0][0]."</td>";
                     
                     
                     $variableVD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro

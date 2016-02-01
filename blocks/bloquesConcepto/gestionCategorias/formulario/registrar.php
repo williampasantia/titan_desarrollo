@@ -197,12 +197,12 @@ class Formulario {
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required';
         
-                 $matrizItems=array(
-                 		array(1,'ley'),
-                 		array(2,'decreto'),
-                 		array(3,'etc...')
-                 );
-        $atributos['matrizItems'] = $matrizItems;
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscar_ley" );
+        $matrizItems1 = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+        
+        var_dump($matrizItems1);exit;
+        
+        $atributos['matrizItems'] = $matrizItems1;
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];

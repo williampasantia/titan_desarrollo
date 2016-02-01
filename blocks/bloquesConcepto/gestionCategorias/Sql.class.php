@@ -33,49 +33,35 @@ class Sql extends \Sql {
 			 */
 			case 'insertarCategoria' :
 				$cadenaSql = 'INSERT INTO ';
-				$cadenaSql .= 'liquidacion.categorias_conceptos ';
+				$cadenaSql .= 'concepto.categoria ';
 				$cadenaSql .= '( ';
 				$cadenaSql .= 'nombre,';
 				$cadenaSql .= 'descripcion,';
-				$cadenaSql .= 'ley,';
+				// $cadenaSql .= 'ley,';
 				$cadenaSql .= 'estado';
 				$cadenaSql .= ') ';
 				$cadenaSql .= 'VALUES ';
 				$cadenaSql .= '( ';
 				$cadenaSql .= '\'' . $variable ['nombre'] . '\'' . ', ';
 				$cadenaSql .= '\'' . $variable ['descripcion'] . '\'' . ', ';
-				$cadenaSql .= $variable ['ley'] . ', ';
+				// $cadenaSql .= $variable ['ley'] . ', ';
 				$cadenaSql .= '\'' . 'Activo' . '\'';
 				$cadenaSql .= ') ';
+				$cadenaSql .= "RETURNING  id; ";
 				break;
 			
-			case 'insertarRegistroComercial' :
+			case 'insertarCategoriaxLey' :
 				$cadenaSql = 'INSERT INTO ';
-				$cadenaSql .= 'persona.info_comercial ';
+				$cadenaSql .= 'concepto.categxldn ';
 				$cadenaSql .= '( ';
-				// $cadenaSql .= 'consecutivo,';
-				$cadenaSql .= 'banco,';
-				$cadenaSql .= 'tipo_cuenta,';
-				$cadenaSql .= 'numero_cuenta,';
-				$cadenaSql .= 'tipo_pago,';
-				$cadenaSql .= 'estado,';
-				$cadenaSql .= 'fecha_creacion,';
-				$cadenaSql .= 'usuario_creo,';
-				$cadenaSql .= 'soporte_rut';
+				$cadenaSql .= 'id_ldn,';
+				$cadenaSql .= 'id';
 				$cadenaSql .= ') ';
 				$cadenaSql .= 'VALUES ';
 				$cadenaSql .= '( ';
-				// $cadenaSql .= $variable ['consecutivo']. ', ';
-				$cadenaSql .= '\'' . $variable ['banco'] . '\'' . ', ';
-				$cadenaSql .= '\'' . $variable ['tipoCuenta'] . '\'' . ', ';
-				$cadenaSql .= $variable ['numeroCuenta'] . ', ';
-				$cadenaSql .= '\'' . $variable ['tipoPago'] . '\'' . ', ';
-				$cadenaSql .= '\'' . $variable ['estado'] . '\'' . ', ';
-				$cadenaSql .= '\'' . $variable ['fecha'] . '\'' . ', ';
-				$cadenaSql .= '\'' . $variable ['creador'] . '\'' . ', ';
-				$cadenaSql .= '\'' . 'soporte RUT' . '\'';
+				$cadenaSql .= $variable ['ley'] . ', ';
+				$cadenaSql .= $variable ['fk_categoria'] . ', ';
 				$cadenaSql .= ')';
-				$cadenaSql .= "RETURNING  consecutivo; ";
 				break;
 			
 			case 'insertarRegistroContacto' :
@@ -223,20 +209,38 @@ class Sql extends \Sql {
 				$cadenaSql .= 'id as ID, ';
 				$cadenaSql .= 'nombre as NOMBRE, ';
 				$cadenaSql .= 'descripcion as DESCRIPCION, ';
-				$cadenaSql .= 'ley as LEY ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'liquidacion.categorias_conceptos';
+				$cadenaSql .= 'concepto.categoria';
 				break;
 			
-			case 'buscarConsecutivoCom' :
+			case 'buscarIDLey' :
 				
 				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'consecutivo as CONSECUTIVO ';
+				$cadenaSql .= 'id_ldn as ID_LDN ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'persona.personaxcomercial ';
+				$cadenaSql .= 'concepto.categxldn ';
 				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'documento = ';
-				$cadenaSql .= '\'' . $variable ['documento'] . '\'';
+				$cadenaSql .= 'id = ';
+				$cadenaSql .= '\'' . $variable ['id'] . '\'';
+				break;
+			
+			case 'buscarley' :				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'parametro.ley_decreto_norma ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_ldn = ';
+				$cadenaSql .= '\'' . $variable ['id'] . '\'';
+				break;
+			
+			case 'buscar_ley' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ldn as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'parametro.ley_decreto_norma';
 				break;
 			
 			case 'buscarConsecutivoCon' :
@@ -324,7 +328,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'descripcion = ';
 				$cadenaSql .= '\'' . $variable ['descripcion'] . '\', ';
 				$cadenaSql .= 'ley = ';
-				$cadenaSql .=  $variable ['ley']. ' ';
+				$cadenaSql .= $variable ['ley'] . ' ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id = ';
 				$cadenaSql .= '\'' . $variable ['id'] . '\'';
