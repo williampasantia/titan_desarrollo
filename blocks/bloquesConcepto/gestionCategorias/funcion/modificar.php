@@ -21,7 +21,15 @@ class FormProcessor {
 		$conexion = 'estructura';
 		$primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB ( $conexion );
 		
+		$datos = array (
+				'id'=> $_REQUEST['id'],
+				'nombre' => $_REQUEST ['nombre'],
+				'descripcion' => $_REQUEST ['descripcion'],
+				'ley' => $_REQUEST ['ley']
+		);
 		
+		$cadenaSql = $this->miSql->getCadenaSql ( "modificarCategoria", $datos );
+		$primerRecursoDB->ejecutarAcceso ( $cadenaSql, "acceso" );
 		
 		
 		Redireccionador::redireccionar ( 'form' );

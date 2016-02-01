@@ -657,9 +657,13 @@ class Formulario {
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
-	        $atributos ['validar'] = 'required, minSize[1]';
-	        $atributos ['valor'] = '0';
 	      
+	        
+	        if (isset ( $_REQUEST [$esteCampo] )) {
+	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+	        } else {
+	        	$atributos ['valor'] = '';
+	        }
 	        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
 	        $atributos ['deshabilitado'] = true;
 	        $atributos ['tamanno'] = 4;
@@ -948,9 +952,13 @@ class Formulario {
         
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
-        $atributos ['validar'] = 'required, minSize[1]';
+   
         
-      	$atributos ['valor'] = '0';
+        if (isset ( $_REQUEST [$esteCampo] )) {
+        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+        } else {
+        	$atributos ['valor'] = '';
+        }
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 4;
@@ -1320,7 +1328,7 @@ class Formulario {
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required, minSize[1]';
+//         $atributos ['validar'] = 'required, minSize[1]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];

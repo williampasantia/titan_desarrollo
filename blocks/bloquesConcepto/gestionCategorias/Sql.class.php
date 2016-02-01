@@ -315,17 +315,19 @@ class Sql extends \Sql {
 				$cadenaSql .= '\'' . $variable ['numeroDocumento'] . '\'';
 				break;
 			
-			case 'modificarRegistroComercial' :
+			case 'modificarCategoria' :
 				$cadenaSql = 'UPDATE ';
-				$cadenaSql .= 'persona.info_comercial ';
+				$cadenaSql .= 'liquidacion.categorias_conceptos ';
 				$cadenaSql .= 'SET ';
-				$cadenaSql .= 'tipo_pago = ';
-				$cadenaSql .= '\'' . $variable ['tipoPago'] . '\', ';
-				$cadenaSql .= 'estado = ';
-				$cadenaSql .= '\'' . $variable ['estado'] . '\' ';
+				$cadenaSql .= 'nombre = ';
+				$cadenaSql .= '\'' . $variable ['nombre'] . '\', ';
+				$cadenaSql .= 'descripcion = ';
+				$cadenaSql .= '\'' . $variable ['descripcion'] . '\', ';
+				$cadenaSql .= 'ley = ';
+				$cadenaSql .=  $variable ['ley']. ' ';
 				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'numero_cuenta = ';
-				$cadenaSql .= '\'' . $variable ['numeroCuenta'] . '\'';
+				$cadenaSql .= 'id = ';
+				$cadenaSql .= '\'' . $variable ['id'] . '\'';
 				break;
 			
 			case 'modificarRegistroContacto' :

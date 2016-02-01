@@ -774,7 +774,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
-        $atributos ['validar'] = 'required, minSize[1]';
+//         $atributos ['validar'] = 'required, minSize[1]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -821,7 +821,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
 	        
 	        $atributos ['obligatorio'] = false;
 	        $atributos ['etiquetaObligatorio'] = false;
-	        $atributos ['validar'] = 'required, minSize[1]';
+// 	        $atributos ['validar'] = 'required, minSize[1]';
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
 	        	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -1117,7 +1117,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
-        $atributos ['validar'] = 'required, minSize[1]';
+//         $atributos ['validar'] = 'required, minSize[1]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -1505,7 +1505,7 @@ $atributos ['tipoEtiqueta'] = 'inicio';
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required, minSize[1]';
+//         $atributos ['validar'] = 'required, minSize[1]';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
