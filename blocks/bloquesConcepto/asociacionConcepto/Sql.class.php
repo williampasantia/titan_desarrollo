@@ -122,62 +122,24 @@ class Sql extends \Sql {
                 break;
         
         
-             case "registrarArl" :
-				$cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'parametro.arl ';
+             case "registrarAsociacion" :
+		$cadenaSql = 'INSERT INTO ';
+                $cadenaSql .= 'concepto.asociacionConcepto ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= 'nit,';                
+                              
              
-                $cadenaSql .= 'nombre,';
-                $cadenaSql .= 'direccion,';
-                $cadenaSql .= 'telefono,';
-                if($variable ['extTelefonoRegistro']!='')
-                {
-                 $cadenaSql .= 'extencion_telefono,';    
-                }
-                 if($variable ['faxRegistro']!='')
-                {
-                   $cadenaSql .= 'fax,';  
-                }
-                 if($variable ['extFaxRegistro']!='')
-                {
-                   $cadenaSql .= 'extencion_fax,';
-                }
-               
-                
-               
-                $cadenaSql .= 'lugar,';
-                $cadenaSql .= 'nombre_representante_legal,';
-                $cadenaSql .= 'email,';
+                $cadenaSql .= 'codigo_concepto,';
+                $cadenaSql .= 'tipo_vinculacion,';
+                $cadenaSql .= 'tipo_nomina,';
                 $cadenaSql .= 'estado';
                 $cadenaSql .= ') ';
                 $cadenaSql .= 'VALUES ';
                 $cadenaSql .= '( ';
-                $cadenaSql .= $variable ['nitRegistro'] . ', ';
+                $cadenaSql .= $variable ['codigo_concepto'] . ', ';
                 
-                $cadenaSql .= '\'' . $variable ['nombreRegistro']  . '\', ';
+                $cadenaSql .= '\'' . $variable ['tipo_vinculacion']  . '\', ';
                 $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
-                $cadenaSql .= $variable ['telefonoRegistro'] . ', ';
-                  if($variable ['extTelefonoRegistro']!='')
-                {
-                  $cadenaSql .= $variable ['extTelefonoRegistro'] . ', ';   
-                }
-                 if($variable ['faxRegistro']!='')
-                {
-                  $cadenaSql .= $variable ['faxRegistro'] . ', ';
-                }
-                 if($variable ['extFaxRegistro']!='')
-                {
-                  $cadenaSql .= $variable ['extFaxRegistro'] . ', ';
-                }
-               
-                
-             
-                
-               
-                $cadenaSql .= $variable ['id_ubicacion'] . ', ';
-                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
-                $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
+                $cadenaSql .= $variable ['tipo_nomina'] . ', ';
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';
 		
