@@ -60,6 +60,8 @@ $(function () {
 	        }
 	    });
 });
+
+
 $(function () {
     $("#conceptos").draggable({
         revert: true,
@@ -103,7 +105,10 @@ $( '#<?php echo $this->campoSeguro('categoriaParametrosList')?>' ).change(functi
 //Codigo AGREGAR y QUITAR Campos Dinamicos
 var limite = 20; //Se define el Limite de Paneles de Condiciones que se pueden Generar
 				 //No requiere que se cambie en otro lugar
-$(document).ready(function() {
+$(function () {
+    
+    
+    
 	$("#cancelar").hide("fast");
 	$('#<?php echo $this->campoSeguro('botones')?>').hide("fast");
 	
@@ -114,7 +119,10 @@ $(document).ready(function() {
 	var container = $(document.createElement('div')).css({
 		padding: '5px'
 	});
-	$(container).attr('class', 'col-md-12')
+	$(container).attr('class', 'col-md-12')+
+       
+        
+                      
 	 
 	$('#btAdd').click(function() {
 		if (iCnt < limite) {
@@ -128,7 +136,7 @@ $(document).ready(function() {
 					'<div id=lab1'+iCnt+' class="col-md-2">'+
 						'<label> Si </label> ' + 
 					'</div>'+
-					'<input type=text class="input" id=tb1' + iCnt + ' value="Elemento de Texto tb1' + iCnt + '" />'+
+					'<input type=text class="input" id=tb1' + iCnt + ' value="" />'+
 					'<select id=sel1'+iCnt+' tabindex="-1" size="1" style="width: 100px;">'+
 						'<option value="1">signo</option>' +
 						'<option value="2"><</option>'+
@@ -138,21 +146,17 @@ $(document).ready(function() {
 						'<option value="6">=</option>'+
 						'<option value="7">!=</option>'+
 					'</select>'+
-					'<input type=text class="input" id=tb2' + iCnt + ' value="Elemento de Texto tb2' + iCnt + '" />'+
+					'<input type=text class="input" id=tb2' + iCnt + ' value="" />'+
 					'<select id=sel2'+iCnt+' tabindex="-1" size="1" style="width: 100px;">'+
 						'<option value="1">operador</option>' +
-						'<option value="2"><</option>'+
-						'<option value="3"><=</option>'+
-						'<option value="4">>=</option>'+
-						'<option value="5">></option>'+
-						'<option value="6">=</option>'+
-						'<option value="7">!=</option>'+
+						'<option value="2">&&</option>'+
+						'<option value="3">||</option>'+
 					'</select>'+
 					'<div>'+
 						'<div id=lab2'+iCnt+' class="col-md-2">'+
 							'<label> Entonces </label> ' + 
 						'</div>'+
-						'<input type=text class="input" id=tb3' + iCnt + ' value="Elemento de Texto tb3' + iCnt + '" />'+
+						'<input type=text class="input" id=tb3' + iCnt + ' value="" />'+
 					'</div>'+ 
 					'</fieldset>');
 			
@@ -162,6 +166,15 @@ $(document).ready(function() {
 			
 			$('#sel2'+iCnt).width(120);
 			$('#sel2'+iCnt).select2();
+                        
+                      arrastreParametro('tb1' + iCnt);
+                      arrastreParametro('tb2' + iCnt);
+                      arrastreParametro('tb3' + iCnt);
+	              
+                      arrastreConcepto('tb1' + iCnt);
+                      arrastreConcepto('tb2' + iCnt);
+                      arrastreConcepto('tb3' + iCnt);
+       
 		}
 		else { //alerta y deshabilitar boton de agregar por alcanzar el limite
 	 
@@ -170,7 +183,12 @@ $(document).ready(function() {
 	 
 		}
 	});
-	 
+	
+         
+        
+        
+        
+        
 	$('#btRemove').click(function() { // Elimina un panel de condiciones del DOM
 		if (iCnt != 0) {
 			$('#lab1' + iCnt).remove(); 
@@ -204,8 +222,51 @@ $(document).ready(function() {
 		$('#btAdd').attr('class', 'btn btn-success btn-block');
 	 
 	});
+        
+        
 });
-	 
+//Funciones de arrastre apara dinamicos
+//
+//	 
+function arrastreParametro(nombre) {
+            
+	    $("#parametros").draggable({
+	        revert: true,
+	        helper: 'clone',
+	        start: function (event, ui) {
+	            $(this).fadeTo('fast', 1.5);
+	        },
+	        stop: function (event, ui) {
+	            $(this).fadeTo(0, 1);
+	        }
+	    });
+	    $('#'+nombre).droppable({
+	        hoverClass: 'active',
+	        drop: function (event, ui) {
+	            this.value += $(ui.draggable).find('select option:selected').text();
+	        }
+	    });
+};
+
+function arrastreConcepto(nombre) {
+            
+	$("#conceptos").draggable({
+        revert: true,
+        helper: 'clone',
+        start: function (event, ui) {
+            $(this).fadeTo('fast', 1.5);
+        },
+        stop: function (event, ui) {
+            $(this).fadeTo(0, 1);
+        }
+    });
+    $('#'+nombre).droppable({
+        hoverClass: 'active',
+        drop: function (event, ui) {
+            this.value += $(ui.draggable).find('select option:selected').text();
+        }
+    });
+};
 // Funcion que Obtiene los valores de los textbox y los select
 var values = '', condiciones = '';
 	 
@@ -224,4 +285,6 @@ function GetTextValue() {
 	});
 	 
 }
+
+ 
 </script>
