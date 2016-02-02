@@ -25,3 +25,6 @@ $("#<?php echo $this->campoSeguro('concepto')?>").select2();
 
 $('#<?php echo $this->campoSeguro('tipoVinculacion')?>').width(200); 
 $("#<?php echo $this->campoSeguro('tipoVinculacion')?>").select2();
+
+$('#<?php echo $this->campoSeguro('tipoNomina')?>').width(200); 
+$("#<?php echo $this->campoSeguro('tipoNomina')?>").select2();

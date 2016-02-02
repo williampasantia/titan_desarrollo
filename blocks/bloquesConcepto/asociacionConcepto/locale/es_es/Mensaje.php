@@ -16,7 +16,7 @@ $this->idioma["modificar"]="Modificar ";
 
 //REGISTRO
 
-$this->idioma["nombre"]="Nombre: ";
+$this->idioma["concepto"]="Concepto: ";
 
 $this->idioma["nombreTitulo"]="";
 $this->idioma["concepto"]="Concepto: ";

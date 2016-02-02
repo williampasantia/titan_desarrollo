@@ -303,7 +303,7 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $_REQUEST ['parametroPagina'] . '\'';
                 $cadenaSql .= ') ';
                 break;
-         case 'buscarConcepto' ://Provisionalmente solo Departamentos de Colombia
+         case 'buscarConcepto' :
 				
 				$cadenaSql = 'SELECT ';
 				$cadenaSql .= 'codigo as ID, ';
@@ -312,15 +312,26 @@ class Sql extends \Sql {
 				$cadenaSql .= 'concepto.concepto ';
 				
 				break;
+         case 'buscarTipoVinculacion1' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'parametro.tipo_vinculacion';
+				
+				break;                    
+                            
+                            
       case 'buscarTipoVinculacion':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'id as ID, ';
                 $cadenaSql .= 'nombre as NOMBRE ';
-               
-                $cadenaSql .= 'estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'parametro.tipo_vinculacion';
                 break;
+            
+            
           case 'buscarNomina':
                 $cadenaSql = 'SELECT ';
                 $cadenaSql .= 'codigo_nomina as CODIGO_NOMINA, ';
@@ -328,7 +339,7 @@ class Sql extends \Sql {
                
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'liquidacion.nomina ';
-                $cadenaSql .= 'WHERE ';
+               
            
            break;         		
 			case 'buscarDepartamentoAjax' :

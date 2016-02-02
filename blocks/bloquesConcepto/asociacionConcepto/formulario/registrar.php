@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesParametro\parametroArl\formulario;
+ namespace bloquesConcepto\asociacionConcepto\formulario;
 
 
 
@@ -103,7 +103,7 @@ class Formulario {
         
         
 // ---------------- CONTROL: Select --------------------------------------------------------
-	        $esteCampo = 'Concepto';
+	        $esteCampo = 'concepto';
 	        $atributos['nombre'] = $esteCampo;
 	        $atributos['id'] = $esteCampo;
 	        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
@@ -136,8 +136,8 @@ class Formulario {
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
 	        
-	        
-	        // ---------------- CONTROL: Select --------------------------------------------------------
+	 
+// ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'tipoVinculacion';
 	        $atributos['nombre'] = $esteCampo;
 	        $atributos['id'] = $esteCampo;
@@ -145,7 +145,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = true;
+	        $atributos['deshabilitado'] = false;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -170,10 +170,7 @@ class Formulario {
 	        $atributos = array_merge ( $atributos, $atributosGlobales );
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
-	        
-        
-	        
-	        // ---------------- CONTROL: Select --------------------------------------------------------
+	 // ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'tipoNomina';
 	        $atributos['nombre'] = $esteCampo;
 	        $atributos['id'] = $esteCampo;
@@ -181,7 +178,7 @@ class Formulario {
 	        $atributos['tab'] = $tab;
 	        $atributos['seleccion'] = -1;
 	        $atributos['evento'] = ' ';
-	        $atributos['deshabilitado'] = true;
+	        $atributos['deshabilitado'] = false;
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
@@ -190,9 +187,10 @@ class Formulario {
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
 	        
-	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarTipoNomina" );
-	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
-	        
+	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarNomina" );
+	       
+                $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+	       
 	        $atributos['matrizItems'] = $matrizItems;
 	        
 	        if (isset ( $_REQUEST [$esteCampo] )) {
@@ -207,7 +205,6 @@ class Formulario {
 	        echo $this->miFormulario->campoCuadroLista ( $atributos );
 	        // --------------- FIN CONTROL : Select --------------------------------------------------
 	        
-        
         // ------------------Division para los botones-------------------------
         $atributos ["id"] = "botones";
         $atributos ["estilo"] = "marcoBotones";

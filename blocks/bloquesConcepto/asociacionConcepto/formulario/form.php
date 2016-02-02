@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesConceto\asociacionConcepto\formulario;
+namespace bloquesConcepto\asociacionConcepto\formulario;
 
 
 
@@ -36,14 +36,19 @@ class Formulario {
          * Por tanto en el archivo ready.php se delaran algunas funciones js
          * que lo complementan.
          */
-  $directorio = $this->miConfigurador->getVariableConfiguracion ( "host" );
+
+        // Rescatar los datos de este bloque
+        $directorio = $this->miConfigurador->getVariableConfiguracion ( "host" );
        $directorio .= $this->miConfigurador->getVariableConfiguracion ( "site" ) . "/index.php?";
        $directorio .= $this->miConfigurador->getVariableConfiguracion ( "enlace" );
         // Rescatar los datos de este bloque
-        $esteBloque = $this->miConfigurador->getVariableConfiguracion ( "esteBloque" );
+       $esteBloque = $this->miConfigurador->getVariableConfiguracion ( "esteBloque" );
         $rutaBloque = $this->miConfigurador->getVariableConfiguracion("host");
         $rutaBloque.=$this->miConfigurador->getVariableConfiguracion("site") . "/blocks/";
         $rutaBloque.= $esteBloque['grupo'] . "/" . $esteBloque['nombre'];
+		
+       
+
         // ---------------- SECCION: Parámetros Globales del Formulario ----------------------------------
         /**
         * Atributos que deben ser aplicados a todos los controles de este formulario.
@@ -95,11 +100,11 @@ class Formulario {
        // --------------------------------------------------------------------------------------------------
         
         $esteCampo = "marcoDatosBasicos";
-	$atributos ['id'] = $esteCampo;
-	$atributos ["estilo"] = "jqueryui";
-	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "ARL";
-	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
+		$atributos ['id'] = $esteCampo;
+		$atributos ["estilo"] = "jqueryui";
+		$atributos ['tipoEtiqueta'] = 'inicio';
+		$atributos ["leyenda"] = "ASOCIACION CONCEPTOS";
+		echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         // --------------------------------------------------------------------------------------------------
         
         // ------------------Division para los botones-------------------------
@@ -108,7 +113,7 @@ class Formulario {
                         echo $this->miFormulario->division ( "inicio", $atributos );
 
                         // -----------------CONTROL: Botón ----------------------------------------------------------------
-                        $esteCampo = 'botonRegistrar';
+                        $esteCampo = 'botonRegistrarCargo';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -128,6 +133,8 @@ class Formulario {
                         echo $this->miFormulario->campoBoton ( $atributos );
                         
                         
+                      
+                        
                         
                         // -----------------FIN CONTROL: Botón -----------------------------------------------------------
 
@@ -135,37 +142,39 @@ class Formulario {
                    
                         
                         echo $this->miFormulario->division("fin"); 
+                        
+                        
+                        
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarConcepto");
-        
-      
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
-     
-       $longitud = count($matrizItems);
+        
+       
+        $longitud = count($matrizItems);
+        
         $i=0;
         
-        echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."NIT".'</th><th>'."NOMBRE".'</th> <th>'."DIRECCION".'</th> <th>'."TELEFONO".'</th> <th>'."EXTENSION_TELEFONO".'</th><th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."MODIFICAR ESTADO".'</th></tr></thead>
-                       
-                    <tbody>'; 
-        
-        while($i<$longitud){
             
+        
+        echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
+                 . '<thead style="display: table-row-group"><tr><th>'."NOMBRE".'</th><th>'."SIMBOLO".'</th> <th>'."DESCRIPCIÓN".'</th> <th>'."LEY".'</th> <th>'."NATURALEZA".'</th><th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."ACTIVAR".'</th></tr></thead>
+ 
+                    <tbody>'; 
+        if(!empty($matrizItems)){
+        while($i<$longitud){
                     echo "<tr><td>".$matrizItems[$i][0]."</td>";
                     echo "<td>".$matrizItems[$i][1]."</td>";
-                    echo "<td>".$matrizItems[$i][2]."</td>";
-                    echo "<td>".$matrizItems[$i][3]."</td>";
-                    echo "<td>".$matrizItems[$i][4]."</td>";
-                    echo "<td>".$matrizItems[$i][5]."</td>";
-                   
-                     $variableVD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
+                  
+                 
+                         $variableVD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
                           $variableVD .= "&opcion=verdetalle";
                           $variableVD .= "&bloque=" . $esteBloque ['nombre'];
                           $variableVD .="&tamaño=".$longitud;
                           $variableVD .= "&variable=" . $i;
                           $variableVD .= "&bloqueGrupo=" . $esteBloque ["grupo"];
                           $variableVD = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variableVD, $directorio );
+
                          echo "<td><center><a href='" . $variableVD . "'>
                           <img src='" . $rutaBloque . "/css/images/verDetalle.png' width='25px'>
                           </a></center> </td>";
@@ -177,6 +186,7 @@ class Formulario {
                           $variableMOD .= "&variable=" . $i;
                           $variableMOD .= "&bloqueGrupo=" . $esteBloque ["grupo"];
                           $variableMOD = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variableMOD, $directorio );
+
                          echo "<td><center><a href='" . $variableMOD . "'>
                           <img src='" . $rutaBloque . "/css/images/modificar.png' width='25px'>
                           </a></center> </td>";
@@ -188,8 +198,9 @@ class Formulario {
                           $variableACT .= "&variable=" . $i;
                           $variableACT .= "&bloqueGrupo=" . $esteBloque ["grupo"];
                           $variableACT = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variableACT, $directorio );
+
                          echo "<td><center><a href='" . $variableACT . "'>";
-                         if($matrizItems[$i][5]=='Activo'){
+                         if($matrizItems[$i][1]=='Activo'){
                             echo "<img src='" . $rutaBloque . "/css/images/desactivacion.png' width='25px'>";
                          }
                          else{
@@ -197,16 +208,23 @@ class Formulario {
                          }
                           
                           echo "</a></center> </td></tr>"; 
+                     
+                     
                         
                             
                     
                      $i+=1;
         }  
+          } 
            echo '</tbody></table>';
                        
-                        
+            
+           
                 
         
+        
+       
+        /**
                         
                         
         // ---------------- CONTROL: Tabla Cargos -----------------------------------------------                
@@ -235,7 +253,7 @@ class Formulario {
 
         // Paso 1: crear el listado de variables
 
-       // $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
+        //$valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
         $valorCodificado = "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
         $valorCodificado .= "&tamaño=".$longitud;
@@ -315,4 +333,5 @@ $miFormulario = new Formulario ( $this->lenguaje, $this->miFormulario, $this->sq
 
 $miFormulario->formulario ();
 $miFormulario->mensaje ();
+
 ?>
