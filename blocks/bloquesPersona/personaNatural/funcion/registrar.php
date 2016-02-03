@@ -35,13 +35,13 @@ class FormProcessor {
 		if (isset ( $_REQUEST ['personaNaturalRegimen'] )) {
 			switch ($_REQUEST ['personaNaturalRegimen']) {
 				case 1 :
-					$_REQUEST ['personaNaturalRegimen'] = 'Común';
+					$_REQUEST ['personaNaturalRegimen'] = 'comun';
 					break;
 				case 2 :
 					$_REQUEST ['personaNaturalRegimen'] = 'simplificado';
 					break;
 				case 3 :
-					$_REQUEST ['personaNaturalRegimen'] = 'No Aplica';
+					$_REQUEST ['personaNaturalRegimen'] = 'noAplica';
 					break;
 			}
 		}
@@ -49,10 +49,10 @@ class FormProcessor {
 		if (isset ( $_REQUEST ['personaNaturalAutorretenedor'] )) {
 			switch ($_REQUEST ['personaNaturalAutorretenedor']) {
 				case 1 :
-					$_REQUEST ['personaNaturalAutorretenedor'] = 'SI';
+					$_REQUEST ['personaNaturalAutorretenedor'] = 'si';
 					break;
 				case 2 :
-					$_REQUEST ['personaNaturalAutorretenedor'] = 'NO';
+					$_REQUEST ['personaNaturalAutorretenedor'] = 'no';
 					break;
 			}
 		}
@@ -60,10 +60,10 @@ class FormProcessor {
 		if (isset ( $_REQUEST ['personaNaturalContribuyente'] )) {
 			switch ($_REQUEST ['personaNaturalContribuyente']) {
 				case 1 :
-					$_REQUEST ['personaNaturalContribuyente'] = 'SI';
+					$_REQUEST ['personaNaturalContribuyente'] = 'Si';
 					break;
 				case 2 :
-					$_REQUEST ['personaNaturalContribuyente'] = 'NO';
+					$_REQUEST ['personaNaturalContribuyente'] = 'No';
 					break;
 			}
 		}
@@ -110,10 +110,10 @@ class FormProcessor {
 			if (isset ( $_REQUEST ['personaNaturalTipoCuenta'] )) {
 				switch ($_REQUEST ['personaNaturalTipoCuenta']) {
 					case 1 :
-						$_REQUEST ['personaNaturalTipoCuenta'] = 'Ahorros';
+						$_REQUEST ['personaNaturalTipoCuenta'] = 'ahorros';
 						break;
 					case 2 :
-						$_REQUEST ['personaNaturalTipoCuenta'] = 'Corriente';
+						$_REQUEST ['personaNaturalTipoCuenta'] = 'corriente';
 						break;
 				}
 			}

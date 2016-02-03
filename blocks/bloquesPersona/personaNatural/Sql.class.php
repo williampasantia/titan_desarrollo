@@ -57,9 +57,9 @@ class Sql extends \Sql {
 				$cadenaSql .= '\'' . $variable ['segundoNombre'] . '\'' . ', ';
 				$cadenaSql .= '\'' . $variable ['primerApellido'] . '\'' . ', ';
 				$cadenaSql .= '\'' . $variable ['segundoApellido'] . '\'' . ', ';
-				$cadenaSql .= '\'' . $variable ['contribuyente'] . '\'' . ', ';
+				$cadenaSql .= '\'<' . $variable ['contribuyente'] . '>\'' . ', ';
 				$cadenaSql .= '\'' . $variable ['autorretenedor'] . '\'' . ', ';
-				$cadenaSql .= '\'' . $variable ['regimen'] . '\'' . ', ';
+				$cadenaSql .= '\'<' . $variable ['regimen'] . '>\'' . ', ';
 				$cadenaSql .= '\'' . 'Modificable' . '\' ' . ',';
 				$cadenaSql .= '\'' . 'soporte documento ' . '\'';
 				$cadenaSql .= ') ';
@@ -83,7 +83,7 @@ class Sql extends \Sql {
 				$cadenaSql .= '( ';
 				// $cadenaSql .= $variable ['consecutivo']. ', ';
 				$cadenaSql .= '\'' . $variable ['banco'] . '\'' . ', ';
-				$cadenaSql .= '\'' . $variable ['tipoCuenta'] . '\'' . ', ';
+				$cadenaSql .= '\'<' . $variable ['tipoCuenta'] . '>\'' . ', ';
 				$cadenaSql .= $variable ['numeroCuenta'] . ', ';
 				$cadenaSql .= '\'' . $variable ['tipoPago'] . '\'' . ', ';
 				$cadenaSql .= '\'' . $variable ['estado'] . '\'' . ', ';
