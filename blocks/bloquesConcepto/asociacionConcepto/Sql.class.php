@@ -274,6 +274,24 @@ class Sql extends \Sql {
 				$cadenaSql .= 'concepto.concepto ';
 				
 				break;
+                            case 'buscarConceptoAso' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'd.nombre as CONCEPTO, ';
+                                $cadenaSql .= 'a.nombre as TIPO_VINCULACION, ';
+                                $cadenaSql .= 'c.nombre as TIPO_NOMINA, ';
+				$cadenaSql .= 'b.estado as ESTADO ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'parametro.tipo_vinculacion a, ';
+                                $cadenaSql .= 'concepto.asociacion_concepto b, ';
+                                $cadenaSql .= 'liquidacion.nomina c, ';
+                                $cadenaSql .= 'concepto.concepto d ';
+                                $cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'a.id=b.tipo_vinculacion and  ';
+                                $cadenaSql .= 'd.codigo=b.codigo_concepto and   ';
+                                $cadenaSql .= 'b.tipo_nomina= c.codigo_nomina ;   ';
+				
+				break;
          case 'buscarTipoVinculacion1' :
 				
 				$cadenaSql = 'SELECT ';

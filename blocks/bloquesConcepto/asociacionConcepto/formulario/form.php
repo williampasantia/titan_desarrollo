@@ -147,7 +147,8 @@ class Formulario {
                         
         // ---------------- CONTROL: Tabla Cargos sin Sara -----------------------------------------------                
                         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarConcepto");
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarConceptoAso");
+        
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
         
        
@@ -165,6 +166,8 @@ class Formulario {
         while($i<$longitud){
                     echo "<tr><td>".$matrizItems[$i][0]."</td>";
                     echo "<td>".$matrizItems[$i][1]."</td>";
+                    echo "<td>".$matrizItems[$i][2]."</td>";
+                    echo "<td>".$matrizItems[$i][3]."</td>";
                   
                  
                          $variableVD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
@@ -200,7 +203,7 @@ class Formulario {
                           $variableACT = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variableACT, $directorio );
 
                          echo "<td><center><a href='" . $variableACT . "'>";
-                         if($matrizItems[$i][1]=='Activo'){
+                         if($matrizItems[$i][3]=='Activo'){
                             echo "<img src='" . $rutaBloque . "/css/images/desactivacion.png' width='25px'>";
                          }
                          else{

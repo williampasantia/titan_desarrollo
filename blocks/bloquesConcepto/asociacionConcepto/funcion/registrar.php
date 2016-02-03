@@ -38,9 +38,9 @@ class FormProcessor {
             
             
         );
-       
+        
    $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarAsociacion", $datos);
-  
+
     $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
  
