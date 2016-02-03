@@ -124,7 +124,7 @@ class Sql extends \Sql {
         
              case "registrarAsociacion" :
 		$cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'concepto.asociacionConcepto ';
+                $cadenaSql .= 'concepto.asociacion_concepto';
                 $cadenaSql .= '( ';
                               
              
@@ -137,8 +137,8 @@ class Sql extends \Sql {
                 $cadenaSql .= '( ';
                 $cadenaSql .= $variable ['codigo_concepto'] . ', ';
                 
-                $cadenaSql .= '\'' . $variable ['tipo_vinculacion']  . '\', ';
-                $cadenaSql .= '\'' . $variable ['direccionRegistro']  . '\', ';
+                $cadenaSql .= $variable ['tipo_vinculacion']  . ', ' ;
+               
                 $cadenaSql .= $variable ['tipo_nomina'] . ', ';
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';

@@ -113,7 +113,7 @@ class Formulario {
                         echo $this->miFormulario->division ( "inicio", $atributos );
 
                         // -----------------CONTROL: Botón ----------------------------------------------------------------
-                        $esteCampo = 'botonRegistrarCargo';
+                        $esteCampo = 'botonAsociar';
                         $atributos ["id"] = $esteCampo;
                         $atributos ["tabIndex"] = $tab;
                         $atributos ["tipo"] = 'boton';
@@ -158,7 +158,7 @@ class Formulario {
             
         
         echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> '
-                 . '<thead style="display: table-row-group"><tr><th>'."NOMBRE".'</th><th>'."SIMBOLO".'</th> <th>'."DESCRIPCIÓN".'</th> <th>'."LEY".'</th> <th>'."NATURALEZA".'</th><th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."ACTIVAR".'</th></tr></thead>
+                 . '<thead style="display: table-row-group"><tr><th>'."NOMBRE".'</th><th>'."TIPO VINCULACION".'</th> <th>'."TIPO NOMINA".'</th> <th>'."ESTADO".'</th><th>'."VER DETALLE".'</th><th>'."MODIFICAR".'</th><th>'."ACTIVAR".'</th></tr></thead>
  
                     <tbody>'; 
         if(!empty($matrizItems)){
