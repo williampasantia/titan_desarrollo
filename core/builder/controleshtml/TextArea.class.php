@@ -56,13 +56,36 @@ class TextArea  extends HtmlBase{
         $this->mi_cuadro .= "id='" . $this->atributos [self::ID] . "' ";
         $this->mi_cuadro .= $this->atributosGeneralesAreaTexto ();
     
-        if (isset ( $this->atributos [self::ESTILOAREA] ) && $this->atributos [self::ESTILOAREA] != "") {
-            $this->mi_cuadro .= self::HTMLCLASS . "'" . $this->atributos [self::ESTILOAREA] . "' ";
-        } else {
-            $this->mi_cuadro .= "class='areaTexto' ";
-        }
-    
         $this->mi_cuadro .= self::HTMLTABINDEX . "'" . $this->atributos [self::TABINDEX] . "' ";
+
+	//*****************************************************************************************************
+
+	$_cadenaClass;
+
+        if (isset ( $this->atributos [self::ESTILOAREA] ) && $this->atributos [self::ESTILOAREA] != "") {
+            $_cadenaClass = self::HTMLCLASS . "'" . $this->atributos [self::ESTILOAREA] . "' ";
+
+	    // Si se utiliza jQuery-Validation-Engine
+        	if (isset ( $this->atributos ["validar"] )) {
+            		$_cadenaClass = $_cadenaClass . " validate[" . $this->atributos ["validar"] . "] ";
+        	}
+	    
+	    $this->mi_cuadro.= $_cadenaClass;
+
+        } else {
+
+	    //$_cadenaClass = 'class = areaTexto' ;
+
+	    // Si se utiliza jQuery-Validation-Engine
+        	if (isset ( $this->atributos ["validar"] )) {
+            		$_cadenaClass = " class = validate[" . $this->atributos ["validar"] . "] ";
+        	}
+	    $this->mi_cuadro.= $_cadenaClass;
+		
+        }
+	//********************************************************************************************************
+    
+	
         $this->mi_cuadro .= ">\n";
         if (isset ( $this->atributos [self::VALOR] )) {
             $this->mi_cuadro .= $this->atributos [self::VALOR];
@@ -82,7 +105,7 @@ class TextArea  extends HtmlBase{
         return $this->mi_cuadro;
     
     }
-    
+
     function atributosGeneralesAreaTexto() {
     
         $cadena = '';

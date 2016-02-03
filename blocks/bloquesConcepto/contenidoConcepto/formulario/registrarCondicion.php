@@ -1,42 +1,27 @@
 <?php 
 namespace bloquesConcepto\contenidoConcepto\formulario;
-
-
-
 if(!isset($GLOBALS["autorizado"])) {
 	include("../index.php");
 	exit;
 }
-
-
 class Formulario {
-
     var $miConfigurador;
     var $lenguaje;
     var $miFormulario;
-
     function __construct($lenguaje, $formulario, $sql) {
-
         $this->miConfigurador = \Configurador::singleton ();
-
         $this->miConfigurador->fabricaConexiones->setRecursoDB ( 'principal' );
-
         $this->lenguaje = $lenguaje;
-
         $this->miFormulario = $formulario;
         
         $this->miSql = $sql;
-
     }
-
     function formulario() {
-
         /**
          * IMPORTANTE: Este formulario está utilizando jquery.
          * Por tanto en el archivo ready.php se delaran algunas funciones js
          * que lo complementan.
          */
-
         // Rescatar los datos de este bloque
         $directorio = $this->miConfigurador->getVariableConfiguracion ( "host" );
        $directorio .= $this->miConfigurador->getVariableConfiguracion ( "site" ) . "/index.php?";
@@ -48,7 +33,6 @@ class Formulario {
         $rutaBloque.= $esteBloque['grupo'] . "/" . $esteBloque['nombre'];
 		
        
-
         // ---------------- SECCION: Parámetros Globales del Formulario ----------------------------------
         /**
         * Atributos que deben ser aplicados a todos los controles de este formulario.
@@ -68,28 +52,22 @@ class Formulario {
         //exit;
         
         // -------------------------------------------------------------------------------------------------
-
         // ---------------- SECCION: Parámetros Generales del Formulario ----------------------------------
         $esteCampo = $esteBloque ['nombre'];
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
-
         // Si no se coloca, entonces toma el valor predeterminado 'application/x-www-form-urlencoded'
         $atributos ['tipoFormulario'] = '';
-
         // Si no se coloca, entonces toma el valor predeterminado 'POST'
         $atributos ['metodo'] = 'POST';
-
         // Si no se coloca, entonces toma el valor predeterminado 'index.php' (Recomendado)
         $atributos ['action'] = 'index.php';
         $atributos ['titulo'] = false;//$this->lenguaje->getCadena ( $esteCampo );
-
         // Si no se coloca, entonces toma el valor predeterminado.
         $atributos ['estilo'] = '';
         $atributos ['marco'] = true;
         $tab = 1;
         // ---------------- FIN SECCION: de Parámetros Generales del Formulario ----------------------------
-
         // ----------------INICIAR EL FORMULARIO ------------------------------------------------------------
         $atributos ['tipoEtiqueta'] = 'inicio';
         echo $this->miFormulario->formulario ( $atributos );
@@ -97,15 +75,9 @@ class Formulario {
 		// ---------------- SECCION: Controles del Formulario -----------------------------------------------
 			
 		// --------------------------------------------------------------------------------------------------
-		$esteCampo = "marcoDatosBasicos";
-		$atributos ['id'] = $esteCampo;
-		$atributos ["estilo"] = "jqueryui";
-		$atributos ['tipoEtiqueta'] = 'inicio';
-		$atributos ["leyenda"] = "CONDICIONES";
-		echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
+		
 		// --------------------------------------------------------------------------------------------------
 		
-		//var_dump($_REQUEST);EXIT;
 		
 		//******************************************************************************************************
 		//******************************************************************************************************
@@ -164,7 +136,6 @@ class Formulario {
 					echo "</center>";
 				}
 				echo $this->miFormulario->division ( "fin" );
-
 				unset($atributos);
 				// ---------------- CONTROL: Select --------------------------------------------------------
 				$atributos ["id"] = "variables";
@@ -234,8 +205,8 @@ class Formulario {
 							$esteCampo = 'seccionParametros';
 							$atributos['nombre'] = $esteCampo;
 							$atributos['id'] = $esteCampo;
-							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-							$atributos ['anchoEtiqueta'] = 180;
+							$atributos['etiqueta'] = ' ';//$this->lenguaje->getCadena ( $esteCampo );
+							$atributos ['anchoEtiqueta'] = 10;
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
@@ -340,8 +311,8 @@ class Formulario {
 							$esteCampo = 'seccionConceptos';
 							$atributos['nombre'] = $esteCampo;
 							$atributos['id'] = $esteCampo;
-							$atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-							$atributos ['anchoEtiqueta'] = 180;
+							$atributos['etiqueta'] = ' ';//$this->lenguaje->getCadena ( $esteCampo );
+							$atributos ['anchoEtiqueta'] = 10;
 							$atributos['tab'] = $tab;
 							$atributos['seleccion'] = -1;
 							$atributos['evento'] = ' ';
@@ -488,7 +459,7 @@ class Formulario {
 		
         //***************************************************************************************************
         //***************************************************************************************************
-        
+	
         //***************************************************************************************************
         //***************************************************************************************************
         

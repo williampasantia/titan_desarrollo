@@ -257,7 +257,7 @@ class Formulario {
 	        
 	        unset($atributos);
 	
-        // ---------------- CONTROL: Select --------------------------------------------------------
+        	// ---------------- CONTROL: Select --------------------------------------------------------
 	        $esteCampo = 'naturaleza';
 	        $atributos['nombre'] = $esteCampo;
 	        $atributos['id'] = $esteCampo;
@@ -269,6 +269,7 @@ class Formulario {
 	        $atributos['limitar']= 50;
 	        $atributos['tamanno']= 1;
 	        $atributos['columnas']= 1;
+	        $atributos ['anchoEtiqueta'] = 230;
 	        
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
@@ -308,7 +309,7 @@ class Formulario {
         
         $atributos ['obligatorio'] = true;
         $atributos ['etiquetaObligatorio'] = true;
-        $atributos ['validar'] = 'required, minSize[5], maxSize[500]';
+        $atributos ['validar'] = 'required';
         
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
