@@ -62,23 +62,24 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable['estadoRegistro'] . '\' ';
                 $cadenaSql .= ') ';
                 break;
-            
-             case 'buscarRegistroxParametro' :
                 
-                	$cadenaSql = 'SELECT ';
-                        $cadenaSql .= 'id as ID, ';
-                        $cadenaSql .= 'simbolo as SIMBOLO ';
-                        $cadenaSql .= 'FROM ';
-                        $cadenaSql .= 'parametro.parametro_liquidacion';
-//                        $cadenaSql .= 'WHERE ';
-//                        $cadenaSql .= 'nombre=\'' . $_REQUEST ['usuario']  . '\' AND ';
-//                        $cadenaSql .= 'clave=\'' . $claveEncriptada . '\' ';
-                        
+          case 'buscarRegistroxParametro' :      
+                $cadenaSql = 'SELECT ';
+                $cadenaSql .= 'id as ID, ';
+                $cadenaSql .= 'simbolo as SIMBOLO ';
+                $cadenaSql .= 'FROM ';
+                $cadenaSql .= 'parametro.parametro_liquidacion';        
                 break;
-        
+            
+          case 'buscarLey' ://Provisionalmente solo Departamentos de Colombia	
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ldn as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'parametro.ley_decreto_norma ';
+				break;
         }
-        
-       
+                
         
         return $cadenaSql;
     
