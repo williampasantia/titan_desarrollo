@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesConceto\asociacionConcepto;
+namespace bloquesConcepto\asociacionConcepto;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");
@@ -112,12 +112,12 @@ class Sql extends \Sql {
                 
             case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.arl ';
+                $cadenaSql .= 'concepto.asociacion_concepto ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'estado = ';
                 $cadenaSql .= "'". $variable ['estadoRegistro']  ."' ";
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'nit = ';
+                $cadenaSql .= 'id = ';
                 $cadenaSql .= $variable ['codigoRegistro'].";";
                 break;
         
@@ -280,7 +280,8 @@ class Sql extends \Sql {
 				$cadenaSql .= 'd.nombre as CONCEPTO, ';
                                 $cadenaSql .= 'a.nombre as TIPO_VINCULACION, ';
                                 $cadenaSql .= 'c.nombre as TIPO_NOMINA, ';
-				$cadenaSql .= 'b.estado as ESTADO ';
+				$cadenaSql .= 'b.estado as ESTADO, ';
+                                $cadenaSql .= 'b.id as ID ';
 				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'parametro.tipo_vinculacion a, ';
                                 $cadenaSql .= 'concepto.asociacion_concepto b, ';

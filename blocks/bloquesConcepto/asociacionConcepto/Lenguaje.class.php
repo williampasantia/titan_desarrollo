@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesConceto\asociacionConcepto;
+namespace bloquesConcepto\asociacionConcepto;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
     include ("../index.php");

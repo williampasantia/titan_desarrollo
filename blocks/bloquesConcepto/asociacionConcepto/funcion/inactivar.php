@@ -1,5 +1,5 @@
 <?php
-namespace bloquesConceto\asociacionConcepto\funcion;
+namespace bloquesConcepto\asociacionConcepto\funcion;
 include_once('Redireccionador.php');
 class FormProcessor {
     
@@ -35,7 +35,7 @@ class FormProcessor {
         
             
             $datos = array(
-            'codigoRegistro' => $_REQUEST ['nit'],
+            'codigoRegistro' => $_REQUEST ['id'],
             'estadoRegistro' => $opcion       
         );
 //       

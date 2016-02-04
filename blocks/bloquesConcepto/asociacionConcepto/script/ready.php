@@ -1,6 +1,6 @@
 
 
-$("#parametroArl").validationEngine({
+$("#asociacionConcepto").validationEngine({
 	promptPosition : "centerRight",
 	scroll: false,
 	autoHidePrompt: true,

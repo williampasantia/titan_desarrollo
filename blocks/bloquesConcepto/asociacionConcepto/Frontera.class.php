@@ -1,6 +1,6 @@
 <?
 
- namespace bloquesConceto\asociacionConcepto;
+ namespace bloquesConcepto\asociacionConcepto;
 
 if (! isset ( $GLOBALS ["autorizado"] )) {
 	include ("../index.php");
@@ -75,6 +75,7 @@ class Frontera {
 					break;	
                                     
                                      case "verdetalle":
+                                         
                                         include_once ($this->ruta . "/formulario/verDetalle.php");
 					break;
         		}

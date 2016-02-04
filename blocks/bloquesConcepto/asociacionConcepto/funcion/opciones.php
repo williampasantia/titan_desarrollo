@@ -1,5 +1,5 @@
 <?php
-namespace bloquesConceto\asociacionConcepto\funcion;
+namespace bloquesConcepto\asociacionConcepto\funcion;
 
 include_once('Redireccionador.php');
 class FormProcessor {

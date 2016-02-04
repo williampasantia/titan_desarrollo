@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesConceto\asociacionConcepto;
+namespace bloquesConcepto\asociacionConcepto;
 
 // Evitar un acceso directo a este archivo
 if (! isset ( $GLOBALS ["autorizado"] )) {
@@ -29,7 +29,7 @@ include_once ("Lenguaje.class.php");
 
 // Esta clase actua como control del bloque en un patron FCE
 
-if (! class_exists ( '\\bloquesConceto\\asociacionConcepto\\Bloque' )) {
+if (! class_exists ( '\\bloquesConcepto\\asociacionConcepto\\Bloque' )) {
     
     class Bloque implements \Bloque {
         var $nombreBloque;
