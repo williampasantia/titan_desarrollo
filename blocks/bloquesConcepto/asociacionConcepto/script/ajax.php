@@ -29,7 +29,7 @@ $urlFinal17 = $url . $cadena17;
 		            $("#<?php echo $this->campoSeguro('fdpCiudad')?>").html('');
 		            $("<option value=''>Seleccione  ....</option>").appendTo("#<?php echo $this->campoSeguro('fdpCiudad')?>");
 		            $.each(data , function(indice,valor){
-		            	$("<option value='"+data[ indice ].id_ciudad+"'>"+data[ indice ].nombreciudad+"</option>").appendTo("#<?php echo $this->campoSeguro('fdpCiudad')?>");
+		            	$("<option value='"+data[ indice ].id+"'>"+data[ indice ].nombre+"</option>").appendTo("#<?php echo $this->campoSeguro('fdpCiudad')?>");
 		            	
 		            });
 		            

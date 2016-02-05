@@ -322,7 +322,18 @@ class Sql extends \Sql {
                 $cadenaSql .= 'liquidacion.nomina ';
                
            
-           break;         		
+           break;         
+       
+       case 'buscarDepartamento' ://Provisionalmente solo Departamentos de Colombia
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_departamento as ID_DEPARTAMENTO, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'otro.departamento ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'id_pais = 112;';
+				break;
 			case 'buscarDepartamentoAjax' :
 				
 				$cadenaSql = 'SELECT ';
@@ -348,12 +359,12 @@ class Sql extends \Sql {
 			case 'buscarCiudadAjax' :
 				
 				$cadenaSql = 'SELECT ';
-				$cadenaSql .= 'id_ciudad as ID_CIUDAD, ';
-				$cadenaSql .= 'nombre as NOMBRECIUDAD ';
+				$cadenaSql .= 'codigo_nomina as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'otro.ciudad ';
+				$cadenaSql .= 'liquidacion.nomina ';
 				$cadenaSql .= 'WHERE ';
-				$cadenaSql .= 'id_departamento = ' . $variable . ';';
+				$cadenaSql .= 'id = ' . $variable . ';';
 				break;
                             case 'buscarDepartamentoEspecifico' ://Provisionalmente solo Departamentos de Colombia
 				

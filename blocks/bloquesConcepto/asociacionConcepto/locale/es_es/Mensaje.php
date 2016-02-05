@@ -23,8 +23,10 @@ $this->idioma["nombreTitulo"]="";
 $this->idioma["concepto"]="Concepto: ";
 $this->idioma["conceptoTitulo"]="";
 $this->idioma["tipoVinculacion"]="Tipo vinculacion: ";
+$this->idioma["fdpDepartamento"]="Tipo vinculacion: ";
 $this->idioma["tipoVinculacionTitulo"]="";
 $this->idioma["tipoNomina"]="Tipo nomina: ";
+$this->idioma["fdpCiudad"]="Tipo nomina: ";
 $this->idioma["tipoNominaTitulo"]="";
 
 
