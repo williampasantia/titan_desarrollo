@@ -156,12 +156,12 @@ class Sql extends \Sql {
 			case 'buscarRegistroxActivo' :
 				
 				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id as ID, ';
 				$cadenaSql .= 'nombre as NOMBRE, ';
 				$cadenaSql .= 'descripcion as DESCRIPCION, ';
-				$cadenaSql .= 'ley as LEY, ';
 				$cadenaSql .= 'estado as ESTADO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'liquidacion.categorias_conceptos ';
+				$cadenaSql .= 'concepto.categoria ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'ESTADO=\'' . 'Activo' . '\'';
 				// $cadenaSql .= 'ESTADO=\'' . 'rechazada' . '\' ';
@@ -221,7 +221,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'concepto.categxldn ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id = ';
-				$cadenaSql .= '\'' . $variable ['id'] . '\'';
+				$cadenaSql .= $variable ['id'];
 				break;
 			
 			case 'buscarley' :				
