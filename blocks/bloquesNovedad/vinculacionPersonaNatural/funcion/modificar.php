@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\vinculacionPersonaNatural\funcion;
+namespace bloquesNovedad\vinculacionPersonaNatural\funcion;
     
 include_once('Redireccionador.php');
 class FormProcessor {
@@ -26,7 +26,11 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
-        
+         if(isset ( $_REQUEST ['regresar'] ) && $_REQUEST ['regresar'] == "true"){
+                    
+                     Redireccionador::redireccionar('form'); 
+                     exit;
+                }
                 
                
              

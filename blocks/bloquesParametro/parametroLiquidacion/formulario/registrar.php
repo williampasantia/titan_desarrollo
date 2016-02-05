@@ -1,5 +1,5 @@
 <?php 
- namespace bloquesParametro\parametroArl\formulario;
+ namespace bloquesParametro\parametroLiquidacion\formulario;
 
 
 
@@ -97,7 +97,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Registrar parametro de liquidacion";
+	$atributos ["leyenda"] = "Registrar parametro de liquidación";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
         
@@ -216,7 +216,7 @@ class Formulario {
 	        $atributos ['obligatorio'] = true;
 	        $atributos ['etiquetaObligatorio'] = true;
 	        $atributos ['validar'] = 'required';
-	        
+	          $atributos ['multiple'] = true;
 	        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarLey" );
 	        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
 	        

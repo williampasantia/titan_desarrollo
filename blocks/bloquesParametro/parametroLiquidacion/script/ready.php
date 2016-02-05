@@ -19,3 +19,16 @@ $("#<?php echo $this->campoSeguro('ley')?>").select2();
 
 $('#<?php echo $this->campoSeguro('fdpCiudad')?>').width(200); 
 $("#<?php echo $this->campoSeguro('fdpCiudad')?>").select2();
+
+  
+
+
+
+   
+        $("#<?php echo $this->campoSeguro('ley')?>"+" > option").removeAttr("selected");
+         $("#<?php echo $this->campoSeguro('ley')?>").trigger("change");
+     
+
+
+
+

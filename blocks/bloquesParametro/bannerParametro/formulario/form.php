@@ -175,7 +175,6 @@ class Formulario {
 			      	$atributos ["estilo"] = $esteCampo;
 			      	$atributos ['texto'] = '';
 			      	$atributos ['tabIndex'] = $tab++;
-                                
 			      	echo $this->miFormulario->campoTexto($atributos);
 			      	unset($atributos);
 	

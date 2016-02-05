@@ -30,24 +30,10 @@ class FormProcessor {
         //Al final se ejecuta la redirección la cual pasará el control a otra página
         
         
-         $i=0;
-            while($i<$_REQUEST['tamaño']){
-                if(isset($_REQUEST['botonModificar'.$i]) && $_REQUEST['botonModificar'.$i] == 'true'){
-                 Redireccionador::redireccionar('modificar',$i); 
-                  break; 
+         if(isset($_REQUEST['agregarCondicion']) && $_REQUEST['agregarCondicion'] == 'true'){
+                  Redireccionador::redireccionar('condicion');
+                  
                 }
-                if(isset($_REQUEST['botonVerDetalle'.$i]) && $_REQUEST['botonVerDetalle'.$i] == 'true'){
-                  Redireccionador::redireccionar('verdetalle',$i);
-                  break;
-                }
-                if(isset($_REQUEST['botonInactivar'.$i]) && $_REQUEST['botonInactivar'.$i] == 'true'){
-                  Redireccionador::redireccionar('inactivar',$i);
-                  break;
-                }
-                
-                $i+=1;
-            }
-       
     	
 					
 						    

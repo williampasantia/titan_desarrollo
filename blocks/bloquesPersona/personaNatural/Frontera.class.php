@@ -19,7 +19,7 @@ class Frontera {
 	$miConfigurador;
 	function __construct() {
 		$this->miConfigurador = \Configurador::singleton ();
-//                $_REQUEST['botonRegistrarCargo'];
+		// $_REQUEST['botonRegistrarCargo'];
 	}
 	public function setRuta($unaRuta) {
 		$this->ruta = $unaRuta;
@@ -40,43 +40,41 @@ class Frontera {
 		$this->funcion = $funcion;
 	}
 	function html() {
+		$this->ruta = $this->miConfigurador->getVariableConfiguracion ( "rutaBloque" );
 		
-		
-        $this->ruta=$this->miConfigurador->getVariableConfiguracion("rutaBloque");
-       
-
-		
-        if(isset($_REQUEST['opcion'])){
-            
-         
-                           switch ($_REQUEST ['opcion']) {
+		if (isset ( $_REQUEST ['opcion'] )) {
+			
+			switch ($_REQUEST ['opcion']) {
+				
+				case "mensaje" :
+					// var_dump("Paso de Redireccionador");exit;
+					include_once ($this->ruta . "/formulario/mensaje.php");
+					break;
 				
 				case "registrar" :
-                                        include_once ($this->ruta . "/formulario/registrar.php");
+					include_once ($this->ruta . "/formulario/registrar.php");
 					break;
-				case "modificar":
-                                        include_once ($this->ruta . "/formulario/modificar.php");
+				case "modificar" :
+					include_once ($this->ruta . "/formulario/modificar.php");
 					break;
-                                case "verdetalle":
-                                        include_once ($this->ruta . "/formulario/verdetalle.php");
+				case "verdetalle" :
+					include_once ($this->ruta . "/formulario/verdetalle.php");
 					break;
-                                case "inactivar":
-                                        include_once ($this->ruta . "/formulario/inactivar.php");
-					break;    
-                                case "mostrar":
-//					include_once ($this->ruta . "/formulario/muestra.php");
-//					break;	 
-                                case "form":
+				case "inactivar" :
+					include_once ($this->ruta . "/formulario/inactivar.php");
+					break;
+				case "mostrar" :
+				// include_once ($this->ruta . "/formulario/muestra.php");
+				// break;
+				case "form" :
 					include_once ($this->ruta . "/formulario/form.php");
 					break;
-                                 
-                                case "detalle":
+				
+				case "detalle" :
 					include_once ($this->ruta . "/formulario/detalle.php");
-					break;	
-        		}
-                       
-                       
-		}else{
+					break;
+			}
+		} else {
 			include_once ($this->ruta . "/formulario/form.php");
 		}
 	}

@@ -52,7 +52,11 @@ class FormProcessor {
         );
 //       
        }
-                
+                 if(isset ( $_REQUEST ['regresar'] ) && $_REQUEST ['regresar'] == "true"){
+                    
+                     Redireccionador::redireccionar('form'); 
+                     exit;
+                }
       
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
        

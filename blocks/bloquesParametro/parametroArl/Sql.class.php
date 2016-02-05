@@ -98,9 +98,11 @@ class Sql extends \Sql {
                      $cadenaSql .= 'lugar = ';
                      $cadenaSql .= $variable ['lugar']  . ",";
                 }
-               
+               if($variable ['lugar']!='')
+                {
                 $cadenaSql .= 'nombre_representante_legal = ';
                 $cadenaSql .= "'".$variable ['nombreRepresentante']  . "',";
+                }
                 $cadenaSql .= 'email = ';
                 $cadenaSql .= "'".$variable ['email']."'";
                 $cadenaSql .= ' WHERE ';

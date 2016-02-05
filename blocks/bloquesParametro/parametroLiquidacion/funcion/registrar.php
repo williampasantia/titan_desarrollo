@@ -41,7 +41,7 @@ class FormProcessor {
         );
       
    $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("registrarParametroLiquidacion", $datos);
-  
+ 
     $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
  

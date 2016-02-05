@@ -255,66 +255,47 @@ class Formulario {
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoCuadroLista ( $atributos );
-        // --------------- FIN CONTROL : Select --------------------------------------------------
         
-        $esteCampo = "marcoreglamentacion";
-	$atributos ['id'] = $esteCampo;
-	$atributos ["estilo"] = "jqueryui";
-	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Reglamentacion";
-	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
-        //--------division checks
-        $atributos ["id"] = "chek";
-        $atributos ["estilo"] = "marcoCheks";
-        $atributos ["titulo"] = "Reglamentacion";
-        echo $this->miFormulario->division ( "inicio", $atributos );
+        unset($atributos);
+           
+       $esteCampo = 'leyes';
+        $atributos['nombre'] = $esteCampo;
+        $atributos['id'] = $esteCampo;
+        $atributos['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+        $atributos['tab'] = $tab;
+        $atributos['seleccion'] = -1;
+        $atributos['evento'] = ' ';
+        $atributos['deshabilitado'] = false;
+        $atributos['limitar']= 50;
+        $atributos['tamanno']= 1;
+        $atributos['columnas']= 1;
+        $atributos['multiple']=true;
+        $atributos ['ajax_function'] = "";
+        $atributos ['ajax_control'] = $esteCampo;
         
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxLEY");
+        $atributos ['obligatorio'] = true;
+        $atributos ['etiquetaObligatorio'] = true;
+        $atributos ['validar'] = 'required';
+        
+             $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarRegistroxLEY");
         
         $matrizLeyes=$primerRecurso->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+        $atributos['matrizItems'] = $matrizLeyes;
         
-        $longitud = count($matrizLeyes);
-        $i=0;
+        if (isset ( $_REQUEST [$esteCampo] )) {
+        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+        } else {
+        	$atributos ['valor'] = '';
+        }
+        $tab ++;
         
-        if(!empty($matrizLeyes)){
-        while($i<$longitud){
-            //          ---------------- CONTROL: Select --------------------------------------------------------
-//          
-//          
-                                                                        $esteCampo = 'item' . $i;
-									$atributos ['id'] = $esteCampo;
-									$atributos ['nombre'] = $esteCampo;
-									$atributos ['marco'] = true;
-									$atributos ['estiloMarco'] = true;
-									$atributos ["etiquetaObligatorio"] = true;
-									$atributos ['columnas'] = 1;
-									$atributos ['dobleLinea'] = 1;
-									$atributos ['tabIndex'] = $tab;
-									$atributos ['etiqueta'] = '';
-									if (isset ( $_REQUEST [$esteCampo] )) {
-										$atributos ['valor'] = $_REQUEST [$esteCampo];
-									} else {
-										$atributos ['valor'] = 'defecto';
-									}
-									
-									$atributos ['deshabilitado'] = false;
-									$tab ++;
-									
-									// Aplica atributos globales al control
-									$atributos = array_merge ( $atributos, $atributosGlobales );
-                                                                        echo $this->miFormulario->campoCuadroSeleccion ( $atributos ) . $matrizLeyes[$i][0].' ,'.$matrizLeyes[$i][1]  ;
-            
-//        echo'<input type="checkbox" id="ldn'.$i.'" name="ldn'.$i.'" value="Si"/> '.$matrizLeyes[$i][0].' ,'.$matrizLeyes[$i][1]. ' <br/>';
-         
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroLista ( $atributos );
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
-          $i+=1;
-        }
-        }
-        
-
-        echo $this->miFormulario->division ( "fin" );
-        echo $this->miFormulario->marcoAgrupacion ( 'fin' );
+        unset($atributos);
+      
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         $esteCampo = 'descripcionNomina';
         $atributos ['id'] = $esteCampo;

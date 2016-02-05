@@ -97,7 +97,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Registrar nuevo parámetro de liquidación";
+	$atributos ["leyenda"] = "Registrar nuevo tipo de vinculación";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
         

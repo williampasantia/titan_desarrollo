@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesModelo\bloqueContenido\funcion;
+bloquesNovedad\vinculacionPersonaNatural\funcion;
 
 
 class Formulario {

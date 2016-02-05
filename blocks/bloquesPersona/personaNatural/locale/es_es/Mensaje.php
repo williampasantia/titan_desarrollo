@@ -8,6 +8,7 @@ $this->idioma["clave"]="Clave:";
 $this->idioma["usuarioTitulo"]="Número de documento";
 $this->idioma["claveTitulo"]="Clave de Acceso";
 $this->idioma["botonAceptar"]="Aceptar";
+$this->idioma["botonVolver"]="Aceptar";
 $this->idioma["botonCancelar"]="Cancelar";
 $this->idioma["noDefinido"]="No definido";
 $this->idioma["botonIngresar"]="Ingresar";
@@ -46,6 +47,11 @@ $this->idioma["personaNaturalProcedencia"]="Procedencia";
 $this->idioma["personaNaturalPais"]="País";
 $this->idioma["personaNaturalDepartamento"]="Departamento";
 $this->idioma["personaNaturalCiudad"]="Ciudad/Municipio";
+
+$this->idioma["personaNaturalPaisMod"]="País";
+$this->idioma["personaNaturalDepartamentoMod"]="Departamento";
+$this->idioma["personaNaturalCiudadMod"]="Ciudad/Municipio";
+
 $this->idioma["personaNaturalRegimen"]="Rágimen Tributario";
 
 $this->idioma["infoComercial"]="Información Comercial";

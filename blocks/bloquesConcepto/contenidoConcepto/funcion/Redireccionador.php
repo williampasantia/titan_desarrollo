@@ -57,7 +57,12 @@ class Redireccionador {
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=inactivar";
                                 $variable .= '&variable=' . $valor;
-                            break;    
+                            break;  
+                         case "condicion" :
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=condicion";
+                                
+                            break;
 			default:
 			    $variable='';
 			

@@ -110,6 +110,16 @@ class FormProcessor {
 		$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistroComercial",$datosCom);
 		$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
 		
+		$datosCon = array(
+				'estado' => $_REQUEST['personaNaturalEconomicoEstado'],
+				'consecutivo' => $_REQUEST['personaNaturalContactosConsecutivo']
+		);
+		
+		$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistroContacto",$datosCon);
+		$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+		
+		
+		
 		Redireccionador::redireccionar ( 'form' );
 	}
 	function resetForm() {

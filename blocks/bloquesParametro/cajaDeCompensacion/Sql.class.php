@@ -81,9 +81,11 @@ class Sql extends \Sql {
                      $cadenaSql .= 'lugar = ';
                      $cadenaSql .= $variable ['lugar']  . ",";
                 }
-               
+               if($variable ['nombreRepresentante']!='')
+                {
                 $cadenaSql .= 'nombre_representante_legal = ';
                 $cadenaSql .= "'".$variable ['nombreRepresentante']  . "',";
+                }
                 $cadenaSql .= 'email = ';
                 $cadenaSql .= "'".$variable ['email']."'";
                 $cadenaSql .= ' WHERE ';
@@ -141,7 +143,11 @@ class Sql extends \Sql {
                 
                
                 $cadenaSql .= 'lugar,';
-                $cadenaSql .= 'nombre_representante_legal,';
+                 if($variable ['nomRepreRegistro']!='')
+                {
+                   $cadenaSql .= 'nombre_representante_legal,';
+                }
+               
                 $cadenaSql .= 'email,';
                 $cadenaSql .= 'estado';
                 $cadenaSql .= ') ';
@@ -170,7 +176,11 @@ class Sql extends \Sql {
                 
                
                 $cadenaSql .= $variable ['id_ubicacion'] . ', ';
-                $cadenaSql .= '\'' . $variable ['nomRepreRegistro'] . '\', ';
+                if($variable ['nomRepreRegistro']!='')
+                {
+                  $cadenaSql .= $variable ['nomRepreRegistro'] . ', ';
+                }
+             
                 $cadenaSql .= '\'' . $variable ['emailRegistro'] . '\', ';
                 $cadenaSql .= '\'' . 'Activo' . '\' ';
                 $cadenaSql .= ') ';

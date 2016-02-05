@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesParametro\parametroArl\formulario;
+namespace bloquesParametro\parametroLiquidacion\formulario;
 if(!isset($GLOBALS["autorizado"])) {
 	include("../index.php");
 	exit;
@@ -78,12 +78,11 @@ class Formulario {
         
        
         
-        
-        
-       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarParametroLiquidacion1");
+       
+       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarParametroLiquidacion2");
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
-        
+       
         if($matrizItems[$_REQUEST['variable']][2]=='Inactivo'){
             $opcion='Activo';
         }
@@ -152,7 +151,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][2];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;

@@ -12,4 +12,4 @@ $('#datepicker').datepicker({
 	autoHidePrompt: true
 });
 		
-
+		

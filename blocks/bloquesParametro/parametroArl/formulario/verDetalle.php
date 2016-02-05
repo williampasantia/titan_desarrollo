@@ -333,6 +333,12 @@ class Formulario {
         $atributos ['maximoTamanno'] = '';
         
         $tab ++;
+        
+          $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        unset($atributos);
+        
+        
         $esteCampo = 'estado';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;

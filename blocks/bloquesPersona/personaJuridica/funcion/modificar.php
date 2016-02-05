@@ -29,39 +29,46 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
-        if(isset($_REQUEST['codTipoCargoRegistro'])){
-                    
-                }
-                
-                if(isset($_REQUEST['tipoSueldoRegistro'])){
-                    switch($_REQUEST ['tipoSueldoRegistro']){
-                           case 1 :
-					$_REQUEST ['tipoSueldoRegistro']='M';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['tipoSueldoRegistro']='H';
-			   break;
-                    }
-                }
-                
-                
-        
-        $datos = array(
-            'codigoRegistro' => $_REQUEST ['codigoRegistro'],
-            'nivelRegistro' => $_REQUEST ['nivelRegistro'],
-            'gradoRegistro' => $_REQUEST ['gradoRegistro'],
-            'nombreRegistro' => $_REQUEST ['nombreRegistro'],
-            'sueldoRegistro' => $_REQUEST ['sueldoRegistro'],
-            'tipoSueldoRegistro' => $_REQUEST ['tipoSueldoRegistro']
-        );
-//       
-        
-                
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
-        //Al final se ejecuta la redirección la cual pasará el control a otra página
-        
+        if(isset($_REQUEST['personaNaturalTipoPago'])){
+			switch($_REQUEST ['personaNaturalTipoPago']){
+				case 1 :
+					$_REQUEST ['personaNaturalTipoPago']='Transferencia';
+					break;
+				case 2 :
+					$_REQUEST ['personaNaturalTipoPago']='SAP';
+					break;
+			}
+		}
+		 
+		if(isset($_REQUEST['personaNaturalEconomicoEstado'])){
+			switch($_REQUEST ['personaNaturalEconomicoEstado']){
+				case 1 :
+					$_REQUEST ['personaNaturalEconomicoEstado']='Activo';
+					break;
+				case 2 :
+					$_REQUEST ['personaNaturalEconomicoEstado']='Inactivo';
+					break;
+			}
+		}
+		
+		$datosCom = array(
+				'numeroCuenta' => $_REQUEST['personaNaturalNumeroCuenta'],
+				'tipoPago' => $_REQUEST['personaNaturalTipoPago'],
+				'estado' => $_REQUEST['personaNaturalEconomicoEstado'],
+				'soporteRUT' => $_REQUEST['personaNaturalSoporteRUT']
+		);
+		
+		$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistroComercial",$datosCom);
+		$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+		
+		$datosCon = array(
+				'estado' => $_REQUEST['personaNaturalEconomicoEstado'],
+				'consecutivo' => $_REQUEST['personaNaturalContactosConsecutivo']
+		);
+		
+		$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistroContacto",$datosCon);
+		$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+		    
         Redireccionador::redireccionar('form');
     	        
     }

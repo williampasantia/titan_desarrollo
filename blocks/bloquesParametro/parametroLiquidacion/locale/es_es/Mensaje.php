@@ -17,8 +17,9 @@ $this->idioma["modificar"]="Modificar ";
 
 //REGISTRO
 $this->idioma["simbolo"]="Simbolo: " ;
+$this->idioma["id"]="Id: " ;
 $this->idioma["simboloTitulo"]="" ;
-$this->idioma["descripcion"]="Descripcion: " ;
+$this->idioma["descripcion"]="Descripción: " ;
 $this->idioma["descripcionTitulo"]="" ;
 $this->idioma["valor"]="Valor: " ;
 $this->idioma["valorTitulo"]="" ;

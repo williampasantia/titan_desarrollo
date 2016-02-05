@@ -1,6 +1,6 @@
 <?php
 
-namespace bloquesParametro\vinculacionPersonaNatural\funcion;
+namespace bloquesNovedad\vinculacionPersonaNatural\funcion;
 
 
 include_once('Redireccionador.php');
@@ -40,11 +40,10 @@ class FormProcessor {
             'ubicacion' => $_REQUEST ['ubicacion'],
               'cedula'=>$_REQUEST ['cedula']
                    );
-              
+                   
                    
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarVinculacion",$datos);
        
-echo "hola";
     $resultado=  $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         
  

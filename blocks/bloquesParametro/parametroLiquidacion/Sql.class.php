@@ -47,9 +47,11 @@ class Sql extends \Sql {
                 $cadenaSql .= 'valor as VALOR, ';
                 $cadenaSql .= 'b.estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'parametro.liquidacion b, ';
+                $cadenaSql .= 'parametro.parametro_liquidacion b, ';
                 $cadenaSql .= 'parametro.ley_decreto_norma a ';
-              
+               $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'b.ley = ';
+                 $cadenaSql .= 'a.id_ldn  ';
                 
                 break;
             case 'buscarParametroLiquidacion2':
@@ -62,9 +64,11 @@ class Sql extends \Sql {
                 $cadenaSql .= 'valor as VALOR, ';
                 $cadenaSql .= 'b.estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'parametro.liquidacion b, ';
+                $cadenaSql .= 'parametro.parametro_liquidacion b, ';
                 $cadenaSql .= 'parametro.ley_decreto_norma a ';
-               
+                  $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'b.ley = ';
+                 $cadenaSql .= 'a.id_ldn  ';
                 
                 break;
             case 'buscarParametroLiquidacion3':
@@ -77,7 +81,7 @@ class Sql extends \Sql {
                 $cadenaSql .= 'valor as VALOR, ';
                 $cadenaSql .= 'b.estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'parametro.liquidacion b, ';
+                $cadenaSql .= 'parametro.parametro_liquidacion b, ';
                 $cadenaSql .= 'parametro.ley_decreto_norma a ';
                 $cadenaSql .= 'WHERE ';
                 $cadenaSql .= 'b.id = ';
@@ -92,7 +96,7 @@ class Sql extends \Sql {
                 
                 $cadenaSql .= 'b.estado as ESTADO ';
                 $cadenaSql .= 'FROM ';
-                $cadenaSql .= 'parametro.liquidacion b ';
+                $cadenaSql .= 'parametro.parametro_liquidacion b ';
                 
               
                 
@@ -116,7 +120,7 @@ class Sql extends \Sql {
             
               case 'modificarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.liquidacion ';
+                $cadenaSql .= 'parametro.parametro_liquidacion ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'nombre = ';
                 $cadenaSql .= "'".$variable ['nombre'] . "',";
@@ -141,7 +145,7 @@ class Sql extends \Sql {
                 
             case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'parametro.liquidacion ';
+                $cadenaSql .= 'parametro.parametro_liquidacion ';
                 $cadenaSql .= 'SET ';
                 $cadenaSql .= 'estado = ';
                 $cadenaSql .= "'". $variable ['estadoRegistro']  ."' ";
@@ -153,7 +157,7 @@ class Sql extends \Sql {
         
              case "registrarParametroLiquidacion" :
 				$cadenaSql = 'INSERT INTO ';
-                $cadenaSql .= 'parametro.liquidacion ';
+                $cadenaSql .= 'parametro.parametro_liquidacion ';
                 $cadenaSql .= '( ';
                              
              

@@ -83,10 +83,12 @@ class Sql extends \Sql {
                 $cadenaSql .= "(primer_nombre || ' ' || segundo_nombre) as NOMBRES, ";
                 $cadenaSql .= "(primer_apellido || ' ' || segundo_apellido) as APELLIDOS, ";
               // nombre o naturaleza
-                $cadenaSql .= 'naturaleza as TIPO_VINCULACION, ';
+                $cadenaSql .= 'nombre as TIPO_VINCULACION, ';
                 $cadenaSql .= "fecha_inicio as FECHA_INICIO, ";
                 $cadenaSql .= "fecha_final as FECHA_FINAL, ";
-                $cadenaSql .= "d.id as ID_VINCULACION ";
+                $cadenaSql .= "d.id as ID_VINCULACION, ";
+                $cadenaSql .= "j.id as ID_TIPO_VINCULACION ";
+                
                 $cadenaSql .= 'FROM ';
                 $cadenaSql .= 'persona.persona_natural p, ';
                 $cadenaSql .= 'parametro.tipo_vinculacion j, ';
@@ -173,13 +175,13 @@ class Sql extends \Sql {
                 
             case 'inactivarRegistro' :
                 $cadenaSql = 'UPDATE ';
-                $cadenaSql .= 'nomina.arl ';
+                $cadenaSql .= 'persona.vinculacion_persona_natural ';
                 $cadenaSql .= 'SET ';
-                $cadenaSql .= 'estado = ';
+                $cadenaSql .= 'estado_vinculacion = ';
                 $cadenaSql .= "'". $variable ['estadoRegistro']  ."' ";
                 $cadenaSql .= 'WHERE ';
-                $cadenaSql .= 'nit = ';
-                $cadenaSql .= $variable ['codigoRegistro'].";";
+                $cadenaSql .= 'id = ';
+                $cadenaSql .= $variable ['id'].";";
                 break;
         
         

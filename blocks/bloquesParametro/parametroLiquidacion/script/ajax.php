@@ -19,6 +19,10 @@ $urlFinal17 = $url . $cadena17;
 ?>
 
 <script>
+  
+$("#button").click(function(){
+       alert($("#e1").val());
+});
     function consultarCiudad(elem, request, response){
 		  $.ajax({
 		    url: "<?php echo $urlFinal17?>",

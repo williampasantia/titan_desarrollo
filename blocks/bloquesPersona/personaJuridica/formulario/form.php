@@ -197,7 +197,7 @@ class Formulario {
                     $variableACT .= "&bloqueGrupo=" . $esteBloque ["grupo"];
                     $variableACT = $this->miConfigurador->fabricaConexiones->crypto->codificar_url ( $variableACT, $directorio );
                     echo "<td><center><a href='" . $variableACT . "'>";
-                    if($matrizItems[$i][4]=='Activo'){
+                    if($matrizItems[$i][4]=='Aprobado'){
                     	echo "<img src='" . $rutaBloque . "/css/images/desactivacion.png' width='25px'>";
                     }
                     else{

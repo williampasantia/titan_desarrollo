@@ -232,6 +232,17 @@ class Sql extends \Sql {
                 $cadenaSql .= '\'' . $variable ['codigoNomina']  . '\'';
             break;
         
+        case 'buscarley' :
+                $cadenaSql = 'UPDATE ';
+                $cadenaSql .= 'liquidacion.nomina ';
+                $cadenaSql .= 'SET ';
+                $cadenaSql .= 'estado = ';
+                $cadenaSql .= '\'' . $variable ['estadoRegistroNomina']  . '\' ';
+                $cadenaSql .= 'WHERE ';
+                $cadenaSql .= 'codigo_nomina = ';
+                $cadenaSql .= '\'' . $variable ['codigoNomina']  . '\'';
+            break;
+        
         }
         
        

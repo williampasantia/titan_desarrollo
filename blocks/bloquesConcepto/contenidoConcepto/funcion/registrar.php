@@ -28,6 +28,12 @@ class FormProcessor {
         
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
+        
+        
+        var_dump($_REQUEST);
+        var_dump($_REQUEST['variablesRegistros']);
+        var_dump($_REQUEST['condicionesRegistros']);
+        exit;
        
         if(isset($_REQUEST['codTipoCargoRegistro'])){
                     switch($_REQUEST ['codTipoCargoRegistro']){

@@ -25,7 +25,11 @@ class FormProcessor {
         
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
-       
+        if(isset ( $_REQUEST ['regresar'] ) && $_REQUEST ['regresar'] == "true"){
+                    
+                     Redireccionador::redireccionar('form'); 
+                     exit;
+                }
         if(isset($_REQUEST['codTipoCargoRegistro'])){
                     
                 }

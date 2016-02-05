@@ -139,7 +139,7 @@ class Formulario {
                         
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarParametroLiquidacion");
         
-    
+        
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
        $longitud = count($matrizItems);
