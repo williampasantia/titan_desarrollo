@@ -31,6 +31,8 @@ $this->idioma["nombreConcepto"]="Nombre de Concepto";
 //FORMULA
 
 $this->idioma["formula"]="Fórmula =";
+$this->idioma["condicionSi"]="Si ";
+$this->idioma["condicionEntonces"]="Entonces ";
 $this->idioma["nombre"]="Nombre: ";
 $this->idioma["ley"]="Ley: ";
 $this->idioma["naturaleza"]="Naturaleza: ";
