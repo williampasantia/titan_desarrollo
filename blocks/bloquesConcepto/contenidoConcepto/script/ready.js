@@ -232,3 +232,5 @@ $("#cancelarDina").click(function(){
 	$("#blocBotn").show("slow");
 	$('#<?php echo $this->campoSeguro('botones')?>').hide("fast");
 });
+
+

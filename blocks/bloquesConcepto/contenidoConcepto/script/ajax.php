@@ -48,16 +48,7 @@ $( '#<?php echo $this->campoSeguro('formula')?>' ).keypress(function(tecla) {
 	    tecla.charCode != 45 && tecla.charCode != 47 && 
 	    tecla.charCode != 40 && tecla.charCode != 41) return false;
 });
-$( '#<?php echo $this->campoSeguro('condicionSi')?>' ).keypress(function(tecla) {
-	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
-	    tecla.charCode != 45 && tecla.charCode != 47 && 
-	    tecla.charCode != 40 && tecla.charCode != 41) return false;
-});
-$( '#<?php echo $this->campoSeguro('condicionEntonces')?>' ).keypress(function(tecla) {
-	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
-	    tecla.charCode != 45 && tecla.charCode != 47 && 
-	    tecla.charCode != 40 && tecla.charCode != 41) return false;
-});
+
 $( '#<?php echo $this->campoSeguro('valorConcepto')?>' ).keypress(function(tecla) {
 	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
 	    tecla.charCode != 45 && tecla.charCode != 47 && 
@@ -136,11 +127,183 @@ $( '#<?php echo $this->campoSeguro('categoriaParametrosList')?>' ).change(functi
 //***********************************************************************************************************
 //***********************************************************************************************************
 
+//Codigo AGREGAR y QUITAR Campos Dinamicos
 
-//Funciones de arrastre apara condicion
+var limite = 20; //Se define el Limite de Paneles de Condiciones que se pueden Generar
+				 //No requiere que se cambie en otro lugar
+
+
+$(function () {
+    
+    
+    
+	$("#cancelar").hide("fast");
+	$('#<?php echo $this->campoSeguro('botones')?>').hide("fast");
+	
+	var iCnt = 0;
+	var numId = 0;
+	 
+	// Crear un elemento div añadiendo estilos CSS
+	var container = $(document.createElement('div')).css({
+		padding: '5px'
+	});
+	$(container).attr('class', 'col-md-12')+
+       
+        
+                      
+	 
+	$('#btAdd').click(function() {
+		if (iCnt < limite) {
+	 
+			iCnt = iCnt + 1;
+	 
+			// Añadir elementos Dinamicos en el DOM
+			
+			$(container).append('<fieldset id=panel'+iCnt+' class="ui-widget ui-widget-content">'+
+					'<legend class="ui-state-default ui-corner-all"> CONDICIÓN #'+iCnt+'</legend>'+
+					'<div id=lab1'+iCnt+' class="col-md-2">'+
+						'<label> Si </label> ' + 
+					'</div>'+
+					'<textarea id=txtCondicionSi'+iCnt+' class="areaTexto" rows="1" cols="70">'+
+                                        '</textarea><br/><br/>'+
+					'<div>'+
+						'<div id=lab2'+iCnt+' class="col-md-2">'+
+							'<label> Entonces </label> ' + 
+						'</div>'+
+					'<textarea id=txtCondicionEntonces'+iCnt+' class="areaTexto" rows="1" cols="70">'+
+                                        '</textarea>'+	
+					'</div>'+ 
+					'</fieldset>');
+			
+			$('#camposDinamicos').after(container);
+			$('#sel1'+iCnt).width(120);
+			$('#sel1'+iCnt).select2();
+			
+			$('#sel2'+iCnt).width(120);
+			$('#sel2'+iCnt).select2();
+                        
+                      arrastreParametro('txtCondicionSi' + iCnt);
+                      arrastreParametro('txtCondicionEntonces' + iCnt);
+	              
+                      arrastreConcepto('txtCondicionSi' + iCnt);
+                      arrastreConcepto('txtCondicionEntonces' + iCnt);
+       
+		}
+		else { //alerta y deshabilitar boton de agregar por alcanzar el limite
+	 
+			alert('Limite Alcanzado');
+			$('#btAdd').attr('disabled', 'disabled');
+	 
+		}
+	});
+	
+         
+        
+        
+        
+        
+	$('#btRemove').click(function() { // Elimina un panel de condiciones del DOM
+		if (iCnt != 0) {
+			$('#lab1' + iCnt).remove(); 
+			$('#tb1' + iCnt).remove();
+			$('#sel1' + iCnt).remove();
+			$('#tb2' + iCnt).remove();
+			$('#sel2' + iCnt).remove();
+			$('#lab2' + iCnt).remove(); 
+			$('#tb3' + iCnt).remove();
+			$('#panel' + iCnt).remove();    
+			iCnt = iCnt - 1; 
+			$('#btAdd').removeAttr('disabled');
+			$('#btAdd').attr('class', 'btn btn-success btn-block');
+		}
+	 
+		if (iCnt == 0) { $(container).empty(); 
+	 
+			$(container).remove();
+			$('#btAdd').removeAttr('disabled');
+			$('#btAdd').attr('class', 'btn btn-success btn-block')
+	 
+		}
+	});
+	 
+	$('#btRemoveAll').click(function() { //Quitar todos los paneles de condiciones Agregados
+	 
+		$(container).empty();
+		$(container).remove();
+		iCnt = 0;
+		$('#btAdd').removeAttr('disabled');
+		$('#btAdd').attr('class', 'btn btn-success btn-block');
+	 
+	});
+        
+        
+});
+//Funciones de arrastre apara dinamicos
 //
 //	 
-$(function () {
+
+
+function arrastreParametro(nombre) {
+            $('#'+nombre ).keypress(function(tecla) {
+	    if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
+	    tecla.charCode != 45 && tecla.charCode != 47 && 
+	    tecla.charCode != 40 && tecla.charCode != 41 && tecla.charCode != 38 && tecla.charCode != 179) return false;
+           });
+           
+           $("#btOper1C").click(function(){
+            var actual = $('#'+nombre ).val();
+       	    var post = actual + "(";
+            $('#'+nombre ).val(post);
+            });
+           $("#btOper2C").click(function(){
+            var actual = $('#'+nombre).val();
+	    var post = actual + ")";
+	    $('#'+nombre).val(post);
+            });
+           $("#btOper3C").click(function(){
+            var actual = $('#'+nombre).val();
+	    var post = actual + "+";
+	    $('#'+nombre).val(post);
+           });
+           $("#btOper4C").click(function(){
+            var actual = $('#'+nombre).val();
+            var post = actual + "-";
+	    $('#'+nombre).val(post);
+           });
+           $("#btOper5C").click(function(){
+	    var actual = $('#'+nombre).val();
+            var post = actual + "*";
+	    $('#'+nombre).val(post);
+           });
+           $("#btOper6C").click(function(){
+            var actual = $('#'+nombre).val();
+	    var post = actual + "/";
+	    $('#'+nombre).val(post);
+           });
+           $("#btOper7C").click(function(){
+	    var actual = $('#'+nombre).val();
+	    var post = actual + "√";
+	   $('#'+nombre).val(post);
+           });
+           $("#btOper8C").click(function(){
+	    var actual = $('#'+nombre).val();
+	    var post = actual + "^";
+	    $('#'+nombre).val(post);
+           });
+           $("#btOper9C").click(function(){
+	    var actual = $('#'+nombre).val();
+	    var post = actual + "&&";
+	    $('#'+nombre).val(post);
+           });
+           $("#btOper10C").click(function(){
+	    var actual = $('#'+nombre).val();
+	    var post = actual + "||";
+	    $('#'+nombre).val(post);
+           });
+           $("#btOper11C").click(function(){
+           $('#'+nombre).val("");
+           });
+
 	    $("#parametros").draggable({
 	        revert: true,
 	        helper: 'clone',
@@ -151,23 +314,17 @@ $(function () {
 	            $(this).fadeTo(0, 1);
 	        }
 	    });
-            $('#<?php echo $this->campoSeguro('condicionSi')?>').droppable({
+	    $('#'+nombre).droppable({
 	        hoverClass: 'active',
 	        drop: function (event, ui) {
 	            this.value += $(ui.draggable).find('select option:selected').text();
 	        }
 	    });
-            
-	    $('#<?php echo $this->campoSeguro('condicionEntonces')?>').droppable({
-	        hoverClass: 'active',
-	        drop: function (event, ui) {
-	            this.value += $(ui.draggable).find('select option:selected').text();
-	        }
-	    });
-});
+};
 
-$(function () {
-    $("#conceptos").draggable({
+function arrastreConcepto(nombre) {
+            
+	$("#conceptos").draggable({
         revert: true,
         helper: 'clone',
         start: function (event, ui) {
@@ -177,20 +334,13 @@ $(function () {
             $(this).fadeTo(0, 1);
         }
     });
-
-    $('#<?php echo $this->campoSeguro('condicionSi')?>').droppable({
+    $('#'+nombre).droppable({
         hoverClass: 'active',
         drop: function (event, ui) {
             this.value += $(ui.draggable).find('select option:selected').text();
         }
     });
-    $('#<?php echo $this->campoSeguro('condicionEntonces')?>').droppable({
-        hoverClass: 'active',
-        drop: function (event, ui) {
-            this.value += $(ui.draggable).find('select option:selected').text();
-        }
-    });
-});				 
+};				 
 // Funcion que Obtiene los valores de los textbox y los select
 var values = '', condiciones = '';
 	 
