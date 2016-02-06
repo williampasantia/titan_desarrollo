@@ -48,7 +48,16 @@ $( '#<?php echo $this->campoSeguro('formula')?>' ).keypress(function(tecla) {
 	    tecla.charCode != 45 && tecla.charCode != 47 && 
 	    tecla.charCode != 40 && tecla.charCode != 41) return false;
 });
-
+$( '#<?php echo $this->campoSeguro('condicionSi')?>' ).keypress(function(tecla) {
+	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
+	    tecla.charCode != 45 && tecla.charCode != 47 && 
+	    tecla.charCode != 40 && tecla.charCode != 41) return false;
+});
+$( '#<?php echo $this->campoSeguro('condicionEntonces')?>' ).keypress(function(tecla) {
+	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
+	    tecla.charCode != 45 && tecla.charCode != 47 && 
+	    tecla.charCode != 40 && tecla.charCode != 41) return false;
+});
 $( '#<?php echo $this->campoSeguro('valorConcepto')?>' ).keypress(function(tecla) {
 	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
 	    tecla.charCode != 45 && tecla.charCode != 47 && 
