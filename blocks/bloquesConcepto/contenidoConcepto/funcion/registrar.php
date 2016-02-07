@@ -152,17 +152,17 @@ class FormProcessor {
 
 
         
-        var_dump($arrayCondiciones);
+        //var_dump($arrayCondiciones);
         //var_dump($_REQUEST);
-        exit;
+        //exit;
         
         
         
-         if (!empty($id_concepto)) {
-               Redireccionador::redireccionar('inserto',$datos);
+        if (!empty($id_concepto)) {
+           Redireccionador::redireccionar('inserto',$datosConcepto);
             exit();
         } else {
-           Redireccionador::redireccionar('noInserto');
+           Redireccionador::redireccionar('noInserto',$datosConcepto);
             exit();
         }
         

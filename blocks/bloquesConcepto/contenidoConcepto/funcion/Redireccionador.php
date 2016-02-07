@@ -17,54 +17,56 @@ class Redireccionador {
 			case "opcion1" :
 				
 				$variable = 'pagina=segundaPagina';
-				$variable .= '&variable' . $valor;				
+				$variable .= '&variable' . $valor;
 				break;
 			case "form" :
-				$variable = 'pagina='.$miPaginaActual;                                
+				$variable = 'pagina=' . $miPaginaActual;
 				$variable .= "&opcion=form";
 				break;
-                        case "modificar" :
-				$variable = 'pagina='.$miPaginaActual;                                
+			case "modificar" :
+				$variable = 'pagina=' . $miPaginaActual;
 				$variable .= "&opcion=modificar";
-                                $variable .= '&variable=' . $valor;
-				break; 
-                        case "verdetalle" :
-				$variable = 'pagina='.$miPaginaActual;                                
-				$variable .= "&opcion=verdetalle";
-                                $variable .= '&variable=' . $valor;
-                                break;
-                        case "inserto" :
-				$variable = 'pagina='.$miPaginaActual;                                
-				$variable .= "&opcion=mensaje";
-                                $variable .= "&mensaje=inserto";
-                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
-                                $variable .= "&estadoRegistro=" . $valor ['estadoRegistro'];
+				$variable .= '&variable=' . $valor;
 				break;
-                        case "noInserto" :
-				$variable = 'pagina='.$miPaginaActual;                                
+			case "verdetalle" :
+				$variable = 'pagina=' . $miPaginaActual;
+				$variable .= "&opcion=verdetalle";
+				$variable .= '&variable=' . $valor;
+				break;
+			case "inserto" :
+				$variable = 'pagina=' . $miPaginaActual;
 				$variable .= "&opcion=mensaje";
-                                $variable .= "&mensaje=noInserto";
-				break;     
-                        case "modifico" :
-				$variable = 'pagina='.$miPaginaActual;
-                                $variable .= "&mensaje=modifico";
+				$variable .= "&mensaje=inserto";
+				$variable .= "&nombreRegistro=" . $valor ['nombre'];
+				$variable .= "&simboloRegistro=" . $valor ['simbolo'];
+				break;
+			case "noInserto" :
+				$variable = 'pagina=' . $miPaginaActual;
 				$variable .= "&opcion=mensaje";
-                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
-                                $variable .= "&codigoRegistro=" . $valor ['codigoRegistro'];
-                                 
-				break;     
-                        case "inactivar" :
-				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&mensaje=noInserto";
+				$variable .= "&nombreRegistro=" . $valor ['nombre'];
+				$variable .= "&simboloRegistro=" . $valor ['simbolo'];
+				break;
+			case "modifico" :
+				$variable = 'pagina=' . $miPaginaActual;
+				$variable .= "&mensaje=modifico";
+				$variable .= "&opcion=mensaje";
+				$variable .= "&nombreRegistro=" . $valor ['nombre'];
+				$variable .= "&simboloRegistro=" . $valor ['simbolo'];
+				
+				break;
+			case "inactivar" :
+				$variable = 'pagina=' . $miPaginaActual;
 				$variable .= "&opcion=inactivar";
-                                $variable .= '&variable=' . $valor;
-                            break;  
-                         case "condicion" :
-				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= '&variable=' . $valor;
+				break;
+			case "condicion" :
+				$variable = 'pagina=' . $miPaginaActual;
 				$variable .= "&opcion=condicion";
-                                
-                            break;
-			default:
-			    $variable='';
+				
+				break;
+			default :
+				$variable = '';
 			
 		}
 		foreach ( $_REQUEST as $clave => $valor ) {
