@@ -1,10 +1,6 @@
 <?php
-
 namespace bloquesConcepto\contenidoConcepto\funcion;
-
-
 include_once('Redireccionador.php');
-
 class FormProcessor {
     
     var $miConfigurador;
@@ -23,98 +19,138 @@ class FormProcessor {
     }
     
     function procesarFormulario() {    
-
         //Aquí va la lógica de procesamiento
         
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
         
         
-        var_dump($_REQUEST);
-        var_dump($_REQUEST['variablesRegistros']);
-        var_dump($_REQUEST['condicionesRegistros']);
-        exit;
-       
-        if(isset($_REQUEST['codTipoCargoRegistro'])){
-                    switch($_REQUEST ['codTipoCargoRegistro']){
-                           case 1 :
-					$_REQUEST ['codTipoCargoRegistro']='DI';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['codTipoCargoRegistro']='AS';
-			   break;
-                       
-                           case 3 :
-					$_REQUEST ['codTipoCargoRegistro']='EJ';
-			   break;
-                       
-                           case 4 :
-					$_REQUEST ['codTipoCargoRegistro']='TE';
-			   break;
-			   
-                           case 5 :
-					$_REQUEST ['codTipoCargoRegistro']='AI';
-			   break;
-                       
-                           case 6 :
-					$_REQUEST ['codTipoCargoRegistro']='TO';
-			   break;
-		           		
-                           case 7 :
-					$_REQUEST ['codTipoCargoRegistro']='DC';
-			   break;
-                           
-                           case 8 :
-					$_REQUEST ['codTipoCargoRegistro']='DP';
-			   break;
-                    
-                    
-                    }
-                }
-                
-                if(isset($_REQUEST['tipoSueldoRegistro'])){
-                    switch($_REQUEST ['tipoSueldoRegistro']){
-                           case 1 :
-					$_REQUEST ['tipoSueldoRegistro']='M';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['tipoSueldoRegistro']='H';
-			   break;
-                    }
-                }
-                
-                if(isset($_REQUEST['estadoRegistro'])){
-                    switch($_REQUEST ['estadoRegistro']){
-                           case 1 :
-					$_REQUEST ['estadoRegistro']='Activo';
-			   break;
-                       
-                           case 2 :
-					$_REQUEST ['estadoRegistro']='Inactivo';
-			   break;
-                    }
-                }
         
-        $datos = array(
-            'nivelRegistro' => $_REQUEST ['nivelRegistro'],
-            'codAlternativoRegistro' => $_REQUEST ['codAlternativoRegistro'],
-            'gradoRegistro' => $_REQUEST ['gradoRegistro'],
-            'nombreRegistro' => $_REQUEST ['nombreRegistro'],
-            'codTipoCargoRegistro' => $_REQUEST ['codTipoCargoRegistro'],
-            'sueldoRegistro' => $_REQUEST ['sueldoRegistro'],
-            'tipoSueldoRegistro' => $_REQUEST ['tipoSueldoRegistro'],
-            'estadoRegistro' => $_REQUEST ['estadoRegistro'] 
+        //***************************VALIDAR Formula*****************************************************************
+        
+        
+        
+        //-------------------------- Seccion Validar Formula ------------------------------------------------
+		//-------------------------------------------------------------------------------------------------------
+             
+        $_entradaFormulaCompilador = $_REQUEST['formulaConcepto'];
+        
+        
+        
+        
+        
+        
+        
+        
+        //----------------------------------------------------------------------------------------------------------
+        //------------------------ Codigo A Ejecutar Una Vez VALIDADA la Formula -----------------------------------
+        
+        if(isset($_REQUEST['naturalezaInfoConcepto'])){
+        	switch($_REQUEST['naturalezaInfoConcepto']){
+        		case 1 :
+        			$_REQUEST['naturalezaInfoConcepto']='Devenga';
+        			break;
+        		case 2 :
+        			$_REQUEST['naturalezaInfoConcepto']='Deduce';
+        			break;
+        	}
+        }
+        
+        $datosConcepto = array (
+        		'nombre' => $_REQUEST['nombreInfoConcepto'],
+        		'simbolo' => $_REQUEST['simboloInfoConcepto'],
+        		'categoria' => $_REQUEST['categoriaInfoConcepto'],
+        		'naturaleza' => $_REQUEST['naturalezaInfoConcepto'],
+        		'descripcion' => $_REQUEST['descripcionInfoConcepto'],
+        		'formula' => $_REQUEST['formulaConcepto']
         );
-//       
         
-                
-        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarRegistro",$datos);
-        $resultado=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
-        //Al final se ejecuta la redirección la cual pasará el control a otra página
+        $cadenaSql = $this->miSql->getCadenaSql("insertarConcepto",$datosConcepto);
+        $id_concepto = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosConcepto, "insertarConcepto");
         
-         if (!empty($resultado)) {
+        $arrayLeyes = explode(",", $_REQUEST['leyRegistrosInfoConcepto']);
+        $count = 0;
+        
+        while($count < count($arrayLeyes)){
+        	
+        	$datosLeyesConcepto = array(
+        			'fk_id_ley' => $arrayLeyes[$count],
+        			'fk_concepto' => $id_concepto[0][0]
+        	);
+        	
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarLeyesConcepto",$datosLeyesConcepto);
+        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	
+        	$count++;
+        
+        }
+        
+        //---------------------------------------------------------------------------------------------------------
+        //---------------------------------------------------------------------------------------------------------
+        
+        
+        
+        
+        //***************************VALIDAR Condiciones*************************************************************
+        
+        
+        // ---------------- INICIO: Lista Variables Control--------------------------------------------------------
+        
+        $cantidadCondiciones = $_REQUEST['cantidadCondicionesConcepto'];
+        
+        // ---------------- FIN: Lista Variables Control--------------------------------------------------------
+        
+        // --------------------------------- n Condiciones ----------------------------------
+        
+    	$count = 0;
+    	$control = 0;
+    	$limite = 0;
+    	
+    	$arrayPartCondicion = explode(",", $_REQUEST['variablesRegistros']);
+    	
+    	while($control < $cantidadCondiciones){
+    		
+    		$arrayCondiciones[$control] = 'Si(' .$arrayPartCondicion[$limite++]. ') Entonces{'.$arrayPartCondicion[$limite++].'}'; 
+    		 
+    		$control++;
+    	}
+   
+        while($count < $cantidadCondiciones){
+        	
+        	//-------------------------- Seccion Validar Condiciones ------------------------------------------------
+        	//Formato:
+        	//					Si(condiciones) Entonces{Accion}
+        	//-------------------------------------------------------------------------------------------------------
+        	
+        	$_entradaCondicionCompilador = $arrayCondiciones[$count];
+        	
+        	
+        	
+        	
+        	
+        	
+        	//----------------------------------------------------------------------------------------------------------
+        	//------------------------ Codigo A Ejecutar Una Vez VALIDADA la Condicion -----------------------------------
+        	   
+        	$datosCondicion = array(
+        			'cadena' => $arrayCondiciones[$count],
+        			'fk_concepto' => $id_concepto[0][0]
+        	);
+        	
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarCondicion",$datosCondicion);
+        	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
+        	
+        	//-------------------------------------------------------------------------------------------------------
+        	$count++;
+        }
+        
+        var_dump($arrayCondiciones);
+        //var_dump($_REQUEST);
+        exit;
+        
+        
+        
+         if (!empty($id_concepto)) {
                Redireccionador::redireccionar('inserto',$datos);
             exit();
         } else {
@@ -135,8 +171,5 @@ class FormProcessor {
     }
     
 }
-
 $miProcesador = new FormProcessor ( $this->lenguaje, $this->sql );
-
 $resultado= $miProcesador->procesarFormulario ();
-
