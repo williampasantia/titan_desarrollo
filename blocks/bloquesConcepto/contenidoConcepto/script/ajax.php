@@ -161,30 +161,17 @@ $(function () {
 			
 			$(container).append('<fieldset id=panel'+iCnt+' class="ui-widget ui-widget-content">'+
 					'<legend class="ui-state-default ui-corner-all"> CONDICIÓN #'+iCnt+'</legend>'+
-					'<div id=lab1'+iCnt+' class="col-md-2">'+
-						'<label> Si </label> ' + 
+					'<div>'+
+						'<div id=lab1'+iCnt+' class="col-md-2">'+
+							'<label> Si </label> ' + 
+						'</div>'+
+						'<input type=text class="input" id=tb1' + iCnt + ' size="80"  maxlength="500" value="" />'+
 					'</div>'+
-					'<input type=text class="input" id=tb1' + iCnt + ' value="" />'+
-					'<select id=sel1'+iCnt+' tabindex="-1" size="1" style="width: 100px;">'+
-						'<option value="1">signo</option>' +
-						'<option value="2"><</option>'+
-						'<option value="3"><=</option>'+
-						'<option value="4">>=</option>'+
-						'<option value="5">></option>'+
-						'<option value="6">=</option>'+
-						'<option value="7">!=</option>'+
-					'</select>'+
-					'<input type=text class="input" id=tb2' + iCnt + ' value="" />'+
-					'<select id=sel2'+iCnt+' tabindex="-1" size="1" style="width: 100px;">'+
-						'<option value="1">operador</option>' +
-						'<option value="2">&&</option>'+
-						'<option value="3">||</option>'+
-					'</select>'+
 					'<div>'+
 						'<div id=lab2'+iCnt+' class="col-md-2">'+
 							'<label> Entonces </label> ' + 
 						'</div>'+
-						'<input type=text class="input" id=tb3' + iCnt + ' value="" />'+
+						'<input type=text class="input" id=tb2' + iCnt + ' size="80"  maxlength="500" value="" />'+
 					'</div>'+ 
 					'</fieldset>');
 			
@@ -210,6 +197,7 @@ $(function () {
 			$('#btAdd').attr('disabled', 'disabled');
 	 
 		}
+		$("#<?php echo $this->campoSeguro('cantidadCondicionesConcepto') ?>").val(iCnt)
 	});
 	
          
@@ -239,6 +227,7 @@ $(function () {
 			$('#btAdd').attr('class', 'btn btn-success btn-block')
 	 
 		}
+		$("#<?php echo $this->campoSeguro('cantidadCondicionesConcepto') ?>").val(iCnt)
 	});
 	 
 	$('#btRemoveAll').click(function() { //Quitar todos los paneles de condiciones Agregados
@@ -248,7 +237,7 @@ $(function () {
 		iCnt = 0;
 		$('#btAdd').removeAttr('disabled');
 		$('#btAdd').attr('class', 'btn btn-success btn-block');
-	 
+		$("#<?php echo $this->campoSeguro('cantidadCondicionesConcepto') ?>").val(iCnt)
 	});
         
         
@@ -297,7 +286,7 @@ function arrastreConcepto(nombre) {
 };
 	 
 // Funcion que Obtiene los valores de los textbox y los select
-var values = '', condiciones = '';
+var values = '', condiciones = '', cantidad = 0;
 	 
 function GetTextValue() {
 	 
@@ -314,8 +303,7 @@ function GetTextValue() {
 	   condiciones += '['+ this.value + ']';
 	   $("#<?php echo $this->campoSeguro('condicionesRegistros') ?>").val(condiciones);
 	});
-
-	 
+	
 }
 
 </script>
