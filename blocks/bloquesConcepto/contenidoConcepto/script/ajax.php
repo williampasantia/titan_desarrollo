@@ -164,13 +164,13 @@ $(function () {
 					'<div id=lab1'+iCnt+' class="col-md-2">'+
 						'<label> Si </label> ' + 
 					'</div>'+
-					'<textarea id=txtCondicionSi'+iCnt+' class="areaTexto" rows="1" cols="70">'+
-                                        '</textarea><br/><br/>'+
+                                        '<input type=text class="input" id=tb1' + iCnt + ' size="80"  maxlength="500" value="" />'+
+                                        '<br/><br/>'+
 					'<div>'+
 						'<div id=lab2'+iCnt+' class="col-md-2">'+
 							'<label> Entonces </label> ' + 
 						'</div>'+
-					'<textarea id=txtCondicionEntonces'+iCnt+' class="areaTexto" rows="1" cols="70">'+
+					'<input type=text class="input" id=tb2' + iCnt + ' size="80"  maxlength="500" value="" />'+
                                         '</textarea>'+	
 					'</div>'+ 
 					'</fieldset>');
@@ -182,11 +182,11 @@ $(function () {
 			$('#sel2'+iCnt).width(120);
 			$('#sel2'+iCnt).select2();
                         
-                      arrastreParametro('txtCondicionSi' + iCnt);
-                      arrastreParametro('txtCondicionEntonces' + iCnt);
+                      arrastreParametro('tb1' + iCnt);
+                      arrastreParametro('tb2' + iCnt);
 	              
-                      arrastreConcepto('txtCondicionSi' + iCnt);
-                      arrastreConcepto('txtCondicionEntonces' + iCnt);
+                      arrastreConcepto('tb1' + iCnt);
+                      arrastreConcepto('tb2' + iCnt);
        
 		}
 		else { //alerta y deshabilitar boton de agregar por alcanzar el limite
@@ -242,7 +242,7 @@ $(function () {
 //
 //	 
 
-
+         
 function arrastreParametro(nombre) {
             $('#'+nombre ).keypress(function(tecla) {
 	    if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
