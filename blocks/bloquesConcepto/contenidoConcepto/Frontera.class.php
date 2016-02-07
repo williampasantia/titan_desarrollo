@@ -58,13 +58,13 @@ class Frontera {
 					include_once ($this->ruta . "/formulario/registrarCondicion.php");
 					break;
 				case "modificar" :
-					include_once ($this->ruta . "/formulario/modificar.php");
+					include_once ($this->ruta . "/formulario/modificarInfoBasica.php");
 					break;
 				case "verdetalle" :
 					include_once ($this->ruta . "/formulario/verDetalleConcepto.php");
 					break;
 				case "inactivar" :
-					include_once ($this->ruta . "/formulario/inactivarConcepto.php");
+					include_once ($this->ruta . "/formulario/estadoConcepto.php");
 					break;
 				case "mensaje" :
 					include_once ($this->ruta . "/formulario/mensaje.php");

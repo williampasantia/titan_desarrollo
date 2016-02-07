@@ -167,7 +167,8 @@ class Sql extends \Sql {
 				$cadenaSql .= 'naturaleza as NATURALEZA, ';
 				$cadenaSql .= 'descripcion as DESCRIPCION, ';
 				$cadenaSql .= 'id as CATEGORIA, ';
-				$cadenaSql .= 'formula as FORMULA ';
+				$cadenaSql .= 'formula as FORMULA, ';
+				$cadenaSql .= 'estado as ESTADO ';
 				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'concepto.concepto ';
 				$cadenaSql .= 'WHERE ';
@@ -193,6 +194,17 @@ class Sql extends \Sql {
 				$cadenaSql .= 'concepto.ldnxconcepto ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'codigo = ' . $variable . ';';
+				break;
+				
+			case 'inactivarRegistro' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'concepto.concepto ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'estado = ';
+				$cadenaSql .= '\'' . $variable ['estadoRegistro'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'simbolo = ';
+				$cadenaSql .= '\'' . $variable ['simbolo'] . '\'';
 				break;
         }
                 
