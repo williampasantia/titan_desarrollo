@@ -38,11 +38,10 @@
  $('#<?php echo $this->campoSeguro('categoriaParametrosList')?>').width(260);
  $("#<?php echo $this->campoSeguro('categoriaParametrosList')?>").select2();
 
- $( '#<?php echo $this->campoSeguro('ley')?>' ).change(function() {
+$( '#<?php echo $this->campoSeguro('ley')?>' ).change(function() {
 		$("#<?php echo $this->campoSeguro('leyRegistros') ?>").val($("#<?php echo $this->campoSeguro('ley') ?>").val());
- });
-   
-    
+});
+  
 $( '#<?php echo $this->campoSeguro('formula')?>' ).keypress(function(tecla) {
 	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
 	    tecla.charCode != 45 && tecla.charCode != 47 && 

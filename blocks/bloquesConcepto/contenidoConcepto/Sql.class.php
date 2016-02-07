@@ -145,6 +145,55 @@ class Sql extends \Sql {
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id = ' . $variable . ';';
 				break;
+				
+			case 'buscarRegistrosDeConceptos' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'nombre as NOMBRE, ';
+				$cadenaSql .= 'simbolo as SIMBOLO, ';
+				$cadenaSql .= 'descripcion as DESCRIPCION, ';
+				$cadenaSql .= 'simbolo as LEY, ';
+				$cadenaSql .= 'naturaleza as NATURALEZA, ';
+				$cadenaSql .= 'estado as ESTADO, ';
+				$cadenaSql .= 'codigo as ID ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'concepto.concepto';
+				break;
+				
+			case 'consultarRegistrosDeConceptos' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'codigo as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE, ';
+				$cadenaSql .= 'simbolo as SIMBOLO, ';
+				$cadenaSql .= 'naturaleza as NATURALEZA, ';
+				$cadenaSql .= 'descripcion as DESCRIPCION, ';
+				$cadenaSql .= 'id as CATEGORIA, ';
+				$cadenaSql .= 'formula as FORMULA ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'concepto.concepto ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'codigo = ' . $variable . ';';
+				break;
+				
+			case 'consultarCondicionesDeConceptos' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'cadena as CADENA, ';
+				$cadenaSql .= 'codigo as CODIGO, ';
+				$cadenaSql .= 'id_condicion as ID ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'concepto.condicion ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'codigo = ' . $variable . ';';
+				break;
+				
+			case 'consultarLeyesDeConceptos' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ldn as ID, ';
+				$cadenaSql .= 'codigo as CODIGO ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'concepto.ldnxconcepto ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'codigo = ' . $variable . ';';
+				break;
         }
                 
         
