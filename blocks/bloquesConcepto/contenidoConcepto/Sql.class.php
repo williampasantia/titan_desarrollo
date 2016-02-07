@@ -112,6 +112,18 @@ class Sql extends \Sql {
 				$cadenaSql .= 'nombre as NOMBRE ';
 				$cadenaSql .= 'FROM ';
 				$cadenaSql .= 'parametro.ley_decreto_norma ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'estado != \'Inactivo\';';
+				break;
+				
+			case 'buscarCategoria' :
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'concepto.categoria ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'estado != \'Inactivo\';';
 				break;
 				
 			case 'buscarParametroAjax' :

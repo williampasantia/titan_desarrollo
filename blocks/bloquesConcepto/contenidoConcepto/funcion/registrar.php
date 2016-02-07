@@ -149,12 +149,6 @@ class FormProcessor {
 
         	$count++;
         }
-
-
-        
-        //var_dump($arrayCondiciones);
-        //var_dump($_REQUEST);
-        //exit;
         
         
         

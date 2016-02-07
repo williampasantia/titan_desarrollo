@@ -185,16 +185,22 @@ class Formulario {
         $atributos ['obligatorio'] = false;
         $atributos ['etiquetaObligatorio'] = false;
         $atributos ['validar'] = 'required';
-        	
-        $matrizItems=array(
-        		array(1,'CP0001'),
-        		array(2,'CP0002'),
-        		array(3,'CP0003'),
-        		array(4,'CP0004'),
-        		array(5,'CP0005')
-        			
-        );
-        $atributos['matrizItems'] = $matrizItems;
+        
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarCategoria" );
+        $matrizItems = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+         
+        if ($matrizItems) {
+        	$atributos['matrizItems'] = $matrizItems;
+        } else {
+        
+        	$matrizItems = array(
+        			array(-1,'No existe Categoria Registrada')
+        			 
+        	);
+        
+        	$atributos['matrizItems'] = $matrizItems;
+        	$atributos['deshabilitado'] = true;
+        }
         	
         if (isset ( $_REQUEST [$esteCampo] )) {
         	$atributos ['valor'] = $_REQUEST [$esteCampo];
@@ -237,15 +243,12 @@ class Formulario {
 	        } else {
 	        	
 	        	$matrizItems = array(
-	        			array(1,'Ley 20 2014'),
-	        			array(2,'Compensar'),
-	        			array(3,'Ley 180'),
-	        			array(4,'Ley 80')
+	        			array(-1,'No existe Ley Registrada')
 	        			 
 	        	);
 	        	
 	        	$atributos['matrizItems'] = $matrizItems;
-	        	$atributos['deshabilitado'] = false;//Cambiar
+	        	$atributos['deshabilitado'] = true;
 	        }
 	  
 	        $tab ++;
