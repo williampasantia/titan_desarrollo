@@ -38,11 +38,10 @@
  $('#<?php echo $this->campoSeguro('categoriaParametrosList')?>').width(260);
  $("#<?php echo $this->campoSeguro('categoriaParametrosList')?>").select2();
 
- $( '#<?php echo $this->campoSeguro('ley')?>' ).change(function() {
+$( '#<?php echo $this->campoSeguro('ley')?>' ).change(function() {
 		$("#<?php echo $this->campoSeguro('leyRegistros') ?>").val($("#<?php echo $this->campoSeguro('ley') ?>").val());
- });
-   
-    
+});
+  
 $( '#<?php echo $this->campoSeguro('formula')?>' ).keypress(function(tecla) {
 	 if(tecla.charCode != 0  && tecla.charCode != 42 && tecla.charCode != 43 && 
 	    tecla.charCode != 45 && tecla.charCode != 47 && 
@@ -132,6 +131,73 @@ $( '#<?php echo $this->campoSeguro('categoriaParametrosList')?>' ).change(functi
 var limite = 20; //Se define el Limite de Paneles de Condiciones que se pueden Generar
 				 //No requiere que se cambie en otro lugar
 
+				 
+var iCnt = 0;
+var numId = 0;
+ 
+// Crear un elemento div añadiendo estilos CSS
+var container = $(document.createElement('div')).css({
+	padding: '5px'
+});
+
+$(container).attr('class', 'col-md-12')
+$(container).attr('id', 'pushDina')
+
+$( document ).ready(function() {
+	if($('#<?php echo $this->campoSeguro('estadoPagina')?>').val() == 'modificarCondiciones'){
+		var cantidad = $('#<?php echo $this->campoSeguro('cantidadCargaCond')?>').val();
+
+		var entonces = $('#<?php echo $this->campoSeguro('cargaCondEntonces')?>').val();
+		var cadenasEntonces = entonces.split("|");
+
+		var si = $('#<?php echo $this->campoSeguro('cargaCondSi')?>').val();
+		var cadenasSi = si.split("|");
+		
+		var indice = 0;
+		
+		while (iCnt < cantidad) {
+			 
+			iCnt = iCnt + 1;
+	 
+			// Añadir elementos Dinamicos en el DOM
+			
+			$(container).append('<fieldset id=panel'+iCnt+' class="ui-widget ui-widget-content">'+
+					'<legend class="ui-state-default ui-corner-all"> CONDICIÓN #'+iCnt+'</legend>'+
+					'<div>'+
+						'<div id=lab1'+iCnt+' class="col-md-2">'+
+							'<label> Si </label> ' + 
+						'</div>'+
+						'<input type=text class="input" id=tb1' + iCnt + ' size="80"  maxlength="500" value="' + cadenasSi[indice] + '" />'+
+					'</div>'+
+					'<div>'+
+						'<div id=lab2'+iCnt+' class="col-md-2">'+
+							'<label> Entonces </label> ' + 
+						'</div>'+
+						'<input type=text class="input" id=tb2' + iCnt + ' size="80"  maxlength="500" value="' + cadenasEntonces[indice] + '" />'+
+					'</div>'+ 
+					'</fieldset>');
+			
+			$('#camposDinamicos').after(container);
+			$('#sel1'+iCnt).width(120);
+			$('#sel1'+iCnt).select2();
+			
+			$('#sel2'+iCnt).width(120);
+			$('#sel2'+iCnt).select2();
+	                    
+	                  arrastreParametro('tb1' + iCnt);
+	                  arrastreParametro('tb2' + iCnt);
+	              
+	                  arrastreConcepto('tb1' + iCnt);
+	                  arrastreConcepto('tb2' + iCnt);
+
+	        indice++;
+	   
+		}
+		
+	}				 
+});
+
+				 
 
 $(function () {
     
@@ -139,17 +205,6 @@ $(function () {
     
 	$("#cancelar").hide("fast");
 	$('#<?php echo $this->campoSeguro('botones')?>').hide("fast");
-	
-	var iCnt = 0;
-	var numId = 0;
-	 
-	// Crear un elemento div añadiendo estilos CSS
-	var container = $(document.createElement('div')).css({
-		padding: '5px'
-	});
-	$(container).attr('class', 'col-md-12')+
-       
-        
                       
 	 
 	$('#btAdd').click(function() {
@@ -161,30 +216,17 @@ $(function () {
 			
 			$(container).append('<fieldset id=panel'+iCnt+' class="ui-widget ui-widget-content">'+
 					'<legend class="ui-state-default ui-corner-all"> CONDICIÓN #'+iCnt+'</legend>'+
-					'<div id=lab1'+iCnt+' class="col-md-2">'+
-						'<label> Si </label> ' + 
+					'<div>'+
+						'<div id=lab1'+iCnt+' class="col-md-2">'+
+							'<label> Si </label> ' + 
+						'</div>'+
+						'<input type=text class="input" id=tb1' + iCnt + ' size="80"  maxlength="500" value="" />'+
 					'</div>'+
-					'<input type=text class="input" id=tb1' + iCnt + ' value="" />'+
-					'<select id=sel1'+iCnt+' tabindex="-1" size="1" style="width: 100px;">'+
-						'<option value="1">signo</option>' +
-						'<option value="2"><</option>'+
-						'<option value="3"><=</option>'+
-						'<option value="4">>=</option>'+
-						'<option value="5">></option>'+
-						'<option value="6">=</option>'+
-						'<option value="7">!=</option>'+
-					'</select>'+
-					'<input type=text class="input" id=tb2' + iCnt + ' value="" />'+
-					'<select id=sel2'+iCnt+' tabindex="-1" size="1" style="width: 100px;">'+
-						'<option value="1">operador</option>' +
-						'<option value="2">&&</option>'+
-						'<option value="3">||</option>'+
-					'</select>'+
 					'<div>'+
 						'<div id=lab2'+iCnt+' class="col-md-2">'+
 							'<label> Entonces </label> ' + 
 						'</div>'+
-						'<input type=text class="input" id=tb3' + iCnt + ' value="" />'+
+						'<input type=text class="input" id=tb2' + iCnt + ' size="80"  maxlength="500" value="" />'+
 					'</div>'+ 
 					'</fieldset>');
 			
@@ -210,6 +252,7 @@ $(function () {
 			$('#btAdd').attr('disabled', 'disabled');
 	 
 		}
+		$("#<?php echo $this->campoSeguro('cantidadCondicionesConcepto') ?>").val(iCnt)
 	});
 	
          
@@ -239,6 +282,7 @@ $(function () {
 			$('#btAdd').attr('class', 'btn btn-success btn-block')
 	 
 		}
+		$("#<?php echo $this->campoSeguro('cantidadCondicionesConcepto') ?>").val(iCnt)
 	});
 	 
 	$('#btRemoveAll').click(function() { //Quitar todos los paneles de condiciones Agregados
@@ -248,7 +292,7 @@ $(function () {
 		iCnt = 0;
 		$('#btAdd').removeAttr('disabled');
 		$('#btAdd').attr('class', 'btn btn-success btn-block');
-	 
+		$("#<?php echo $this->campoSeguro('cantidadCondicionesConcepto') ?>").val(iCnt)
 	});
         
         
@@ -294,9 +338,10 @@ function arrastreConcepto(nombre) {
             this.value += $(ui.draggable).find('select option:selected').text();
         }
     });
-};				 
+};
+	 
 // Funcion que Obtiene los valores de los textbox y los select
-var values = '', condiciones = '';
+var values = '', condiciones = '', cantidad = 0;
 	 
 function GetTextValue() {
 	 
@@ -313,8 +358,7 @@ function GetTextValue() {
 	   condiciones += '['+ this.value + ']';
 	   $("#<?php echo $this->campoSeguro('condicionesRegistros') ?>").val(condiciones);
 	});
-
-	 
+	
 }
 
 </script>

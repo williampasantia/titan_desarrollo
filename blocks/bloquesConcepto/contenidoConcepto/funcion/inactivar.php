@@ -40,7 +40,8 @@ class FormProcessor {
         
             
             $datos = array(
-            'codigoRegistro' => $_REQUEST ['codigoRegistro'],
+            'nombre' => $_REQUEST ['nombre'],
+            'simbolo' => $_REQUEST ['simbolo'],
             'estadoRegistro' => $opcion       
         );
 //       
@@ -56,7 +57,7 @@ class FormProcessor {
       if($_REQUEST['cancelarInactivar'] =='true'){
                     
                      Redireccionador::redireccionar('form'); 
-                }
+      }
         
        
         //Al final se ejecuta la redirección la cual pasará el control a otra página
