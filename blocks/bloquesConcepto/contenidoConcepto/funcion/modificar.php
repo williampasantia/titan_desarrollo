@@ -28,8 +28,6 @@ class FormProcessor {
         
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
-        
-        var_dump($_REQUEST);exit;//Aqui va el desarrollo
        
         //***************************VALIDAR Formula*****************************************************************
         
@@ -67,11 +65,20 @@ class FormProcessor {
         		'categoria' => $_REQUEST['categoriaInfoConcepto'],
         		'naturaleza' => $_REQUEST['naturalezaInfoConcepto'],
         		'descripcion' => $_REQUEST['descripcionInfoConcepto'],
-        		'formula' => $_REQUEST['formulaConcepto']
+        		'formula' => $_REQUEST['formulaConcepto'],
+        		'id_concepto' => $_REQUEST['variable']
         );
         
-        $cadenaSql = $this->miSql->getCadenaSql("insertarConcepto",$datosConcepto);
-        $id_concepto = $primerRecursoDB->ejecutarAcceso($cadenaSql, "busqueda", $datosConcepto, "insertarConcepto");
+        $cadenaSql = $this->miSql->getCadenaSql("modificarConcepto",$datosConcepto);
+        $resultado = $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");
+        
+        
+        $datosLeyesConcepto = array(
+        		'fk_concepto' => $_REQUEST['variable']
+        );
+        
+        $cadenaSql = $this->miSql->getCadenaSql("eliminarLeyesModificar",$datosLeyesConcepto);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
         
         $arrayLeyes = explode(",", $_REQUEST['leyRegistrosInfoConcepto']);
         $count = 0;
@@ -80,7 +87,7 @@ class FormProcessor {
         	 
         	$datosLeyesConcepto = array(
         			'fk_id_ley' => $arrayLeyes[$count],
-        			'fk_concepto' => $id_concepto[0][0]
+        			'fk_concepto' => $_REQUEST['variable']
         	);
         	 
         	$cadenaSql = $this->miSql->getCadenaSql("insertarLeyesConcepto",$datosLeyesConcepto);
@@ -93,7 +100,12 @@ class FormProcessor {
         //---------------------------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------------------------
         
+        $datosCondicionesConcepto = array(
+        		'fk_concepto' => $_REQUEST['variable']
+        );
         
+        $cadenaSql = $this->miSql->getCadenaSql("eliminarCondicionesModificar",$datosCondicionesConcepto);
+        $primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
         
         
         //***************************VALIDAR Condiciones*************************************************************
@@ -137,12 +149,12 @@ class FormProcessor {
         	//----------------------------------------------------------------------------------------------------------
         	//------------------------ Codigo A Ejecutar Una Vez VALIDADA la Condicion -----------------------------------
         
-        	$datosCondicion = array(
+        	$datosCondicionInser = array(
         			'cadena' => $arrayCondiciones[$count],
-        			'fk_concepto' => $id_concepto[0][0]
+        			'fk_concepto' => $_REQUEST['variable']
         	);
         	 
-        	$cadenaSql = $this->miSql->getCadenaSql("insertarCondicion",$datosCondicion);
+        	$cadenaSql = $this->miSql->getCadenaSql("insertarCondicion",$datosCondicionInser);
         	$primerRecursoDB->ejecutarAcceso($cadenaSql, "acceso");//********************************
         	 
         	//-------------------------------------------------------------------------------------------------------
@@ -151,9 +163,8 @@ class FormProcessor {
         }
         
         
-        
-        if (!empty($id_concepto)) {
-        	Redireccionador::redireccionar('inserto',$datosConcepto);
+        if (!empty($resultado)) {
+        	Redireccionador::redireccionar('modifico',$datosConcepto);
         	exit();
         } else {
         	Redireccionador::redireccionar('noInserto',$datosConcepto);

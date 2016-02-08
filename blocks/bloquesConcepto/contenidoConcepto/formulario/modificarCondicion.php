@@ -94,10 +94,16 @@ class Formulario {
         
         $_identificadorConcepto = $_REQUEST['variable'];//Codigo Unico que identifica el Concepto
         
-        $cadenaSqlDetalle = $this->miSql->getCadenaSql("consultarCondicionesDeConceptos",$_identificadorConcepto);
-        $matrizDatosCondiciones = array_reverse($primerRecursoDB->ejecutarAcceso($cadenaSqlDetalle, "busqueda", $_identificadorConcepto, "consultarCondicionesDeConceptos"));
-        $i = 0; $indice = 1;
         
+        $cadenaSqlDetalle = $this->miSql->getCadenaSql("consultarCondicionesDeConceptos",$_identificadorConcepto);
+        $matrizDatosControl = $primerRecursoDB->ejecutarAcceso($cadenaSqlDetalle, "busqueda", $_identificadorConcepto, "consultarCondicionesDeConceptos");
+        
+        if($matrizDatosControl != null){
+        	$cadenaSqlDetalle = $this->miSql->getCadenaSql("consultarCondicionesDeConceptos",$_identificadorConcepto);
+        	$matrizDatosCondiciones = array_reverse($primerRecursoDB->ejecutarAcceso($cadenaSqlDetalle, "busqueda", $_identificadorConcepto, "consultarCondicionesDeConceptos"));
+        }
+        $i = 0; $indice = 1;
+   
         //-----------------------------------------------------------------------------------------------------------
 		
 		//******************************************************************************************************
@@ -720,8 +726,15 @@ class Formulario {
         $atributos ['columnas'] = 1;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
-         
-        $atributos ['valor'] = count($matrizDatosCondiciones);
+        
+        
+        if($matrizDatosControl != null){
+        	$atributos ['valor'] = count($matrizDatosCondiciones);
+        }else{
+        	$atributos ['valor'] = '';
+        }
+        
+        
         $atributos ['deshabilitado'] = false;
         $atributos ['maximoTamanno'] = '';
         $tab ++;
@@ -733,7 +746,7 @@ class Formulario {
         
         $cadenaSi = ''; $cadenaEntonces = '';
         
-        while($i < count($matrizDatosCondiciones)){
+        while($i < count($matrizDatosControl) && $matrizDatosControl != null){
         	 
         	 
         	//---- Lectura del Contenido de la Cadena de Condiciones -----------------------------
@@ -795,6 +808,31 @@ class Formulario {
         $atributos ['maximoTamanno'] = '';
         $tab ++;
          
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+        
+        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+        $esteCampo = 'variable';
+        $atributos ['id'] = $esteCampo;
+        $atributos ['nombre'] = $esteCampo;
+        $atributos ['tipo'] = 'hidden';
+        $atributos ['estilo'] = 'jqueryui';
+        $atributos ['marco'] = true;
+        $atributos ['columnas'] = 1;
+        $atributos ['dobleLinea'] = false;
+        $atributos ['tabIndex'] = $tab;
+        	
+        if (isset ( $_REQUEST [$esteCampo] )) {
+        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+        } else {
+        	$atributos ['valor'] = '';
+        }
+        $atributos ['deshabilitado'] = false;
+        $atributos ['maximoTamanno'] = '';
+        $tab ++;
+        	
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
         echo $this->miFormulario->campoCuadroTexto ( $atributos );

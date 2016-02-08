@@ -397,8 +397,14 @@ class Formulario {
         //-----------------------------------------------------------------------------------------------------------
         //Control Busqueda de n Condiciones --------------------------------------------------------------------------
         
+        
         $cadenaSqlDetalle = $this->miSql->getCadenaSql("consultarCondicionesDeConceptos",$_identificadorConcepto);
-        $matrizDatosCondiciones = array_reverse($primerRecursoDB->ejecutarAcceso($cadenaSqlDetalle, "busqueda", $_identificadorConcepto, "consultarCondicionesDeConceptos"));
+        $matrizDatosControl = $primerRecursoDB->ejecutarAcceso($cadenaSqlDetalle, "busqueda", $_identificadorConcepto, "consultarCondicionesDeConceptos");
+        
+        if($matrizDatosControl != null){
+        	$cadenaSqlDetalle = $this->miSql->getCadenaSql("consultarCondicionesDeConceptos",$_identificadorConcepto);
+        	$matrizDatosCondiciones = array_reverse($primerRecursoDB->ejecutarAcceso($cadenaSqlDetalle, "busqueda", $_identificadorConcepto, "consultarCondicionesDeConceptos"));
+        }
         $i = 0; $indice = 1;
         
         $esteCampo = "marcoDatosBasicos";
@@ -408,7 +414,7 @@ class Formulario {
         $atributos ["leyenda"] = "CONDICIONES DEL CONCEPTO";
         echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         // --------------------------------------------------------------------------------------------------
-        while($i < count($matrizDatosCondiciones)){
+        while($i < count($matrizDatosControl) && $matrizDatosControl != null){
         	
         	
         	//---- Lectura del Contenido de la Cadena de Condiciones -----------------------------
