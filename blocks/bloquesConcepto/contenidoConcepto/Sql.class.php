@@ -206,6 +206,42 @@ class Sql extends \Sql {
 				$cadenaSql .= 'simbolo = ';
 				$cadenaSql .= '\'' . $variable ['simbolo'] . '\'';
 				break;
+				
+			case 'modificarConcepto' :
+				$cadenaSql = 'UPDATE ';
+				$cadenaSql .= 'concepto.concepto ';
+				$cadenaSql .= 'SET ';
+				$cadenaSql .= 'nombre = ';
+				$cadenaSql .= '\'' . $variable ['nombre'] . '\', ';
+				$cadenaSql .= 'simbolo = ';
+				$cadenaSql .= '\'' . $variable ['simbolo'] . '\', ';
+				$cadenaSql .= 'id = ';
+				$cadenaSql .= $variable ['categoria'] . ', ';
+				$cadenaSql .= 'naturaleza = ';
+				$cadenaSql .= '\'' . $variable ['naturaleza'] . '\', ';
+				$cadenaSql .= 'descripcion = ';
+				$cadenaSql .= '\'' . $variable ['descripcion'] . '\', ';
+				$cadenaSql .= 'formula = ';
+				$cadenaSql .= '\'' . $variable ['formula'] . '\' ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'codigo = ' . $variable ['id_concepto'] . ';';
+				break;
+				
+			case 'eliminarLeyesModificar' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'concepto.ldnxconcepto ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'codigo = ' . $variable ['fk_concepto'] . ';';
+				break;
+				
+			case 'eliminarCondicionesModificar' :
+				$cadenaSql = 'DELETE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'concepto.condicion ';
+				$cadenaSql .= 'WHERE ';
+				$cadenaSql .= 'codigo = ' . $variable ['fk_concepto'] . ';';
+				break;
         }
                 
         

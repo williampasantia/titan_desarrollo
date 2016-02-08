@@ -146,6 +146,7 @@ $(container).attr('id', 'pushDina')
 $( document ).ready(function() {
 	if($('#<?php echo $this->campoSeguro('estadoPagina')?>').val() == 'modificarCondiciones'){
 		var cantidad = $('#<?php echo $this->campoSeguro('cantidadCargaCond')?>').val();
+		$("#<?php echo $this->campoSeguro('cantidadCondicionesConcepto') ?>").val(cantidad)
 
 		var entonces = $('#<?php echo $this->campoSeguro('cargaCondEntonces')?>').val();
 		var cadenasEntonces = entonces.split("|");
@@ -183,12 +184,14 @@ $( document ).ready(function() {
 			
 			$('#sel2'+iCnt).width(120);
 			$('#sel2'+iCnt).select2();
-	                    
-	                  arrastreParametro('tb1' + iCnt);
-	                  arrastreParametro('tb2' + iCnt);
-	              
-	                  arrastreConcepto('tb1' + iCnt);
-	                  arrastreConcepto('tb2' + iCnt);
+            
+            arrastreParametro('tb1' + iCnt);
+            arrastreParametro('tb2' + iCnt);
+            arrastreParametro('tb3' + iCnt);
+        
+            arrastreConcepto('tb1' + iCnt);
+            arrastreConcepto('tb2' + iCnt);
+            arrastreConcepto('tb3' + iCnt);
 
 	        indice++;
 	   
