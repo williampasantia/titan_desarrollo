@@ -26,7 +26,7 @@ class FormProcessor {
 				'descripcion' => $_REQUEST ['descripcion'] 
 		);
 		
-		var_dump($cadenaSql = $this->miSql->getCadenaSql ( "insertarCategoria", $datos ));exit;
+		$cadenaSql = $this->miSql->getCadenaSql ( "insertarCategoria", $datos );
 		$id_categoria = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda", $datos, "insertarCategoria" );
 		 
 		

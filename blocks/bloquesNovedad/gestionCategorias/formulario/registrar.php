@@ -200,7 +200,7 @@ class Formulario {
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscar_ley" );
         $matrizItems1 = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
         
-        var_dump($matrizItems1);exit;
+        
         
         $atributos['matrizItems'] = $matrizItems1;
         

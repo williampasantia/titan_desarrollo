@@ -143,13 +143,15 @@ class Formulario {
 			echo "<tr><td>" . $matrizItems [$i] [1] . "</td>";
 			echo "<td>" . $matrizItems [$i] [2] . "</td>";
 			
+			
+
 			$datosLey = array (
 					'id' => $matrizItems [$i] [0] 
 			)
 			;
 			
 			
-			var_dump($atributos1 ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarIDley", $datosLey ));exit;
+			$atributos1 ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarIDLey", $datosLey );
 			
 			$id_ldn = $primerRecursoDB->ejecutarAcceso ( $atributos1 ['cadena_sql'], "busqueda" );
 			
@@ -158,8 +160,8 @@ class Formulario {
 			)
 			;
 			
-			$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarley", $datosNLey );
-			$nombreLey = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+			$atributos3 ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarley", $datosNLey );
+			$nombreLey = $primerRecursoDB->ejecutarAcceso ( $atributos3 ['cadena_sql'], "busqueda" );
 			
 			echo "<td>" . $nombreLey [0] [0] . "</td>";
 			

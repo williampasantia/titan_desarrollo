@@ -28,13 +28,14 @@ class FormProcessor {
 		
 		$cadenaSql = $this->miSql->getCadenaSql ( "insertarCategoria", $datos );
 		$id_categoria = $primerRecursoDB->ejecutarAcceso ( $cadenaSql, "busqueda", $datos, "insertarCategoria" );
+		 
 		
 		$datosLey = array (
 				'ley' => $_REQUEST ['ley'],
 				'fk_categoria' => $id_categoria [0] [0]
 		);
 		
-		$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "insertarCategoriaxLey", $datos );
+		$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "insertarCategoriaxLey", $datosLey );
 		$primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "acceso" );
 		
 		Redireccionador::redireccionar ( 'form' );

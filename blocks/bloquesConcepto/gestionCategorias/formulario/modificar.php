@@ -98,8 +98,8 @@ class Formulario {
 		echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
 		unset ( $atributos );
 		{
-			$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarVerdetallexCategoria" );
-			$matrizItems2 = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+			$atributos1 ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarVerdetallexCategoria" );
+			$matrizItems2 = $primerRecursoDB->ejecutarAcceso ( $atributos1 ['cadena_sql'], "busqueda" );
 			
 			$esteCampo = 'id';
 			$atributos ['id'] = $esteCampo;
@@ -199,27 +199,18 @@ class Formulario {
 			$atributos ['etiquetaObligatorio'] = true;
 			$atributos ['validar'] = 'required';
 			
-			$matrizItems = array (
-					array (
-							1,
-							'ley' 
-					),
-					array (
-							2,
-							'decreto' 
-					),
-					array (
-							3,
-							'etc...' 
-					) 
-			);
-			$atributos ['matrizItems'] = $matrizItems;
-			
-			if (isset ( $_REQUEST [$esteCampo] )) {
-				$atributos ['valor'] = $_REQUEST [$esteCampo];
-			} else {
-				$atributos ['valor'] = '';
-			}
+		 $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscar_ley" );
+        $matrizItems1 = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
+        
+        
+        
+        $atributos['matrizItems'] = $matrizItems1;
+        
+        if (isset ( $_REQUEST [$esteCampo] )) {
+        	$atributos ['valor'] = $_REQUEST [$esteCampo];
+        } else {
+        	$atributos ['valor'] = '';
+        }
 			$tab ++;
 			
 			// Aplica atributos globales al control
