@@ -1,14 +1,20 @@
-<?php 
+<?php
+
 namespace bloquesConcepto\contenidoConcepto\formulario;
+
 if(!isset($GLOBALS["autorizado"])) {
 	include("../index.php");
 	exit;
 }
+
 class Formulario {
+	
     var $miConfigurador;
     var $lenguaje;
     var $miFormulario;
+    
     function __construct($lenguaje, $formulario, $sql) {
+    	
         $this->miConfigurador = \Configurador::singleton ();
         $this->miConfigurador->fabricaConexiones->setRecursoDB ( 'principal' );
         $this->lenguaje = $lenguaje;
@@ -16,12 +22,15 @@ class Formulario {
         
         $this->miSql = $sql;
     }
+    
     function formulario() {
+    	
         /**
          * IMPORTANTE: Este formulario está utilizando jquery.
          * Por tanto en el archivo ready.php se delaran algunas funciones js
          * que lo complementan.
          */
+    	
         // Rescatar los datos de este bloque
         $directorio = $this->miConfigurador->getVariableConfiguracion ( "host" );
        $directorio .= $this->miConfigurador->getVariableConfiguracion ( "site" ) . "/index.php?";
@@ -34,6 +43,7 @@ class Formulario {
 		
        
         // ---------------- SECCION: Parámetros Globales del Formulario ----------------------------------
+        
         /**
         * Atributos que deben ser aplicados a todos los controles de este formulario.
         * Se utiliza un arreglo
@@ -42,6 +52,7 @@ class Formulario {
         * Si se utiliza esta técnica es necesario realizar un mezcla entre este arreglo y el específico en cada control:
         * $atributos= array_merge($atributos,$atributosGlobales);
         */
+        
         $atributosGlobales ['campoSeguro'] = 'true';
         $_REQUEST['tiempo']=time();
         

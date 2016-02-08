@@ -20,6 +20,7 @@ $this->idioma["estadoRegistro"]="Estado:";
 
 
 $this->idioma["enviarRegistroCon"]="Guardar Concepto";
+$this->idioma["enviarRegistroConMod"]="Modificar Concepto";
 $this->idioma["siguiente"]="Siguiente";
 $this->idioma["modificarRegistro"]="Guardar Cambios";
 $this->idioma["verdetalleRegistro"]="Aceptar";
