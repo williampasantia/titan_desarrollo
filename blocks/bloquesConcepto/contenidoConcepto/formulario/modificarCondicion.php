@@ -103,7 +103,6 @@ class Formulario {
         	$matrizDatosCondiciones = array_reverse($primerRecursoDB->ejecutarAcceso($cadenaSqlDetalle, "busqueda", $_identificadorConcepto, "consultarCondicionesDeConceptos"));
         }
         $i = 0; $indice = 1;
-   
         //-----------------------------------------------------------------------------------------------------------
 		
 		//******************************************************************************************************
