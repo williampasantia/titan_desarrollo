@@ -29,7 +29,46 @@ class FormProcessor {
         $conexion = 'estructura';
         $primerRecursoDB = $this->miConfigurador->fabricaConexiones->getRecursoDB($conexion);
        
+        if(isset($_REQUEST ['fdpCiudad'])){
+            $datosubicacion = array(
+            'fdpDepartamento' => $_REQUEST ['fdpDepartamento'],
+            'fdpCiudad' => $_REQUEST ['fdpCiudad']
+           );
+        }
+        else{
+            $datosubicacion = array(
+            'fdpDepartamento' => $_REQUEST ['fdpDepartamento'],
+            'fdpCiudad' => $_REQUEST ['ciudad']
+           );
+        }
         
+        
+          
+                   
+          
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
+        $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+    
+          if(empty($ubicacion)){
+              $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("insertarUbicacion",$datosubicacion);
+              $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "insertar");
+           
+              $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarIdUbicacion",$datosubicacion);
+              $ubicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+          }      
+        
+          $extTel='0';
+        $fax='0';
+        $extFax='0';  
+          if($_REQUEST ['extTelefonoRegistro'] != ''){
+              $extTel=$_REQUEST ['extTelefonoRegistro'];
+          }
+          if($_REQUEST ['faxRegistro'] != ''){
+              $fax=$_REQUEST ['faxRegistro'];
+          }
+          if($_REQUEST ['extFaxRegistro'] != '' ){
+              $extFax=$_REQUEST ['extFaxRegistro'];
+          }
                 
                 
         
@@ -38,21 +77,27 @@ class FormProcessor {
             'nombreRegistro' => $_REQUEST ['nombreRegistro'],
             'direccionRegistro' => $_REQUEST ['direccionRegistro'],
             'telefonoRegistro' => $_REQUEST ['telefonoRegistro'],
-            'extTelefonoRegistro' => $_REQUEST ['extTelefonoRegistro'],
-            'faxRegistro' => $_REQUEST ['faxRegistro'],
-            'extFaxRegistro' => $_REQUEST ['extFaxRegistro'],
-            'lugarRegistro' => $_REQUEST ['lugarRegistro'],
+            'extTelefonoRegistro' => $extTel,
+            'faxRegistro' => $fax,
+            'extFaxRegistro' => $extFax,
+            'id_ubicacion' => $ubicacion[0][0],
             'nomRepreRegistro' => $_REQUEST ['nomRepreRegistro'],
             'emailRegistro' => $_REQUEST ['emailRegistro']
         );
 //       
         
-                
+              
         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("modificarRegistro",$datos);
-        $primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
+        $resultado=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "acceso");
         //Al final se ejecuta la redirección la cual pasará el control a otra página
+         if (!empty($resultado)) {
+              RedireccionadorEPS::redireccionar('modifico',$datos);
+            exit();
+        } else {
+           RedireccionadorEPS::redireccionar('noInserto');
+            exit();
+        }
         
-        RedireccionadorEPS::redireccionar('form');
     	        
     }
     

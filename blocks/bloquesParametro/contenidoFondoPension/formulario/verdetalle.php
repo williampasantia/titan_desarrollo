@@ -96,7 +96,7 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Ver detalle";
+	$atributos ["leyenda"] = "Ver Detalle Fondo de Pensión";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
        
@@ -117,6 +117,7 @@ class Formulario {
         $atributos ['marco'] = true;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][0];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
@@ -140,11 +141,13 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+                $atributos ['anchoEtiqueta'] = 200;
+
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][2];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         
         $tab ++;
@@ -164,6 +167,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][3];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
@@ -187,6 +191,7 @@ class Formulario {
         $atributos ['columnas'] = 1;
         $atributos ['dobleLinea'] = false;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][4];       
@@ -210,11 +215,17 @@ class Formulario {
         $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['columnas'] = 1;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][5];      
+        if($matrizItems[$_REQUEST['variable']][5]==0){
+           $atributos ['valor'] = '';     
+        }
+        else{
+           $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][5]; 
+        }     
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
@@ -237,8 +248,14 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];      
+        if($matrizItems[$_REQUEST['variable']][6] == 0){
+            $atributos ['valor'] = '';
+        }
+        else{
+            $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][6];   
+        }     
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
@@ -260,9 +277,15 @@ class Formulario {
         $atributos ['columnas'] = 1;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][7];  
+        if($matrizItems[$_REQUEST['variable']][7] == 0){
+           $atributos ['valor'] = ''; 
+        }
+        else{
+           $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][7];    
+        } 
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
@@ -275,9 +298,15 @@ class Formulario {
         echo $this->miFormulario->campoCuadroTexto ( $atributos );
         unset($atributos);
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarUbicacion",$matrizItems[$_REQUEST['variable']][1]);
+        $matrizUbicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+        
+        $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarCiudadUbicacion",$matrizUbicacion[0][0]);
+        $matrizCiudadUbicacion=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
+        
         
         // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'lugarRegistro';
+        $esteCampo = 'lugarRegistroDepto';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -285,9 +314,10 @@ class Formulario {
         $atributos ['columnas'] = 1;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][1];       
+        $atributos ['valor'] = $matrizCiudadUbicacion[0][1];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
@@ -302,6 +332,34 @@ class Formulario {
         // --------------- FIN CONTROL : Select --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
+        $esteCampo = 'lugarRegistro';
+        $atributos ['id'] = $esteCampo;
+        $atributos ['nombre'] = $esteCampo;
+        $atributos ['tipo'] = 'text';
+        $atributos ['estilo'] = 'jqueryui';
+        $atributos ['columnas'] = 1;
+        $atributos ['dobleLinea'] = false;
+        $atributos ['tabIndex'] = $tab;
+        $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
+        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+        $atributos ['valor'] = $matrizCiudadUbicacion[0][0];       
+        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+        $atributos ['deshabilitado'] = true;
+        $atributos ['tamanno'] = 20;
+        $atributos ['maximoTamanno'] = '';
+        
+        $tab ++;
+        
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        unset($atributos);
+        // --------------- FIN CONTROL : Select --------------------------------------------------
+        
+        
+        
+        // ---------------- CONTROL: Select --------------------------------------------------------
         $esteCampo = 'nomRepreRegistro';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
@@ -311,11 +369,12 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][8];   
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         
         $tab ++;
@@ -336,11 +395,12 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][9];   
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
-        $atributos ['tamanno'] = 20;
+        $atributos ['tamanno'] = 40;
         $atributos ['maximoTamanno'] = '';
         
         $tab ++;
@@ -363,6 +423,8 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
+        $atributos ['anchoEtiqueta'] = 200;
+
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
         $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][10];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
@@ -393,6 +455,8 @@ class Formulario {
         $atributos ['submit'] = true;
         $atributos ["estiloMarco"] = '';
         $atributos ["estiloBoton"] = 'jqueryui';
+        $atributos ['anchoEtiqueta'] = 200;
+
         // verificar: true para verificar el formulario antes de pasarlo al servidor.
         $atributos ["verificar"] = true;
         $atributos ["tipoSubmit"] = 'jquery'; // Dejar vacio para un submit normal, en este caso se ejecuta la función submit declarada en ready.js

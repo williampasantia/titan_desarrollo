@@ -19,6 +19,31 @@ class RedireccionadorEPS {
 				$variable = 'pagina=segundaPagina';
 				$variable .= '&variable' . $valor;				
 				break;
+                            
+                        case "inserto" :
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&mensaje=inserto";
+                                $variable .= "&nitRegistro=" . $valor ['nitRegistro'];
+                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
+                                $variable .= "&direccionRegistro=" . $valor ['direccionRegistro'];
+                                $variable .= "&telefonoRegistro=" . $valor ['telefonoRegistro'];
+				break;
+                            
+                            case "noInserto" :
+				$variable = 'pagina='.$miPaginaActual;                                
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&mensaje=noInserto";
+				break; 
+                        case "modifico" :
+				$variable = 'pagina='.$miPaginaActual;
+                                $variable .= "&mensaje=modifico";
+				$variable .= "&opcion=mensaje";
+                                $variable .= "&nitRegistro=" . $valor ['nitRegistro'];
+                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
+                                $variable .= "&direccionRegistro=" . $valor ['direccionRegistro'];
+                                $variable .= "&telefonoRegistro=" . $valor ['telefonoRegistro'];
+				break;     
 			case "form" :
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=form";

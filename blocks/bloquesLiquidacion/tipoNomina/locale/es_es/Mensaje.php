@@ -6,14 +6,30 @@ $this->idioma["botonRegistrarCargo"]="Registrar Cargo";
 $this->idioma["botonRegistrarNomina"]="Registrar Nomina";
 $this->idioma["botonGuardar"]="Aceptar";
 $this->idioma["modificarRegistro"]="Guardar";
+
+
 $this->idioma["botonModificar"]="Modificar";
 $this->idioma["botonInactivar"]="Inactivar";
 $this->idioma["botonActivar"]="Activar";
 $this->idioma["botonVerDetalle"]="Ver detalle";
 $this->idioma["enviarInactivar"]="Aceptar";
+$this->idioma["verdetalleRegistro"]="Aceptar";
 $this->idioma["cancelarInactivar"]="Cancelar";
+$this->idioma["mensajeRegistro"]="Mensaje";
+$this->idioma["botonAceptarRegistro"]="Aceptar";
+$this->idioma["botonRegresarConsulta"]="Regresar";
+
+$this->idioma["opcionRegla"]="opcion: ";
+
+$this->idioma["opcionReglaTitulo"]="opcion";
 
 
+
+
+
+
+$this->idioma["codigoNomina"]="Código Nómina:" ;
+$this->idioma["codigoNominaTitulo"]="Codigo Nomina" ;
 $this->idioma["id"]="Id: " ;
 $this->idioma["idTitulo"]="Id" ;
 $this->idioma["periodo"]="Periodo : ";

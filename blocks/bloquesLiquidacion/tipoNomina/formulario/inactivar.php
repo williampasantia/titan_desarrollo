@@ -1,5 +1,5 @@
 <?php 
-namespace bloquesParametro\contenidoCargo\formulario;
+namespace bloquesLiquidacion\tipoNomina\formulario;
 
 
 
@@ -96,18 +96,18 @@ class Formulario {
 	$atributos ['id'] = $esteCampo;
 	$atributos ["estilo"] = "jqueryui";
 	$atributos ['tipoEtiqueta'] = 'inicio';
-	$atributos ["leyenda"] = "Modificar Cargo";
+	$atributos ["leyenda"] = "Inactivar Nomina";
 	echo $this->miFormulario->marcoAgrupacion ( 'inicio', $atributos );
         
        
         
         
         
-       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexCargo");
+       $atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarNominaxregistro",$_REQUEST['vinculacion']);
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      
         
-        if($matrizItems[$_REQUEST['variable']][8]=='Inactivo'){
+        if($matrizItems[$_REQUEST['variablei']][4]=='Inactivo'){
             $opcion='Activo';
         }
         else{
@@ -116,9 +116,9 @@ class Formulario {
         
        echo '<h3>Se realiza el cambio de estado del registro a: '.$opcion.'</h3>';
        
-         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+        // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
         
-        $esteCampo = 'codigoRegistro';
+        $esteCampo = 'codigoNomina';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -128,7 +128,7 @@ class Formulario {
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][0];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][0];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
@@ -141,7 +141,32 @@ class Formulario {
         echo $this->miFormulario->campoCuadroTexto ( $atributos );
         unset($atributos);
          // ---------------- CONTROL: Select --------------------------------------------------------
-        $esteCampo = 'estadoRegistro';
+         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
+        
+        $esteCampo = 'nombreNomina';
+        $atributos ['id'] = $esteCampo;
+        $atributos ['nombre'] = $esteCampo;
+        $atributos ['tipo'] = 'text';
+        $atributos ['estilo'] = 'jqueryui';
+        $atributos ['columnas'] = 1;
+        $atributos ['marco'] = true;
+        $atributos ['dobleLinea'] = false;
+        $atributos ['tabIndex'] = $tab;
+        $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][1];       
+        $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
+        $atributos ['deshabilitado'] = true;
+        $atributos ['tamanno'] = 20;
+        $atributos ['maximoTamanno'] = '';
+        
+        $tab ++;
+        
+        // Aplica atributos globales al control
+        $atributos = array_merge ( $atributos, $atributosGlobales );
+        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        unset($atributos);
+         // ---------------- CONTROL: Select --------------------------------------------------------
+        $esteCampo = 'estadoRegistroNomina';
         $atributos ['id'] = $esteCampo;
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
@@ -151,7 +176,7 @@ class Formulario {
         $atributos ['tabIndex'] = $tab;
         $atributos ['marco'] = true;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
-        $atributos ['valor'] = $matrizItems[$_REQUEST['variable']][8];       
+        $atributos ['valor'] = $matrizItems[$_REQUEST['variablei']][4];       
         $atributos ['titulo'] = $this->lenguaje->getCadena ( $esteCampo . 'Titulo' );
         $atributos ['deshabilitado'] = true;
         $atributos ['tamanno'] = 20;
@@ -240,6 +265,8 @@ class Formulario {
         $valorCodificado = "actionBloque=" . $esteBloque ["nombre"]; //Ir pagina Funcionalidad
         $valorCodificado .= "&pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );//Frontera mostrar formulario
         $valorCodificado .= "&bloque=" . $esteBloque ['nombre'];
+        $valorCodificado .= "&vinculacion=" . $_REQUEST ['vinculacion'];
+        $valorCodificado .= "&variable=" .$_REQUEST['variable'];
         $valorCodificado .= "&bloqueGrupo=" . $esteBloque ["grupo"];
         $valorCodificado .= "&opcion=inactivarRegistro";
         /**
