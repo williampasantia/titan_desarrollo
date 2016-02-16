@@ -135,7 +135,7 @@ class Formulario {
 		
 		$i = 0;
 		
-		echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> ' . '<thead style="display: table-row-group"><tr><th>' . "ID" . '</th><th>' . "NOMBRE" . '</th> <th>' . "ESTADO" . '</th><th>' . "VER CONCEPTOS" . '</th><th>' . "MODIFICAR" . '</th><th>' . "INACTIVAR" . '</th></tr></thead>
+		echo '<table id="tablaReporte" class="display" cellspacing="0" width="100%"> ' . '<thead style="display: table-row-group"><tr><th>' . "ID" . '</th><th>' . "NOMBRE" . '</th> <th>' . "ESTADO" . '</th><th>' . "VER DETALLE" . '</th><th>' . "MODIFICAR" . '</th><th>' . "INACTIVAR" . '</th></tr></thead>
               
                     <tbody>';
 		

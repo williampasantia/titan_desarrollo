@@ -160,10 +160,9 @@ class Sql extends \Sql {
 				$cadenaSql = 'SELECT ';
 				$cadenaSql .= 'id as ID, ';
 				$cadenaSql .= 'nombre as NOMBRE, ';
-				$cadenaSql .= 'descripcion as DESCRIPCION, ';
 				$cadenaSql .= 'estado as ESTADO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'concepto.categoria ';
+				$cadenaSql .= 'parametro.nivel_cargo ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id = ';
 				$cadenaSql .= $variable ['id'];
@@ -186,7 +185,7 @@ class Sql extends \Sql {
 			
 			case 'inactivarRegistro' :
 				$cadenaSql = 'UPDATE ';
-				$cadenaSql .= 'concepto.categoria ';
+				$cadenaSql .= 'parametro.nivel_cargo ';
 				$cadenaSql .= 'SET ';
 				$cadenaSql .= 'estado = ';
 				$cadenaSql .= '\'' . $variable ['estadoRegistro'] . '\' ';

@@ -108,7 +108,7 @@ class Formulario {
        	$atributos ['cadena_sql'] = $this->miSql->getCadenaSql("buscarVerdetallexCargo",$datos);
         $matrizItems=$primerRecursoDB->ejecutarAcceso($atributos['cadena_sql'], "busqueda");
      	
-        if (strcmp ( $matrizItems[0][3], 'Activo' ) == 0){
+        if (strcmp ( $matrizItems[0][2], 'Activo' ) == 0){
         		
         	$opcion='Inactivo';
         	

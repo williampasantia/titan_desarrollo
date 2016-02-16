@@ -15,7 +15,7 @@ $this->idioma["botonAceptar"]="Aceptar";
 $this->idioma["botonCancelar"]="Cancelar";
 $this->idioma["noDefinido"]="No definido";
 $this->idioma["botonIngresar"]="Ingresar";
-
+$this->idioma["verdetalleRegistro"]="volver";
 $this->idioma["personaNaturalIdentificacion"]="Tipo Identificación";
 $this->idioma["personaNaturalDocumento"]="Identificación";
 
