@@ -33,7 +33,7 @@ class Sql extends \Sql {
 			 */
 			case 'insertarCategoria' :
 				$cadenaSql = 'INSERT INTO ';
-				$cadenaSql .= 'parametro.categoria ';
+				$cadenaSql .= 'parametro.categoria_parametro ';
 				$cadenaSql .= '( ';
 				$cadenaSql .= 'nombre,';
 				$cadenaSql .= 'descripcion,';
@@ -47,15 +47,15 @@ class Sql extends \Sql {
 				// $cadenaSql .= $variable ['ley'] . ', ';
 				$cadenaSql .= '\'' . 'Activo' . '\'';
 				$cadenaSql .= ') ';
-				$cadenaSql .= "RETURNING  id; ";
+				$cadenaSql .= "RETURNING  id_categoria; ";
 				break;
 			
 			case 'insertarCategoriaxLey' :
 				$cadenaSql = 'INSERT INTO ';
-				$cadenaSql .= 'parametro.categxldn ';
+				$cadenaSql .= 'parametro.catparxleyes ';
 				$cadenaSql .= '( ';
 				$cadenaSql .= 'id_ldn,';
-				$cadenaSql .= 'id';
+				$cadenaSql .= 'id_categoria';
 				$cadenaSql .= ') ';
 				$cadenaSql .= 'VALUES ';
 				$cadenaSql .= '( ';
