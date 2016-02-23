@@ -66,7 +66,7 @@ class Sql extends \Sql {
 			
 			case 'versiones' :
 				$cadenaSql = 'INSERT INTO ';
-				$cadenaSql .= 'parametro.versionesxcategoria ';
+				$cadenaSql .= 'parametro.verxcatparametro ';
 				$cadenaSql .= '( ';
 				$cadenaSql .= 'nombre,';
 				$cadenaSql .= 'descripcion,';
@@ -96,7 +96,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'descripcion as DESCRIPCION, ';
 				$cadenaSql .= 'estado as ESTADO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'parametro.categoria ';
+				$cadenaSql .= 'parametro.categoria_parametro ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'ESTADO=\'' . 'Activo' . '\'';
 				// $cadenaSql .= 'ESTADO=\'' . 'rechazada' . '\' ';
@@ -111,7 +111,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'descripcion as DESCRIPCION, ';
 				$cadenaSql .= 'estado as ESTADO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'parametro.categoria ';
+				$cadenaSql .= 'parametro.categoria_parametro ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id = ';
 				$cadenaSql .= $variable ['id'];
@@ -122,7 +122,7 @@ class Sql extends \Sql {
 				$cadenaSql = 'SELECT ';
 				$cadenaSql .= 'id_ldn as ID_LDN ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'parametro.categxldn ';
+				$cadenaSql .= 'parametro.catparxleyes ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id = ';
 				$cadenaSql .= $variable ['id'];
@@ -156,7 +156,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'descripcion as DESCRIPCION, ';
 				$cadenaSql .= 'estado as ESTADO ';
 				$cadenaSql .= 'FROM ';
-				$cadenaSql .= 'parametro.categoria ';
+				$cadenaSql .= 'parametro.categoria_parametro ';
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id = ';
 				$cadenaSql .= $variable ['id'];
@@ -179,7 +179,7 @@ class Sql extends \Sql {
 			
 			case 'inactivarRegistro' :
 				$cadenaSql = 'UPDATE ';
-				$cadenaSql .= 'parametro.categoria ';
+				$cadenaSql .= 'parametro.categoria_parametro ';
 				$cadenaSql .= 'SET ';
 				$cadenaSql .= 'estado = ';
 				$cadenaSql .= '\'' . $variable ['estadoRegistro'] . '\' ';
@@ -190,7 +190,7 @@ class Sql extends \Sql {
 			
 			case 'modificarCategoria' :
 				$cadenaSql = 'UPDATE ';
-				$cadenaSql .= 'parametro.categoria ';
+				$cadenaSql .= 'parametro.categoria_parametro ';
 				$cadenaSql .= 'SET ';
 				$cadenaSql .= 'nombre = ';
 				$cadenaSql .= '\'' . $variable ['nombre'] . '\', ';
@@ -203,7 +203,7 @@ class Sql extends \Sql {
 			
 			case 'modificarCategoriaLey' :
 				$cadenaSql = 'UPDATE ';
-				$cadenaSql .= 'parametro.categxldn ';
+				$cadenaSql .= 'parametro.catparxleyes ';
 				$cadenaSql .= 'SET ';
 				$cadenaSql .= 'id_ldn = ';
 				$cadenaSql .= $variable ['ley'];
