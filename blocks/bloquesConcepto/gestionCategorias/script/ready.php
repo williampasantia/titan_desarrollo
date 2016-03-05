@@ -17,6 +17,10 @@ $('#datepicker').datepicker({
 $('#<?php echo $this->campoSeguro('personaNaturalPais')?>').width(); 
 $("#<?php echo $this->campoSeguro('personaNaturalPais')?>").select2();
 
+$('#<?php echo $this->campoSeguro('ley')?>').width(); 
+$("#<?php echo $this->campoSeguro('ley')?>").select2();
+
+
 $('#<?php echo $this->campoSeguro('personaNaturalDepartamento')?>').width(); 
 $("#<?php echo $this->campoSeguro('personaNaturalDepartamento')?>").select2();
 

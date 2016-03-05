@@ -179,7 +179,7 @@ class Formulario {
                           <img src='" . $rutaBloque . "/css/images/verDetalle.png' width='25px'>
                           </a></center> </td>";
                        
-                       $variableMOD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
+                          $variableMOD = "pagina=" . $this->miConfigurador->getVariableConfiguracion ( 'pagina' );; // pendiente la pagina para modificar parametro
                           $variableMOD .= "&opcion=modificar";
                           $variableMOD .= "&bloque=" . $esteBloque ['nombre'];
                           $variableMOD .="&tamaño=".$longitud;

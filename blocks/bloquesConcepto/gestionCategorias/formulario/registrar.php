@@ -121,7 +121,7 @@ class Formulario {
         $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
-        $atributos ['columnas'] = 1;
+        $atributos ['columnas'] = 120;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
@@ -143,7 +143,7 @@ class Formulario {
 
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
-        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        echo $this->miFormulario->campoTextArea ( $atributos );
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
         // ---------------- CONTROL: Cuadro de Texto --------------------------------------------------------
@@ -153,7 +153,7 @@ class Formulario {
         $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
-        $atributos ['columnas'] = 1;
+        $atributos ['columnas'] = 120;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
@@ -175,7 +175,7 @@ class Formulario {
         
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
-        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        echo $this->miFormulario->campoTextArea ( $atributos );
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
        

@@ -251,7 +251,7 @@ class Formulario {
         $atributos ['nombre'] = $esteCampo;
         $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
-        $atributos ['columnas'] = 1;
+        $atributos ['columnas'] = 120;
         $atributos ['marco'] = true;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
@@ -266,7 +266,7 @@ class Formulario {
         
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
-        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        echo $this->miFormulario->campoTextArea ( $atributos );
         unset($atributos);
 		// --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
 				

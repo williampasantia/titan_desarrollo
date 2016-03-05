@@ -279,7 +279,7 @@ class Formulario {
         $atributos ['tipo'] = 'text';
         $atributos ['estilo'] = 'jqueryui';
         $atributos ['marco'] = true;
-        $atributos ['columnas'] = 1;
+        $atributos ['columnas'] = 120;
         $atributos ['dobleLinea'] = false;
         $atributos ['tabIndex'] = $tab;
         $atributos ['etiqueta'] = $this->lenguaje->getCadena ( $esteCampo );
@@ -301,7 +301,7 @@ class Formulario {
         
         // Aplica atributos globales al control
         $atributos = array_merge ( $atributos, $atributosGlobales );
-        echo $this->miFormulario->campoCuadroTexto ( $atributos );
+        echo $this->miFormulario->campoTextArea ( $atributos );
         // --------------- FIN CONTROL : Cuadro de Texto --------------------------------------------------
         
         // ---------------- CONTROL: Select --------------------------------------------------------
@@ -324,7 +324,7 @@ class Formulario {
         $atributos ['etiquetaObligatorio'] = true;
         $atributos ['validar'] = 'required';
         
-         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscar_ley" );
+         $atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "buscarley" );
         $matrizItems1 = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "busqueda" );
         
         

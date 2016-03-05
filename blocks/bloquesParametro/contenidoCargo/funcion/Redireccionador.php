@@ -37,7 +37,7 @@ class Redireccionador {
 				$variable = 'pagina='.$miPaginaActual;                                
 				$variable .= "&opcion=mensaje";
                                 $variable .= "&mensaje=inserto";
-                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
+                                $variable .= "&nombreRegistro=" . $valor ['TipoCargo'];
                                 $variable .= "&estadoRegistro=" . $valor ['estadoRegistro'];
 				break;
                         case "noInserto" :
@@ -49,7 +49,7 @@ class Redireccionador {
 				$variable = 'pagina='.$miPaginaActual;
                                 $variable .= "&mensaje=modifico";
 				$variable .= "&opcion=mensaje";
-                                $variable .= "&nombreRegistro=" . $valor ['nombreRegistro'];
+                                $variable .= "&nombreRegistro=" . $valor ['TipoCargo'];
                                 $variable .= "&codigoRegistro=" . $valor ['codigoRegistro'];
                                  
 				break;     

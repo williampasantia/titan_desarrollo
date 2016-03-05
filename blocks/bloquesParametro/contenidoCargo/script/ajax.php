@@ -3,6 +3,12 @@
 ?>
 
 <script>
+$('#<?php echo $this->campoSeguro('nivelRegistro')?>').width(200);
+$("#<?php echo $this->campoSeguro('nivelRegistro')?>").select2(); 
+
+$('#<?php echo $this->campoSeguro('ley')?>').width(200);
+$("#<?php echo $this->campoSeguro('ley')?>").select2(); 
+
  $('#<?php echo $this->campoSeguro('tipoSueldoRegistro')?>').width(200);
  $("#<?php echo $this->campoSeguro('tipoSueldoRegistro')?>").select2(); 
 

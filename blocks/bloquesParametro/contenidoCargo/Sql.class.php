@@ -100,7 +100,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'nivel as NIVEL, ';
 				$cadenaSql .= 'grado as GRADO,';
 				$cadenaSql .= 'sueldo as SUELDO, ';
-			    $cadenaSql .= 'tipo_sueldo as TIPO_SUELDO, ';
+				$cadenaSql .= 'tipo_sueldo as TIPO_SUELDO, ';
 				$cadenaSql .= 'estado as ESTADO, ';
 				$cadenaSql .= 'tipo_cargo as TIPO, ';
 				$cadenaSql .= 'funciones as FUNCIONES, ';
@@ -131,6 +131,16 @@ class Sql extends \Sql {
 				$cadenaSql .= 'WHERE ';
 				$cadenaSql .= 'id_ldn = ';
 				$cadenaSql .= '\'' . $variable ['id'] . '\'';
+				break;
+			
+			case 'buscarley' :
+				
+				$cadenaSql = 'SELECT ';
+				$cadenaSql .= 'id_ldn as ID, ';
+				$cadenaSql .= 'nombre as NOMBRE ';
+				$cadenaSql .= 'FROM ';
+				$cadenaSql .= 'parametro.ley_decreto_norma ';
+
 				break;
 			
 			case 'modificarRegistro' :

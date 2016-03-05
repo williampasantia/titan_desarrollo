@@ -55,7 +55,7 @@ class Sql extends \Sql {
 				$cadenaSql .= 'novedad.catnovxldn ';
 				$cadenaSql .= '( ';
 				$cadenaSql .= 'id_ldn,';
-				$cadenaSql .= 'id';
+				$cadenaSql .= 'id_categoria';
 				$cadenaSql .= ') ';
 				$cadenaSql .= 'VALUES ';
 				$cadenaSql .= '( ';

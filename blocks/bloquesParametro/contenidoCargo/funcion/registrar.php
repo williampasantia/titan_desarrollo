@@ -60,7 +60,7 @@ class FormProcessor {
 		$atributos ['cadena_sql'] = $this->miSql->getCadenaSql ( "insertarRegistro", $datos );
 		$resultado = $primerRecursoDB->ejecutarAcceso ( $atributos ['cadena_sql'], "acceso" );
 		// Al final se ejecuta la redirección la cual pasará el control a otra página
-		
+
 		if (! empty ( $resultado )) {
 			Redireccionador::redireccionar ( 'inserto', $datos );
 			exit ();
